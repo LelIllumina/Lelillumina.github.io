@@ -1,0 +1,143 @@
+/* Color Vars */
+:root {
+    --dark-text: #4c4f69;
+    --light-text: #cdd6f4;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+/* Viewport stuff*/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden !important;
+    min-height: 100vh;
+}
+/* Neco arc Background and Footer */
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(images/background.png);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Text formating*/
+h1 {
+    font-family: "Honk";
+    font-size: 40px;
+    margin: 10px;
+}
+
+h2 {
+font-family: "Barlow";
+    color: var(--light-text);
+    text-shadow: 1px 1px #cba6f7;
+    font-size: 20px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+ul,
+li,
+p {
+    font-family: "Barlow Semi Condensed";
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+ul {
+    list-style-type: circle;
+    margin: auto;
+    padding-left: 20px;
+}
+
+a {
+    color: #89b4fa;
+    text-decoration: none;
+}
+
+.alt {
+    font-size: 10px;
+    text-align: center;
+    color: var(--light-text);
+}
+
+/*Main body CSS*/
+
+header {
+    background-color: var(--crust);
+    border: 10px double var(--base);
+    padding: 10px;
+    margin: 3px auto;
+    width: 90%;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar > div {
+    width: 150px;
+    height: 150px;
+}
+
+.block {
+    background-color: var(--base);
+    padding: 20px;
+    border: 8px solid var(--mantle);
+    margin: 10px 5px;
+}
+
+#pfp {
+    height: 100px;
+    display: block;
+    margin: auto;
+    border: 5px dashed #313244;
+}
+
+#frame {
+    width: 460px;
+    text-align: center;
+}
+
+#VCR {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    border: 5px dashed #313244;
+}
+
+footer {
+    flex-shrink: 0;
+    background-color: var(--base);
+    text-align: center;
+}
+
+@media (max-width: 420px) {
+    main {
+        flex-direction: column;
+    }
+    .sidebar {
+        margin: auto;
+    }
+    .sidebar > div {
+        width: auto;
+    }
+    #frame {
+        width: auto;
+    }
+}
