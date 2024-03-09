@@ -46,7 +46,8 @@ h2 {
 }
 ul,
 li,
-p {
+p,
+a {
   font-family: "Barlow Semi Condensed";
   font-size: 14px;
   color: var(--light-text);
