@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -109,11 +109,32 @@
             src="https://lastfm-recently-played.vercel.app/api?user=lelillumina"
             height="auto"
             width="400px"
+            style="
+    padding: 25px;"
         /></a>
+        <h2>Page Views:</h2>
+        <p style="font-size: 20px;"><span class="view-counter"></span></p>
       </div>
     </main>
     <footer>
       <p>Lel Cult 2024</p>
     </footer>
+    <script>
+      displayViewCounter("lelillumina");
+
+      async function fetchViewCounter(name) {
+          const views = await fetch("https://nekoweb.org/api/site/info/" + name).then(x => x.json()).then(x => x.views);
+          return views;
+      }
+
+      async function displayViewCounter(name) {
+          const views = await fetchViewCounter(name)
+          let counters = document.querySelectorAll(".view-counter");
+          for(let i in counters) {
+              counters[i].innerText = views;
+          }
+          console.log(counters)
+      }
+    </script>
   </body>
 </html>
