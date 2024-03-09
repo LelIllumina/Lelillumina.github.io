@@ -29,12 +29,6 @@ body {
 }
 
 /* Text formating*/
-h1 {
-  font-family: "Honk";
-  font-size: 40px;
-  margin: 10px;
-}
-
 h2 {
   font-family: "Barlow";
   color: var(--light-text);
@@ -62,6 +56,12 @@ ul {
 a {
   color: #89b4fa;
   text-decoration: none;
+}
+
+.title {
+  font-family: "Honk";
+  font-size: 40px;
+  margin: 10px;
 }
 
 .alt {

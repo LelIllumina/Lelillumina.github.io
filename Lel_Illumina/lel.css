@@ -1,0 +1,11 @@
+body {
+  background-color: #000;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 6em;
+  margin-bottom: -140px;
+  white-space: nowrap;
+}
