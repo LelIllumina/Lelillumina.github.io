@@ -1,14 +1,14 @@
 .site-box {
   background: rgba(0, 0, 0, 0.5)
-    url(//nekoweb.org/site/lelillumina/files/images/Necobox.jpg);
+    url(//nekoweb.org/site/lelillumina/files/images/Necobox.gif);
   background-blend-mode: darken;
   background-size: cover;
-  transition: background-position 1s linear;
+  /*   transition: background-position 1s linear; */
 }
 
-.site-box:hover {
+/* .site-box:hover {
   background-position: 100% 0;
-}
+} */
 
 .site-box::after {
   content: url(//nekoweb.org/site/lelillumina/files/images/neco_blast.png);

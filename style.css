@@ -17,6 +17,7 @@ body {
   background-blend-mode: darken;
   background-repeat: repeat;
   animation: moveBackground 50s linear infinite;
+  will-change: transform;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -119,6 +120,15 @@ main {
   margin-bottom: 20px;
 }
 
+#nekowebring table {
+  background: linear-gradient(#303446, #292c3c, #232634);
+  border: #626880 2px solid;
+}
+
+#to-do {
+  margin-top: 150px;
+}
+
 footer {
   flex-shrink: 0;
   background-color: var(--base);
@@ -147,10 +157,13 @@ footer {
     margin: auto;
   }
   .sidebar > div {
-    width: 20vw;
+    width: 40vw;
   }
   #frame {
     width: auto;
+  }
+  #to-do {
+    margin: auto;
   }
 }
 

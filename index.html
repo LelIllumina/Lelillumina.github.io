@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Lel Illumina" />
-    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -74,20 +75,37 @@
           </nav>
         </div>
 
-        <div class="block" style="text-align: center">
+        <div class="block" style="text-align: center;">
           <h2>Bootuns</h2>
           <a href="https://nekoweb.org/"
-            ><img src="https://nekoweb.org/assets/buttons/button2.gif"
+            ><img
+              src="https://nekoweb.org/assets/buttons/button2.gif"
+              title="Nekowebbbbbbb"
           /></a>
           <a href="https://hillhouse.neocities.org/journal/notes/palestine"
             ><img
               src="https://hillhouse.neocities.org/_images/toybox/_buttons/riversea1.gif"
+              title="FREE PALESTINE!!"
           /></a>
           <a href="https://dimden.dev/"
-            ><img src="https://dimden.dev/services/images/88x31.gif"
+            ><img
+              src="https://dimden.dev/services/images/88x31.gif"
+              title="Dimden, made nekoweb"
           /></a>
           <a href="https://anlucas.neocities.org/88x31Buttons"
-            ><img src="https://anlucas.neocities.org/800x600.gif"
+            ><img
+              src="https://anlucas.neocities.org/800x600.gif"
+              title="Actually does look good 800x600!"
+          /></a>
+          <a href="https://districts.nekoweb.org"
+            ><img
+              src="https://districts.nekoweb.org/img/districts002.png"
+              title="nekoweb districts"
+          /></a>
+          <a href="https://max.nekoweb.org/"
+            ><img
+              src="https://max.nekoweb.org/images/button.png"
+              title="max's apartment"
           /></a>
           <img src="images/button.gif" />
           <img src="images/button.png" />
@@ -121,10 +139,20 @@
           style="font-size: 20px"
           ><span class="view-counter"></span
         ></a>
+        <div id="nekowebring">
+          <script
+            type="text/javascript"
+            src="https://webring.nekoweb.org/onionring-variables.js"
+          ></script>
+          <script
+            type="text/javascript"
+            src="https://webring.nekoweb.org/onionring-widget.js"
+          ></script>
+        </div>
       </div>
 
       <section class="sidebar">
-        <div class="block" style="margin-top: 150px">
+        <div class="block" id="to-do">
           <h2>To - Do</h2>
           <nav>
             <ul>
@@ -162,45 +190,37 @@
       displayViewCounter("lelillumina");
 
       async function fetchViewCounter(name) {
-        const views = await fetch("https://nekoweb.org/api/site/info/" + name)
-          .then((x) => x.json())
-          .then((x) => x.views);
-        return views;
+          const views = await fetch(
+              "https://nekoweb.org/api/site/info/" + name
+          )
+              .then((x) => x.json())
+              .then((x) => x.views);
+          return views;
       }
 
       async function displayViewCounter(name) {
-        const views = await fetchViewCounter(name);
-        let counters = document.querySelectorAll(".view-counter");
-        for (let i in counters) {
-          counters[i].innerText = views;
-        }
-        console.log(counters);
+          const views = await fetchViewCounter(name);
+          let counters = document.querySelectorAll(".view-counter");
+          for (let i in counters) {
+              counters[i].innerText = views;
+          }
+          console.log(counters);
       }
     </script>
     <script>
-      const username = "lelillumina"; // Your username
+          const username = "lelillumina"; // Your username
 
-      const getStats = async () => {
-        const request = await fetch(
-          `https://nekoweb.org/api/site/info/${username}`
-        );
-        const json = await request.json();
+          const getStats = async () => {
+          const request = await fetch(`https://nekoweb.org/api/site/info/${username}`);
+          const json = await request.json();
 
-        const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
-        const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
+          const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
+          const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
 
-        document.getElementById(
-          "created"
-        ).innerHTML = `<em>Created</em>: ${created}`;
-        document.getElementById(
-          "updated"
-        ).innerHTML = `<em>Updated</em>: ${updated}`;
-        document.getElementById(
-          "visitors"
-        ).innerHTML = `<em>Visits</em>: ${json.views}`;
-        document.getElementById(
-          "followers"
-        ).innerHTML = `<em>Followers</em>: ${json.followers}`;
+          document.getElementById("created").innerHTML = `<em>Created</em>: ${created}`;
+          document.getElementById("updated").innerHTML = `<em>Updated</em>: ${updated}`;
+          document.getElementById("visitors").innerHTML = `<em>Visits</em>: ${json.views}`;
+          document.getElementById("followers").innerHTML = `<em>Followers</em>: ${json.followers}`;
       };
       getStats();
     </script>
