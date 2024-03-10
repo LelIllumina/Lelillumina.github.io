@@ -1,7 +1,6 @@
 /* Color Vars */
 :root {
-  --dark-text: #4c4f69;
-  --light-text: #cdd6f4;
+  --text: #cdd6f4;
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
@@ -10,28 +9,23 @@
 /* Viewport stuff*/
 html,
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
   height: 100%;
-  overflow-x: hidden !important;
-  min-height: 100vh;
 }
 /* Neco arc Background and Footer */
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(images/background.png);
+  background: rgba(0, 0, 0, 0.5) url(/images/background.png);
+  background-blend-mode: darken;
+  background-repeat: repeat;
+  animation: moveBackground 50s linear infinite;
   display: flex;
   flex-direction: column;
   margin: 0;
-  height: 100%;
-  width: 100%;
 }
 
 /* Text formating*/
 h2 {
   font-family: "Barlow";
-  color: var(--light-text);
+  color: var(--text);
   text-shadow: 1px 1px #cba6f7;
   font-size: 20px;
   text-align: center;
@@ -44,7 +38,7 @@ p,
 a {
   font-family: "Barlow Semi Condensed";
   font-size: 14px;
-  color: var(--light-text);
+  color: var(--text);
 }
 
 ul {
@@ -67,7 +61,7 @@ a {
 .alt {
   font-size: 10px;
   text-align: center;
-  color: var(--light-text);
+  color: var(--text);
 }
 
 /*Main body CSS*/
@@ -99,7 +93,7 @@ main {
   background-color: var(--base);
   padding: 20px;
   border: 8px solid var(--mantle);
-  margin: 10px 5px;
+  margin: 5px;
 }
 
 #pfp {
@@ -115,10 +109,14 @@ main {
 }
 
 #VCR {
-  height: auto;
-  max-width: 100%;
-  display: block;
+  width: -webkit-fill-available;
   border: 5px dashed #313244;
+}
+
+#lastfm {
+  height: auto;
+  width: -webkit-fill-available;
+  margin-bottom: 20px;
 }
 
 footer {
@@ -127,7 +125,21 @@ footer {
   text-align: center;
 }
 
-@media (max-width: 420px) {
+/* Mobile Responsiveness */
+@media (min-width: 601px) and (max-width: 900px) {
+  #frame {
+    width: 35vw;
+  }
+  .sidebar > div {
+    width: 15vw;
+  }
+  #pfp {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
+@media (max-width: 600px) {
   main {
     flex-direction: column;
   }
@@ -135,9 +147,20 @@ footer {
     margin: auto;
   }
   .sidebar > div {
-    width: auto;
+    width: 20vw;
   }
   #frame {
     width: auto;
+  }
+}
+
+/* Animation */
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }

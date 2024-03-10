@@ -1,12 +1,20 @@
 .site-box {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: rgba(0, 0, 0, 0.5)
     url(//nekoweb.org/site/lelillumina/files/images/Necobox.jpg);
+  background-blend-mode: darken;
   background-size: cover;
+  transition: background-position 1s linear;
 }
+
+.site-box:hover {
+  background-position: 100% 0;
+}
+
 .site-box::after {
   content: url(//nekoweb.org/site/lelillumina/files/images/neco_blast.png);
   position: relative;
-  bottom: 180px;
+  bottom: 190px;
+  right: 15px;
   display: block;
   height: 195px;
   width: 195px;

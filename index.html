@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Semi+Condensed&family=Honk&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Semi+Condensed&amp;family=Honk&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="images/neicon_arc.jpg" />
@@ -24,6 +24,7 @@
       <script src="https://webneko.net/n20171213.js"></script>
       <a href="https://webneko.net">Neko</a>
     </h1>
+
     <header>
       <a class="title" href="index.html">Welcome to Lel Land</a>
     </header>
@@ -32,7 +33,9 @@
       <section class="sidebar">
         <div class="block">
           <h2>Whos Lel?</h2>
-          <a href="Lel_Illumina/"><img src="images/upside_down_lel.jpg" id="pfp" /></a>
+          <a href="Lel_Illumina/"
+            ><img src="images/upside_down_lel.jpg" id="pfp"
+          /></a>
           <p class="alt">Me, im lel</p>
           <p>
             Hai, my names lel, idk how to make websites this is my first time. I
@@ -40,6 +43,7 @@
             very cool and i like girls
           </p>
         </div>
+
         <div class="block">
           <h2>Socials</h2>
           <nav>
@@ -69,7 +73,8 @@
             </ul>
           </nav>
         </div>
-        <div class="block" style="text-align: center; height: 175px">
+
+        <div class="block" style="text-align: center">
           <h2>Bootuns</h2>
           <a href="https://nekoweb.org/"
             ><img src="https://nekoweb.org/assets/buttons/button2.gif"
@@ -84,6 +89,8 @@
           <a href="https://anlucas.neocities.org/88x31Buttons"
             ><img src="https://anlucas.neocities.org/800x600.gif"
           /></a>
+          <img src="images/button.gif" />
+          <img src="images/button.png" />
         </div>
       </section>
 
@@ -101,42 +108,101 @@
             >
           </p>
         </div>
+
         <p>this is lel cult mf get yo ass back to good html/css sites</p>
         <a href="https://www.last.fm/user/lelillumina"
           ><img
             src="https://lastfm-recently-played.vercel.app/api?user=lelillumina"
-            height="auto"
-            width="400px"
-            style="
-    padding: 25px;"
+            id="lastfm"
         /></a>
         <h2>Page Views:</h2>
         <a
           href="https://alan460.nekoweb.org/viewcounter.html"
-          style="font-size: 20px;"
+          style="font-size: 20px"
           ><span class="view-counter"></span
         ></a>
       </div>
+
+      <section class="sidebar">
+        <div class="block" style="margin-top: 150px">
+          <h2>To - Do</h2>
+          <nav>
+            <ul>
+              <li><strike>Make my own Buuton.</strike></li>
+              <li>
+                <strike>Fix this pages css so it looks goo 800x600.</strike>
+              </li>
+              <li>Make more pages and hide them for yall to find.</li>
+              <li>Steal some stuff from other sites.</li>
+              <li>Make the cat follow without clicking.</li>
+              <li>Stylize scrollbar</li>
+              <li>more stuff...</li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="block">
+          <h2>Stats:</h2>
+          <p id="created"><em>Created</em>: 2/25/2024</p>
+          <p id="updated"><em>Updated</em>: 3/5/2024</p>
+          <p id="visitors"><em>Visits</em>: 2090</p>
+          <p id="followers"><em>Followers</em>: 10</p>
+          <p class="alt">
+            Stolen from <a href="https://max.nekoweb.org/">max.nekoweb.org</a>
+          </p>
+        </div>
+      </section>
     </main>
+
     <footer>
       <p>Lel Cult 2024</p>
     </footer>
+
     <script>
       displayViewCounter("lelillumina");
 
       async function fetchViewCounter(name) {
-          const views = await fetch("https://nekoweb.org/api/site/info/" + name).then(x => x.json()).then(x => x.views);
-          return views;
+        const views = await fetch("https://nekoweb.org/api/site/info/" + name)
+          .then((x) => x.json())
+          .then((x) => x.views);
+        return views;
       }
 
       async function displayViewCounter(name) {
-          const views = await fetchViewCounter(name)
-          let counters = document.querySelectorAll(".view-counter");
-          for(let i in counters) {
-              counters[i].innerText = views;
-          }
-          console.log(counters)
+        const views = await fetchViewCounter(name);
+        let counters = document.querySelectorAll(".view-counter");
+        for (let i in counters) {
+          counters[i].innerText = views;
+        }
+        console.log(counters);
       }
+    </script>
+    <script>
+      const username = "lelillumina"; // Your username
+
+      const getStats = async () => {
+        const request = await fetch(
+          `https://nekoweb.org/api/site/info/${username}`
+        );
+        const json = await request.json();
+
+        const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
+        const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
+
+        document.getElementById(
+          "created"
+        ).innerHTML = `<em>Created</em>: ${created}`;
+        document.getElementById(
+          "updated"
+        ).innerHTML = `<em>Updated</em>: ${updated}`;
+        document.getElementById(
+          "visitors"
+        ).innerHTML = `<em>Visits</em>: ${json.views}`;
+        document.getElementById(
+          "followers"
+        ).innerHTML = `<em>Followers</em>: ${json.followers}`;
+      };
+      getStats();
     </script>
   </body>
 </html>
