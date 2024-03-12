@@ -1,17 +1,13 @@
 .site-box {
-  background: rgba(0, 0, 0, 0.5)
-    url(//nekoweb.org/site/lelillumina/files/images/Necobox.gif);
+  background: rgba(0, 0, 0, 0.35)
+    url(//nekoweb.org/site/lel/files/images/Necobox.gif);
   background-blend-mode: darken;
   background-size: cover;
-  /*   transition: background-position 1s linear; */
+  border-radius: 3px;
+  text-align: right;
 }
-
-/* .site-box:hover {
-  background-position: 100% 0;
-} */
-
 .site-box::after {
-  content: url(//nekoweb.org/site/lelillumina/files/images/neco_blast.png);
+  content: url(//nekoweb.org/site/lel/files/images/neco_blast.png);
   position: relative;
   bottom: 190px;
   right: 15px;
@@ -19,10 +15,19 @@
   height: 195px;
   width: 195px;
 }
+.site-box > a > .sitefeature {
+  height: 138px;
+  width: 245px;
+  border: 1px solid #ecbfa6;
+  left: 5px;
+  bottom: 5px;
+}
 .site-box > a > p {
   color: #cdd6f4;
-  font-weight: normal;
+  margin-right: 10px;
+  font-size: 17px;
 }
 .site-box > a > span {
   color: #cdd6f4;
+  margin-right: 10px;
 }

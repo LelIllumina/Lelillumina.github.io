@@ -11,19 +11,28 @@ html,
 body {
   height: 100%;
 }
+
 /* Neco arc Background and Footer */
 body {
-  background: rgba(0, 0, 0, 0.5) url(/images/background.png);
-  background-blend-mode: darken;
-  background-repeat: repeat;
-  animation: moveBackground 50s linear infinite;
-  will-change: transform;
-  display: flex;
-  flex-direction: column;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/images/background.png) repeat;
+  animation: moveBackground 100s linear infinite;
   margin: 0;
+  background-color: var(--base);
 }
 
 /* Text formating*/
+h1 {
+  font-family: "VT323";
+  font-size: 48px;
+  background: -webkit-linear-gradient(#cba6f7, #eac3be);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+  margin: auto;
+}
+
 h2 {
   font-family: "Barlow";
   color: var(--text);
@@ -33,6 +42,7 @@ h2 {
   margin-top: auto;
   margin-bottom: 10px;
 }
+
 ul,
 li,
 p,
@@ -110,12 +120,16 @@ main {
 }
 
 #VCR {
+  width: 100%;
+  width: -moz-available;
   width: -webkit-fill-available;
   border: 5px dashed #313244;
 }
 
 #lastfm {
   height: auto;
+  width: 100%;
+  width: -moz-available;
   width: -webkit-fill-available;
   margin-bottom: 20px;
 }
@@ -130,9 +144,27 @@ main {
 }
 
 footer {
-  flex-shrink: 0;
   background-color: var(--base);
   text-align: center;
+  padding: 18px;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #6c7086;
+}
+::-webkit-scrollbar-thumb {
+  background: #585b70;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #45475a;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #313244;
 }
 
 /* Mobile Responsiveness */
