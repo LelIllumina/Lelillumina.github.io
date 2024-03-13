@@ -1,46 +1,50 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 25px;
   padding: 0;
-  background-color: #eff1f5;
+  background-color: #d5d6db;
 }
 
-.wrapper {
-  display: flex;
-  height: 100vh; /* Set wrapper height to 100% viewport height */
+h1 {
+  font-size: 17px;
+  text-align: center;
+  color: #9699a3;
+  font-family: 'MS Gothic';
+  scale: 1;
 }
-
-/* body {
-  background-image: url("https://lel.nekoweb.org/images/Gallery/top.png"),
-    url("https://lel.nekoweb.org/images/Gallery/pillar.png"),
-    url("https://lel.nekoweb.org/images/Gallery/base.png");
-  background-position: top, center, bottom;
-  background-repeat: no-repeat, repeat-y, no-repeat;
-  background-size: auto, auto, auto;
-  width: 26px;
-  height: 100vh;
-  z-index: -1;
-  position: fixed;
-  top: 0px;
-} */
 
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+  align-items: center;
+  justify-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+@media (max-width: 600px) {
+ .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ }
+}
+
+@media (max-width: 400px) {
+ .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+ }
 }
 
 .gallery img {
   width: 300px;
   height: auto;
   margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(156, 160, 176, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(156, 160, 176, 0.5);
   transition: 0.3s;
 }
 
 .gallery img:hover {
-  box-shadow: 0 8px 16px 0 rgba(156, 160, 176, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(156, 160, 176, 0.5);
 }
 
 .tooltip {
@@ -54,3 +58,10 @@ body {
   font-size: 12px;
   white-space: nowrap;
 }
+
+.enlarged {
+  transform-origin: center center;
+  transform: scale(2);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+ }  

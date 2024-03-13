@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   var images = document.querySelectorAll(".gallery > img");
   images.forEach(function (img) {
+    // Existing mouseover and mouseout event listeners
     img.addEventListener("mouseover", function (e) {
       var filename = this.src.split("/").pop();
       var dimensions = this.naturalWidth + "x" + this.naturalHeight;
@@ -23,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     img.addEventListener("mouseout", function () {
       var tooltip = this.parentNode.querySelector(".tooltip");
       if (tooltip) tooltip.remove();
+    });
+
+    img.addEventListener("click", function () {
+      this.classList.toggle("enlarged"); // Toggle the enlarged class
     });
   });
 });
