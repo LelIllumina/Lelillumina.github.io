@@ -25,9 +25,5 @@ document.addEventListener("DOMContentLoaded", function () {
       var tooltip = this.parentNode.querySelector(".tooltip");
       if (tooltip) tooltip.remove();
     });
-
-    img.addEventListener("click", function () {
-      this.classList.toggle("enlarged"); // Toggle the enlarged class
-    });
   });
 });
