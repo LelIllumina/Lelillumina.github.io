@@ -1,5 +1,6 @@
 /* Color Vars */
 :root {
+  color-scheme: dark;
   --text: #cdd6f4;
   --base: #1e1e2e;
   --mantle: #181825;
@@ -26,10 +27,12 @@ body {
 h1 {
   font-family: "VT323";
   font-size: 48px;
-  background: -webkit-linear-gradient(#cba6f7, #eac3be);
-  -webkit-background-clip: text;
+  background-image: -webkit-linear-gradient(#cba6f7, #eac3be);
+  background-image: -moz-linear-gradient(#cba6f7, #eac3be);
+  background-image: -o-linear-gradient(#cba6f7, #eac3be);
+  background-image: linear-gradient(#cba6f7, #eac3be);
   background-clip: text;
-  -webkit-text-fill-color: rgb(0 0 0 / 0%);
+  color: #00000000;
   margin: auto;
 }
 
@@ -165,6 +168,13 @@ footer {
 }
 ::-webkit-scrollbar-thumb:active {
   background: #313244;
+}
+
+/* Text Selection */
+
+::selection {
+  color: var(--base);
+  background: #89b4fa;
 }
 
 /* Mobile Responsiveness */

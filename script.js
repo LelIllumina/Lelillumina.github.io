@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   //  stats from api
-  //  taken from max.nekoweb.org
+  //  taken from https://max.nekoweb.org/resources/nekoweb-stats/
 
-  const username = "lel";
+  // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
+
+  const username = "lel"; // Put your Nekoweb username here
 
   const getStats = async () => {
     const request = await fetch(
@@ -10,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const json = await request.json();
 
-    const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
-    const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
+    const updated = new Date(json.updated_at).toLocaleDateString("en-GB"); // Formats Last Updated text
+    const created = new Date(json.created_at).toLocaleDateString("en-GB"); // Formats Creation Date text
 
     document.getElementById("created").innerHTML =
       `<em>Created</em>: ${created}`;
@@ -23,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
       `<em>Followers</em>: ${json.followers}`;
   };
   getStats();
+
+  // also edited from max's https://webring.nekoweb.org/onionring-widget.js
 
   // === ONIONRING-WIDGET ===
   //Changing graphics cuz they look cooler

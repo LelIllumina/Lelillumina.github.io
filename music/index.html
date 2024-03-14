@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Song Downloader</title>
+  </head>
+  <body>
+    <h1>Latest Song from Last.fm:</h1>
+    <p id="latestSong"></p>
+    <button onclick="searchYouTube()">Search on YouTube</button>
+
+    <div id="results"></div>
+
+    <div id="player"></div>
+
+    <script>
+      let player;
+
+      window.onload = function() {
+        // Initialize YouTube Player API
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      };
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: '', // Leave it empty initially
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        // You can do something here when the player is ready
+      }
+
+      function onPlayerStateChange(event) {
+        // You can handle player state changes here if needed
+      }
+
+      async function fetchLatestSong() {
+        const url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=LelIllumina&api_key=4bc0f9a6683376dbfa4b9ec91dc624a4&format=json';
+
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          const latestSong = data.recenttracks.track[0];
+
+          console.log('Latest Song:', latestSong.name, 'by', latestSong.artist['#text']);
+          document.getElementById('latestSong').textContent = `Latest Song: ${latestSong.name} by ${latestSong.artist['#text']}`;
+
+          return latestSong;
+        } catch (error) {
+          console.error('There was a problem with the fetch operation:', error);
+        }
+      }
+
+      async function searchYouTube() {
+        const latestSong = await fetchLatestSong();
+        const searchQuery = `${latestSong.name} ${latestSong.artist['#text']} audio`;
+        const apiKey = 'AIzaSyDHPg-FGfBfmw-uAQX7_fYd62B48YQwlDY';
+        const apiUrl = `https://www.googleapis.com/youtube/v3/search?q=${encodeURIComponent(searchQuery)}&part=snippet&key=${apiKey}&type=video`;
+
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (data.items.length > 0) {
+            const videoId = data.items[0].id.videoId;
+            playYouTubeVideo(videoId);
+          } else {
+            console.error('No videos found.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
+
+      function playYouTubeVideo(videoId) {
+        player.loadVideoById(videoId);
+      }
+    </script>
+  </body>
+</html>

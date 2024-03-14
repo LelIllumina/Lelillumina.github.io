@@ -8,7 +8,7 @@ h1 {
   font-size: 17px;
   text-align: center;
   color: #9699a3;
-  font-family: 'MS Gothic';
+  font-family: "MS Gothic";
   scale: 1;
 }
 
@@ -24,15 +24,15 @@ h1 {
 }
 
 @media (max-width: 600px) {
- .gallery {
+  .gallery {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
- }
+  }
 }
 
 @media (max-width: 400px) {
- .gallery {
+  .gallery {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
- }
+  }
 }
 
 .gallery img {
