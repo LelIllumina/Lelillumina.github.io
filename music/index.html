@@ -3,91 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouTube Song Downloader</title>
+    <title>Arcueid My beloved</title>
+    <style>
+      :root{
+          color-scheme: dark;
+      }
+      body {
+          background-color: #282828;
+      }
+      #audioPlayer {
+          width: 500px;
+      }
+      .player {
+          position: relative;
+          width: max-content;
+          display: grid;
+          gap: 10px;
+          margin: 13vh auto;
+          align-content: center;
+      }
+      .cover {
+          width: 500px;
+          height: auto;
+          box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+        }
+      .arc{
+          position: absolute;
+        }
+      .arc1 {
+          left: 0px;
+          bottom: 0px;
+          height: 450px;
+        }
+        .arc2 {
+          bottom: 0;
+          right: 25px;
+          height: 750px;
+        }
+    </style>
   </head>
   <body>
-    <h1>Latest Song from Last.fm:</h1>
-    <p id="latestSong"></p>
-    <button onclick="searchYouTube()">Search on YouTube</button>
+    <div>
+      <img class="arc arc1" src="../images/arc/ArcueidTilt.png" />
+      <img class="arc arc2" src="../images/arc/ArcueidStand.png" />
+    </div>
 
-    <div id="results"></div>
-
-    <div id="player"></div>
-
+    <div class="player">
+      <img
+        class="cover"
+        src="https://lastfm.freetls.fastly.net/i/u/770x0/6495b1a427dbc90e26a2fb0e2d19b007.jpg"
+      />
+      <audio controls autoplay id="audioPlayer">
+        <source src="01-Seimeisen.flac" type="audio/flac" />
+        <source src="02-Juvenile.flac" type="audio/flac" />
+      </audio>
+    </div>
     <script>
-      let player;
+      var audioPlayer = document.getElementById('audioPlayer');
+      var songs = [
+        '01-Seimeisen.flac',
+        '02-Juvenile.flac'
+      ];
+      var currentSongIndex = 0;
 
-      window.onload = function() {
-        // Initialize YouTube Player API
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      };
-
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '360',
-          width: '640',
-          videoId: '', // Leave it empty initially
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+      audioPlayer.addEventListener('ended', function() {
+        currentSongIndex++;
+        if (currentSongIndex >= songs.length) {
+        currentSongIndex = 0; // Loop back to the first song
           }
-        });
-      }
-
-      function onPlayerReady(event) {
-        // You can do something here when the player is ready
-      }
-
-      function onPlayerStateChange(event) {
-        // You can handle player state changes here if needed
-      }
-
-      async function fetchLatestSong() {
-        const url = 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=LelIllumina&api_key=4bc0f9a6683376dbfa4b9ec91dc624a4&format=json';
-
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const data = await response.json();
-          const latestSong = data.recenttracks.track[0];
-
-          console.log('Latest Song:', latestSong.name, 'by', latestSong.artist['#text']);
-          document.getElementById('latestSong').textContent = `Latest Song: ${latestSong.name} by ${latestSong.artist['#text']}`;
-
-          return latestSong;
-        } catch (error) {
-          console.error('There was a problem with the fetch operation:', error);
-        }
-      }
-
-      async function searchYouTube() {
-        const latestSong = await fetchLatestSong();
-        const searchQuery = `${latestSong.name} ${latestSong.artist['#text']} audio`;
-        const apiKey = 'AIzaSyDHPg-FGfBfmw-uAQX7_fYd62B48YQwlDY';
-        const apiUrl = `https://www.googleapis.com/youtube/v3/search?q=${encodeURIComponent(searchQuery)}&part=snippet&key=${apiKey}&type=video`;
-
-        try {
-          const response = await fetch(apiUrl);
-          const data = await response.json();
-          if (data.items.length > 0) {
-            const videoId = data.items[0].id.videoId;
-            playYouTubeVideo(videoId);
-          } else {
-            console.error('No videos found.');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      }
-
-      function playYouTubeVideo(videoId) {
-        player.loadVideoById(videoId);
-      }
+        audioPlayer.src = songs[currentSongIndex];
+        audioPlayer.play();
+      });
     </script>
   </body>
 </html>
