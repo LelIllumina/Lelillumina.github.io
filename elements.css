@@ -1,7 +1,6 @@
 .site-box {
-  background: rgba(0, 0, 0, 0.35)
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(//nekoweb.org/site/lel/files/images/Necobox.gif);
-  background-blend-mode: darken;
   background-size: cover;
   border-radius: 3px;
   text-align: right;
@@ -14,6 +13,7 @@
   display: block;
   height: 195px;
   width: 195px;
+  transition: transform 1.5s;
 }
 .site-box .sitefeature {
   height: 138px;
@@ -31,11 +31,13 @@
   color: #cdd6f4;
   margin-right: 10px;
 }
-
 .site-box .follow {
   content: url(https://lel.nekoweb.org/images/neicon_arc.jpg);
   height: 30px;
   float: right;
   clear: right;
   margin: 1px;
+}
+.site-box:hover:after {
+  transform: translate(90px, -9px) rotate(10deg);
 }

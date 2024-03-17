@@ -25,7 +25,7 @@ body {
 
 /* Text formating*/
 h1 {
-  font-family: "VT323";
+  font-family: "VT323", Sans-Serif;
   font-size: 48px;
   background-image: -webkit-linear-gradient(#cba6f7, #eac3be);
   background-image: -moz-linear-gradient(#cba6f7, #eac3be);
@@ -37,7 +37,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Barlow";
+  font-family: "Barlow", Sans-Serif;
   color: var(--text);
   text-shadow: 1px 1px #cba6f7;
   font-size: 20px;
@@ -50,7 +50,7 @@ ul,
 li,
 p,
 a {
-  font-family: "Barlow Semi Condensed";
+  font-family: "Barlow Semi Condensed", Sans-Serif;
   font-size: 14px;
   color: var(--text);
 }
@@ -67,7 +67,7 @@ a {
 }
 
 .title {
-  font-family: "Honk";
+  font-family: "Honk", fantasy;
   font-size: 40px;
   margin: 10px;
 }
@@ -97,6 +97,7 @@ main {
 .sidebar {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .sidebar > div {
