@@ -1,28 +1,37 @@
 name: Deploy to Nekoweb
 
 on:
-  push:
+ push:
     branches:
       - main
 
 jobs:
-  deploy:
+ deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set SHAs for affected commands
+        uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: main
+          set-environment-variables-for-job: true
+          error-on-no-successful-workflow: false
+          last-successful-event: workflow_run
+          working-directory: .
+          workflow-id: ci.yml
 
       - name: Prepare build
         run: |
-            mkdir -p ./build
-            CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
-            for FILE in $CHANGED_FILES; do
-              rsync -av --exclude=".*" $FILE ${{ github.workspace }} ./build
-            done
+          mkdir -p ./build
+          rsync -av --exclude={".*", "cursor.png", "neco-arcgodmode.cur"} . ${{ github.workspace }} ./build
 
       - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.0.2
+        uses: mp-pinheiro/nekoweb-deploy@0.0.1
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
           BUILD_DIR: './build'
