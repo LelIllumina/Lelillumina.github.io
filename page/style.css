@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #1e2326;
+  text-align: justify;
+  margin: 0 10vw;
+  display: flex;
+}
+
+h1,
+h2,
+p {
+  color: #d3c6aa;
+  max-width: 800px;
+}
+
+a {
+  animation: gradientText 5s infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Courier Prime", monospace;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: "Cutive Mono", monospace;
+  font-size: 14px;
+  color: #4f5b58;
+  margin: 0;
+}
+
+p {
+  font-family: "JetBrains Mono", monospace;
+  line-height: 24px;
+}
+
+i {
+  color: #83c092;
+}
+
+bold {
+  color: #d699b6;
+  font-weight: bolder;
+}
+
+strong {
+  background-clip: text;
+  color: #00000000;
+  background-image: linear-gradient(#83c092, #7fbbb3);
+}
+
+small {
+  color: #9da9a0;
+  font-size: 10px;
+}
+
+sub {
+  color: #7a8478;
+}
+
+em {
+  color: #e67e80;
+}
+
+.sidebar {
+  margin: 0 5vw;
+  animation: fadeIn 7s;
+  position: sticky;
+  top: 15vh;
+  height: fit-content;
+}
+
+::-moz-selection,
+::selection {
+  color: #1e2326;
+  background: #7fbbb3;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientText {
+  0% {
+    color: #e67e80;
+  }
+
+  15% {
+    color: #e69875;
+  }
+
+  30% {
+    color: #dbbc7f;
+  }
+
+  45% {
+    color: #a7c080;
+  }
+
+  60% {
+    color: #83c092;
+  }
+
+  75% {
+    color: #7fbbb3;
+  }
+
+  90% {
+    color: #d699b6;
+  }
+
+  100% {
+    color: #d3c6aa;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    flex-wrap: wrap;
+  }
+}
