@@ -13,15 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prepare build
-        run: |
-          mkdir -p ./build
-          cp -r ${{ github.workspace }}/* ./build
-
       - name: Deploy to Nekoweb
         uses: mp-pinheiro/nekoweb-deploy@0.0.1
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
-          BUILD_DIR: './build'
+          BUILD_DIR: '${{ github.workspace }}'
           DEPLOY_DIR: '/lelsite'
           CLEANUP: 'False'
