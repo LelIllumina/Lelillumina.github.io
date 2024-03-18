@@ -78,6 +78,10 @@ a {
   color: var(--text);
 }
 
+.hidden {
+  color: #bac2de;
+}
+
 /*Main body CSS*/
 
 header {
