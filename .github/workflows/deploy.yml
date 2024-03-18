@@ -15,11 +15,14 @@ jobs:
 
       - name: Prepare build
         run: |
-          mkdir -p ./build
-          rsync -av --exclude=".*" . ${{ github.workspace }} ./build
+            mkdir -p ./build
+            CHANGED_FILES=$(git diff --name-only HEAD^ HEAD)
+            for FILE in $CHANGED_FILES; do
+              rsync -av --exclude=".*" $FILE ${{ github.workspace }} ./build
+            done
 
       - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.0.1
+        uses: mp-pinheiro/nekoweb-deploy@0.0.2
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
           BUILD_DIR: './build'
