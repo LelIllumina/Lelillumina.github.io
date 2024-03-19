@@ -18,7 +18,7 @@ jobs:
       - name: Prepare build
         run: |
           mkdir -p ./build
-          rsync -av --exclude={".*", "*.png", "neco-arcgodmode.cur", "build"} . ${{ github.workspace }} ./build
+          rsync -av --exclude={'.*', '*.png', 'neco-arcgodmode.cur', './build'} . ${{ github.workspace }} ./build
 
       - name: Deploy to Nekoweb
         uses: mp-pinheiro/nekoweb-deploy@0.0.1
