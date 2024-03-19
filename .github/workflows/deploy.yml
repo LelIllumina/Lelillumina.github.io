@@ -19,7 +19,7 @@ jobs:
         run: |
           rm -rf ./build
           mkdir -p ./build
-          rsync -av --exclude={'.*', 'images/*.png', 'neco-arcgodmode.cur', './build'} ./ ./build
+          rsync -av --exclude='.*' --exclude='images/*.png' --exclude='neco-arcgodmode.cur' --exclude='./build/' ./ ./build
           ls
           ls ./build
 
