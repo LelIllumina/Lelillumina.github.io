@@ -17,9 +17,8 @@ jobs:
 
       - name: Prepare build
         run: |
-          ls
+          rm -rf ./build
           mkdir -p ./build
-          ls
           rsync -av --exclude={'.*', 'images/*.png', 'neco-arcgodmode.cur', './build'} ./ ./build
           ls
           ls ./build
