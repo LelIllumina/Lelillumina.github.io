@@ -12,21 +12,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Prepare build
         run: |
           rm -rf ./build
           mkdir -p ./build
-          rsync -av --exclude='.*' --exclude='images/*.png' --exclude='neco-arcgodmode.cur' --exclude='./build/' ./ ./build
-          ls
+          rsync -av --exclude='.*' --exclude='images/*.png' --exclude='neco-arcgodmode.cur' --exclude='neco-arclooking.cur' --exclude='./build/' ./ ./build
           ls ./build
 
       - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.0.1
+        uses: mp-pinheiro/nekoweb-deploy@0.1.0
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
           BUILD_DIR: './build'
-          DEPLOY_DIR: '/githubaction'
+          DEPLOY_DIR: '/'
           CLEANUP: 'False'
+          NEKOWEB_PAGENAME: 'lel'
