@@ -28,3 +28,4 @@ jobs:
           DEPLOY_DIR: '/'
           CLEANUP: 'False'
           NEKOWEB_PAGENAME: 'lel'
+          ENCRYPTION_KEY: ${{ secrets.NEKOWEB_ENCRYPTION_KEY }}
