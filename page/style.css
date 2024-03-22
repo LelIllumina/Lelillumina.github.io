@@ -76,7 +76,10 @@ em {
   height: fit-content;
 }
 
-::-moz-selection,
+::-moz-selection {
+  color: #1e2326;
+  background: #7fbbb3;
+}
 ::selection {
   color: #1e2326;
   background: #7fbbb3;
