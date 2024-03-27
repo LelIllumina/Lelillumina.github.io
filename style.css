@@ -120,6 +120,7 @@ main {
   display: block;
   margin: auto;
   border: 5px dashed #313244;
+  image-rendering: pixelated;
 }
 
 #frame {
@@ -132,6 +133,7 @@ main {
   width: -moz-available;
   width: -webkit-fill-available;
   border: 5px dashed #313244;
+  image-rendering: pixelated;
 }
 
 #lastfm {

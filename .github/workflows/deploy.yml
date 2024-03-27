@@ -17,16 +17,16 @@ jobs:
         run: |
           rm -rf ./build
           mkdir -p ./build
-          rsync -av --exclude='.*' --exclude='images/*' --exclude='neco-arcgodmode.cur' --exclude='neco-arclooking.cur' --exclude='./build/' ./ ./build
+          rsync -av --exclude='.*' --exclude='build' ./ ./build
           ls ./build
 
       - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.2.2
+        uses: mp-pinheiro/nekoweb-deploy@0.2.4
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
           BUILD_DIR: './build'
           DEPLOY_DIR: '/'
           CLEANUP: 'False'
-          DELAY: '1' 
+          DELAY: '0.5' 
           NEKOWEB_PAGENAME: 'lel'
           ENCRYPTION_KEY: ${{ secrets.NEKOWEB_ENCRYPTION_KEY }}
