@@ -15,8 +15,7 @@ body {
 
 /* Neco arc Background and Footer */
 body {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(/images/background.png) repeat;
   animation: moveBackground 100s linear infinite;
   margin: 0;
@@ -120,7 +119,6 @@ main {
   display: block;
   margin: auto;
   border: 5px dashed #313244;
-  image-rendering: pixelated;
 }
 
 #frame {
@@ -133,7 +131,6 @@ main {
   width: -moz-available;
   width: -webkit-fill-available;
   border: 5px dashed #313244;
-  image-rendering: pixelated;
 }
 
 #lastfm {
