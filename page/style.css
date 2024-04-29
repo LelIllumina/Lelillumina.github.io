@@ -23,6 +23,13 @@ a {
   text-decoration: none;
 }
 
+a:not(:has(img)):hover {
+  -webkit-animation: 0;
+  animation: 0;
+  color: #1e2326;
+  background: #7fbbb3;
+ } 
+
 h1 {
   font-family: "Courier Prime", monospace;
   margin-bottom: 0;
@@ -87,7 +94,7 @@ em {
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+    dacity: 0;
   }
 
   100% {
