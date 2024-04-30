@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,24 +17,24 @@
     <title>Arcueid My beloved</title>
 
     <style>
-      :root{
-          color-scheme: dark;
+      :root {
+        color-scheme: dark;
       }
       body {
-          background-color: #282828;
+        background-color: #282828;
       }
       #audioPlayer {
-          width: 500px;
-          height: 40px;
+        width: 500px;
+        height: 40px;
       }
       #player {
-          position: relative;
-          width: max-content;
-          display: grid;
-          gap: 10px;
-          margin: 13vh auto;
-          align-content: center;
-          transition: 0.5s;
+        position: relative;
+        width: max-content;
+        display: grid;
+        gap: 10px;
+        margin: 13vh auto;
+        align-content: center;
+        transition: 0.5s;
       }
       #player:hover {
         opacity: 20%;
@@ -45,55 +45,55 @@
         transition: 0.5s;
       }
       .cover {
-          width: 500px;
-          height: auto;
-          box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
-        }
-      .arc{
-          position: fixed;
-          pointer-events: none
-        }
-        #arc1 {
-          left: 0px;
-          bottom: 0px;
-          height: 450px;
-        }
-        #arc2 {
-          bottom: -47px;
-          right: -170px;
-          height: 800px;
-        }
-        #arc3 {
+        width: 500px;
+        height: auto;
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+      }
+      .arc {
+        position: fixed;
+        pointer-events: none;
+      }
+      #arc1 {
+        left: 0px;
+        bottom: 0px;
+        height: 450px;
+      }
+      #arc2 {
+        bottom: -47px;
+        right: -170px;
+        height: 800px;
+      }
+      #arc3 {
         rotate: 90deg;
         top: -120px;
-        height: 550px
-        }
-        #arc4 {
+        height: 550px;
+      }
+      #arc4 {
         bottom: 0;
         right: 0;
         height: 550px;
-        }
-        #arc5 {
+      }
+      #arc5 {
         bottom: -420px;
         left: 950px;
         rotate: 15deg;
-        }
-        #arc6 {
+      }
+      #arc6 {
         bottom: 50px;
         height: 450px;
         rotate: 45deg;
         left: -20px;
-        }
-        #arc7 {
+      }
+      #arc7 {
         bottom: 0;
         height: 750px;
         left: 350px;
-        }
-        #arc8 {
+      }
+      #arc8 {
         bottom: 0;
         height: 700px;
         right: 550px;
-        }
+      }
     </style>
   </head>
   <body>
@@ -114,25 +114,42 @@
         src="https://i.ebayimg.com/images/g/30oAAOSwJHdhLYdU/s-l9999.jpg"
       />
       <audio controls autoplay id="audioPlayer">
-        <source src="Seimeisen.webm" type="audio/flac" />
-        <source src="Juvenile.webm" type="audio/flac" />
+        <source src="Seimeisen.webm" type="audio/webm" />
+        <source src="Juvenile.webm" type="audio/webm" />
         <!--         <source src="https://files.catbox.moe/uzk19u.flac" type="audio/flac" />
         <source src="https://files.catbox.moe/s9v2qp.flac" type="audio/flac" /> -->
       </audio>
     </div>
     <script>
-      var audioPlayer = document.getElementById('audioPlayer');
-      var songs = [
-        '01-Seimeisen.flac',
-        '02-Juvenile.flac'
-      ];
+      var audioPlayer = document.getElementById("audioPlayer");
+      var songs = ["Seimeisen.webm", "Juvenile.webm"];
       var currentSongIndex = 0;
 
-      audioPlayer.addEventListener('ended', function() {
+      function shuffleArray(array) {
+        let currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
+
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
+
+      // Shuffle the songs array
+      songs = shuffleArray(songs);
+
+      audioPlayer.addEventListener("ended", function () {
         currentSongIndex++;
         if (currentSongIndex >= songs.length) {
-        currentSongIndex = 0; // Loop back to the first song
-          }
+          currentSongIndex = 0; // Loop back to the first song
+        }
         audioPlayer.src = songs[currentSongIndex];
         audioPlayer.play();
       });
