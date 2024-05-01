@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Lel Illumina" />
+    <meta
+      property="og:image"
+      content="https://i.ebayimg.com/images/g/30oAAOSwJHdhLYdU/s-l9999.jpg"
+    />
+    <meta property="og:title" content="Arcueid My Beloved" />
+    <meta property="og:description" content="Reona My Beloved" />
+    <meta property="og:url" content="https://lel.nekoweb.org/music/arcuied" />
+    <meta property="og:type" content="music.album" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
+    <title>Arcueid My beloved</title>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background-color: #282828;
+      }
+      #audioPlayer {
+        width: 500px;
+        height: 40px;
+      }
+      #player {
+        position: relative;
+        width: max-content;
+        display: grid;
+        gap: 10px;
+        margin: 13vh auto;
+        align-content: center;
+        transition: 0.5s;
+      }
+      #player:hover {
+        opacity: 20%;
+        transition: 0.5s;
+      }
+      #player:active {
+        opacity: 0%;
+        transition: 0.5s;
+      }
+      .cover {
+        width: 500px;
+        height: auto;
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+      }
+      .arc {
+        position: fixed;
+        pointer-events: none;
+      }
+      #arc1 {
+        left: 0px;
+        bottom: 0px;
+        height: 450px;
+      }
+      #arc2 {
+        bottom: -47px;
+        right: -170px;
+        height: 800px;
+      }
+      #arc3 {
+        rotate: 90deg;
+        top: -120px;
+        height: 550px;
+      }
+      #arc4 {
+        bottom: 0;
+        right: 0;
+        height: 550px;
+      }
+      #arc5 {
+        bottom: -420px;
+        left: 950px;
+        rotate: 15deg;
+      }
+      #arc6 {
+        bottom: 50px;
+        height: 450px;
+        rotate: 45deg;
+        left: -20px;
+      }
+      #arc7 {
+        bottom: 0;
+        height: 750px;
+        left: 350px;
+      }
+      #arc8 {
+        bottom: 0;
+        height: 700px;
+        right: 550px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="arc1" class="arc" src="/images/arc/ArcueidTilt.png" />
+      <img id="arc2" class="arc" src="/images/arc/ArcueidBadass.png" />
+      <img id="arc3" class="arc" src="/images/arc/ArcueidNendo.png" />
+      <img id="arc4" class="arc" src="/images/arc/Arcueid.png" />
+      <img id="arc8" class="arc" src="/images/arc/ArcDressTilt.png" />
+      <img id="arc5" class="arc" src="/images/arc/ArcFigStand.png" />
+      <img id="arc6" class="arc" src="/images/arc/Arcremake.png" />
+      <img id="arc7" class="arc" src="/images/arc/ArcRemakeDress.png" />
+    </div>
+
+    <div id="player">
+      <img
+        class="cover"
+        src="https://i.ebayimg.com/images/g/30oAAOSwJHdhLYdU/s-l9999.jpg"
+      />
+      <audio controls autoplay id="audioPlayer">
+        <source src="Seimeisen.webm" type="audio/webm" />
+        <source src="Juvenile.webm" type="audio/webm" />
+        <!--         <source src="https://files.catbox.moe/uzk19u.flac" type="audio/flac" />
+        <source src="https://files.catbox.moe/s9v2qp.flac" type="audio/flac" /> -->
+      </audio>
+    </div>
+    <script>
+      var audioPlayer = document.getElementById("audioPlayer");
+      var songs = ["Seimeisen.webm", "Juvenile.webm"];
+      var currentSongIndex = 0;
+
+      function shuffleArray(array) {
+        let currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
+
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
+
+      // Shuffle the songs array
+      songs = shuffleArray(songs);
+
+      audioPlayer.addEventListener("ended", function () {
+        currentSongIndex++;
+        if (currentSongIndex >= songs.length) {
+          currentSongIndex = 0; // Loop back to the first song
+        }
+        audioPlayer.src = songs[currentSongIndex];
+        audioPlayer.play();
+      });
+    </script>
+  </body>
+</html>
