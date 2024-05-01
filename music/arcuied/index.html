@@ -16,11 +16,26 @@
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <title>Arcueid My beloved</title>
 
+    <script>
+      window.transitionToPage = function (href) {
+        document.querySelector("body").style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = href;
+        }, 500);
+      };
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector("body").style.opacity = 1;
+      });
+    </script>
+
     <style>
       :root {
         color-scheme: dark;
       }
       body {
+        opacity: 0;
+        transition: opacity 0.5s;
         background-color: #282828;
       }
       #audioPlayer {
@@ -102,10 +117,10 @@
       <img id="arc2" class="arc" src="/images/arc/ArcueidBadass.png" />
       <img id="arc3" class="arc" src="/images/arc/ArcueidNendo.png" />
       <img id="arc4" class="arc" src="/images/arc/Arcueid.png" />
-      <img id="arc8" class="arc" src="/images/arc/ArcDressTilt.png" />
       <img id="arc5" class="arc" src="/images/arc/ArcFigStand.png" />
       <img id="arc6" class="arc" src="/images/arc/Arcremake.png" />
       <img id="arc7" class="arc" src="/images/arc/ArcRemakeDress.png" />
+      <img id="arc8" class="arc" src="/images/arc/ArcDressTilt.png" />
     </div>
 
     <div id="player">
