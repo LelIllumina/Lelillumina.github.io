@@ -11,13 +11,28 @@
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <title>Music</title>
 
-    <style>
-      :root {
-        color-scheme: dark;
-      }
-      body {
-        background-color: #282828;
-      }
+    <script>
+        window.transitionToPage = function (href) {
+          document.querySelector("body").style.opacity = 0;
+          setTimeout(function () {
+            window.location.href = href;
+          }, 500);
+        };
+  
+        document.addEventListener("DOMContentLoaded", function (event) {
+          document.querySelector("body").style.opacity = 1;
+        });
+      </script>
+  
+      <style>
+        :root {
+          color-scheme: dark;
+        }
+        body {
+          opacity: 0;
+          transition: opacity 0.5s;
+          background-color: #282828;
+        }
       h1 {
         color: #999999;
         text-align: center;
@@ -45,19 +60,19 @@
   <body>
     <h1>Music</h1>
     <div id="container">
-      <a href="./arcuied/">
+      <span onclick="transitionToPage('./arcuied')">
         <img
           src="https://i.ebayimg.com/images/g/30oAAOSwJHdhLYdU/s-l9999.jpg"
           alt="Reona - Juvenile"
           class="cover"
-      /></a>
-      <a href="./susumu">
-          <img
-            src="https://s.pacn.ws/1/p/12h/siren-limited-edition-vinyl-692937.1.jpg?v=qydm9g"
-            alt="Susumu Hirasawa - Siren"
-            class="cover"
-          />
-      </a>
+      /></span>
+
+      <span onclick="transitionToPage('./susumu')">
+        <img
+          src="https://s.pacn.ws/1/p/12h/siren-limited-edition-vinyl-692937.1.jpg?v=qydm9g"
+          alt="Susumu Hirasawa - Siren"
+          class="cover"
+      /></span>
     </div>
   </body>
 </html>

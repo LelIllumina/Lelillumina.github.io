@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta chsusumuet="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Lel Illumina" />
+    <meta
+      property="og:image"
+      content="https://s.pacn.ws/1/p/12h/siren-limited-edition-vinyl-692937.1.jpg?v=qydm9"
+    />
+    <meta property="og:title" content="Hai yo" />
+    <meta property="og:description" content="In ya" />
+    <meta property="og:url" content="https://lel.nekoweb.org/music/susumu" />
+    <meta property="og:type" content="music.album" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <link rel="icon" type="image/x-icon" href="/images/neicon_susumu.jpg" />
+    <title>Susumu Hirasawa my beloved</title>
+
+    <script>
+      window.transitionToPage = function (href) {
+        document.querySelector("body").style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = href;
+        }, 500);
+      };
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector("body").style.opacity = 1;
+      });
+    </script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        opacity: 0;
+        transition: opacity 0.5s;
+        background-color: #282828;
+      }
+      #audioPlayer {
+        width: 500px;
+        height: 40px;
+      }
+      #player {
+        position: relative;
+        width: max-content;
+        display: grid;
+        gap: 10px;
+        margin: 13vh auto;
+        align-content: center;
+        transition: 0.5s;
+      }
+      #player:hover {
+        opacity: 20%;
+        transition: 0.5s;
+      }
+      #player:active {
+        opacity: 0%;
+        transition: 0.5s;
+      }
+      .cover {
+        width: 500px;
+        height: auto;
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+      }
+      .susumu {
+        position: fixed;
+        pointer-events: none;
+      }
+      #susumu1 {
+        left: 0px;
+        bottom: 0px;
+        height: 450px;
+      }
+      #susumu2 {
+        bottom: 0px;
+        right: 0px;
+        height: 500px;
+      }
+      #susumu3 {
+        rotate: -90deg;
+        top: 0;
+        right: 0;
+        height: 300px;
+      }
+      #susumu4 {
+        bottom: 0;
+        right: -100px;
+        height: 550px;
+      }
+      #susumu5 {
+        bottom: -420px;
+        left: 950px;
+        rotate: 15deg;
+      }
+      #susumu6 {
+        top: 0;
+        height: 400px;
+        left: -160px;
+        rotate: 180deg;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="susumu1" class="susumu" src="/images/susumu/SusumuCover.png" />
+      <img id="susumu2" class="susumu" src="/images/susumu/SusumuGuitar.png" />
+      <img
+        id="susumu3"
+        class="susumu"
+        src="/images/susumu/SusumuGuitarVertical.png"
+      />
+      <img
+        id="susumu4"
+        class="susumu"
+        src="/images/susumu/SusumuLiveShow.png"
+      />
+      <img id="susumu5" class="susumu" src="/images/susumu/SusumuStare.png" />
+      <img id="susumu6" class="susumu" src="/images/susumu/SusumuMagic.png" />
+    </div>
+
+    <div id="player">
+      <img
+        class="cover"
+        src="https://s.pacn.ws/1/p/12h/siren-limited-edition-vinyl-692937.1.jpg"
+      />
+      <audio controls autoplay id="audioPlayer">
+        <source src="./On Line Malaysia.m4a" type="audio/mp4" />
+      </audio>
+    </div>
+  </body>
+</html>
