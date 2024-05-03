@@ -1,32 +1,30 @@
 name: Deploy to Nekoweb
 
 on:
- push:
+  push:
     branches:
       - main
 
 jobs:
- deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Prepare build
         run: |
-          rm -rf ./build
           mkdir -p ./build
-          rsync -av --exclude='.*' --exclude='build' ./ ./build
-          ls ./build
+          rsync -av --exclude='.*' --exclude='test' --exclude='build' ./ ./build
 
       - name: Deploy to Nekoweb
         uses: mp-pinheiro/nekoweb-deploy@0.2.4
         with:
           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
-          BUILD_DIR: './build'
-          DEPLOY_DIR: '/'
-          CLEANUP: 'False'
-          DELAY: '0.5' 
-          NEKOWEB_PAGENAME: 'lel'
+          BUILD_DIR: "./build"
+          DEPLOY_DIR: "/"
+          CLEANUP: "False"
+          DELAY: "0.5"
+          NEKOWEB_PAGENAME: "lel"
           ENCRYPTION_KEY: ${{ secrets.NEKOWEB_ENCRYPTION_KEY }}

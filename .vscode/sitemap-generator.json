@@ -1,0 +1,17 @@
+{
+  "sitemap.xml": {
+    "Protocol": "https",
+    "DomainName": "lel.nekoweb.org",
+    "Root": "./",
+    "IncludeExt": [".html", ".htm"],
+    "Exclude": [],
+    "TagsToInclude": ["priority", "lastmod"],
+    "DefaultChangeFrequency": "monthly",
+    "TabCharacters": "\t",
+    "bIncludeWWW": true,
+    "bRemoveFileExtentions": false,
+    "bUseTrailingSlash": false,
+    "bAutomaticallyUpdateSitemap": true,
+    "bMinimized": false
+  }
+}

@@ -1,24 +1,23 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>lel</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      button {
+        border: 3px outset;
+      }
+      button:hover {
+        border: 3px ridge;
+      }
+      button:active {
+        border: 3px inset;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to the test page :3</h1>
-    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-    <div id="embed-iframe"></div>
-
-    <script>
-      window.onSpotifyIframeApiReady = (IFrameAPI) => {
-        const element = document.getElementById('embed-iframe');
-        const options = {
-            width: '100%',
-            height: '160',
-            uri: 'https://open.spotify.com/track/2CiHVrvqFtoySSKNJ96ttF?si=5bacf6b50d7c4028'
-          };
-        const callback = (EmbedController) => {};
-        IFrameAPI.createController(element, options, callback);
-      };
-    </script>
+    <button>what the fuck</button>
   </body>
 </html>
