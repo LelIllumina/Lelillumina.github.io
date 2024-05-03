@@ -28,7 +28,7 @@ a:not(:has(img)):hover {
   animation: 0;
   color: #1e2326;
   background: #7fbbb3;
- } 
+}
 
 h1 {
   font-family: "Courier Prime", monospace;
@@ -94,7 +94,7 @@ em {
 
 @keyframes fadeIn {
   0% {
-    dacity: 0;
+    opacity: 0;
   }
 
   100% {
