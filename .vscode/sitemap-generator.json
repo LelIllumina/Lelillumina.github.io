@@ -4,7 +4,7 @@
     "DomainName": "lel.nekoweb.org",
     "Root": "./",
     "IncludeExt": [".html", ".htm"],
-    "Exclude": [],
+    "Exclude": ["test.html"],
     "TagsToInclude": ["priority", "lastmod"],
     "DefaultChangeFrequency": "monthly",
     "TabCharacters": "\t",

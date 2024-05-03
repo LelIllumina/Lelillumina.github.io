@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">''
 	<url>
 		<loc>https://www.lel.nekoweb.org</loc>
 		<priority>1.00</priority>
@@ -34,11 +35,6 @@
 		<loc>https://www.lel.nekoweb.org/gallery</loc>
 		<priority>0.67</priority>
 		<lastmod>2024-05-01</lastmod>
-	</url>
-	<url>
-		<loc>https://www.lel.nekoweb.org/test/test.html</loc>
-		<priority>0.33</priority>
-		<lastmod>2024-05-02</lastmod>
 	</url>
 	<url>
 		<loc>https://www.lel.nekoweb.org/page/2</loc>
