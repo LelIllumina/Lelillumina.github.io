@@ -8,31 +8,32 @@
     <meta property="og:description" content="The one with the music" />
     <meta property="og:url" content="https://lel.nekoweb.org/music/" />
     <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta name="theme-color" content="#f38ba8" />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <title>Music</title>
 
     <script>
-        window.transitionToPage = function (href) {
-          document.querySelector("body").style.opacity = 0;
-          setTimeout(function () {
-            window.location.href = href;
-          }, 500);
-        };
-  
-        document.addEventListener("DOMContentLoaded", function (event) {
-          document.querySelector("body").style.opacity = 1;
-        });
-      </script>
-  
-      <style>
-        :root {
-          color-scheme: dark;
-        }
-        body {
-          opacity: 0;
-          transition: opacity 0.5s;
-          background-color: #282828;
-        }
+      window.transitionToPage = function (href) {
+        document.querySelector("body").style.opacity = 0;
+        setTimeout(function () {
+          window.location.href = href;
+        }, 500);
+      };
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector("body").style.opacity = 1;
+      });
+    </script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        opacity: 0;
+        transition: opacity 0.5s;
+        background-color: #282828;
+      }
       h1 {
         color: #999999;
         text-align: center;
