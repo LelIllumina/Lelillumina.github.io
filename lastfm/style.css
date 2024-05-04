@@ -1,0 +1,59 @@
+:root {
+  color-scheme: dark;
+  --border: 4px ridge aliceblue;
+  --background: #111;
+  --text: #fff;
+  --coverBorder: 0px;
+  --buttonBorder: 0px;
+  --buttonBackground: gray;
+  --font: "MS Gothic", "MS PGothic", sans-serif;
+}
+#title {
+  margin: 25px;
+}
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 50px;
+  margin: auto;
+}
+h2 {
+  font-family: var(--font);
+  margin: 10px 0;
+  font-size: 22px;
+}
+h3 {
+  font-family: var(--font);
+  margin: auto;
+  color: darkgray;
+  font-size: 15px;
+}
+#trackInfo {
+  width: fit-content;
+}
+#listening {
+  background-color: var(--background);
+  border: var(--border);
+  display: flex;
+  height: 150px;
+  width: min-content;
+  min-width: 30%;
+  padding: 20px;
+  margin: 20px;
+  align-items: center;
+}
+#trackCover {
+  border-radius: var(--coverBorder);
+  height: 150px;
+  float: left;
+  margin-right: 20px;
+}
+#searchButton {
+  color: var(--text);
+  background: var(--buttonBackground);
+  border-radius: var(--buttonBorder);
+  font-size: 17px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  align-items: flex-end;
+}
