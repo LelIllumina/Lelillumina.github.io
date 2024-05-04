@@ -1,9 +1,9 @@
 // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
                         
-const USERNAME = "LelIllumina"; // Put your LastFM username here
-const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+const USERNAME = users; // Put your LastFM username here
 
-const getTrack = async () => {
+const getTrack = async (USERNAME) => {
+    const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
     const request = await fetch(BASE_URL);
     const json = await request.json();
     let status
@@ -22,7 +22,8 @@ const getTrack = async () => {
     // TITLE: json.track.name
     // ARTIST: json.track.artist['#text']
 
-    document.getElementById("listening").innerHTML = `
+    document.getElementById("container").innerHTML += `
+    <div id="listening">
     <img id="trackCover" src="${json.track.image[3]['#text']}">
     <div id="trackInfo">
     <h3>${USERNAME}</h3>
@@ -30,8 +31,11 @@ const getTrack = async () => {
     <p id="artistName">${json.track.artist['#text']}</p>
     <a id="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
     </div>
+    </div>
     `
 };
 
-getTrack();
-setInterval(() => { getTrack(); }, 10000);
+users.forEach((username) => {
+    getTrack(username);
+});
+setInterval(() => { getTrack(); }, 20000);
