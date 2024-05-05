@@ -1,10 +1,9 @@
 const users = [
-    "LelIllumina",
-    "excelesia",
-    "dimdendev",
-    "four-caddit",
-    "garfieldhirou",
-    "maxpixels",
-    "CorelVulpix",
-    
+    ["LelIllumina", "lel.nekoweb.org"],
+    ["excelesia", ""],
+    ["dimdendev", "dimden.dev"],
+    ["four-caddit", "fourstar.nekoweb.org"],
+    ["garfieldhirou", "apfel.nekoweb.org"],
+    ["maxpixels", "max.nekoweb.org"],
+    ["CorelVulpix", "s1nez.nekoweb.org"]
 ]

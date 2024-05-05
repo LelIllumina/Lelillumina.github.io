@@ -8,6 +8,9 @@
   --buttonBackground: gray;
   --font: "MS Gothic", "MS PGothic", sans-serif;
 }
+body {
+  font-family: "MS Gothic", "MS PGothic", sans-serif;
+}
 #title {
   margin: 25px;
 }
@@ -26,6 +29,21 @@ h3 {
   margin: auto;
   color: darkgray;
   font-size: 15px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  color: darkgray;
+}
+footer {
+  margin: auto;
+  width: fit-content;
+}
+#scrobbling {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 #trackInfo {
   width: fit-content;
