@@ -32,4 +32,8 @@ users.forEach((user) => {
     getTrack(username, site);
 });
 
-setInterval(() => { getTrack(); }, 10000);
+setInterval(() => { users.forEach((user) => {
+    const username = user[0];
+    const site = user[1];
+    getTrack(username, site);
+});; }, 10000);
