@@ -54,7 +54,7 @@ footer {
   display: flex;
   height: 150px;
   width: min-content;
-  min-width: 30%;
+  min-width: 25%;
   padding: 20px;
   margin: 20px;
   align-items: center;
