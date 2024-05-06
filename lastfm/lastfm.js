@@ -1,5 +1,6 @@
 // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
                         
+var notPlaying = 0;
 const getTrack = async (username, site) => {
     const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${username}/latest-song`;
     const request = await fetch(BASE_URL);
@@ -8,7 +9,10 @@ const getTrack = async (username, site) => {
     let isPlaying = json.track['@attr']?.nowplaying || false;
 
     if(!isPlaying) {
-        // Trigger if a song isn't playing
+        notPlaying++;
+        if (notPlaying == users.length) {
+            document.getElementById("scrobbling").innerHTML = '<p>No one\'s listening to anything right now</p>';
+        }
         return;
     }
     
