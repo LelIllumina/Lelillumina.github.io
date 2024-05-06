@@ -9,7 +9,13 @@
   --font: "MS Gothic", "MS PGothic", sans-serif;
 }
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "MS Gothic", "MS PGothic", sans-serif;
+  height: 98vh;
+}
+main {
+  flex-grow: 1;
 }
 #title {
   margin: 25px;
@@ -38,6 +44,16 @@ a {
 footer {
   margin: auto;
   width: fit-content;
+}
+#reload {
+  background-color: unset;
+  border: none;
+  font-size: 25px;
+  float: right;
+  margin: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row-reverse;
 }
 #scrobbling {
   display: flex;

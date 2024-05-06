@@ -4,7 +4,6 @@ const getTrack = async (username, site) => {
     const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${username}/latest-song`;
     const request = await fetch(BASE_URL);
     const json = await request.json();
-    let status
 
     let isPlaying = json.track['@attr']?.nowplaying || false;
 
@@ -12,7 +11,7 @@ const getTrack = async (username, site) => {
         // Trigger if a song isn't playing
         return;
     }
-
+    
     document.getElementById("scrobbling").innerHTML += `
     <div id="listening">
     <img id="trackCover" src="${json.track.image[3]['#text']}">
@@ -32,8 +31,11 @@ users.forEach((user) => {
     getTrack(username, site);
 });
 
-setInterval(() => { users.forEach((user) => {
-    const username = user[0];
-    const site = user[1];
-    getTrack(username, site);
-});; }, 10000);
+setInterval(() => {
+    users.forEach((user) => {
+        const username = user[0];
+        const site = user[1];
+        getTrack(username, site);
+    });
+    document.getElementById("scrobbling").innerHTML = '';
+}, 60000);
