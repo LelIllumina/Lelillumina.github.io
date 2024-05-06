@@ -40,6 +40,7 @@ setInterval(() => {
         const username = user[0];
         const site = user[1];
         getTrack(username, site);
+        notPlaying = 0;
     });
     document.getElementById("scrobbling").innerHTML = '';
 }, 60000);
