@@ -5,5 +5,6 @@ const users = [
     ["four-caddit", "fourstar.nekoweb.org"],
     ["garfieldhirou", "apfel.nekoweb.org"],
     ["maxpixels", "max.nekoweb.org"],
-    ["CorelVulpix", "s1nez.nekoweb.org"]
+    ["CorelVulpix", "s1nez.nekoweb.org"],
+    ["tepiloxtl", "tepiloxtl.net"]
 ]
