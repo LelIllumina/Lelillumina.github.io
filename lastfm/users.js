@@ -6,6 +6,6 @@ const users = [
     ["garfieldhirou", "apfel.nekoweb.org"],
     ["maxpixels", "max.nekoweb.org"],
     ["CorelVulpix", "s1nez.nekoweb.org"],
-    ["tepiloxtl", "tepiloxtl.net"]
+    ["tepiloxtl", "tepiloxtl.net"],
     ["milkywaydotmoe", "milkyway.moe"]
 ]
