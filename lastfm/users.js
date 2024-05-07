@@ -7,4 +7,5 @@ const users = [
     ["maxpixels", "max.nekoweb.org"],
     ["CorelVulpix", "s1nez.nekoweb.org"],
     ["tepiloxtl", "tepiloxtl.net"]
+    ["milkywaydotmoe", "milkyway.moe"]
 ]
