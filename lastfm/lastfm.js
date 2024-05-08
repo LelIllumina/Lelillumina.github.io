@@ -13,6 +13,17 @@ const getTrack = async (username, site) => {
         if (notPlaying == users.length) {
             document.getElementById("scrobbling").innerHTML = '<p>No one\'s listening to anything right now</p>';
         }
+        document.getElementById("offline").innerHTML += `
+        <div id="listening">
+        <img id="trackCover" src="${json.track.image[3]['#text']}">
+        <div id="trackInfo">
+        <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+        <h2 id="trackName">${json.track.name}</h2>
+        <p id="artistName">${json.track.artist['#text']}</p>
+        <a id="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
+        </div>
+        </div>
+        `
         return;
     }
     
@@ -43,4 +54,5 @@ setInterval(() => {
         notPlaying = 0;
     });
     document.getElementById("scrobbling").innerHTML = '';
+    document.getElementById("offline").innerHTML = '';
 }, 60000);

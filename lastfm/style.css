@@ -6,19 +6,17 @@
   --coverBorder: 0px;
   --buttonBorder: 0px;
   --buttonBackground: gray;
-  --font: "MS Gothic", "MS PGothic", sans-serif;
+  --font: "Jetbrains Mono", "Courier New", Courier, monospace;
 }
 body {
   display: flex;
   flex-direction: column;
   font-family: "MS Gothic", "MS PGothic", sans-serif;
-  height: 98vh;
+  height: 98%;
 }
 main {
   flex-grow: 1;
-}
-#title {
-  margin: 25px;
+  min-height: max-content;
 }
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -45,6 +43,9 @@ footer {
   margin: auto;
   width: fit-content;
 }
+#title {
+  margin: 25px;
+}
 #reload {
   background-color: unset;
   border: none;
@@ -55,14 +56,30 @@ footer {
   display: inline-flex;
   flex-direction: row-reverse;
 }
-#scrobbling {
+#scrobbling,
+#offline {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  min-height: 30%;
+}
+#offline {
+  filter: opacity(50%) grayscale(50%);
+}
+#seperator {
+  text-align: center;
+  margin: 25px;
 }
 #trackInfo {
   width: fit-content;
+}
+#trackName {
+  font-size: 2vmin;
+  font-weight: bold;
+}
+#artistName {
+  font-size: 1vmax;
 }
 #listening {
   background-color: var(--background);
@@ -85,9 +102,25 @@ footer {
   color: var(--text);
   background: var(--buttonBackground);
   border-radius: var(--buttonBorder);
-  font-size: 17px;
-  padding: 5px;
+  font-size: 16px;
+  padding: 4px;
   text-align: center;
   text-decoration: none;
   align-items: flex-end;
 }
+
+/* Vertical
+#listening {
+  background-color: var(--background);
+  border: var(--border);
+  width: min-content;
+  padding: 20px;
+  margin: 20px;
+  align-items: center;
+}
+#trackCover {
+  border-radius: var(--coverBorder);
+  height: 150px;
+  float: left;
+}
+*/
