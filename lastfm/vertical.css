@@ -1,0 +1,13 @@
+#listening {
+  background-color: var(--background);
+  border: var(--border);
+  width: min-content;
+  padding: 20px;
+  margin: 20px;
+  align-items: center;
+}
+#trackCover {
+  border-radius: var(--coverBorder);
+  height: 150px;
+  float: left;
+}

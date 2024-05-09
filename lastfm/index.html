@@ -16,6 +16,9 @@
     <meta name="theme-color" content="#a20000" />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="horizontal.css" id="horizontal" />
+    <link rel="alternate stylesheet" href="vertical.css" id="vertical" />
+    <link rel="prefetch" href="vertical.css" />
     <script src="users.js"></script>
     <script src="test.js"></script>
     <script src="lastfm.js"></script>
@@ -28,6 +31,7 @@
       </div>
     </header>
     <main>
+      <button class="button" id="orientation">▤</button>
       <input
         class="button"
         id="reload"
@@ -52,4 +56,22 @@
       </p>
     </footer>
   </body>
+  <script>
+    const verticalStyle = document.getElementById("vertical");
+    const HorizontalStyle = document.getElementById("horizontal");
+
+    document
+      .getElementById("orientation")
+      .addEventListener("click", function () {
+        if (verticalStyle.rel === "stylesheet") {
+          verticalStyle.rel = "alternate stylesheet";
+          HorizontalStyle.rel = "stylesheet";
+          document.getElementById("orientation").innerHTML = "▤";
+        } else {
+          verticalStyle.rel = "stylesheet";
+          HorizontalStyle.rel = "alternate stylesheet";
+          document.getElementById("orientation").innerHTML = "▥";
+        }
+      });
+  </script>
 </html>
