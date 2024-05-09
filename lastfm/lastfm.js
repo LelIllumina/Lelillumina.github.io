@@ -8,6 +8,11 @@ const getTrack = async (username, site) => {
 
     let isPlaying = json.track['@attr']?.nowplaying || false;
 
+    let coverImageUrl = json.track.image[3]['#text'];
+    if (!coverImageUrl || coverImageUrl === '') {
+    coverImageUrl = '/images/NoArt.jpg';  
+    }
+
     if(!isPlaying) {
         notPlaying++;
         if (notPlaying == users.length) {
@@ -15,7 +20,7 @@ const getTrack = async (username, site) => {
         }
         document.getElementById("offline").innerHTML += `
         <div id="listening">
-        <img id="trackCover" src="${json.track.image[3]['#text']}">
+        <img id="trackCover" src="${json.track.image[3]['#text'] || '/images/NoArt.jpg'}">
         <div id="trackInfo">
         <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
         <h2 id="trackName">${json.track.name}</h2>
@@ -26,10 +31,10 @@ const getTrack = async (username, site) => {
         `
         return;
     }
-    
+
     document.getElementById("scrobbling").innerHTML += `
     <div id="listening">
-    <img id="trackCover" src="${json.track.image[3]['#text']}">
+    <img id="trackCover" src="${coverImageUrl}">
     <div id="trackInfo">
     <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
     <h2 id="trackName">${json.track.name}</h2>
@@ -44,6 +49,7 @@ users.forEach((user) => {
     const username = user[0];
     const site = user[1];
     getTrack(username, site);
+    notPlaying = 0;
 });
 
 setInterval(() => {

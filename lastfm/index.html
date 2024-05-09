@@ -37,12 +37,7 @@
         id="reload"
         type="button"
         value="⟳"
-        onclick="
-      users.forEach((user) => { const username = user[0]; const site = user[1]; getTrack(username,
-      site); });
-      document.getElementById('scrobbling').innerHTML = '';
-      document.getElementById('offline').innerHTML = '';
-      notPlaying=0"
+        onclick="reloadData();"
       />
       <div id="scrobbling"></div>
       <h2 id="seperator">Currently Offline (last scrobbled)</h2>
@@ -73,5 +68,18 @@
           document.getElementById("orientation").innerHTML = "▥";
         }
       });
+  </script>
+  <script>
+    var updateTimer;
+    function reloadData() {
+      users.forEach((user) => {
+        const username = user[0];
+        const site = user[1];
+        getTrack(username, site);
+      });
+      document.getElementById("scrobbling").innerHTML = "";
+      document.getElementById("offline").innerHTML = "";
+      notPlaying = 0;
+    }
   </script>
 </html>
