@@ -44,24 +44,26 @@
         size: 6,
       });
     </script>
-    <!-- SCM Music Player https://www.scmplayer.net -->
     <!-- <script
       type="text/javascript"
       src="https://www.scmplayer.net/script.js"
       data-config="{'skin':'skins/black/skin.css','volume':100,'autoplay':true,'shuffle':true,'repeat':1,'placement':'bottom','showplaylist':false,'playlist':[{'title':'Big Brother - P-MODEL','url':'https://music.youtube.com/watch?v=hOrTU2NNDVQ&si=JJsOR4JPsn7Mw0kQ'},{'title':'Error - Towa','url':'https://music.youtube.com/watch?v=3UV8OZj2olg'},{'title':'Fly me to the moon - Hikaru Utada','url':'https://music.youtube.com/watch?v=0oob53WeZ3A'},{'title':'Groovin%27 Magic - Round Table','url':'https://music.youtube.com/watch?v=xrZeY6CAvMY&si=mGeWAUR5zQ3aQgQa'},{'title':'Kimino Shiranai Monogatari - supercell','url':'https://music.youtube.com/watch?v=0VpGoDp3FCE'},{'title':'Kirameku Namida wa Hoshi ni - Tainaka Sachi','url':'https://music.youtube.com/watch?v=s_C4T68Kkq0&list=RDAMVMs_C4T68Kkq0'},{'title':'Omokage - Aimer my beloved, milet, Lilas Ikuta','url':'https://music.youtube.com/watch?v=jg-uSq64Ru8&si=EzOoDo_1OuVPOEVk'},{'title':'On Line Malaysia - Susumu HIrasawa','url':'https://music.youtube.com/watch?v=Fjcg-NZQ9u8&list=RDAMVMFjcg-NZQ9u8'},{'title':'The Disappearance of Hatsune Miku - dj-jo','url':'https://music.youtube.com/watch?v=7366zg3rwPE&si=guJfv7EObr6gkTxy'},{'title':'Waga Routashi Aku No Hana - Ali Project','url':'https://music.youtube.com/watch?v=52MyfphGa5M'},{'title':'Yuukyou Seisyunka - Ali Project','url':'https://music.youtube.com/watch?v=FtGL1UJ2PM8&si=uJIpm-Atmhfboznt'}]}"
     ></script> -->
-    <!-- SCM Music Player script end -->
-
-    <script>
-      NekoType = "valentine";
-    </script>
-    <h1 id="nl">
-      <script src="https://webneko.net/n20171213.js"></script>
-      <a href="https://webneko.net">Neko</a>
-    </h1>
 
     <header>
-      <a class="title" href="index.html">Welcome to Lel Land</a>
+      <div id="header">
+        <a class="title" href="index.html">Welcome to Lel Land</a>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="page">Blog</a></li>
+          <li><a href="gallery">Gallery</a></il>
+          <li><a href="LelIllumina">Lel Illumina</a></il>
+          <li><a href="music">Music</a></il>
+          <li><a href="meme.html">Bocchi</a></il>
+          <li style="float:right"><a href="lastfm">NekoFM</a></il>
+        </ul>
+      </nav>
     </header>
 
     <main>
@@ -71,9 +73,9 @@
           <img src="images/upside_down_lel.jpg" id="pfp" />
           <p class="alt">Me, im lel</p>
           <p>
-            <a href="page" class="hidden">Hai,</a> my names lel, idk how to make
-            websites this is my first time. I like anime and stuff, especially
-            type-moon and ufotable. i am also very cool and i like girls
+            Hai, my names lel, idk how to make websites this is my first time. I
+            like anime and stuff, especially type-moon and ufotable. i am also
+            very cool and i like girls
           </p>
         </div>
 
@@ -155,9 +157,7 @@
               src="https://cyber.dabamos.de/88x31/cuteanimegirls.gif"
               title="Animay Gurls"
           /></a>
-          <a href="gallery" class="hidden"
-            ><h2 style="margin: 10px">Mine(shit):</h2></a
-          >
+          <h2 style="margin: 10px">Mine(shit):</h2>
 
           <img src="images/buttons/lelbutton.gif" />
           <img src="images/buttons/button.gif" />
@@ -204,10 +204,6 @@
           </p>
         </div>
 
-        <p>
-          this is <a href="LelIllumina" class="hidden">lel</a> cult mf get yo
-          ass back to good html/css sites
-        </p>
         <a href="https://www.last.fm/user/lelillumina"
           ><img
             src="https://lastfm-recently-played.vercel.app/api?user=lelillumina"
@@ -229,50 +225,8 @@
       </div>
 
       <section class="sidebar">
-        <div class="block" id="to-do">
-          <h2>To - Do</h2>
-          <nav>
-            <ul>
-              <li><strike>Make my own Buuton.</strike></li>
-              <li>
-                <strike>Fix this pages css so it looks good in 800x600.</strike>
-              </li>
-              <li>
-                <strike>Make more pages and hide them for yall to find.</strike>
-              </li>
-              <li><strike>Steal some stuff from other sites.</strike></li>
-              <li>Make the cat follow without clicking.</li>
-              <li><strike>Stylize scrollbar</strike></li>
-              <li>more stuff...</li>
-            </ul>
-          </nav>
-        </div>
-        <div class="block">
-          <h2>Stuff ive made</h2>
-
-          <nav>
-            <ul>
-              <li>
-                <a
-                  href="https://userstyles.world/style/16094/nekoccin-web-theme"
-                  >Catppuccin Nekoweb Theme</a
-                >
-              </li>
-              <li>
-                <a href="https://userstyles.world/style/16147/nekoweb-template">
-                  Nekoweb Theme Template
-                </a>
-              </li>
-              <li>
-                <a href="lastfm/">Nekowebers Lastfm Status List</a>
-              </li>
-              <li>
-                <a href="sitemap.xml">Fancy sitemap.xml</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="block">
+        
+        <div class="block" style="margin-top: 150px;"">
           <h2>Stats:</h2>
           <p id="created"><em>Created</em>:</p>
           <p id="updated"><em>Updated</em>:</p>
@@ -296,8 +250,10 @@
     <footer>
       <p style="margin: auto; font-size: 15px">
         Lel Cult 2024 • This site is Open-Source on
-        <a href="https://github.com/LelIllumina/Lelillumina.github.io">Github</a
-        >!
+        <a href="https://github.com/LelIllumina/Lelillumina.github.io"
+          >Github</a
+        >
+        • <a href="sitemap.xml">Sitemap</a>
       </p>
     </footer>
   </body>
