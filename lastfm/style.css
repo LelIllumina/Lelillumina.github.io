@@ -43,10 +43,7 @@ footer {
   margin: auto;
   width: fit-content;
 }
-#title {
-  margin: 25px;
-}
-#reload {
+.button {
   background-color: unset;
   border: none;
   font-size: 25px;
@@ -55,6 +52,12 @@ footer {
   cursor: pointer;
   display: inline-flex;
   flex-direction: row-reverse;
+}
+#title {
+  margin: 25px;
+}
+#reload {
+  font-size: 25px;
 }
 #scrobbling,
 #offline {
