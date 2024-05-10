@@ -1,4 +1,4 @@
-#listening {
+.listening {
   background-color: var(--background);
   border: var(--border);
   display: flex;
@@ -9,7 +9,7 @@
   margin: 20px;
   align-items: center;
 }
-#trackCover {
+.trackCover {
   border-radius: var(--coverBorder);
   height: 150px;
   float: left;

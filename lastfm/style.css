@@ -74,17 +74,17 @@ footer {
   text-align: center;
   margin: 25px;
 }
-#trackInfo {
+.trackInfo {
   width: fit-content;
 }
-#trackName {
+.trackName {
   font-size: 2vmin;
   font-weight: bold;
 }
-#artistName {
+.artistName {
   font-size: 1vmax;
 }
-#searchButton {
+.searchButton {
   color: var(--text);
   background: var(--buttonBackground);
   border-radius: var(--buttonBorder);

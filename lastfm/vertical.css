@@ -1,4 +1,4 @@
-#listening {
+.listening {
   background-color: var(--background);
   border: var(--border);
   width: min-content;
@@ -6,7 +6,7 @@
   margin: 20px;
   align-items: center;
 }
-#trackCover {
+.trackCover {
   border-radius: var(--coverBorder);
   height: 150px;
   float: left;

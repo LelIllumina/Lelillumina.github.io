@@ -19,29 +19,29 @@ const getTrack = async (username, site) => {
             document.getElementById("scrobbling").innerHTML = '<p>No one\'s listening to anything right now</p>';
         }
         document.getElementById("offline").innerHTML += `
-        <div id="listening">
-        <img id="trackCover" src="${json.track.image[3]['#text'] || '/images/NoArt.jpg'}">
-        <div id="trackInfo">
-        <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-        <h2 id="trackName">${json.track.name}</h2>
-        <p id="artistName">${json.track.artist['#text']}</p>
-        <a id="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
-        </div>
-        </div>
+            <div id="${username}-listening" class="listening">
+            <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
+            <div id="${username}-trackInfo" class="trackInfo">
+            <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+            <h2 id="${username}-trackName" class="trackName">${json.track.name}</h2>
+            <p id="${username}-artistName" class="artistName">${json.track.artist['#text']}</p>
+            <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
+            </div>
+            </div>
         `
         return;
     }
 
     document.getElementById("scrobbling").innerHTML += `
-    <div id="listening">
-    <img id="trackCover" src="${coverImageUrl}">
-    <div id="trackInfo">
-    <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-    <h2 id="trackName">${json.track.name}</h2>
-    <p id="artistName">${json.track.artist['#text']}</p>
-    <a id="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
-    </div>
-    </div>
+        <div id="${username}-listening" class="listening">
+        <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
+        <div id="${username}-trackInfo" class="trackInfo">
+        <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+        <h2 id="${username}-trackName" class="trackName">${json.track.name}</h2>
+        <p id="${username}-artistName" class="artistName">${json.track.artist['#text']}</p>
+        <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${json.track.name}+${json.track.artist['#text']}" target="_blank"> Search Song</a>
+        </div>
+        </div>
     `
 };
 
