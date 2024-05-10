@@ -28,6 +28,13 @@ h2 {
   margin: 10px 0;
   font-size: 22px;
 }
+#tagline {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.hide {
+  opacity: 0 !important;
+}
 h3 {
   font-family: var(--font);
   margin: auto;

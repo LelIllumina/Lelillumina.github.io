@@ -21,16 +21,16 @@
     <link rel="prefetch" href="vertical.css" />
     <script src="users.js"></script>
     <script src="test.js"></script>
-    <script src="lastfm.js"></script>
+    <script src="socketfm.js"></script>
   </head>
   <body>
     <header>
       <div id="title">
         <h1>NekoFM</h1>
-        <h2>Who's listening to what</h2>
+        <h2 id="tagline">Who's listening to what</h2>
       </div>
     </header>
-    <main>
+    <div>
       <button class="button" id="orientation">▤</button>
       <input
         class="button"
@@ -39,6 +39,8 @@
         value="⟳"
         onclick="reloadData();"
       />
+    </div>
+    <main>
       <div id="scrobbling"></div>
       <h2 id="seperator">Currently Offline (last scrobbled)</h2>
       <div id="offline"></div>
@@ -80,6 +82,30 @@
       document.getElementById("scrobbling").innerHTML = "";
       document.getElementById("offline").innerHTML = "";
       notPlaying = 0;
+    }
+  </script>
+  <script>
+    const taglinePhrases = [
+      "Who's listening to what",
+      "Big thanks to tepiloxtl for websocket api",
+      "Who up scrobbling they song",
+      "In the NekoFM straight up scrobbling it, and from it, hehe, lets justr say, my track",
+      "Its scrobbling time (scrobbles everywhere)",
+      "Site by Lel Illumina",
+    ];
+    var counter = 0;
+    var elem = document.getElementById("tagline");
+    setInterval(change, 10000);
+    function change() {
+      elem.classList.add("hide");
+      setTimeout(function () {
+        elem.innerHTML = taglinePhrases[counter];
+        elem.classList.remove("hide");
+        counter++;
+        if (counter >= taglinePhrases.length) {
+          counter = 0;
+        }
+      }, 1000);
     }
   </script>
 </html>
