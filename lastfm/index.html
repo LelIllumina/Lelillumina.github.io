@@ -20,7 +20,7 @@
     <link rel="alternate stylesheet" href="vertical.css" id="vertical" />
     <link rel="prefetch" href="vertical.css" />
     <script src="users.js"></script>
-    <script src="lastfm.js"></script>
+    <script src="socketfm.js"></script>
   </head>
   <body>
     <header>
@@ -30,12 +30,13 @@
       </div>
     </header>
     <div>
-      <button class="button" id="orientation">▤</button>
+      <button title="Change orientation" class="button" id="orientation">▤</button>
       <input
         class="button"
         id="reload"
         type="button"
         value="⟳"
+        title="Hard Reset"
         onclick="reloadData();"
       />
     </div>
@@ -46,10 +47,9 @@
     </main>
     <footer>
       <p>
-        DM me on discord if you want me to add or remove you • JS is edited code
-        of
-        <a href="https://max.nekoweb.org/resources/lastfm-widget">max's code</a>
-      </p>
+        DM me on discord if you want me to add or remove you • REST api code by
+        <a class="credit" href="https://max.nekoweb.org/resources/lastfm-widget">Max's code</a>
+        • WebSocket API thanks to <a class="credit" href="http://scrobbled.tepiloxtl.net/">Tepiloxtl</a"></p>
     </footer>
   </body>
   <script>
@@ -90,6 +90,8 @@
       "Who up scrobbling they song",
       "In the NekoFM straight up scrobbling it, and from it, hehe, lets justr say, my track",
       "Its scrobbling time (scrobbles everywhere)",
+      "Now with Sockets for webs",
+      "DM lel if this breaaks :3",
       "Site by Lel Illumina",
     ];
     var counter = 0;
@@ -107,4 +109,12 @@
       }, 1000);
     }
   </script>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const script = document.querySelector("script[src='socketfm.js']");
+    if (location.search.includes("?api=REST")) {
+      script.src = "lastfm.js";
+    }
+  });
+</script>
 </html>
