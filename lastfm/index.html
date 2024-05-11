@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +17,11 @@
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="horizontal.css" id="horizontal" />
-    <link rel="alternate stylesheet" href="vertical.css" id="vertical" />
-    <link rel="prefetch" href="vertical.css" />
+    <link
+      rel="prefetch alternate stylesheet"
+      href="vertical.css"
+      id="vertical"
+    />
     <script src="users.js"></script>
     <script src="socketfm.js"></script>
   </head>
@@ -30,7 +33,9 @@
       </div>
     </header>
     <div>
-      <button title="Change orientation" class="button" id="orientation">▤</button>
+      <button title="Change orientation" class="button" id="orientation">
+        ▤
+      </button>
       <input
         class="button"
         id="reload"
@@ -48,73 +53,70 @@
     <footer>
       <p>
         DM me on discord if you want me to add or remove you • REST api code by
-        <a class="credit" href="https://max.nekoweb.org/resources/lastfm-widget">Max's code</a>
-        • WebSocket API thanks to <a class="credit" href="http://scrobbled.tepiloxtl.net/">Tepiloxtl</a"></p>
+        <a class="credit" href="https://max.nekoweb.org/resources/lastfm-widget"
+          >Max's code</a
+        >
+        • WebSocket API thanks to
+        <a class="credit" href="http://scrobbled.tepiloxtl.net/">Tepiloxtl</a>
+      </p>
     </footer>
-  </body>
-  <script>
-    const verticalStyle = document.getElementById("vertical");
-    const HorizontalStyle = document.getElementById("horizontal");
 
-    document
-      .getElementById("orientation")
-      .addEventListener("click", function () {
-        if (verticalStyle.rel === "stylesheet") {
-          verticalStyle.rel = "alternate stylesheet";
-          HorizontalStyle.rel = "stylesheet";
-          document.getElementById("orientation").innerHTML = "▤";
-        } else {
-          verticalStyle.rel = "stylesheet";
-          HorizontalStyle.rel = "alternate stylesheet";
-          document.getElementById("orientation").innerHTML = "▥";
-        }
-      });
-  </script>
-  <script>
-    var updateTimer;
-    function reloadData() {
-      users.forEach((user) => {
-        const username = user[0];
-        const site = user[1];
-        getTrack(username, site);
-      });
-      document.getElementById("scrobbling").innerHTML = "";
-      document.getElementById("offline").innerHTML = "";
-      notPlaying = 0;
-    }
-  </script>
-  <script>
-    const taglinePhrases = [
-      "Who's listening to what",
-      "Big thanks to tepiloxtl for websocket api",
-      "Who up scrobbling they song",
-      "In the NekoFM straight up scrobbling it, and from it, hehe, lets justr say, my track",
-      "Its scrobbling time (scrobbles everywhere)",
-      "Now with Sockets for webs",
-      "DM lel if this breaaks :3",
-      "Site by Lel Illumina",
-    ];
-    var counter = 0;
-    var elem = document.getElementById("tagline");
-    setInterval(change, 10000);
-    function change() {
-      elem.classList.add("hide");
-      setTimeout(function () {
-        elem.innerHTML = taglinePhrases[counter];
-        elem.classList.remove("hide");
-        counter++;
-        if (counter >= taglinePhrases.length) {
-          counter = 0;
-        }
-      }, 1000);
-    }
-  </script>
-<script>
-  window.addEventListener("DOMContentLoaded", function() {
-    const script = document.querySelector("script[src='socketfm.js']");
-    if (location.search.includes("?api=REST")) {
-      script.src = "lastfm.js";
-    }
-  });
-</script>
+    <script>
+      const verticalStyle = document.getElementById("vertical");
+      const HorizontalStyle = document.getElementById("horizontal");
+
+      document
+        .getElementById("orientation")
+        .addEventListener("click", function () {
+          if (verticalStyle.rel === "stylesheet") {
+            verticalStyle.rel = "alternate stylesheet";
+            HorizontalStyle.rel = "stylesheet";
+            document.getElementById("orientation").innerHTML = "▤";
+          } else {
+            verticalStyle.rel = "stylesheet";
+            HorizontalStyle.rel = "alternate stylesheet";
+            document.getElementById("orientation").innerHTML = "▥";
+          }
+        });
+    </script>
+    <script>
+      var updateTimer;
+      function reloadData() {
+        users.forEach((user) => {
+          const username = user[0];
+          const site = user[1];
+          getTrack(username, site);
+        });
+        document.getElementById("scrobbling").innerHTML = "";
+        document.getElementById("offline").innerHTML = "";
+        notPlaying = 0;
+      }
+    </script>
+    <script>
+      const taglinePhrases = [
+        "Who's listening to what",
+        "Big thanks to tepiloxtl for websocket api",
+        "Who up scrobbling they song",
+        "In the NekoFM straight up scrobbling it, and from it, hehe, lets justr say, my track",
+        "Its scrobbling time (scrobbles everywhere)",
+        "Now with Sockets for webs",
+        "DM lel if this breaaks :3",
+        "Site by Lel Illumina",
+      ];
+      var counter = 0;
+      var elem = document.getElementById("tagline");
+      setInterval(change, 10000);
+      function change() {
+        elem.classList.add("hide");
+        setTimeout(function () {
+          elem.innerHTML = taglinePhrases[counter];
+          elem.classList.remove("hide");
+          counter++;
+          if (counter >= taglinePhrases.length) {
+            counter = 0;
+          }
+        }, 1000);
+      }
+    </script>
+  </body>
 </html>
