@@ -17,6 +17,7 @@ body {
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(/images/background.png) repeat;
+  -webkit-animation: moveBackground 100s linear infinite;
   animation: moveBackground 100s linear infinite;
   margin: 0;
   background-color: var(--base);
@@ -26,10 +27,8 @@ body {
 h1 {
   font-family: "VT323", Sans-Serif;
   font-size: 48px;
-  background-image: -webkit-linear-gradient(#cba6f7, #eac3be);
-  background-image: -moz-linear-gradient(#cba6f7, #eac3be);
-  background-image: -o-linear-gradient(#cba6f7, #eac3be);
   background-image: linear-gradient(#cba6f7, #eac3be);
+  -webkit-background-clip: text;
   background-clip: text;
   color: #00000000;
   margin: auto;
@@ -66,6 +65,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-image: linear-gradient(var(--crust), var(--mantle));
+  background-image: -webkit-linear-gradient(var(--crust), var(--mantle));
 }
 
 .navbar li {
@@ -143,9 +143,22 @@ main {
 
 #pfp {
   height: 100px;
+  width: 100px;
   display: block;
   margin: auto;
   border: 5px dashed #313244;
+}
+
+#buttons {
+  text-align: center;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+
+  img {
+    width: 88px;
+    height: 31px;
+  }
 }
 
 #frame {
@@ -157,6 +170,9 @@ main {
   width: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border: 5px dashed #313244;
 }
 
@@ -170,6 +186,7 @@ main {
 
 #nekowebring table {
   background: linear-gradient(#303446, #292c3c, #232634);
+  background: -webkit-linear-gradient(#303446, #292c3c, #232634);
   border: #626880 2px solid;
 }
 
@@ -198,6 +215,11 @@ footer {
 }
 
 /* Text Selection */
+
+::-moz-selection {
+  color: var(--base);
+  background: #89b4fa;
+}
 
 ::selection {
   color: var(--base);
@@ -237,6 +259,15 @@ footer {
 }
 
 /* Animation */
+
+@-webkit-keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
 
 @keyframes moveBackground {
   0% {
