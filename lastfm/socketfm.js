@@ -13,7 +13,7 @@ const getTrack = (username, site) => {
     const json = JSON.parse(event.data);
     // console.log("Received JSON data for", username, json);
 
-    let existingDiv = document.getElementById(`${username}-listening`);
+    let existingDiv = document.getElementById(`${username}`);
     // let offlineDiv = document.getElementById("offline");
 
     // Set placeholder CoverImage if it dosent exist
@@ -23,7 +23,7 @@ const getTrack = (username, site) => {
     }
 
     // Check if user is scrobbling
-    if (json["recenttracks"]["track"][0].hasOwnProperty("@attr")) {
+    if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
       if (existingDiv) {
         // Update the existing div
         existingDiv.querySelector(".trackCover").src = coverImageUrl;
@@ -37,7 +37,7 @@ const getTrack = (username, site) => {
       } else {
         // Create new div for user
         document.getElementById("scrobbling").innerHTML += `
-        <div id="${username}-listening" class="listening">
+        <div id="${username}" class="listening">
         <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
         <div id="${username}-trackInfo" class="trackInfo">
         <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
@@ -56,13 +56,21 @@ const getTrack = (username, site) => {
     } else {
       // Check if everyone is offline and display notice
       notPlaying++;
-      if (notPlaying == users.length) {
-        document.getElementById("scrobbling").innerHTML =
-          "<p>No one's listening to anything right now</p>";
-      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (notPlaying == users.length) {
+          document.getElementById("scrobbling").innerHTML =
+            "<p>No one's listening to anything right now</p>";
+        } else {
+          // Remove the "No one's listening to anything right now" message if it's not needed
+          const pTag = document.getElementById("scrobbling").querySelector("p");
+          if (pTag) {
+            pTag.remove();
+          }
+        }
+      });
       // Create new div for offline user
       document.getElementById("offline").innerHTML += `
-             <div id="${username}-listening" class="listening">
+             <div id="${username}" class="listening">
             <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
             <div id="${username}-trackInfo" class="trackInfo">
             <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>

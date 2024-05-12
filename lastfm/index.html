@@ -17,11 +17,7 @@
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="horizontal.css" id="horizontal" />
-    <link
-      rel="prefetch alternate stylesheet"
-      href="vertical.css"
-      id="vertical"
-    />
+    <link rel="prefetch alt stylesheet" href="vertical.css" id="vertical" />
     <script src="users.js"></script>
     <script src="socketfm.js"></script>
   </head>
@@ -69,12 +65,12 @@
         .getElementById("orientation")
         .addEventListener("click", function () {
           if (verticalStyle.rel === "stylesheet") {
-            verticalStyle.rel = "alternate stylesheet";
+            verticalStyle.rel = "alt stylesheet";
             HorizontalStyle.rel = "stylesheet";
             document.getElementById("orientation").innerHTML = "▤";
           } else {
             verticalStyle.rel = "stylesheet";
-            HorizontalStyle.rel = "alternate stylesheet";
+            HorizontalStyle.rel = "alt stylesheet";
             document.getElementById("orientation").innerHTML = "▥";
           }
         });

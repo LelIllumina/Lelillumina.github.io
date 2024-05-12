@@ -8,52 +8,63 @@
   --buttonBackground: gray;
   --font: "Jetbrains Mono", "Courier New", Courier, monospace;
 }
+
 body {
   display: flex;
   flex-direction: column;
   font-family: "MS Gothic", "MS PGothic", sans-serif;
   height: 98%;
 }
+
 main {
   flex-grow: 1;
   min-height: max-content;
 }
+
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 50px;
   margin: auto;
 }
+
 h2 {
   font-family: var(--font);
   margin: 10px 0;
   font-size: 22px;
 }
+
 #tagline {
   opacity: 1;
   transition: opacity 1s;
 }
+
 .hide {
   opacity: 0 !important;
 }
+
 h3 {
   font-family: var(--font);
   margin: auto;
   color: darkgray;
-  font-size: 15px;
+  font-size: 1.5vmin;
 }
+
 a {
   text-decoration: none;
   font-size: 10px;
   color: darkgray;
 }
+
 p,
 .credit {
   font-size: 16px;
 }
+
 footer {
   margin: auto;
   width: fit-content;
 }
+
 .button {
   background-color: unset;
   border: none;
@@ -64,12 +75,15 @@ footer {
   display: inline-flex;
   flex-direction: row-reverse;
 }
+
 #title {
   margin: 25px;
 }
+
 #reload {
   font-size: 25px;
 }
+
 #scrobbling,
 #offline {
   display: flex;
@@ -78,30 +92,42 @@ footer {
   justify-content: space-evenly;
   min-height: 30%;
 }
+
 #offline {
   filter: opacity(50%) grayscale(50%);
 }
+
 #seperator {
   text-align: center;
   margin: 25px;
 }
+
 .trackInfo {
   width: fit-content;
 }
+
 .trackName {
   font-size: 2vmin;
   font-weight: bold;
 }
+
 .artistName {
   font-size: 1vmax;
+  margin: 5px auto;
 }
+
 .searchButton {
   color: var(--text);
   background: var(--buttonBackground);
   border-radius: var(--buttonBorder);
-  font-size: 16px;
+  font-size: 1vmax;
   padding: 4px;
   text-align: center;
   text-decoration: none;
   align-items: flex-end;
+}
+
+.dev {
+  background-color: var(--background);
+  border: 4px ridge greenyellow !important;
 }
