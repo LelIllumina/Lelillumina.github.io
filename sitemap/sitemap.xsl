@@ -4,10 +4,10 @@
   <xsl:template match="/">
     <html>
       <head>
-        <link rel="stylesheet" type="text/css" href="sitemap.css"/>
+        <link rel="stylesheet" type="text/css" href="/sitemap/sitemap.css"/>
       </head>
       <body>
-        <h1>lel.nekoweb.org sitemap</h1>
+        <h1>lel.nekoweb.org Sitemap</h1>
         <table>
           <tr class="header">
             <th style="
