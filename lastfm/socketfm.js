@@ -38,7 +38,7 @@ const getTrack = (username, site) => {
         // Create new div for user
         document.getElementById("scrobbling").innerHTML += `
         <div id="${username}" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
+        <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}" alt="${json.recenttracks.track[0].album["#text"]}">
         <div id="${username}-trackInfo" class="trackInfo">
         <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
         <h2 id="${username}-trackName" class="trackName">${json.recenttracks.track[0].name}</h2>
@@ -71,7 +71,7 @@ const getTrack = (username, site) => {
       // Create new div for offline user
       document.getElementById("offline").innerHTML += `
              <div id="${username}" class="listening">
-            <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}">
+            <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}" alt="${json.recenttracks.track[0].album["#text"]}">
             <div id="${username}-trackInfo" class="trackInfo">
             <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
             <h2 id="${username}-trackName" class="trackName">${json.recenttracks.track[0].name}</h2>
