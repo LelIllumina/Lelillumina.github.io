@@ -75,7 +75,7 @@ em {
   color: #e67e80;
 }
 
-.sidebar {
+#sidebar {
   margin: 0 5vw;
   animation: fadeIn 7s;
   position: sticky;

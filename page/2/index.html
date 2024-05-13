@@ -64,34 +64,15 @@
         its so fucking dumb.
       </p>
     </section>
-    <section class="sidebar">
-      <div>
-        <h1>Blogs:</h1>
-        <p>
-          <a href="/page" style="animation-direction: alternate-reverse"
-            >Hello there.</a
-          >
-        </p>
-        <p>
-          <a href="/page/2" style="animation-direction: alternate-reverse"
-            >I FUCKING HATE MATHS (this)</a
-          >
-        </p>
-      </div>
-      <div>
-        <h1>Links:</h1>
-        <p>
-          <a href="https://remblanc.nekoweb.org"
-            ><img
-              src="https://remblanc.nekoweb.org/images/button.png"
-              alt="remblanc"
-              title="remblanc's incredible site"
-          /></a>
-        </p>
-        <p><a href="/music">Super Secret web page</a></p>
-        <p><a href="https://nekoweb.org">The Nekowebs</a></p>
-        <p><a href="/">Back to the Main page</a></p>
-      </div>
-    </section>
+    <section id="sidebar"></section>
+    <script>
+      fetch("../sidebar.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((data) => {
+          document.getElementById("sidebar").innerHTML = data;
+        });
+    </script>
   </body>
 </html>
