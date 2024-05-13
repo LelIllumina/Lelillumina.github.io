@@ -1,17 +1,48 @@
-.listening {
-  background-color: var(--background);
-  border: var(--border);
-  display: flex;
-  height: 150px;
-  width: min-content;
-  min-width: 25%;
-  padding: 20px;
-  margin: 20px;
-  align-items: center;
+@media only screen and (min-width: 479px) {
+  .listening {
+    background-color: var(--background);
+    border: var(--border);
+    display: flex;
+    height: 150px;
+    width: min-content;
+    min-width: 25%;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+  }
+  .trackCover {
+    border-radius: var(--coverBorder);
+    height: 150px;
+    float: left;
+    margin-right: 20px;
+  }
 }
-.trackCover {
-  border-radius: var(--coverBorder);
-  height: 150px;
-  float: left;
-  margin-right: 20px;
+@media only screen and (max-width: 479px) {
+  .listening {
+    background-color: var(--background);
+    border: var(--border);
+    width: min-content;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+  }
+  .trackCover {
+    border-radius: var(--coverBorder);
+    height: 150px;
+    float: left;
+    margin-bottom: 15px;
+  }
+
+  .artistName {
+    font-size: 3vmin;
+  }
+  .trackName {
+    font-size: 3.5vmin;
+  }
+  .searchButton {
+    font-size: 2.5vmin;
+  }
+  #orientation {
+    display: none;
+  }
 }
