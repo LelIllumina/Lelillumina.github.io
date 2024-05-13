@@ -9,7 +9,7 @@
 	<url>
 		<loc>https://lel.nekoweb.org/page</loc>
 		<priority>0.67</priority>
-		<lastmod>2024-05-04</lastmod>
+		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/not_found.html</loc>
@@ -22,9 +22,9 @@
 		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
-		<loc>https://lel.nekoweb.org/meme.html</loc>
+		<loc>https://lel.nekoweb.org/meme</loc>
 		<priority>0.67</priority>
-		<lastmod>2024-05-11</lastmod>
+		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/LelIllumina</loc>
@@ -42,14 +42,19 @@
 		<lastmod>2024-05-12</lastmod>
 	</url>
 	<url>
-		<loc>https://lel.nekoweb.org/test/test.html</loc>
+		<loc>https://lel.nekoweb.org/page/sidebar.html</loc>
 		<priority>0.33</priority>
-		<lastmod>2024-05-02</lastmod>
+		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/2</loc>
 		<priority>0.33</priority>
-		<lastmod>2024-05-04</lastmod>
+		<lastmod>2024-05-13</lastmod>
+	</url>
+	<url>
+		<loc>https://lel.nekoweb.org/page/1</loc>
+		<priority>0.33</priority>
+		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music/susumu</loc>
