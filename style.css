@@ -91,7 +91,7 @@ a {
 }
 
 .title {
-  font-family: "Honk", fantasy;
+  font-family: "Bungee Spice", fantasy;
   font-size: 40px;
   margin: 10px;
 }
@@ -113,9 +113,19 @@ header {
 }
 
 #header {
-  border: 10px double var(--base);
-  border-bottom: none;
   padding: 10px;
+  background-image: linear-gradient(var(--mantle), var(--crust));
+  overflow: hidden;
+}
+
+#marquee {
+  display: block;
+  width: 100%;
+  /* width of your text div */
+  height: 60px;
+  /* height of your text div */
+  position: relative;
+  animation: marquee 5s ease;
 }
 
 main {
@@ -275,5 +285,14 @@ footer {
   }
   100% {
     background-position: 100% 100%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0px;
   }
 }

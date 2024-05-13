@@ -7,30 +7,55 @@
     <meta name="author" content="Lel Illumina" />
     <link href="/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Semi+Condensed&amp;family=Honk&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway&amp;family=Josefin+Sans&amp;family=Bungee+Spice&amp;family=VT323&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="images/neicon_arc.jpg" />
-    <title>Lels Nyeco site</title>
-    <meta name="description" content="404 Lost neco" />
+    <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
+    <link rel="apple-touch-icon" href="/images/neicon_arc.jpg" />
+    <style type="text/css">
+      body {
+        cursor: url(/assets/neco-arcgodmode.cur), default;
+      }
+
+      a {
+        cursor: url(/assets/neco-arclooking.cur), pointer;
+      }
+    </style>
   </head>
+
   <body>
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
     <script>
-      NekoType = "valentine";
+      new cursoreffects.rainbowCursor({
+        length: 10,
+        colors: ["#fad272", "#ffffff", "#8c3d7e"],
+        size: 6,
+      });
     </script>
-    <h1 id="nl">
-      <script src="https://webneko.net/n20171213.js"></script>
-      <a href="https://webneko.net">Neko</a>
-    </h1>
+
     <header>
-      <a class="title" href="/">Welcome to Lel Land</a>
+      <div id="header">
+        <div id="marquee">
+          <a class="title" href="index.html"><i>You've gone off shore!</i></a>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="page">Blog</a></li>
+          <li><a href="LelIllumina">Lel Illumina</a></li>
+          <li><a href="music">Music</a></li>
+          <li><a href="meme">Bocchi</a></li>
+          <li style="float: right"><a href="lastfm">NekoFM</a></li>
+        </ul>
+      </nav>
     </header>
     <main style="height: 100vh">
       <div class="block" style="height: fit-content; width: 30vh">
         <h2>404</h2>
         <img
+          alt="watame headshake"
           src="https://media1.tenor.com/m/xKhvQq6EuHEAAAAd/hololive-watame.gif"
           style="
             width: 100%;

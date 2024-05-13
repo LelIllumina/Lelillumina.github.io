@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway&amp;family=Josefin+Sans&amp;family=Honk&amp;family=VT323&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway&amp;family=Josefin+Sans&amp;family=Bungee+Spice&amp;family=VT323&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
@@ -40,14 +40,6 @@
   </head>
 
   <body>
-    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-    <script>
-      new cursoreffects.rainbowCursor({
-        length: 10,
-        colors: ["#fad272", "#ffffff", "#8c3d7e"],
-        size: 6,
-      });
-    </script>
     <!-- <script
       type="text/javascript"
       src="https://www.scmplayer.net/script.js"
@@ -56,7 +48,11 @@
 
     <header>
       <div id="header">
-        <a class="title" href="index.html">Welcome to Lel Land</a>
+        <div id="marquee">
+          <a class="title" href="index.html"
+            ><i>You've landed on Lel Island!</i></a
+          >
+        </div>
       </div>
       <nav class="navbar">
         <ul>
@@ -269,5 +265,13 @@
         • <a href="sitemap.xml">Sitemap</a>
       </p>
     </footer>
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <script>
+      new cursoreffects.rainbowCursor({
+        length: 10,
+        colors: ["#fad272", "#ffffff", "#8c3d7e"],
+        size: 6,
+      });
+    </script>
   </body>
 </html>
