@@ -10,6 +10,7 @@ const users = [
   ["milkywaydotmoe", "milkyway.moe"],
   ["pupfae", "gup.nekoweb.org"],
   ["flowerz-2005", "flowerz.nekoweb.org"],
+  ["abyssmaze", "eye.nekoweb.org"],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
