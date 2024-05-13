@@ -59,6 +59,10 @@ ul {
   padding-left: 20px;
 }
 
+li {
+  margin: 5px auto;
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
