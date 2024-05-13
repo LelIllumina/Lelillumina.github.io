@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://lel.nekoweb.org/" />
     <meta property="og:site_name" content="Nekoweb Lel" />
     <meta name="theme-color" content="#cba6f7" />
-    <title>Lels Nyeco site</title>
+    <title>Neco Island</title>
     <meta name="description" content="The cult of the Lel" />
     <meta name="keywords" content="Lel, Nekoweb, Personal site" />
     <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
@@ -75,14 +75,15 @@
       </div>
       <nav class="navbar">
         <ul>
+          <li><a href="lastfm">NekoFM</a></li>
           <li><a href="page/1">Blog</a></li>
           <li><a href="LelIllumina">Lel Illumina</a></li>
           <li><a href="music">Music</a></li>
           <li><a href="meme">Bocchi</a></li>
-          <li style="float: right"><a href="lastfm">NekoFM</a></li>
         </ul>
       </nav>
     </header>
+    <div id="tagline">Loading...</div>
 
     <main>
       <section class="sidebar">
@@ -184,7 +185,7 @@
               title="Animay Gurls"
               alt="Anime girl Button"
           /></a>
-          <h2 style="margin: 10px">Mine(shit):</h2>
+          <h2 style="margin: 10px">Mine:</h2>
 
           <a href="https://lel.nekoweb.org/"
             ><img
@@ -218,12 +219,13 @@
       </section>
 
       <div class="block" id="frame">
-        <h1>Hemlo Gang</h1>
+        <h1>Hello There</h1>
         <p>
-          Hello hello, welcome to my site, this is the 3rd time ive changed this
-          paragraph if you hadnt read the past 2 versions well :3 womp womp,
-          however please do look around and click everything, i have a bunch of
-          cool stuff here
+          Hello hello, welcome to my site, this is the <i>4th</i> time ive
+          changed this paragraph, if you're new here please have a look around
+          and if you have something to tell me id be happy to hear. Im usually
+          active on the Nekoweb Discord server. Also dont mind giving me a
+          follow.
         </p>
         <iframe
           title="Nekoweb Follow button"
@@ -306,6 +308,50 @@
         colors: ["#fad272", "#ffffff", "#8c3d7e"],
         size: 6,
       });
+    </script>
+    <script>
+      const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      const d = new Date();
+      let dayIndex = d.getDay() + 1; // Get the index of the next day
+
+      if (dayIndex === 7) {
+        // If it's Saturday, set dayIndex to 0 (Sunday)
+        dayIndex = 0;
+      }
+
+      let day = weekday[dayIndex];
+      window.onload = function () {
+        var taglines = [
+          "NENENENEKO WEBBB!!!",
+          "Welcome to Lel Island!",
+          "Lel is out there to get you!",
+          "I may be dumb, but youre mean and thats worse",
+          "who says i can think",
+          "Report any bugs to me plssss :33333",
+          "im gonna hide something sinister here",
+          "THIS IS AN 18+ SITE, NO KIDS ALLOWED TIME TO GET 𝓯𝓻𝓮𝓪𝓴𝔂",
+          "who here has Nekoweb",
+          "Happy " + day + "!",
+          "Assalamualaikum Brothers...",
+          "Who up nekoing they web rn",
+          "In the Nekoweb",
+          "Strait up Webbing",
+          "and from it...",
+          "hehe",
+          "Lets justr say, my websait",
+        ];
+        var randomIndex = Math.floor(Math.random() * taglines.length);
+        document.getElementById("tagline").innerHTML = taglines[randomIndex];
+      };
     </script>
   </body>
 </html>

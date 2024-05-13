@@ -25,13 +25,12 @@ body {
 
 /* Text formating*/
 h1 {
-  font-family: "VT323", Sans-Serif;
+  font-family: "Josefin Sans", Sans-Serif;
   font-size: 48px;
-  background-image: linear-gradient(#cba6f7, #eac3be);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: #00000000;
-  margin: auto;
+  color: var(--text);
+  text-shadow: 1px 1px #cba6f7;
+  margin: 10px auto;
+  text-align: left;
 }
 
 h2 {
@@ -44,12 +43,17 @@ h2 {
   margin-bottom: 10px;
 }
 
+#frame p {
+  text-align: justify;
+  font-size: 18px;
+}
+
 ul,
 li,
 p,
 a {
   font-family: "Raleway", Sans-Serif;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text);
 }
 
@@ -102,7 +106,7 @@ a {
 
 .alt {
   font-size: 10px;
-  text-align: center;
+  text-align: center !important;
   color: var(--text);
 }
 
@@ -126,10 +130,36 @@ header {
   display: block;
   width: 100%;
   /* width of your text div */
-  height: 60px;
+  height: 100%;
   /* height of your text div */
   position: relative;
+  -webkit-animation: marquee 5s ease;
   animation: marquee 5s ease;
+}
+
+#tagline {
+  position: absolute;
+  font-family: "Monocraft";
+  color: rgb(255, 255, 0);
+  text-shadow: 0 0 10px black, 0 0 10px black;
+  background-color: transparent;
+  left: 75%;
+  top: 100px;
+  font-size: 20px;
+  transform: rotate(-20deg);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-animation: subtitle 0.25s;
+  animation: subtitle 0.25s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 main {
@@ -292,6 +322,15 @@ footer {
   }
 }
 
+@-webkit-keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
 @keyframes marquee {
   0% {
     left: 100%;
@@ -299,4 +338,29 @@ footer {
   100% {
     left: 0px;
   }
+}
+
+@keyframes subtitle {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+@-webkit-keyframes subtitle {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "Monocraft";
+  src: url("https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.otf");
 }
