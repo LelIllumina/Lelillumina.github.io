@@ -13,6 +13,34 @@ const getTrack = (username, site) => {
     const json = JSON.parse(event.data);
     // console.log("Received JSON data for", username, json);
 
+    // Check if user is online or offline
+    if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
+      userOnline = true; // User is online
+    } else {
+      userOnline = false; // User is offline
+    }
+
+    // Move divs between offline and scrobbling sections
+    if (userOnline) {
+      // Move user from offline to scrobbling
+      const offlineDiv = document.getElementById("offline");
+      const scrobblingDiv = document.getElementById("scrobbling");
+      const userDiv = offlineDiv.querySelector(`#${username}`);
+      if (userDiv) {
+        offlineDiv.removeChild(userDiv);
+        scrobblingDiv.appendChild(userDiv);
+      }
+    } else {
+      // Move user from scrobbling to offline
+      const scrobblingDiv = document.getElementById("scrobbling");
+      const offlineDiv = document.getElementById("offline");
+      const userDiv = scrobblingDiv.querySelector(`#${username}`);
+      if (userDiv) {
+        scrobblingDiv.removeChild(userDiv);
+        offlineDiv.appendChild(userDiv);
+      }
+    }
+
     let existingDiv = document.getElementById(`${username}`);
     // let offlineDiv = document.getElementById("offline");
 
