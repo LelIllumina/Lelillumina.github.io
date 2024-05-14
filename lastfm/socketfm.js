@@ -41,8 +41,7 @@ const getTrack = (username, site) => {
       }
     }
 
-    let existingDiv = document.getElementById(`${username}`);
-    // let offlineDiv = document.getElementById("offline");
+    let userDiv = document.getElementById(`${username}`);
 
     // Set placeholder CoverImage if it dosent exist
     let coverImageUrl = json.recenttracks.track[0].image[2]["#text"];
@@ -52,14 +51,14 @@ const getTrack = (username, site) => {
 
     // Check if user is scrobbling
     if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
-      if (existingDiv) {
+      if (userDiv) {
         // Update the existing div
-        existingDiv.querySelector(".trackCover").src = coverImageUrl;
-        existingDiv.querySelector(".trackName").textContent =
+        userDiv.querySelector(".trackCover").src = coverImageUrl;
+        userDiv.querySelector(".trackName").textContent =
           json.recenttracks.track[0].name;
-        existingDiv.querySelector(".artistName").textContent =
+        userDiv.querySelector(".artistName").textContent =
           json.recenttracks.track[0].artist.name;
-        existingDiv.querySelector(
+        userDiv.querySelector(
           ".searchButton"
         ).href = `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
       } else {
@@ -75,10 +74,6 @@ const getTrack = (username, site) => {
         </div>
         </div>
         `;
-        // TODO move user div from offline section if they come online and vice versa
-        // if (offlineDiv.querySelector(`#${username}-listening`)) {
-        //   offlineDiv.querySelector(`#${username}-listening`).remove();
-        // }
       }
       return;
     } else {

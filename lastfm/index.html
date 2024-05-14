@@ -10,17 +10,35 @@
       name="description"
       content="Shows the lastfm scrobbling status of people on the Nekoweb"
     />
-    <meta name="keywords" content="Nekoweb, " />
-    <meta name="og:title" content="NekoFM" />
+    <meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music" />
+    <meta property="og:title" content="NekoFM" />
     <meta
-      name="og:description"
+      property="og:description"
       content="Shows the lastfm scrobbling status of people on the Nekoweb"
     />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lel.nekoweb.org/lastfm" />
     <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta
+      property="og:image"
+      content="https://lel.nekoweb.org/images/NekoFM_ek.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://lel.nekoweb.org/lastfm",
+        "name": "NekoFM",
+        "author": {
+          "@type": "Person",
+          "name": "Lel Illumina"
+        }
+      }
+    </script>
     <meta name="theme-color" content="#a20000" />
+    <link rel="apple-touch-icon" href="/images/NekoFM_ek.png" />
     <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
-    <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
+    <link rel="icon" type="image/x-icon" href="/images/NekoFM_ek.png" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="horizontal.css" id="horizontal" />
     <link
@@ -34,7 +52,7 @@
   <body>
     <header>
       <div id="title">
-        <h1>NekoFM</h1>
+        <img id="logo" src="/images/NekoFM.png" alt="NekoFM" />
         <h2 id="tagline">Who's listening to what</h2>
       </div>
     </header>
@@ -58,12 +76,14 @@
     </main>
     <footer>
       <p>
-        DM me on discord if you want me to add or remove you • REST api code by
+        DM me on discord if you want me to add or remove you • Want a widget on
+        your own site? Check out
         <a class="credit" href="https://max.nekoweb.org/resources/lastfm-widget"
           >Max's code</a
         >
         • WebSocket API thanks to
-        <a class="credit" href="http://scrobbled.tepiloxtl.net/">Tepiloxtl</a>
+        <a class="credit" href="http://scrobbled.tepiloxtl.net/">Tepiloxtl</a> •
+        Site by <a class="credit" href="/">Lel</a>
       </p>
     </footer>
 

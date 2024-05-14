@@ -13,6 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Auto Minify
+        uses: nizarmah/auto-minify@v3.0.0
+
+      - name: auto commit the minified files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "bot: Add auto minified files"
+
       - name: Prepare build
         run: |
           mkdir -p ./build
