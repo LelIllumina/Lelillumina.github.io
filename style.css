@@ -64,7 +64,11 @@ ul {
 }
 
 li {
-  margin: 8px auto;
+  margin: 10px auto;
+}
+
+li > a {
+  font-size: 15px;
 }
 
 .navbar ul {
@@ -198,11 +202,10 @@ main {
   -ms-interpolation-mode: nearest-neighbor;
   image-rendering: -moz-crisp-edges;
   image-rendering: pixelated;
-
-  img {
-    width: 88px;
-    height: 31px;
-  }
+}
+#buttons img {
+  width: 88px;
+  height: 31px;
 }
 
 #frame {
