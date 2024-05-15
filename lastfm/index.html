@@ -144,5 +144,37 @@
         }, 1000);
       }
     </script>
+    <!-- <script>
+      users.forEach((user) => {
+        const domain = user[1];
+        const url = `https://${domain}/nekofm.css`;
+        function checkURLExists(url) {
+          return fetch(url, { method: "HEAD" })
+            .then((response) => {
+              // Check if response status is in the 200-299 range
+              if (response.ok) {
+                return true; // URL exists
+              } else {
+                return false; // URL does not exist
+              }
+            })
+            .catch((error) => {
+              console.error("Error checking URL:", error);
+              return false; // Assuming URL does not exist in case of error
+            });
+        }
+
+        // Example usage:
+        checkURLExists(url).then((exists) => {
+          if (exists) {
+            console.log("URL exists");
+            // Proceed with fetching the URL
+          } else {
+            console.log("URL does not exist");
+            // Handle accordingly, maybe show a message to the user
+          }
+        });
+      });
+    </script> -->
   </body>
 </html>

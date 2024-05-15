@@ -52,15 +52,29 @@ const getTrack = (username, site) => {
     // Check if user is scrobbling
     if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
       if (userDiv) {
-        // Update the existing div
-        userDiv.querySelector(".trackCover").src = coverImageUrl;
-        userDiv.querySelector(".trackName").textContent =
-          json.recenttracks.track[0].name;
-        userDiv.querySelector(".artistName").textContent =
-          json.recenttracks.track[0].artist.name;
-        userDiv.querySelector(
-          ".searchButton"
-        ).href = `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+        // Get current values
+        const currentTrackName =
+          userDiv.querySelector(".trackName").textContent;
+        const currentArtistName =
+          userDiv.querySelector(".artistName").textContent;
+        const currentCoverImageUrl = userDiv.querySelector(".trackCover").src;
+
+        // Check if values are different
+        if (
+          currentTrackName !== json.recenttracks.track[0].name ||
+          currentArtistName !== json.recenttracks.track[0].artist.name ||
+          currentCoverImageUrl !== coverImageUrl
+        ) {
+          // Update the existing div
+          userDiv.querySelector(".trackCover").src = coverImageUrl;
+          userDiv.querySelector(".trackName").textContent =
+            json.recenttracks.track[0].name;
+          userDiv.querySelector(".artistName").textContent =
+            json.recenttracks.track[0].artist.name;
+          userDiv.querySelector(
+            ".searchButton"
+          ).href = `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+        }
       } else {
         // Create new div for user
         document.getElementById("scrobbling").innerHTML += `
