@@ -290,6 +290,7 @@ footer {
   }
   .sidebar {
     margin: auto;
+    order: 1;
   }
   .sidebar > div {
     width: 40vw;
@@ -298,6 +299,9 @@ footer {
     width: auto;
   }
   #to-do {
+    margin: auto;
+  }
+  #top-right {
     margin: auto;
   }
 }
