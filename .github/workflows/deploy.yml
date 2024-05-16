@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Auto Minify
-        uses: nizarmah/auto-minify@v3.0.0
-
       - name: Prepare build
         run: |
           mkdir -p ./build
