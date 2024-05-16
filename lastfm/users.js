@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const users = [
   ["LelIllumina", "lel.nekoweb.org"],
   ["tepiloxtl", "tepiloxtl.net"],

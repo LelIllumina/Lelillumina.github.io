@@ -1,6 +1,8 @@
+/* global users */
 // WebSocket API (scrobbled) by tepiloxtl
 
 var notPlaying = 0;
+var userOnline;
 const getTrack = (username, site) => {
   const BASE_URL = `wss://scrobbled.tepiloxtl.net/ws/get_last_track/${username}`;
   const ws = new WebSocket(BASE_URL);
@@ -14,7 +16,9 @@ const getTrack = (username, site) => {
     // console.log("Received JSON data for", username, json);
 
     // Check if user is online or offline
-    if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
+    if (
+      Object.prototype.hasOwnProperty.call(json.recenttracks.track[0], "@attr")
+    ) {
       userOnline = true; // User is online
     } else {
       userOnline = false; // User is offline
@@ -50,7 +54,9 @@ const getTrack = (username, site) => {
     }
 
     // Check if user is scrobbling
-    if (json.recenttracks.track[0].hasOwnProperty("@attr")) {
+    if (
+      Object.prototype.hasOwnProperty.call(json.recenttracks.track[0], "@attr")
+    ) {
       if (userDiv) {
         // Get current values
         const currentTrackName =
@@ -71,9 +77,8 @@ const getTrack = (username, site) => {
             json.recenttracks.track[0].name;
           userDiv.querySelector(".artistName").textContent =
             json.recenttracks.track[0].artist.name;
-          userDiv.querySelector(
-            ".searchButton"
-          ).href = `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+          userDiv.querySelector(".searchButton").href =
+            `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
         }
       } else {
         // Create new div for user

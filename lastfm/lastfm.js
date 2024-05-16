@@ -1,3 +1,5 @@
+/* global users */
+
 // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
 
 var notPlaying = 0;
