@@ -1,13 +1,14 @@
 /* Color Vars */
 :root {
   color-scheme: dark;
+
   --text: #cdd6f4;
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
 }
 
-/* Viewport stuff*/
+/* Viewport stuff */
 html,
 body {
   height: 100%;
@@ -15,17 +16,16 @@ body {
 
 /* Neco arc Background and Footer */
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(/images/background.png) repeat;
-  -webkit-animation: moveBackground 100s linear infinite;
-  animation: moveBackground 100s linear infinite;
+  background: linear-gradient(#00000080, #00000080),
+    url("/images/background.png") repeat;
+  animation: move-background 100s linear infinite;
   margin: 0;
   background-color: var(--base);
 }
 
-/* Text formating*/
+/* Text formating */
 h1 {
-  font-family: "Josefin Sans", Sans-Serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 48px;
   color: var(--text);
   text-shadow: 1px 1px #cba6f7;
@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Josefin Sans", Sans-Serif;
+  font-family: "Josefin Sans", sans-serif;
   color: var(--text);
   text-shadow: 1px 1px #cba6f7;
   font-size: 20px;
@@ -43,18 +43,23 @@ h2 {
   margin-bottom: 10px;
 }
 
-#frame p {
-  text-align: justify;
-  font-size: 18px;
-}
-
 ul,
 li,
 p,
 a {
-  font-family: "Raleway", Sans-Serif;
+  font-family: Raleway, sans-serif;
   font-size: 13px;
   color: var(--text);
+}
+
+a {
+  color: #89b4fa;
+  text-decoration: none;
+}
+
+#frame p {
+  text-align: justify;
+  font-size: 18px;
 }
 
 ul {
@@ -77,7 +82,6 @@ li > a {
   padding: 0;
   overflow: hidden;
   background-image: linear-gradient(var(--crust), var(--mantle));
-  background-image: -webkit-linear-gradient(var(--crust), var(--mantle));
 }
 
 .navbar li {
@@ -92,14 +96,10 @@ li > a {
   text-align: center;
   padding: 14px 25px;
 }
+
 .navbar li a:hover {
   background-color: var(--mantle);
   transition: 0.5s;
-}
-
-a {
-  color: #89b4fa;
-  text-decoration: none;
 }
 
 .title {
@@ -114,14 +114,14 @@ a {
   color: var(--text);
 }
 
-/*Main body CSS*/
+/* Main body CSS */
 
 header {
   margin: 5px auto 10px;
   width: 75%;
   text-align: center;
   background-color: var(--crust);
-  box-shadow: 0px 3px 8px black;
+  box-shadow: 0 3px 8px black;
 }
 
 #header {
@@ -133,37 +133,23 @@ header {
 #marquee {
   display: block;
   width: 100%;
-  /* width of your text div */
   height: 100%;
-  /* height of your text div */
   position: relative;
-  -webkit-animation: marquee 5s ease;
   animation: marquee 5s ease;
 }
 
 #tagline {
   position: absolute;
-  font-family: "Monocraft";
-  color: rgb(255, 255, 0);
+  font-family: Monocraft, monospace;
+  color: #ff0;
   text-shadow: 0 0 10px black, 0 0 10px black;
   background-color: transparent;
   left: 75%;
   top: 100px;
   font-size: 20px;
   transform: rotate(-20deg);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  -webkit-animation: subtitle 0.25s;
-  animation: subtitle 0.25s;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  animation-direction: normal;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+  animation: subtitle 0.25s 1 alternate;
 }
 
 main {
@@ -186,7 +172,7 @@ main {
   padding: 20px;
   border: 8px solid var(--mantle);
   margin: 5px;
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0 0 10px black;
 }
 
 #pfp {
@@ -199,10 +185,9 @@ main {
 
 #buttons {
   text-align: center;
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: -moz-crisp-edges;
   image-rendering: pixelated;
 }
+
 #buttons img {
   width: 88px;
   height: 31px;
@@ -213,12 +198,10 @@ main {
   text-align: center;
 }
 
-#VCR {
+#vcr {
   width: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   border: 5px dashed #313244;
 }
@@ -233,7 +216,6 @@ main {
 
 #nekowebring table {
   background: linear-gradient(#303446, #292c3c, #232634);
-  background: -webkit-linear-gradient(#303446, #292c3c, #232634);
   border: #626880 2px solid;
 }
 
@@ -248,25 +230,24 @@ footer {
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background: #6c7086;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #585b70;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #45475a;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background: #313244;
 }
 
 /* Text Selection */
-
-::-moz-selection {
-  color: var(--base);
-  background: #89b4fa;
-}
 
 ::selection {
   color: var(--base);
@@ -274,36 +255,44 @@ footer {
 }
 
 /* Mobile Responsiveness */
-@media (min-width: 601px) and (max-width: 900px) {
+
+@media (width >= 601px) and (width <= 900px) {
   #frame {
     width: 35vw;
   }
+
   .sidebar > div {
     width: 15vw;
   }
+
   #pfp {
     width: 10vw;
     height: 10vw;
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   main {
     flex-direction: column;
   }
+
   .sidebar {
     margin: auto;
     order: 1;
   }
+
   .sidebar > div {
     width: 40vw;
   }
+
   #frame {
     width: auto;
   }
+
   #to-do {
     margin: auto;
   }
+
   #top-right {
     margin: auto;
   }
@@ -311,30 +300,13 @@ footer {
 
 /* Animation */
 
-@-webkit-keyframes moveBackground {
+@keyframes move-background {
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 100% 100%;
-  }
-}
-
-@keyframes moveBackground {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
-@-webkit-keyframes marquee {
-  0% {
-    left: 100%;
-  }
-  100% {
-    left: 0px;
   }
 }
 
@@ -342,8 +314,9 @@ footer {
   0% {
     left: 100%;
   }
+
   100% {
-    left: 0px;
+    left: 0;
   }
 }
 
@@ -351,15 +324,7 @@ footer {
   0% {
     transform: scale(0.875) rotate(-20deg);
   }
-  100% {
-    transform: scale(1) rotate(-20deg);
-  }
-}
 
-@-webkit-keyframes subtitle {
-  0% {
-    transform: scale(0.875) rotate(-20deg);
-  }
   100% {
     transform: scale(1) rotate(-20deg);
   }
@@ -368,6 +333,6 @@ footer {
 /* Fonts */
 
 @font-face {
-  font-family: "Monocraft";
+  font-family: Monocraft;
   src: url("/assets/Monocraft-nerd-fonts-patched.ttf");
 }

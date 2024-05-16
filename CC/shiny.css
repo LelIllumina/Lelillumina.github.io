@@ -13,8 +13,8 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -24,8 +24,8 @@
   margin-top: 100px;
   width: 80vw;
   height: 65vh;
-  box-shadow: 0px 0px 5px #00ee00, 0px 0px 5px #00ee00 inset;
-  background: rgba(100, 200, 100, 0.5);
+  box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
+  background: rgb(100 200 100 / 50%);
   animation-name: bub;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -35,10 +35,12 @@
   #text {
     margin-left: 280px;
   }
+
   h1,
   p {
     padding: 12px;
   }
+
   p {
     font-size: 17px;
     -webkit-text-stroke: 0.1px black;
@@ -56,21 +58,24 @@
 
 @keyframes bub {
   0% {
-    box-shadow: 0px 0px 5px #00ee00, 0px 0px 5px #00ee00 inset;
+    box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
   }
+
   33% {
-    box-shadow: 0px 0px 10px #00ee00, 0px 0px 0px #00ee00 inset;
+    box-shadow: 0 0 10px #0e0, 0 0 0 #0e0 inset;
   }
+
   66% {
-    box-shadow: 0px 0px 5px #00ee00, 0px 0px 10px #00ee00 inset;
+    box-shadow: 0 0 5px #0e0, 0 0 10px #0e0 inset;
   }
 }
 
 @keyframes fade {
   0% {
-    opacity: 0%;
+    opacity: 0;
   }
+
   100% {
-    opacity: 100%;
+    opacity: 1;
   }
 }

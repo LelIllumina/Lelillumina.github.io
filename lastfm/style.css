@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+
   --border: 4px ridge aliceblue;
   --background: #111;
   --text: #fff;
@@ -7,7 +8,7 @@
   --buttonBorder: 0px;
   --buttonBackground: #303030;
   --buttonText: #fff;
-  --font: "Jetbrains Mono", "Courier New", Courier, monospace;
+  --font: "Jetbrains Mono", "Courier New", courier, monospace;
 }
 
 body {
@@ -87,8 +88,7 @@ footer {
 #scrobbling,
 #offline {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
   min-height: 30%;
 }

@@ -17,14 +17,13 @@ p {
 }
 
 a {
-  animation: gradientText 5s infinite;
+  animation: gradient-text 5s infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
   text-decoration: none;
 }
 
 a:not(:has(img)):hover {
-  -webkit-animation: 0;
   animation: 0;
   color: #1e2326;
   background: #7fbbb3;
@@ -51,14 +50,14 @@ i {
   color: #83c092;
 }
 
-bold {
+#bold {
   color: #d699b6;
   font-weight: bolder;
 }
 
 strong {
   background-clip: text;
-  color: #00000000;
+  color: #0000;
   background-image: linear-gradient(#83c092, #7fbbb3);
 }
 
@@ -77,22 +76,18 @@ em {
 
 #sidebar {
   margin: 0 5vw;
-  animation: fadeIn 7s;
+  animation: fade-in 7s;
   position: sticky;
   top: 15vh;
   height: fit-content;
 }
 
-::-moz-selection {
-  color: #1e2326;
-  background: #7fbbb3;
-}
 ::selection {
   color: #1e2326;
   background: #7fbbb3;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -102,7 +97,7 @@ em {
   }
 }
 
-@keyframes gradientText {
+@keyframes gradient-text {
   0% {
     color: #e67e80;
   }
@@ -136,7 +131,7 @@ em {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (width <= 600px) {
   body {
     flex-wrap: wrap;
   }

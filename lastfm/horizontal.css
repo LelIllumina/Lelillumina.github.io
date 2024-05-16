@@ -1,4 +1,4 @@
-@media only screen and (min-width: 479px) {
+@media only screen and (width >= 479px) {
   .listening {
     background-color: var(--background);
     border: var(--border);
@@ -10,6 +10,7 @@
     margin: 20px;
     align-items: center;
   }
+
   .trackCover {
     border-radius: var(--coverBorder);
     height: 150px;
@@ -17,7 +18,8 @@
     margin-right: 20px;
   }
 }
-@media only screen and (max-width: 479px) {
+
+@media only screen and (width <= 479px) {
   .listening {
     background-color: var(--background);
     border: var(--border);
@@ -26,6 +28,7 @@
     margin: 20px;
     align-items: center;
   }
+
   .trackCover {
     border-radius: var(--coverBorder);
     height: 150px;
@@ -36,12 +39,15 @@
   .artistName {
     font-size: 3vmin;
   }
+
   .trackName {
     font-size: 3.5vmin;
   }
+
   .searchButton {
     font-size: 2.5vmin;
   }
+
   #orientation {
     display: none;
   }

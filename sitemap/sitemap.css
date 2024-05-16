@@ -21,14 +21,15 @@ td {
   height: 40px;
 }
 
-.header th {
-  background-color: #cba6f7;
-}
-
 th {
   color: #11111b;
   height: 25px;
 }
+
+.header th {
+  background-color: #cba6f7;
+}
+
 tbody > tr > td:nth-child(2),
 tbody > tr > td:nth-child(3) {
   text-align: center;
