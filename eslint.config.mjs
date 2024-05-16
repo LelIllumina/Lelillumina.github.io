@@ -7,11 +7,8 @@ export default [
     languageOptions: { sourceType: "script" },
   },
   {
-    languageOptions: { globals: globals.browser },
-  },
-  {
-    parserOptions: {
-      sourceType: "module",
+    languageOptions: {
+      globals: globals.browser,
     },
   },
   pluginJs.configs.recommended,
