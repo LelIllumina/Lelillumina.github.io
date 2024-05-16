@@ -25,104 +25,75 @@ const getTrack = (username, site) => {
     }
 
     // Move divs between offline and scrobbling sections
-    if (userOnline) {
-      // Move user from offline to scrobbling
-      const offlineDiv = document.getElementById("offline");
-      const scrobblingDiv = document.getElementById("scrobbling");
-      const userDiv = offlineDiv.querySelector(`#${username}`);
-      if (userDiv) {
+    let offlineDiv = document.getElementById("offline");
+    let scrobblingDiv = document.getElementById("scrobbling");
+    let userDiv = document.getElementById(`${username}`);
+
+    // Remove user div from any existing location
+    if (userDiv) {
+      if (offlineDiv.contains(userDiv)) {
         offlineDiv.removeChild(userDiv);
-        scrobblingDiv.appendChild(userDiv);
       }
-    } else {
-      // Move user from scrobbling to offline
-      const scrobblingDiv = document.getElementById("scrobbling");
-      const offlineDiv = document.getElementById("offline");
-      const userDiv = scrobblingDiv.querySelector(`#${username}`);
-      if (userDiv) {
+      if (scrobblingDiv.contains(userDiv)) {
         scrobblingDiv.removeChild(userDiv);
-        offlineDiv.appendChild(userDiv);
       }
     }
 
-    let userDiv = document.getElementById(`${username}`);
+    // Create or update user div
+    if (!userDiv) {
+      userDiv = document.createElement("div");
+      userDiv.id = `${username}`;
+      userDiv.className = "listening";
+      userDiv.innerHTML = `
+        <img id="${username}-trackCover" class="trackCover" src="" alt="">
+        <div id="${username}-trackInfo" class="trackInfo">
+          <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+          <h2 id="${username}-trackName" class="trackName"></h2>
+          <p id="${username}-artistName" class="artistName"></p>
+          <a id="${username}-searchButton" class="searchButton" href="" target="_blank"> Search Song</a>
+        </div>
+      `;
+    }
 
-    // Set placeholder CoverImage if it dosent exist
+    // Set placeholder CoverImage if it doesn't exist
     let coverImageUrl = json.recenttracks.track[0].image[2]["#text"];
     if (!coverImageUrl || coverImageUrl === "") {
       coverImageUrl = "/images/NoArt.jpg";
     }
 
-    // Check if user is scrobbling
-    if (
-      Object.prototype.hasOwnProperty.call(json.recenttracks.track[0], "@attr")
-    ) {
-      if (userDiv) {
-        // Get current values
-        const currentTrackName =
-          userDiv.querySelector(".trackName").textContent;
-        const currentArtistName =
-          userDiv.querySelector(".artistName").textContent;
-        const currentCoverImageUrl = userDiv.querySelector(".trackCover").src;
-
-        // Check if values are different
-        if (
-          currentTrackName !== json.recenttracks.track[0].name ||
-          currentArtistName !== json.recenttracks.track[0].artist.name ||
-          currentCoverImageUrl !== coverImageUrl
-        ) {
-          // Update the existing div
-          userDiv.querySelector(".trackCover").src = coverImageUrl;
-          userDiv.querySelector(".trackName").textContent =
-            json.recenttracks.track[0].name;
-          userDiv.querySelector(".artistName").textContent =
-            json.recenttracks.track[0].artist.name;
-          userDiv.querySelector(".searchButton").href =
-            `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
-        }
-      } else {
-        // Create new div for user
-        document.getElementById("scrobbling").innerHTML += `
-        <div id="${username}" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}" alt="${json.recenttracks.track[0].album["#text"]}">
-        <div id="${username}-trackInfo" class="trackInfo">
-        <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-        <h2 id="${username}-trackName" class="trackName">${json.recenttracks.track[0].name}</h2>
-        <p id="${username}-artistName" class="artistName">${json.recenttracks.track[0].artist.name}</p>
-        <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}" target="_blank"> Search Song</a>
-        </div>
-        </div>
-        `;
-      }
-      return;
+    if (userOnline) {
+      // Update the existing div
+      userDiv.querySelector(".trackCover").src = coverImageUrl;
+      userDiv.querySelector(".trackName").textContent =
+        json.recenttracks.track[0].name;
+      userDiv.querySelector(".artistName").textContent =
+        json.recenttracks.track[0].artist.name;
+      userDiv.querySelector(".searchButton").href =
+        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+      scrobblingDiv.appendChild(userDiv);
     } else {
-      // Check if everyone is offline and display notice
       notPlaying++;
+      userDiv.querySelector(".trackCover").src = coverImageUrl;
+      userDiv.querySelector(".trackName").textContent =
+        json.recenttracks.track[0].name;
+      userDiv.querySelector(".artistName").textContent =
+        json.recenttracks.track[0].artist.name;
+      userDiv.querySelector(".searchButton").href =
+        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+      offlineDiv.appendChild(userDiv);
+
+      // Check if everyone is offline and display notice
       document.addEventListener("DOMContentLoaded", () => {
-        if (notPlaying == users.length) {
-          document.getElementById("scrobbling").innerHTML =
+        if (notPlaying === users.length) {
+          scrobblingDiv.innerHTML =
             "<p>No one's listening to anything right now</p>";
         } else {
-          // Remove the "No one's listening to anything right now" message if it's not needed
-          const pTag = document.getElementById("scrobbling").querySelector("p");
+          const pTag = scrobblingDiv.querySelector("p");
           if (pTag) {
             pTag.remove();
           }
         }
       });
-      // Create new div for offline user
-      document.getElementById("offline").innerHTML += `
-             <div id="${username}" class="listening">
-            <img id="${username}-trackCover" class="trackCover" src="${coverImageUrl}" alt="${json.recenttracks.track[0].album["#text"]}">
-            <div id="${username}-trackInfo" class="trackInfo">
-            <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-            <h2 id="${username}-trackName" class="trackName">${json.recenttracks.track[0].name}</h2>
-            <p id="${username}-artistName" class="artistName">${json.recenttracks.track[0].artist.name}</p>
-            <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}" target="_blank"> Search Song</a>
-            </div>
-            </div>
-    `;
-      return;
     }
   };
 
