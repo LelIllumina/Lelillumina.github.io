@@ -109,8 +109,27 @@ const getTrack = (username, site) => {
       trackNameElement.style.fontSize = "60%";
       artistNameElement.style.fontSize = "60%";
     }
-  };
 
+    // TODO add musicbrainz as backup covert art provider
+    // if (
+    //   coverImageUrl ==
+    //   "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
+    // ) {
+    // const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(
+    //   json.recenttracks.track[0].artist.name,
+    // )} AND release:${encodeURIComponent(json.recenttracks.track[0].album.name)}&fmt=json`;
+
+    // fetch(musicBrainzEndpoint, {
+    //   headers: {
+    //     "User-Agent": "NekoFM/1.0 (https://lel.nekoweb.org/lastfm/)",
+    //   },
+    // }).then((response) => {
+    //   const jsonBrainz = response.json();
+
+    //   console.log(jsonBrainz);
+    // });
+    // }
+  };
   ws.onerror = (error) => {
     console.error("WebSocket error:", error);
   };
