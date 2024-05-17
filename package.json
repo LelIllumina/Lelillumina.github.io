@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "prettier": "^3.2.5",
-    "prettier-eslint": "^16.3.0"
+    "prettier-eslint": "^16.3.0",
+    "stylelint-prettier": "^5.0.0"
   }
 }
