@@ -15,6 +15,7 @@ const users = [
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
   ["corvidaegalaxy", "crisis.city", true],
   ["blurrybleu", "bleu.nekoweb.org", false],
+  ["chimeridae", "chimera.pet", true],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
