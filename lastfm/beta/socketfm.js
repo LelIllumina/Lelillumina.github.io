@@ -69,7 +69,7 @@ const getTrack = (username, site) => {
       userDiv.querySelector(".artistName").textContent =
         json.recenttracks.track[0].artist.name;
       userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+        `https://www.google.com/search?q=${encodeURIComponent(json.recenttracks.track[0].name)}+${encodeURIComponent(json.recenttracks.track[0].artist.name)}`;
       scrobblingDiv.appendChild(userDiv);
     } else {
       notPlaying++;
@@ -79,7 +79,7 @@ const getTrack = (username, site) => {
       userDiv.querySelector(".artistName").textContent =
         json.recenttracks.track[0].artist.name;
       userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
+        `https://www.google.com/search?q=${encodeURIComponent(json.recenttracks.track[0].name)}+${encodeURIComponent(json.recenttracks.track[0].artist.name)}`;
       offlineDiv.appendChild(userDiv);
 
       // Check if everyone is offline and display notice
