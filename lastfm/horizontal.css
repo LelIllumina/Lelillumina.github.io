@@ -4,10 +4,14 @@
     border: 4px ridge aliceblue;
     display: flex;
     height: 150px;
-    width: 25%;
     padding: 20px;
     margin: 20px;
     align-items: center;
+  }
+
+  .container {
+    max-height: 250px;
+    max-width: 30%;
     overflow: hidden;
   }
 

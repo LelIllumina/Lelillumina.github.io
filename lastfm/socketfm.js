@@ -42,15 +42,16 @@ const getTrack = (username, site) => {
     // Create or update user div
     if (!userDiv) {
       userDiv = document.createElement("div");
-      userDiv.id = `${username}`;
-      userDiv.className = "listening";
+      userDiv.className = "container";
       userDiv.innerHTML = `
+      <div id="${username}-songBox" class="listening">
         <img id="${username}-trackCover" class="trackCover" src="" alt="">
         <div id="${username}-trackInfo" class="trackInfo">
           <h3><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
           <h2 id="${username}-trackName" class="trackName"></h2>
           <p id="${username}-artistName" class="artistName"></p>
           <a id="${username}-searchButton" class="searchButton" href="" target="_blank"> Search Song</a>
+        </div>
         </div>
       `;
     }

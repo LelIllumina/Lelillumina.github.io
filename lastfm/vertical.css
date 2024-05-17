@@ -6,6 +6,12 @@
   max-height: 300px;
   padding: 20px;
   margin: 20px;
+}
+
+.container {
+  width: 150px;
+  height: min-content;
+  max-height: 300px;
   overflow: hidden;
 }
 
