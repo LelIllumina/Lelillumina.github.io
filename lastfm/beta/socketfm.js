@@ -16,9 +16,7 @@ const getTrack = (username, site) => {
     // console.log("Received JSON data for", username, json);
 
     // Check if user is online or offline
-    if (
-      Object.prototype.hasOwnProperty.call(json.recenttracks.track[0], "@attr")
-    ) {
+    if (json.recenttracks.track[0].nowplaying == "true") {
       userOnline = true; // User is online
     } else {
       userOnline = false; // User is offline
@@ -42,6 +40,7 @@ const getTrack = (username, site) => {
     // Create or update user div
     if (!userDiv) {
       userDiv = document.createElement("div");
+      userDiv.id = `${username}`;
       userDiv.className = "container";
       userDiv.innerHTML = `
       <div id="${username}-songBox" class="listening">
@@ -95,6 +94,20 @@ const getTrack = (username, site) => {
           }
         }
       });
+    }
+    // Get the track info element by its id
+    const trackInfoElement = userDiv.querySelector(".trackInfo");
+    const songBox = userDiv.querySelector(".listening");
+    const trackNameElement = userDiv.querySelector(".trackName");
+    const artistNameElement = userDiv.querySelector(".artistName");
+
+    if (trackInfoElement.offsetHeight > songBox.offsetHeight) {
+      trackNameElement.style.fontSize = "60%";
+      artistNameElement.style.fontSize = "60%";
+    }
+    if (trackInfoElement.offsetWidth > songBox.offsetWidth) {
+      trackNameElement.style.fontSize = "60%";
+      artistNameElement.style.fontSize = "60%";
     }
   };
 
