@@ -92,7 +92,7 @@ h3 {
 }
 
 footer {
-  margin: auto;
+  margin: 20px;
   width: fit-content;
 }
 
@@ -152,9 +152,4 @@ footer {
   font-size: 1vmax;
   padding: 4px;
   text-decoration: none;
-}
-
-.dev {
-  background-color: #111;
-  border: 4px ridge greenyellow !important;
 }
