@@ -6,7 +6,7 @@ const users = [
   ["dimdendev", "dimden.dev", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
-  ["maxpixels", "max.nekoweb.org", false],
+  ["maxpixels", "max.nekoweb.org", true],
   ["CorelVulpix", "s1nez.nekoweb.org", false],
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
