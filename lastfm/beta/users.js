@@ -14,6 +14,7 @@ const users = [
   ["abyssmaze", "eye.nekoweb.org", false],
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
   ["corvidaegalaxy", "crisis.city", true],
+  ["blurrybleu", "bleu.nekoweb.org", false],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
