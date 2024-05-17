@@ -9,9 +9,11 @@
 }
 
 .container {
-  width: 150px;
-  height: min-content;
-  max-height: 300px;
+  height: auto;
+  width: auto;
+  max-width: 220px;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 
