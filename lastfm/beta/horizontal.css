@@ -7,13 +7,14 @@
     padding: 20px;
     margin: 20px;
     align-items: center;
-    min-width: 240px;
+    min-width: 250px;
   }
 
   .container {
     height: auto;
     width: auto;
-    max-width: min-content;
+    max-height: 220px;
+    max-width: 33%;
     padding: 0;
     margin: 0;
     overflow: hidden;
