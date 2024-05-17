@@ -13,7 +13,7 @@ const users = [
   ["flowerz-2005", "flowerz.nekoweb.org", false],
   ["abyssmaze", "eye.nekoweb.org", false],
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
-  ["corvidaegalaxy", "crisis.city", false],
+  ["corvidaegalaxy", "crisis.city", true],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
