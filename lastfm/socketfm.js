@@ -42,6 +42,7 @@ const getTrack = (username, site) => {
     // Create or update user div
     if (!userDiv) {
       userDiv = document.createElement("div");
+      userDiv.id = `${username}`;
       userDiv.className = "container";
       userDiv.innerHTML = `
       <div id="${username}-songBox" class="listening">
@@ -95,6 +96,17 @@ const getTrack = (username, site) => {
           }
         }
       });
+    }
+    // Get the track info element by its id
+    const trackInfoElement = userDiv.querySelector(".trackInfo");
+    const songBox = userDiv.querySelector(".listening");
+    const trackNameElement = userDiv.querySelector(".trackName");
+
+    if (trackInfoElement.offsetHeight > songBox.offsetHeight) {
+      trackNameElement.style.fontSize = "60%";
+    }
+    if (trackInfoElement.offsetWidth > songBox.offsetWidth) {
+      trackNameElement.style.fontSize = "60%";
     }
   };
 
