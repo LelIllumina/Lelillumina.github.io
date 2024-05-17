@@ -80,7 +80,7 @@ a {
   padding: 14px 25px;
 }
 
-h3 {
+.siteName {
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   margin: auto;
   color: darkgray;
