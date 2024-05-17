@@ -16,7 +16,8 @@ body {
 
 /* Neco arc Background and Footer */
 body {
-  background: linear-gradient(#00000080, #00000080),
+  background:
+    linear-gradient(#00000080, #00000080),
     url("/images/background.png") repeat;
   animation: move-background 100s linear infinite;
   margin: 0;
@@ -142,14 +143,16 @@ header {
   position: absolute;
   font-family: Monocraft, monospace;
   color: #ff0;
-  text-shadow: 0 0 10px black, 0 0 10px black;
+  text-shadow:
+    0 0 10px black,
+    0 0 10px black;
   background-color: transparent;
   left: 75%;
   top: 100px;
   font-size: 20px;
   transform: rotate(-20deg);
   width: fit-content;
-  animation: subtitle 0.25s 1 alternate;
+  animation: subtitle 0.25s infinite alternate;
 }
 
 main {
