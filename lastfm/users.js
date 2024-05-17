@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const users = [
   ["LelIllumina", "lel.nekoweb.org", true],
-  ["tepiloxtl", "tepiloxtl.net", false],
+  ["tepiloxtl", "tepiloxtl.net", true],
   ["excelesia", "", false],
   ["dimdendev", "dimden.dev", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
