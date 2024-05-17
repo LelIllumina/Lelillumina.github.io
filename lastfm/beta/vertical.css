@@ -1,0 +1,36 @@
+.listening {
+  background-color: #111;
+  border: 4px ridge aliceblue;
+  width: 150px;
+  height: min-content;
+  max-height: 300px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.container {
+  width: 150px;
+  height: min-content;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.trackCover {
+  height: 150px;
+  float: left;
+  margin-bottom: 15px;
+}
+
+@media only screen and (width <= 479px) {
+  .artistName {
+    font-size: 3vmin;
+  }
+
+  .trackName {
+    font-size: 3.5vmin;
+  }
+
+  .searchButton {
+    font-size: 2.5vmin;
+  }
+}

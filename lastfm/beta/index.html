@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>NekoFM</title>
+    <meta name="author" content="Lel Illumina" />
+    <meta
+      name="description"
+      content="Shows the lastfm scrobbling status of people on the Nekoweb"
+    />
+    <meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music" />
+    <meta property="og:title" content="NekoFM" />
+    <meta
+      property="og:description"
+      content="Shows the lastfm scrobbling status of people on the Nekoweb"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lel.nekoweb.org/lastfm" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta
+      property="og:image"
+      content="https://lel.nekoweb.org/images/NekoFM_ek.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://lel.nekoweb.org/lastfm",
+        "name": "NekoFM",
+        "author": {
+          "@type": "Person",
+          "name": "Lel Illumina"
+        }
+      }
+    </script>
+    <meta name="theme-color" content="#a20000" />
+    <link rel="apple-touch-icon" href="/images/NekoFM_ek.png" />
+    <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
+    <link rel="icon" type="image/x-icon" href="/images/NekoFM_ek.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="horizontal.css" id="horizontal" />
+    <link
+      rel="prefetch alternate stylesheet"
+      href="vertical.css"
+      id="vertical"
+    />
+    <script src="users.js"></script>
+    <script src="socketfm.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="title">
+        <a href="/lastfm/beta"
+          ><img id="logo" src="/images/NekoFM.png" alt="NekoFM" />
+          <h2 style="display: inline">Beta</h2></a
+        >
+        <nav id="navbar">
+          <ul>
+            <li><a href="./css">Custom CSS</a></li>
+            <li><a href="./settings">Settings</a></li>
+          </ul>
+        </nav>
+        <h2 id="tagline">Who's listening to what</h2>
+      </div>
+    </header>
+    <div>
+      <button title="Change orientation" class="button" id="orientation">
+        ▤
+      </button>
+      <input
+        class="button"
+        id="reload"
+        type="button"
+        value="⟳"
+        title="Hard Reset"
+        onclick="reloadData();"
+      />
+    </div>
+    <main>
+      <div id="scrobbling"></div>
+      <h2 id="seperator">Currently Offline (last scrobbled)</h2>
+      <div id="offline"></div>
+    </main>
+    <footer>
+      <p>
+        DM me on discord if you want me to add or remove you • Want a widget on
+        your own site? Check out
+        <a
+          class="credit"
+          href="https://max.nekoweb.org/resources/lastfm-widget"
+        >
+          Max's code
+        </a>
+        • WebSocket API thanks to
+        <a class="credit" href="https://tepiloxtl.net/scrobbled/">Tepiloxtl</a>
+        • Site by
+        <a class="credit" href="/">Lel</a>
+      </p>
+    </footer>
+
+    <script>
+      const verticalStyle = document.getElementById("vertical");
+      const HorizontalStyle = document.getElementById("horizontal");
+
+      document
+        .getElementById("orientation")
+        .addEventListener("click", function () {
+          if (verticalStyle.rel === "stylesheet") {
+            verticalStyle.rel = "alternate stylesheet";
+            HorizontalStyle.rel = "stylesheet";
+            document.getElementById("orientation").innerHTML = "▤";
+          } else {
+            verticalStyle.rel = "stylesheet";
+            HorizontalStyle.rel = "alternate stylesheet";
+            document.getElementById("orientation").innerHTML = "▥";
+          }
+        });
+    </script>
+    <script>
+      var updateTimer;
+      function reloadData() {
+        users.forEach((user) => {
+          const username = user[0];
+          const site = user[1];
+          getTrack(username, site);
+        });
+        document.getElementById("scrobbling").innerHTML = "";
+        document.getElementById("offline").innerHTML = "";
+        notPlaying = 0;
+      }
+    </script>
+    <script>
+      const taglinePhrases = [
+        "Who's listening to what",
+        "Big thanks to tepiloxtl for websocket api",
+        "Who up scrobbling they song",
+        "In the NekoFM straight up scrobbling it, and from it, hehe, lets justr say, my track",
+        "Its scrobbling time (scrobbles everywhere)",
+        "Now with Sockets for webs",
+        "DM lel if this breaaks :3",
+        "Site by Lel Illumina",
+      ];
+      var counter = 0;
+      var elem = document.getElementById("tagline");
+      setInterval(change, 10000);
+      function change() {
+        elem.classList.add("hide");
+        setTimeout(function () {
+          elem.innerHTML = taglinePhrases[counter];
+          elem.classList.remove("hide");
+          counter++;
+          if (counter >= taglinePhrases.length) {
+            counter = 0;
+          }
+        }, 1000);
+      }
+    </script>
+    <script>
+      users.forEach((user) => {
+        const username = user[0];
+        const domain = user[1];
+        const hasCss = user[2];
+        const url = `https://${domain}/nekofm.css`;
+        if (hasCss) {
+          fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+              // Prefixing CSS selectors with `#${username}-`
+              const modifiedCss = data.replace(
+                /(^|})([^{]+)/g,
+                (match, p1, p2) => `${p1} #${username}-${p2.trim()}`
+              );
+              const styleTag = document.createElement("style");
+              styleTag.innerHTML = modifiedCss;
+              document.head.appendChild(styleTag);
+            })
+            .catch((error) => console.error(`Error fetching ${url}:`, error));
+        }
+      });
+    </script>
+  </body>
+</html>
