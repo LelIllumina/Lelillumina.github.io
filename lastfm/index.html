@@ -162,7 +162,7 @@
         const username = user[0];
         const domain = user[1];
         const hasCss = user[2];
-        const url = `https://${domain}/nekofm.css`;
+        const url = `https://${domain}/nekofm.css?` + Math.random(); // Random text to keep refreshing css
         if (hasCss) {
           fetch(url)
             .then((response) => response.text())
