@@ -1,14 +1,15 @@
 .listening {
-  background-color: var(--background);
-  border: var(--border);
-  width: min-content;
+  background-color: #111;
+  border: 4px ridge aliceblue;
+  width: 150px;
+  height: min-content;
+  max-height: 300px;
   padding: 20px;
   margin: 20px;
-  align-items: center;
+  overflow: hidden;
 }
 
 .trackCover {
-  border-radius: var(--coverBorder);
   height: 150px;
   float: left;
   margin-bottom: 15px;

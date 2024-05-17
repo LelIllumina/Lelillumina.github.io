@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -49,10 +49,19 @@
     <script src="users.js"></script>
     <script src="socketfm.js"></script>
   </head>
+
   <body>
     <header>
       <div id="title">
-        <img id="logo" src="/images/NekoFM.png" alt="NekoFM" />
+        <a href="/lastfm/"
+          ><img id="logo" src="/images/NekoFM.png" alt="NekoFM"
+        /></a>
+        <nav id="navbar">
+          <ul>
+            <li><a href="./css">Custom CSS</a></li>
+            <li><a href="./settings">Settings</a></li>
+          </ul>
+        </nav>
         <h2 id="tagline">Who's listening to what</h2>
       </div>
     </header>
@@ -78,12 +87,16 @@
       <p>
         DM me on discord if you want me to add or remove you • Want a widget on
         your own site? Check out
-        <a class="credit" href="https://max.nekoweb.org/resources/lastfm-widget"
-          >Max's code</a
+        <a
+          class="credit"
+          href="https://max.nekoweb.org/resources/lastfm-widget"
         >
+          Max's code
+        </a>
         • WebSocket API thanks to
         <a class="credit" href="https://tepiloxtl.net/scrobbled/">Tepiloxtl</a>
-        • Site by <a class="credit" href="/">Lel</a>
+        • Site by
+        <a class="credit" href="/">Lel</a>
       </p>
     </footer>
 
@@ -144,37 +157,28 @@
         }, 1000);
       }
     </script>
-    <!-- <script>
+    <script>
       users.forEach((user) => {
+        const username = user[0];
         const domain = user[1];
+        const hasCss = user[2];
         const url = `https://${domain}/nekofm.css`;
-        function checkURLExists(url) {
-          return fetch(url, { method: "HEAD" })
-            .then((response) => {
-              // Check if response status is in the 200-299 range
-              if (response.ok) {
-                return true; // URL exists
-              } else {
-                return false; // URL does not exist
-              }
+        if (hasCss) {
+          fetch(url)
+            .then((response) => response.text())
+            .then((data) => {
+              // Prefixing CSS selectors with `#${username}-`
+              const modifiedCss = data.replace(
+                /(^|})([^{]+)/g,
+                (match, p1, p2) => `${p1} #${username}-${p2.trim()}`
+              );
+              const styleTag = document.createElement("style");
+              styleTag.innerHTML = modifiedCss;
+              document.head.appendChild(styleTag);
             })
-            .catch((error) => {
-              console.error("Error checking URL:", error);
-              return false; // Assuming URL does not exist in case of error
-            });
+            .catch((error) => console.error(`Error fetching ${url}:`, error));
         }
-
-        // Example usage:
-        checkURLExists(url).then((exists) => {
-          if (exists) {
-            console.log("URL exists");
-            // Proceed with fetching the URL
-          } else {
-            console.log("URL does not exist");
-            // Handle accordingly, maybe show a message to the user
-          }
-        });
       });
-    </script> -->
+    </script>
   </body>
 </html>

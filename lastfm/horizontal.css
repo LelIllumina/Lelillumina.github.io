@@ -1,14 +1,14 @@
 @media only screen and (width >= 479px) {
   .listening {
-    background-color: var(--background);
-    border: var(--border);
+    background-color: #111;
+    border: 4px ridge aliceblue;
     display: flex;
     height: 150px;
-    width: min-content;
-    min-width: 25%;
+    width: 25%;
     padding: 20px;
     margin: 20px;
     align-items: center;
+    overflow: hidden;
   }
 
   .trackCover {
@@ -21,8 +21,6 @@
 
 @media only screen and (width <= 479px) {
   .listening {
-    background-color: var(--background);
-    border: var(--border);
     width: min-content;
     padding: 20px;
     margin: 20px;
@@ -30,7 +28,6 @@
   }
 
   .trackCover {
-    border-radius: var(--coverBorder);
     height: 150px;
     float: left;
     margin-bottom: 15px;

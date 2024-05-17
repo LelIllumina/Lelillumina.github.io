@@ -1,14 +1,5 @@
 :root {
   color-scheme: dark;
-
-  --border: 4px ridge aliceblue;
-  --background: #111;
-  --text: #fff;
-  --coverBorder: 0px;
-  --buttonBorder: 0px;
-  --buttonBackground: #303030;
-  --buttonText: #fff;
-  --font: "Jetbrains Mono", "Courier New", courier, monospace;
 }
 
 body {
@@ -24,12 +15,18 @@ main {
   min-height: max-content;
 }
 
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 50px;
+  margin: auto;
+}
+
 #logo {
   height: 50px;
 }
 
 h2 {
-  font-family: var(--font);
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   margin: 10px 0;
   font-size: 22px;
 }
@@ -43,20 +40,53 @@ h2 {
   opacity: 0 !important;
 }
 
+p {
+  font-family: "JetBrains Mono", "Courier New", courier, monospace;
+  margin: auto;
+  color: silver;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.5vmin;
+  color: darkgray;
+}
+
+#navbar {
+  display: inline;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  overflow: hidden;
+  float: right;
+}
+
+#navbar li {
+  display: inline;
+  float: left;
+  margin: auto;
+}
+
+#navbar a {
+  display: block;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  padding: 14px 25px;
+}
+
 h3 {
-  font-family: var(--font);
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   margin: auto;
   color: darkgray;
   font-size: 1.5vmin;
 }
 
-a {
-  text-decoration: none;
-  font-size: 10px;
-  color: darkgray;
-}
-
-p,
 .credit {
   font-size: 16px;
 }
@@ -117,17 +147,14 @@ footer {
 }
 
 .searchButton {
-  color: var(--buttonText);
-  background: var(--buttonBackground);
-  border-radius: var(--buttonBorder);
+  color: #fff;
+  background: #303030;
   font-size: 1vmax;
   padding: 4px;
-  text-align: center;
   text-decoration: none;
-  align-items: flex-end;
 }
 
 .dev {
-  background-color: var(--background);
+  background-color: #111;
   border: 4px ridge greenyellow !important;
 }
