@@ -101,12 +101,15 @@ const getTrack = (username, site) => {
     const trackInfoElement = userDiv.querySelector(".trackInfo");
     const songBox = userDiv.querySelector(".listening");
     const trackNameElement = userDiv.querySelector(".trackName");
+    const artistNameElement = userDiv.querySelector(".artistName");
 
     if (trackInfoElement.offsetHeight > songBox.offsetHeight) {
       trackNameElement.style.fontSize = "60%";
+      artistNameElement.style.fontSize = "60%";
     }
     if (trackInfoElement.offsetWidth > songBox.offsetWidth) {
       trackNameElement.style.fontSize = "60%";
+      artistNameElement.style.fontSize = "60%";
     }
   };
 
