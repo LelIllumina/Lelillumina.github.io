@@ -1,26 +1,40 @@
-.trackInfo {
+songBox {
+  background-image: linear-gradient(#1e1e2ebd, #11111bf5),
+    url(https://files.catbox.moe/t66wim.jpg);
+  border: 5px ridge #cba6f7;
+  background-size: cover;
+}
+
+siteName {
+  margin: auto;
+  color: #a6adc8;
+  font-size: 1.5vmin;
+}
+
+trackInfo {
   width: fit-content;
 }
 
-.trackCover {
+trackCover {
   height: 150px;
   float: left;
-  margin-bottom: 15px;
 }
 
-.trackName {
+trackName {
+  color: #cdd6f4;
   font-size: 2vmin;
   font-weight: bold;
 }
 
-.artistName {
+artistName {
+  color: #a6adc8;
   font-size: 1vmax;
   margin: 5px auto;
 }
 
-.searchButton {
-  color: #fff;
-  background: #303030;
+searchButton {
+  color: #a6adc8;
+  background: #313244;
   font-size: 1vmax;
   padding: 4px;
   text-decoration: none;
