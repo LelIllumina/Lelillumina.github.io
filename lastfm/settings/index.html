@@ -137,8 +137,8 @@
         ).value;
         let cssEnabled = document.getElementById("customCSS").checked;
 
-        localStorage.setItem("nsfw", nsfwValue);
-        localStorage.setItem("customCSS", cssEnabled);
+        localStorage.nsfw = nsfwValue;
+        localStorage.customCSS = cssEnabled;
       }
 
       function submit() {
