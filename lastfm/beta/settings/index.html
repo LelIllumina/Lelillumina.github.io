@@ -95,9 +95,62 @@
             name="customCSS"
             checked
           /><br /><br />
-          <input type="submit" value="Save" />
+          <input type="submit" value="Save" onclick="submit()" />
+          <input
+            type="reset"
+            value="Delete Cookies"
+            onclick="deleteCookies(); alert('Cookies Cleared')"
+          />
         </div>
       </main>
     </div>
+    <script>
+      function deleteCookies() {
+        var cookies = document.cookie.split(";");
+
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i];
+          var eqPos = cookie.indexOf("=");
+          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          document.cookie =
+            name +
+            "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/; SameSite=Lax";
+        }
+      }
+
+      function setCookie() {
+        deleteCookies();
+        let nsfwValue;
+        let cssEnabled = document.getElementById("customCSS").checked;
+        const nsfwRadios = document.getElementsByName("nsfw");
+
+        // Find the selected NSFW option
+        for (let i = 0; i < nsfwRadios.length; i++) {
+          if (nsfwRadios[i].checked) {
+            nsfwValue = nsfwRadios[i].value;
+            break;
+          }
+        }
+
+        // Store the values in cookies with SameSite attribute
+        document.cookie =
+          "nsfw=" +
+          nsfwValue +
+          "; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/; SameSite=Lax";
+        document.cookie =
+          "customCSS=" +
+          cssEnabled +
+          "; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/; SameSite=Lax";
+      }
+
+      function submit() {
+        try {
+          setCookie();
+          alert("Settings successfully saved");
+        } catch (error) {
+          alert("Error: " + error.message);
+        }
+      }
+    </script>
   </body>
 </html>
