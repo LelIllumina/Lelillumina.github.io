@@ -40,8 +40,14 @@
         font-family: "JetBrains Mono", "Courier New", courier, monospace;
         line-height: 30px;
       }
-      #form {
-        margin: 25px 10%;
+      main {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 50px 10%;
+        gap: 200px;
+      }
+      .option {
+        color: silver;
       }
     </style>
   </head>
@@ -61,49 +67,66 @@
         <h2 id="tagline">Settings</h2>
       </div>
     </header>
-    <div>
-      <main>
-        <div id="form">
-          <h2>Settings</h2>
-          <label for="nsfw">NSFW Album Covers:</label>
-          <br />
-          <label for="nsfw-removed">
-            <input
-              type="radio"
-              id="nsfw-removed"
-              name="nsfw"
-              value="removed"
-              checked
-            />
-            Removed
-          </label>
-          <br />
-          <label for="nsfw-blurred">
-            <input type="radio" id="nsfw-blurred" name="nsfw" value="blurred" />
-            Blurred
-          </label>
-          <br />
-          <label for="nsfw">
-            <input type="radio" id="nsfw" name="nsfw" value="off" />
-            Show
-          </label>
-          <br /><br />
-          <label for="customCSS">Custom CSS:</label>
+    <main>
+      <div id="form">
+        <h2>Settings</h2>
+        <label for="nsfw">NSFW Album Covers:</label>
+        <br />
+        <label class="option" for="nsfw-removed">
           <input
-            type="checkbox"
-            id="customCSS"
-            name="customCSS"
+            type="radio"
+            id="nsfw-removed"
+            name="nsfw"
+            value="removed"
             checked
-          /><br /><br />
-          <input type="submit" value="Save" onclick="submit()" />
-          <input
-            type="reset"
-            value="Delete Cookies"
-            onclick="deleteCookies(); alert('Cookies Cleared')"
           />
-        </div>
-      </main>
-    </div>
+          Removed
+        </label>
+        <br />
+        <label class="option" for="nsfw-blurred">
+          <input type="radio" id="nsfw-blurred" name="nsfw" value="blurred" />
+          Blurred
+        </label>
+        <br />
+        <label class="option" for="nsfw">
+          <input type="radio" id="nsfw" name="nsfw" value="off" />
+          Show
+        </label>
+        <br /><br />
+        <label for="customCSS">Custom CSS:</label>
+        <input
+          type="checkbox"
+          id="customCSS"
+          name="customCSS"
+          checked
+        /><br /><br />
+        <input type="submit" value="Save" onclick="submit()" />
+        <input
+          type="reset"
+          value="Delete Cookies"
+          onclick="deleteCookies(); alert('Cookies Cleared')"
+        />
+      </div>
+      <div id="notes">
+        <h2>Notes:</h2>
+        <p>
+          Using settings uses cookies, however I only store these settings in
+          the cookies and nothing else, the cookies themselves stay on your
+          device and I can never view them. Settings are checked applied
+          clientside.
+        </p>
+        <br />
+        <p>
+          These cookies are also sitewide, and will apply on both the stable and
+          beta pages.
+        </p>
+        <br />
+        <p>
+          However NSFW filtering is only on the beta page for now (support for
+          stable in futurs)
+        </p>
+      </div>
+    </main>
     <script>
       function deleteCookies() {
         var cookies = document.cookie.split(";");
