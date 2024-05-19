@@ -17,6 +17,7 @@ const users = [
   ["lakiitu", "doqmeat.com", false],
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
+  ["raidopaizer", "raidopaizer.nekoweb.org", false],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
