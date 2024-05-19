@@ -54,9 +54,10 @@
   <body>
     <header>
       <div id="title">
-        <a href="/lastfm/"
-          ><img id="logo" src="/images/NekoFM.png" alt="NekoFM"
-        /></a>
+        <a href="/lastfm/beta"
+          ><img id="logo" src="/images/NekoFM.png" alt="NekoFM" />
+          <h2 style="display: inline">Beta</h2></a
+        >
         <nav id="navbar">
           <ul>
             <li><a href="../css">Custom CSS</a></li>
@@ -102,72 +103,47 @@
         <input type="submit" value="Save" onclick="submit()" />
         <input
           type="reset"
-          value="Delete Cookies"
-          onclick="deleteCookies(); alert('Cookies Cleared')"
-        />
+          value="Delete LocalStorage"
+          onclick="deleteLocalStorage(); alert('LocalStorage Cleared')"
+        /><br /><br /><br />
       </div>
       <div id="notes">
         <h2>Notes:</h2>
         <p>
-          Using settings uses cookies, however I only store these settings in
-          the cookies and nothing else, the cookies themselves stay on your
-          device and I can never view them. Settings are checked and applied
-          clientside.
+          Using settings uses localStorage, however I only store these settings
+          in localStorage and nothing else, the data stays on your device and I
+          can never view it. Settings are checked and applied clientside.
         </p>
-        <br />
+        <br /><br />
         <p>
-          These cookies are also sitewide, and will apply on both the stable and
-          beta pages.
+          These settings are also sitewide, and will apply on both the stable
+          and beta pages.
         </p>
-        <br />
+        <br /><br />
         <p>
           However NSFW filtering is only on the beta page for now (support for
-          stable in futurs)
+          stable in futures).
         </p>
       </div>
     </main>
     <script>
-      function deleteCookies() {
-        var cookies = document.cookie.split(";");
-
-        for (var i = 0; i < cookies.length; i++) {
-          var cookie = cookies[i];
-          var eqPos = cookie.indexOf("=");
-          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-          document.cookie =
-            name +
-            "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/; SameSite=Lax";
-        }
+      function deleteLocalStorage() {
+        localStorage.clear();
       }
 
-      function setCookie() {
-        deleteCookies();
-        let nsfwValue;
+      function setLocalStorage() {
+        let nsfwValue = document.querySelector(
+          'input[name="nsfw"]:checked'
+        ).value;
         let cssEnabled = document.getElementById("customCSS").checked;
-        const nsfwRadios = document.getElementsByName("nsfw");
 
-        // Find the selected NSFW option
-        for (let i = 0; i < nsfwRadios.length; i++) {
-          if (nsfwRadios[i].checked) {
-            nsfwValue = nsfwRadios[i].value;
-            break;
-          }
-        }
-
-        // Store the values in cookies with SameSite attribute
-        document.cookie =
-          "nsfw=" +
-          nsfwValue +
-          "; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/; SameSite=Lax";
-        document.cookie =
-          "customCSS=" +
-          cssEnabled +
-          "; expires=Fri, 31 Dec 9999 23:59:59 UTC; path=/; SameSite=Lax";
+        localStorage.setItem("nsfw", nsfwValue);
+        localStorage.setItem("customCSS", cssEnabled);
       }
 
       function submit() {
         try {
-          setCookie();
+          setLocalStorage();
           alert("Settings successfully saved");
         } catch (error) {
           alert("Error: " + error.message);
