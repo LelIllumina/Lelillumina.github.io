@@ -13,7 +13,8 @@ const getTrack = (username, site) => {
 
   ws.onmessage = (event) => {
     const json = JSON.parse(event.data);
-    // console.log("Received JSON data for", username, json);
+    const artistName = json.recenttracks.track[0].artist.name;
+    const trackName = json.recenttracks.track[0].name;
 
     // Check if user is online or offline
     if (json.recenttracks.track[0].nowplaying == "true") {
@@ -64,22 +65,19 @@ const getTrack = (username, site) => {
     if (userOnline) {
       // Update the existing div
       userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent =
-        json.recenttracks.track[0].name;
-      userDiv.querySelector(".artistName").textContent =
-        json.recenttracks.track[0].artist.name;
+      userDiv.querySelector(".trackName").textContent = trackName;
+      userDiv.querySelector(".artistName").textContent = artistName;
       userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${encodeURIComponent(json.recenttracks.track[0].name)}+${encodeURIComponent(json.recenttracks.track[0].artist.name)}`;
+        `https://www.google.com/search?q=${encodeURIComponent(trackName)}+${encodeURIComponent(artistName)}`;
       scrobblingDiv.appendChild(userDiv);
+      // listenedSoFar(json, artistName, trackName, userDiv);
     } else {
       notPlaying++;
       userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent =
-        json.recenttracks.track[0].name;
-      userDiv.querySelector(".artistName").textContent =
-        json.recenttracks.track[0].artist.name;
+      userDiv.querySelector(".trackName").textContent = trackName;
+      userDiv.querySelector(".artistName").textContent = artistName;
       userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${encodeURIComponent(json.recenttracks.track[0].name)}+${encodeURIComponent(json.recenttracks.track[0].artist.name)}`;
+        `https://www.google.com/search?q=${encodeURIComponent(trackName)}+${encodeURIComponent(artistName)}`;
       offlineDiv.appendChild(userDiv);
 
       // Check if everyone is offline and display notice
@@ -110,25 +108,7 @@ const getTrack = (username, site) => {
       artistNameElement.style.fontSize = "60%";
     }
 
-    // TODO add musicbrainz as backup covert art provider
-    // if (
-    //   coverImageUrl ==
-    //   "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
-    // ) {
-    // const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(
-    //   json.recenttracks.track[0].artist.name,
-    // )} AND release:${encodeURIComponent(json.recenttracks.track[0].album.name)}&fmt=json`;
-
-    // fetch(musicBrainzEndpoint, {
-    //   headers: {
-    //     "User-Agent": "NekoFM/1.0 (https://lel.nekoweb.org/lastfm/)",
-    //   },
-    // }).then((response) => {
-    //   const jsonBrainz = response.json();
-
-    //   console.log(jsonBrainz);
-    // });
-    // }
+    fallbackCover(coverImageUrl, json, artistName);
   };
   ws.onerror = (error) => {
     console.error("WebSocket error:", error);
@@ -145,3 +125,67 @@ users.forEach((user) => {
   const site = user[1];
   getTrack(username, site);
 });
+
+// function convert(seconds) {
+//   const min = Math.floor(seconds / 60);
+//   const sec = seconds % 60;
+//   return `${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`;
+// }
+// function listenedSoFar(json, artistName, trackName, userDiv) {
+//   const trackInfoUrl = `https://scrobbled.tepiloxtl.net/rest/get_track_info?artist=${artistName}&track=${trackName}`;
+//   const alternativeTrackInfoUrl = `https://scrobbled.tepiloxtl.net/rest/get_track_info?mbid=${json.recenttracks.track[0].mbid}`;
+
+//   fetch(trackInfoUrl)
+//     .then((response) => response.json())
+//     .then((songDetails) => {
+//       let lastfmUts = json.recenttracks.track[1].date.uts;
+//       const duration = songDetails.track.duration;
+//       const length = convert(parseInt(duration) / 1000);
+//       const listened = Math.floor(Date.now() / 1000) - parseInt(lastfmUts);
+
+//       let intervalId = setInterval(() => {
+//         const currentListened =
+//           Math.floor(Date.now() / 1000) - parseInt(lastfmUts);
+//         let trackInfo = userDiv.querySelector(".trackInfo");
+//         let pTag = trackInfo.querySelector("p");
+//         if (pTag) {
+//           pTag.textContent = `Time listened: ${convert(currentListened)}/${length}`;
+//         } else {
+//           let pTag = document.createElement("p");
+//           pTag.textContent = `Time listened: ${convert(currentListened)}/${length}`;
+//           trackInfo.appendChild(pTag);
+//         }
+//       }, 1000);
+
+//       setTimeout(
+//         () => {
+//           clearInterval(intervalId);
+//         },
+//         (parseInt(duration) - listened) * 1000,
+//       );
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching track info:", error);
+//     });
+// }
+
+function fallbackCover(coverImageUrl, json, artistName) {
+  if (
+    coverImageUrl ==
+    "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
+  ) {
+    const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(
+      artistName,
+    )} AND release:${encodeURIComponent(json.recenttracks.track[0].album.name)}&fmt=json`;
+
+    fetch(musicBrainzEndpoint, {
+      headers: {
+        "User-Agent": "NekoFM/1.0 (https://lel.nekoweb.org/lastfm/)",
+      },
+    }).then((response) => {
+      const jsonBrainz = response.json();
+
+      console.log(jsonBrainz);
+    });
+  }
+}
