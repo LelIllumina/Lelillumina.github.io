@@ -1,129 +1,128 @@
 /* global users */
-// WebSocket API (scrobbled) by tepiloxtl
 
-var notPlaying = 0;
-var userOnline;
-const getTrack = (username, site) => {
-  const BASE_URL = `wss://scrobbled.tepiloxtl.net/ws-bleeding/get_last_track/${username}`;
-  const ws = new WebSocket(BASE_URL);
+// Constants
+const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws-bleeding/get_last_track/";
 
-  // ws.onopen = () => {
-  //   console.log("WebSocket connection opened");
-  // };
+// Variables
+let notPlaying = 0;
 
-  ws.onmessage = (event) => {
-    const json = JSON.parse(event.data);
-    const artistName = json.recenttracks.track[0].artist.name;
-    const trackName = json.recenttracks.track[0].name;
+// WebSocket connection function
+const connectWebSocket = (username, site) => {
+  const url = `${BASE_URL}${username}`;
+  const socket = new WebSocket(url);
 
-    // Check if user is online or offline
-    if (json.recenttracks.track[0].nowplaying == "true") {
-      userOnline = true; // User is online
-    } else {
-      userOnline = false; // User is offline
-    }
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    const track = data.recenttracks.track[0];
 
-    // Move divs between offline and scrobbling sections
-    let offlineDiv = document.getElementById("offline");
-    let scrobblingDiv = document.getElementById("scrobbling");
-    let userDiv = document.getElementById(`${username}`);
-
-    // Remove user div from any existing location
-    if (userDiv) {
-      if (offlineDiv.contains(userDiv)) {
-        offlineDiv.removeChild(userDiv);
-      }
-      if (scrobblingDiv.contains(userDiv)) {
-        scrobblingDiv.removeChild(userDiv);
-      }
-    }
+    // Check user's online status
+    const userOnline = track.nowplaying === "true";
 
     // Create or update user div
-    if (!userDiv) {
-      userDiv = document.createElement("div");
-      userDiv.id = `${username}`;
-      userDiv.className = "container";
-      userDiv.innerHTML = `
-      <div id="${username}-songBox" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="" alt="">
-        <div id="${username}-trackInfo" class="trackInfo">
-          <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-          <h2 id="${username}-trackName" class="trackName"></h2>
-          <p id="${username}-artistName" class="artistName"></p>
-          <a id="${username}-searchButton" class="searchButton" href="" target="_blank"> Search Song</a>
-        </div>
-        </div>
-      `;
-    }
-
-    // Set placeholder CoverImage if it doesn't exist
-    let coverImageUrl = json.recenttracks.track[0].image[2]["#text"];
-    if (!coverImageUrl || coverImageUrl === "") {
-      coverImageUrl = "/images/NoArt.jpg";
-    }
-
-    if (userOnline) {
-      // Update the existing div
-      userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent = trackName;
-      userDiv.querySelector(".artistName").textContent = artistName;
-      userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${encodeURIComponent(trackName)}+${encodeURIComponent(artistName)}`;
-      scrobblingDiv.appendChild(userDiv);
-      // listenedSoFar(json, artistName, trackName, userDiv);
-    } else {
-      notPlaying++;
-      userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent = trackName;
-      userDiv.querySelector(".artistName").textContent = artistName;
-      userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${encodeURIComponent(trackName)}+${encodeURIComponent(artistName)}`;
-      offlineDiv.appendChild(userDiv);
-
-      // Check if everyone is offline and display notice
-      document.addEventListener("DOMContentLoaded", () => {
-        if (notPlaying === users.length) {
-          scrobblingDiv.innerHTML =
-            "<p>No one's listening to anything right now</p>";
-        } else {
-          const pTag = scrobblingDiv.querySelector("p");
-          if (pTag) {
-            pTag.remove();
-          }
-        }
-      });
-    }
-    // Get the track info element by its id
-    const trackInfoElement = userDiv.querySelector(".trackInfo");
-    const songBox = userDiv.querySelector(".listening");
-    const trackNameElement = userDiv.querySelector(".trackName");
-    const artistNameElement = userDiv.querySelector(".artistName");
-
-    if (trackInfoElement.offsetHeight > songBox.offsetHeight) {
-      trackNameElement.style.fontSize = "60%";
-      artistNameElement.style.fontSize = "60%";
-    }
-    if (trackInfoElement.offsetWidth > songBox.offsetWidth) {
-      trackNameElement.style.fontSize = "60%";
-      artistNameElement.style.fontSize = "60%";
-    }
-
-    fallbackCover(coverImageUrl, json, artistName);
+    updateUserDiv(username, site, track, userOnline);
   };
-  ws.onerror = (error) => {
+
+  socket.onerror = (error) => {
     console.error("WebSocket error:", error);
   };
-
-  // ws.onclose = () => {
-  //   console.log("WebSocket connection closed");
-  // };
 };
 
-// Get LastFM username and Nekoweb URL
-users.forEach((user) => {
-  const username = user[0];
-  const site = user[1];
-  getTrack(username, site);
+// Function to create or update user div based on online status
+const updateUserDiv = (username, site, track, userOnline) => {
+  const userDiv = document.getElementById(username);
+  const offlineDiv = document.getElementById("offline");
+  const scrobblingDiv = document.getElementById("scrobbling");
+
+  if (userDiv) {
+    userDiv.parentNode.removeChild(userDiv);
+  }
+
+  const newUserDiv = document.createElement("div");
+  newUserDiv.id = username;
+  newUserDiv.className = "container";
+  newUserDiv.innerHTML = `
+      <div id="${username}-songBox" class="listening">
+        <img id="${username}-trackCover" class="trackCover" src="${track.image[2]["#text"] || "/images/NoArt.jpg"}" alt="">
+        <div id="${username}-trackInfo" class="trackInfo">
+          <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+          <h2 id="${username}-trackName" class="trackName">${track.name}</h2>
+          <p id="${username}-artistName" class="artistName">${track.artist.name}</p>
+          <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${encodeURIComponent(track.name)}+${encodeURIComponent(track.artist.name)}" target="_blank"> Search Song</a>
+        </div>
+      </div>
+  `;
+
+  if (userOnline) {
+    scrobblingDiv.appendChild(newUserDiv);
+  } else {
+    notPlaying++;
+    offlineDiv.appendChild(newUserDiv);
+
+    if (notPlaying === users.length) {
+      scrobblingDiv.innerHTML =
+        "<p>No one's listening to anything right now</p>";
+    } else {
+      const pTag = scrobblingDiv.querySelector("p");
+      if (pTag) {
+        pTag.remove();
+      }
+    }
+  }
+
+  // Adjust font sizes if necessary
+  adjustFontSizes(
+    newUserDiv.querySelector(".trackInfo"),
+    newUserDiv.querySelector(".listening"),
+  );
+};
+
+// Function to adjust font sizes based on container dimensions
+const adjustFontSizes = (trackInfoElement, songBox) => {
+  const trackNameElement = trackInfoElement.querySelector(".trackName");
+  const artistNameElement = trackInfoElement.querySelector(".artistName");
+
+  if (
+    trackInfoElement.offsetHeight > songBox.offsetHeight ||
+    trackInfoElement.offsetWidth > songBox.offsetWidth
+  ) {
+    trackNameElement.style.fontSize = "60%";
+    artistNameElement.style.fontSize = "60%";
+  }
+};
+
+// Function to handle fallback cover image
+// const fallbackCover = (track) => {
+//   let coverImageUrl = track.image[2]["#text"];
+//   if (
+//     coverImageUrl ===
+//     "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
+//   ) {
+//     const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(track.artist.name)} AND release:${encodeURIComponent(track.album.name)}&fmt=json`;
+
+//     fetch(musicBrainzEndpoint, {
+//       headers: {
+//         "User-Agent": "NekoFM/1.0 (https://lel.nekoweb.org/lastfm/)",
+//       },
+//     })
+//       .then((response) => response.json())
+//       .then((json) => {
+//         if (json.release_groups.length > 0) {
+//           const coverArtUrl =
+//             json.release_groups[0].covers.coverart.length > 0
+//               ? json.release_groups[0].covers.coverart[0].file
+//               : "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png";
+//           coverImageUrl = coverArtUrl;
+//         }
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching track info:", error);
+//       });
+//   }
+// };
+
+// Initialize WebSocket connections for each user
+users.forEach(([username, site]) => {
+  connectWebSocket(username, site);
 });
 
 // function convert(seconds) {
@@ -168,24 +167,3 @@ users.forEach((user) => {
 //       console.error("Error fetching track info:", error);
 //     });
 // }
-
-function fallbackCover(coverImageUrl, json, artistName) {
-  if (
-    coverImageUrl ==
-    "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
-  ) {
-    const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(
-      artistName,
-    )} AND release:${encodeURIComponent(json.recenttracks.track[0].album.name)}&fmt=json`;
-
-    fetch(musicBrainzEndpoint, {
-      headers: {
-        "User-Agent": "NekoFM/1.0 (https://lel.nekoweb.org/lastfm/)",
-      },
-    }).then((response) => {
-      const jsonBrainz = response.json();
-
-      console.log(jsonBrainz);
-    });
-  }
-}
