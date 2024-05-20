@@ -114,10 +114,8 @@
     <script>
       var updateTimer;
       function reloadData() {
-        users.forEach((user) => {
-          const username = user[0];
-          const site = user[1];
-          getTrack(username, site);
+        users.forEach(([username, site]) => {
+          connectWebSocket(username, site);
         });
         document.getElementById("scrobbling").innerHTML = "";
         document.getElementById("offline").innerHTML = "";
