@@ -4,7 +4,7 @@
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws-bleeding/get_last_track/";
 
 // Variables
-let notPlaying = 0;
+var notPlaying = 0;
 
 // WebSocket connection function
 const connectWebSocket = (username, site) => {
@@ -36,13 +36,30 @@ const updateUserDiv = (username, site, track, userOnline) => {
   if (userDiv) {
     userDiv.parentNode.removeChild(userDiv);
   }
+  var coverImgUrl = track.image[2]["#text"];
+  if (track.album.isnsfw == true) {
+    if (localStorage.nsfw == "off") {
+      coverImgUrl = track.image[2]["#text"];
+    } else if (localStorage.nsfw == "blurred") {
+      setTimeout(() => {
+        document.getElementById(`${username}-trackCover`).style.filter =
+          "blur(10px)";
+      }, 1);
+    } else if (localStorage.nsfw == "removed") {
+      coverImgUrl = null;
+    } else {
+      coverImgUrl = null; // Ensure any other values also nullify the cover image.
+    }
+  } else {
+    coverImgUrl = track.image[2]["#text"];
+  }
 
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
   newUserDiv.className = "container";
   newUserDiv.innerHTML = `
       <div id="${username}-songBox" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="${track.image[2]["#text"] || "/images/NoArt.jpg"}" alt="">
+        <img id="${username}-trackCover" class="trackCover" src="${coverImgUrl || "/images/NoArt.jpg"}" alt="">
         <div id="${username}-trackInfo" class="trackInfo">
           <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
           <h2 id="${username}-trackName" class="trackName">${track.name}</h2>
@@ -121,9 +138,6 @@ const adjustFontSizes = (trackInfoElement, songBox) => {
 // };
 
 // Initialize WebSocket connections for each user
-users.forEach(([username, site]) => {
-  connectWebSocket(username, site);
-});
 
 // function convert(seconds) {
 //   const min = Math.floor(seconds / 60);
@@ -167,3 +181,7 @@ users.forEach(([username, site]) => {
 //       console.error("Error fetching track info:", error);
 //     });
 // }
+
+users.forEach(([username, site]) => {
+  connectWebSocket(username, site);
+});
