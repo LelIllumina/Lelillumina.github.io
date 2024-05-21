@@ -16,6 +16,7 @@ const users = [
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
   ["lakiitu", "doqmeat.com", false],
+  ["microbenggu", "housepen.nekoweb.org", false],
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
