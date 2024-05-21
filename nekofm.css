@@ -1,8 +1,16 @@
 songBox {
   background-image: linear-gradient(#1e1e2ebd, #11111bf5),
-    url(https://files.catbox.moe/t66wim.jpg);
+    url(https://lel.nekoweb.org/images/swirly.png);
   border: 5px ridge #cba6f7;
   background-size: cover;
+  transition: 1s;
+  width: calc(100% - 45px);
+  height: calc(100% - 45px);
+}
+
+songBox:hover {
+  height: calc(100% - 30px);
+  width: calc(100% - 30px);
 }
 
 siteName {
