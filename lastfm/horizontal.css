@@ -5,7 +5,7 @@
     display: flex;
     height: 150px;
     padding: 20px;
-    margin: 20px;
+    margin: 0;
     align-items: center;
     min-width: 250px;
   }
@@ -15,9 +15,10 @@
     width: auto;
     max-height: 220px;
     max-width: 33%;
-    padding: 0;
+    padding: 20px;
     margin: 0;
     overflow: hidden;
+    position: relative;
   }
 
   .trackCover {
