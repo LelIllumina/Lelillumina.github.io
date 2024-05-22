@@ -1,130 +1,115 @@
 /* global users */
-// WebSocket API (scrobbled) by tepiloxtl
+/* exported online */
 
+// Constants
+const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
+
+// Variables
 var notPlaying = 0;
-var userOnline;
-const getTrack = (username, site) => {
-  const BASE_URL = `wss://scrobbled.tepiloxtl.net/ws/get_last_track/${username}`;
-  const ws = new WebSocket(BASE_URL);
+var online = 0;
 
-  // ws.onopen = () => {
-  //   console.log("WebSocket connection opened");
-  // };
+// WebSocket connection function
+const connectWebSocket = (username, site) => {
+  const url = `${BASE_URL}${username}`;
+  const socket = new WebSocket(url);
 
-  ws.onmessage = (event) => {
-    const json = JSON.parse(event.data);
-    // console.log("Received JSON data for", username, json);
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    const track = data.recenttracks.track[0];
 
-    // Check if user is online or offline
-    if (
-      Object.prototype.hasOwnProperty.call(json.recenttracks.track[0], "@attr")
-    ) {
-      userOnline = true; // User is online
-    } else {
-      userOnline = false; // User is offline
-    }
-
-    // Move divs between offline and scrobbling sections
-    let offlineDiv = document.getElementById("offline");
-    let scrobblingDiv = document.getElementById("scrobbling");
-    let userDiv = document.getElementById(`${username}`);
-
-    // Remove user div from any existing location
-    if (userDiv) {
-      if (offlineDiv.contains(userDiv)) {
-        offlineDiv.removeChild(userDiv);
-      }
-      if (scrobblingDiv.contains(userDiv)) {
-        scrobblingDiv.removeChild(userDiv);
-      }
-    }
+    // Check user's online status
+    const userOnline = track.nowplaying === "true";
 
     // Create or update user div
-    if (!userDiv) {
-      userDiv = document.createElement("div");
-      userDiv.id = `${username}`;
-      userDiv.className = "container";
-      userDiv.innerHTML = `
-      <div id="${username}-songBox" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="" alt="">
-        <div id="${username}-trackInfo" class="trackInfo">
-          <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-          <h2 id="${username}-trackName" class="trackName"></h2>
-          <p id="${username}-artistName" class="artistName"></p>
-          <a id="${username}-searchButton" class="searchButton" href="" target="_blank"> Search Song</a>
-        </div>
-        </div>
-      `;
-    }
-
-    // Set placeholder CoverImage if it doesn't exist
-    let coverImageUrl = json.recenttracks.track[0].image[2]["#text"];
-    if (!coverImageUrl || coverImageUrl === "") {
-      coverImageUrl = "/images/NoArt.jpg";
-    }
-
-    if (userOnline) {
-      // Update the existing div
-      userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent =
-        json.recenttracks.track[0].name;
-      userDiv.querySelector(".artistName").textContent =
-        json.recenttracks.track[0].artist.name;
-      userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
-      scrobblingDiv.appendChild(userDiv);
-    } else {
-      notPlaying++;
-      userDiv.querySelector(".trackCover").src = coverImageUrl;
-      userDiv.querySelector(".trackName").textContent =
-        json.recenttracks.track[0].name;
-      userDiv.querySelector(".artistName").textContent =
-        json.recenttracks.track[0].artist.name;
-      userDiv.querySelector(".searchButton").href =
-        `https://www.google.com/search?q=${json.recenttracks.track[0].name}+${json.recenttracks.track[0].artist.name}`;
-      offlineDiv.appendChild(userDiv);
-
-      // Check if everyone is offline and display notice
-      document.addEventListener("DOMContentLoaded", () => {
-        if (notPlaying === users.length) {
-          scrobblingDiv.innerHTML =
-            "<p>No one's listening to anything right now</p>";
-        } else {
-          const pTag = scrobblingDiv.querySelector("p");
-          if (pTag) {
-            pTag.remove();
-          }
-        }
-      });
-    }
-    // Get the track info element by its id
-    const trackInfoElement = userDiv.querySelector(".trackInfo");
-    const songBox = userDiv.querySelector(".listening");
-    const trackNameElement = userDiv.querySelector(".trackName");
-    const artistNameElement = userDiv.querySelector(".artistName");
-
-    if (trackInfoElement.offsetHeight > songBox.offsetHeight) {
-      trackNameElement.style.fontSize = "60%";
-      artistNameElement.style.fontSize = "60%";
-    }
-    if (trackInfoElement.offsetWidth > songBox.offsetWidth) {
-      trackNameElement.style.fontSize = "60%";
-      artistNameElement.style.fontSize = "60%";
-    }
+    updateUserDiv(username, site, track, userOnline);
   };
 
-  ws.onerror = (error) => {
+  socket.onerror = (error) => {
     console.error("WebSocket error:", error);
   };
-
-  // ws.onclose = () => {
-  //   console.log("WebSocket connection closed");
-  // };
 };
 
-// Get LastFM username and Nekoweb URL
-users.forEach((user) => {
-  const username = user[0];
-  const site = user[1];
-  getTrack(username, site);
+// Function to create or update user div based on online status
+const updateUserDiv = (username, site, track, userOnline) => {
+  const userDiv = document.getElementById(username);
+  const offlineDiv = document.getElementById("offline");
+  const scrobblingDiv = document.getElementById("scrobbling");
+
+  if (userDiv) {
+    userDiv.parentNode.removeChild(userDiv);
+  }
+  var coverImgUrl = track.image[2]["#text"];
+  if (track.album.isnsfw == true) {
+    if (localStorage.nsfw == "off") {
+      coverImgUrl = track.image[2]["#text"];
+    } else if (localStorage.nsfw == "blurred") {
+      setTimeout(() => {
+        document.getElementById(`${username}-trackCover`).style.filter =
+          "blur(10px)";
+      }, 1);
+    } else if (localStorage.nsfw == "removed") {
+      coverImgUrl = null;
+    } else {
+      coverImgUrl = null; // Ensure any other values also nullify the cover image.
+    }
+  } else {
+    coverImgUrl = track.image[2]["#text"];
+  }
+
+  const newUserDiv = document.createElement("div");
+  newUserDiv.id = username;
+  newUserDiv.className = "container";
+  newUserDiv.innerHTML = `
+      <div id="${username}-songBox" class="listening">
+        <img id="${username}-trackCover" class="trackCover" src="${coverImgUrl || "/images/NoArt.jpg"}" alt="">
+        <div id="${username}-trackInfo" class="trackInfo">
+          <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+          <h2 id="${username}-trackName" class="trackName">${track.name}</h2>
+          <p id="${username}-artistName" class="artistName">${track.artist.name}</p>
+          <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${encodeURIComponent(track.name)}+${encodeURIComponent(track.artist.name)}" target="_blank"> Search Song</a>
+        </div>
+      </div>
+  `;
+
+  if (userOnline) {
+    online++;
+    scrobblingDiv.appendChild(newUserDiv);
+  } else {
+    notPlaying++;
+    offlineDiv.appendChild(newUserDiv);
+
+    if (notPlaying === users.length) {
+      scrobblingDiv.innerHTML =
+        "<p>No one's listening to anything right now</p>";
+    } else {
+      const pTag = scrobblingDiv.querySelector("p");
+      if (pTag) {
+        pTag.remove();
+      }
+    }
+  }
+
+  // Adjust font sizes if necessary
+  adjustFontSizes(
+    newUserDiv.querySelector(".trackInfo"),
+    newUserDiv.querySelector(".listening"),
+  );
+};
+
+// Function to adjust font sizes based on container dimensions
+const adjustFontSizes = (trackInfoElement, songBox) => {
+  const trackNameElement = trackInfoElement.querySelector(".trackName");
+  const artistNameElement = trackInfoElement.querySelector(".artistName");
+
+  if (
+    trackInfoElement.offsetHeight > songBox.offsetHeight ||
+    trackInfoElement.offsetWidth > songBox.offsetWidth
+  ) {
+    trackNameElement.style.fontSize = "60%";
+    artistNameElement.style.fontSize = "60%";
+  }
+};
+
+users.forEach(([username, site]) => {
+  connectWebSocket(username, site);
 });
