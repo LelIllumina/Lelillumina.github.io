@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     randomText = "";
     //if you've chosen to include a random button, this builds the link that does that
     if (useRandom) {
-      randomText = `<a href='javascript:void(0)' onclick='randomSite()'><img src="images/Nekowebring/cat.png" alt="Random Site"></a>`;
+      randomText = `<span onclick='randomSite()'><img src="images/Nekowebring/cat.png" alt="Random Site"></span>`;
     }
 
     //this is the code that displays the widget - EDIT THIS if you want to change the structure
