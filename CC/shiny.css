@@ -9,7 +9,8 @@
     url("/images/CC/sparkle2.gif"), url("/images/CC/R.jpg");
   background-blend-mode: lighten;
   background-size: cover;
-  filter: saturate(90%) brightness(65%) contrast(150%) blur(1px);
+  filter: saturate(90%) brightness(65%) contrast(150%) blur(1px)
+    hue-rotate(20deg);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -24,7 +25,7 @@
   width: 100vw;
   top: 0;
   z-index: -1;
-  filter: opacity(60%) blur(1px) contrast(140%);
+  filter: opacity(60%) blur(1px) contrast(140%) hue-rotate(20deg);
 }
 
 #spintop,
@@ -32,7 +33,7 @@
   animation: spin 5s linear infinite;
   position: absolute;
   z-index: -2;
-  filter: blur(0.5px) opacity(80%) saturate(60%);
+  filter: blur(0.5px) opacity(80%) saturate(60%) hue-rotate(20deg);
 }
 
 #spintop {
@@ -54,6 +55,16 @@
   top: 0;
 }
 
+#hanging {
+  height: 100vh;
+  width: auto;
+  filter: opacity(50%) blur(1px) contrast(150%) hue-rotate(20deg);
+  z-index: -3;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 #content {
   filter: none;
   margin: auto;
@@ -64,9 +75,13 @@
     0 0 5px #0e0,
     0 0 5px #0e0 inset;
   background: rgb(100 200 100 / 50%);
-  animation-name: bub;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+  background-image: url("/images/CC/heart.png"),
+    url("/images/CC/transbayer8.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+  background-blend-mode: overlay;
+  animation: bub 3s infinite;
   border: 15px solid transparent;
   text-shadow:
     0 0 10px black,
