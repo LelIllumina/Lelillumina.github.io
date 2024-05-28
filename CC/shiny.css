@@ -9,13 +9,49 @@
     url("/images/CC/sparkle2.gif"), url("/images/CC/R.jpg");
   background-blend-mode: lighten;
   background-size: cover;
-  filter: saturate(90%) brightness(0.7);
+  filter: saturate(90%) brightness(65%) contrast(150%) blur(1px);
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -5;
+}
+
+#flowers {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
   z-index: -1;
+  filter: opacity(60%) blur(1px) contrast(140%);
+}
+
+#spintop,
+#spinbottom {
+  animation: spin 5s linear infinite;
+  position: absolute;
+  z-index: -2;
+  filter: blur(0.5px) opacity(80%) saturate(60%);
+}
+
+#spintop {
+  top: 0;
+  right: 0;
+}
+
+#spinbottom {
+  bottom: 0;
+  left: 0;
+}
+
+#corner {
+  height: 100vh;
+  width: auto;
+  filter: opacity(50%) blur(1px) contrast(150%) hue-rotate(20deg);
+  z-index: -3;
+  position: absolute;
+  top: 0;
 }
 
 #content {
@@ -24,26 +60,31 @@
   margin-top: 100px;
   width: 80vw;
   height: 65vh;
-  box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
+  box-shadow:
+    0 0 5px #0e0,
+    0 0 5px #0e0 inset;
   background: rgb(100 200 100 / 50%);
   animation-name: bub;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   border: 15px solid transparent;
-  text-shadow: 0 0 10px black, 0 0 10px black;
+  text-shadow:
+    0 0 10px black,
+    0 0 10px black;
 
   #text {
-    margin-left: 280px;
+    margin: 20px 100px 20px 300px;
+    color: whitesmoke;
   }
 
   h1,
+  h2,
   p {
-    padding: 12px;
+    padding: 10px;
   }
 
   p {
     font-size: 17px;
-    -webkit-text-stroke: 0.1px black;
   }
 }
 
@@ -58,15 +99,21 @@
 
 @keyframes bub {
   0% {
-    box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
+    box-shadow:
+      0 0 5px #0e0,
+      0 0 5px #0e0 inset;
   }
 
   33% {
-    box-shadow: 0 0 10px #0e0, 0 0 0 #0e0 inset;
+    box-shadow:
+      0 0 10px #0e0,
+      0 0 0 #0e0 inset;
   }
 
   66% {
-    box-shadow: 0 0 5px #0e0, 0 0 10px #0e0 inset;
+    box-shadow:
+      0 0 5px #0e0,
+      0 0 10px #0e0 inset;
   }
 }
 
@@ -77,5 +124,11 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
 }
