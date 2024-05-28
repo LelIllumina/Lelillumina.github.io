@@ -79,6 +79,12 @@
         title="Hard Reset"
         onclick="reloadData();"
       />
+      <div>
+        <h2 id="counter-type">Online:</h2>
+        <h2 id="counter">0</h2>
+        <h2 id="counter-type">Total:</h2>
+        <h2 id="total">0</h2>
+      </div>
     </div>
     <main>
       <div id="scrobbling"></div>
@@ -94,6 +100,7 @@
     </footer>
 
     <script>
+      // Switch orientation
       const verticalStyle = document.getElementById("vertical");
       const HorizontalStyle = document.getElementById("horizontal");
 
@@ -112,7 +119,7 @@
         });
     </script>
     <script>
-      var updateTimer;
+      // Reload button function
       function reloadData() {
         users.forEach(([username, site]) => {
           connectWebSocket(username, site);
@@ -120,9 +127,11 @@
         document.getElementById("scrobbling").innerHTML = "";
         document.getElementById("offline").innerHTML = "";
         notPlaying = 0;
+        online = 0;
       }
     </script>
     <script>
+      // Tagline changing script
       const taglinePhrases = [
         "Who's listening to what",
         "Big thanks to tepiloxtl for websocket api",
@@ -149,6 +158,7 @@
       }
     </script>
     <script>
+      // Fetching Custom CSS
       if (localStorage.customCSS !== "false") {
         users.forEach((user) => {
           const username = user[0];
@@ -172,6 +182,10 @@
           }
         });
       }
+    </script>
+    <script>
+      totalCounter = document.getElementById("total");
+      totalCounter.textContent = users.length;
     </script>
   </body>
 </html>

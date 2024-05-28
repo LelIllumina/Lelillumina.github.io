@@ -103,8 +103,18 @@ footer {
   float: right;
   margin: 10px;
   cursor: pointer;
-  display: inline-flex;
-  flex-direction: row-reverse;
+}
+
+#counter,
+#total,
+#counter-type {
+  font-size: 25px;
+  margin: 10px;
+  display: inline;
+}
+
+#counter-type {
+  margin: 10px 0 10px 100px;
 }
 
 #title {

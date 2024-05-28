@@ -1,10 +1,12 @@
 /* global users */
+/* exported online */
 
 // Constants
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws-bleeding/get_last_track/";
 
 // Variables
 var notPlaying = 0;
+var online = 0;
 
 // WebSocket connection function
 const connectWebSocket = (username, site) => {
@@ -20,6 +22,8 @@ const connectWebSocket = (username, site) => {
 
     // Create or update user div
     updateUserDiv(username, site, track, userOnline);
+    let onlineCounter = document.getElementById("counter");
+    onlineCounter.textContent = online;
   };
 
   socket.onerror = (error) => {
@@ -70,6 +74,7 @@ const updateUserDiv = (username, site, track, userOnline) => {
   `;
 
   if (userOnline) {
+    online++;
     scrobblingDiv.appendChild(newUserDiv);
   } else {
     notPlaying++;
