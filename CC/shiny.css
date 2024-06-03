@@ -1,16 +1,22 @@
 * {
   margin: 0;
   padding: 0;
+  image-rendering: pixelated;
+}
+
+html {
+  overflow: hidden !important;
+}
+
+img {
+  pointer-events: none;
 }
 
 .background {
-  image-rendering: pixelated;
-  background-image: url("/images/CC/L.jpg"), url("/images/CC/sparkle.gif"),
-    url("/images/CC/sparkle2.gif"), url("/images/CC/R.jpg");
+  background-image: url("/images/CC/L.jpg"), url("/images/CC/R.jpg");
   background-blend-mode: lighten;
   background-size: cover;
-  filter: saturate(90%) brightness(65%) contrast(150%) blur(1px)
-    hue-rotate(20deg);
+  filter: saturate(90%) brightness(65%) contrast(150%) hue-rotate(20deg);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -19,13 +25,22 @@
   z-index: -5;
 }
 
+#sparkle {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -4;
+}
+
 #flowers {
   position: absolute;
   height: 100vh;
   width: 100vw;
   top: 0;
   z-index: -1;
-  filter: opacity(60%) blur(1px) contrast(140%) hue-rotate(20deg);
+  filter: opacity(60%) contrast(140%) hue-rotate(20deg);
 }
 
 #spintop,
@@ -33,7 +48,7 @@
   animation: spin 5s linear infinite;
   position: absolute;
   z-index: -2;
-  filter: blur(0.5px) opacity(80%) saturate(60%) hue-rotate(20deg);
+  filter: opacity(80%) saturate(60%) hue-rotate(20deg);
 }
 
 #spintop {
@@ -49,7 +64,7 @@
 #corner {
   height: 100vh;
   width: auto;
-  filter: opacity(50%) blur(1px) contrast(150%) hue-rotate(20deg);
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
   z-index: -3;
   position: absolute;
   top: 0;
@@ -58,7 +73,7 @@
 #hanging {
   height: 100vh;
   width: auto;
-  filter: opacity(50%) blur(1px) contrast(150%) hue-rotate(20deg);
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
   z-index: -3;
   position: absolute;
   right: 0;
@@ -143,7 +158,11 @@
 }
 
 @keyframes spin {
-  100% {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
     transform: rotate(360deg);
   }
 }
