@@ -4,7 +4,7 @@
 	<url>
 		<loc>https://lel.nekoweb.org</loc>
 		<priority>1.00</priority>
-		<lastmod>2024-05-16</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page</loc>
@@ -14,7 +14,7 @@
 	<url>
 		<loc>https://lel.nekoweb.org/not_found.html</loc>
 		<priority>0.91</priority>
-		<lastmod>2024-05-14</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music</loc>
@@ -27,6 +27,11 @@
 		<lastmod>2024-05-13</lastmod>
 	</url>
 	<url>
+		<loc>https://lel.nekoweb.org/marquee.html</loc>
+		<priority>0.91</priority>
+		<lastmod>2024-06-03</lastmod>
+	</url>
+	<url>
 		<loc>https://lel.nekoweb.org/LelIllumina</loc>
 		<priority>0.91</priority>
 		<lastmod>2024-05-11</lastmod>
@@ -34,27 +39,27 @@
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm</loc>
 		<priority>0.91</priority>
-		<lastmod>2024-05-21</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/CC</loc>
 		<priority>0.91</priority>
-		<lastmod>2024-05-12</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/about</loc>
 		<priority>0.91</priority>
-		<lastmod>2024-05-14</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/2</loc>
 		<priority>0.82</priority>
-		<lastmod>2024-05-13</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/1</loc>
 		<priority>0.82</priority>
-		<lastmod>2024-05-16</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music/susumu</loc>
@@ -79,7 +84,7 @@
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/beta</loc>
 		<priority>0.82</priority>
-		<lastmod>2024-05-21</lastmod>
+		<lastmod>2024-06-08</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/about</loc>
