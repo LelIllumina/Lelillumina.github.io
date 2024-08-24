@@ -6,6 +6,7 @@ const users = [
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
+  ["ramudaamemura", "yumeo.nekoweb.org", true],
   ["tepiloxtl", "tepiloxtl.net", true],
   ["thnlqd", "thinliquid.dev", true],
   ["abyssmaze", "eye.nekoweb.org", false],
@@ -23,7 +24,6 @@ const users = [
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
-  ["ramudaamemura", "yumeo.nekoweb.org", false],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
