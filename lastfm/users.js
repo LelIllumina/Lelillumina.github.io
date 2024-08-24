@@ -2,6 +2,7 @@
 const users = [
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "crisis.city", true],
+  ["frenzy9", "ironstar.nekoweb.org", true],
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
@@ -15,7 +16,6 @@ const users = [
   ["excelesia", "", false],
   ["flowerz-2005", "flowerz.nekoweb.org", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
-  ["frenzy9", "ironstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
   ["lakiitu", "doqmeat.com", false],
