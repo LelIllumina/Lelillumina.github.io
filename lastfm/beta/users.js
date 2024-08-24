@@ -15,6 +15,7 @@ const users = [
   ["excelesia", "", false],
   ["flowerz-2005", "flowerz.nekoweb.org", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
+  ["frenzy9", "ironstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
   ["lakiitu", "doqmeat.com", false],
