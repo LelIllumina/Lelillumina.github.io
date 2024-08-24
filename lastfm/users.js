@@ -6,6 +6,7 @@ const users = [
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
   ["tepiloxtl", "tepiloxtl.net", true],
+  ["thnlqd", "thinliquid.dev", true],
   ["abyssmaze", "eye.nekoweb.org", false],
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
   ["blurrybleu", "bleu.nekoweb.org", false],
