@@ -2,6 +2,7 @@
 const users = [
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "crisis.city", true],
+  ["giikis2", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
   ["tepiloxtl", "tepiloxtl.net", true],
@@ -20,7 +21,6 @@ const users = [
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
-  ["giikis2", "giikis2.nekoweb.org", true],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
