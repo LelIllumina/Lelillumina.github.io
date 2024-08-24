@@ -20,6 +20,7 @@ const users = [
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
+  ["giikis2", "giikis2.nekoweb.org", true],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
