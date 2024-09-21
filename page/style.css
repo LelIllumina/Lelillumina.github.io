@@ -87,6 +87,16 @@ em {
   background: #7fbbb3;
 }
 
+/* NProgress */
+
+#nprogress .bar {
+  background: #83c092;
+}
+#nprogress .peg {
+  box-shadow:
+    0 0 10px #83c092,
+    0 0 5px #83c092;
+}
 @keyframes fade-in {
   0% {
     opacity: 0;
