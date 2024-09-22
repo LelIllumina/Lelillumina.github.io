@@ -61,7 +61,7 @@ const updateUserDiv = (username, site, track, userOnline) => {
   newUserDiv.className = "container";
   newUserDiv.innerHTML = `
       <div id="${username}-songBox" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="${coverImgUrl || "/images/NoArt.jpg"}" alt="">
+        <img id="${username}-trackCover" class="trackCover" src="${coverImgUrl || "/images/NekoFM/NoArt.jpg"}" alt="">
         <div id="${username}-trackInfo" class="trackInfo">
           <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
           <h2 id="${username}-trackName" class="trackName">${track.name}</h2>
