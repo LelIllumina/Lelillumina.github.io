@@ -16,11 +16,20 @@ p {
   max-width: 800px;
 }
 
+.altText {
+  display: block;
+  text-align: center;
+}
+
 a {
   animation: gradient-text 5s infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
   text-decoration: none;
+}
+
+.index-link {
+  animation-direction: alternate-reverse;
 }
 
 a:not(:has(img)):hover {
@@ -39,6 +48,14 @@ h2 {
   font-size: 14px;
   color: #4f5b58;
   margin: 0;
+}
+
+.pic {
+  display: block;
+  padding: 5px;
+  margin: 15px auto;
+  border: 5px solid #4f5b58;
+  max-width: 500px;
 }
 
 p {
