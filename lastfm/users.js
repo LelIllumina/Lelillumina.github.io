@@ -20,6 +20,7 @@ const users = [
   ["four-caddit", "fourstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
+  ["julylmao", "july.lol", false]
   ["lakiitu", "doqmeat.com", false],
   ["microbenggu", "housepen.nekoweb.org", false],
   ["milkywaydotmoe", "milkyway.moe", false],
