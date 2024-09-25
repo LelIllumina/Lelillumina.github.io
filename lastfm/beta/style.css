@@ -107,13 +107,13 @@ footer {
 
 #counter,
 #total,
-#counter-type {
+.counterType {
   font-size: 25px;
   margin: 10px;
   display: inline;
 }
 
-#counter-type {
+.counterType {
   margin: 10px 0 10px 100px;
 }
 

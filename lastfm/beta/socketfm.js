@@ -2,7 +2,7 @@
 /* exported online */
 
 // Constants
-const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws-bleeding/get_last_track/";
+const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 
 // Variables
 var notPlaying = 0;
