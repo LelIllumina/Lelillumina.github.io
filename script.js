@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var indexText = "";
     // If you've chosen to include an index, this builds the link to that
     if (useIndex) {
-      indexText = `<a href='${indexPage}'>index</a> | `;
+      indexText = `<a href='${indexPage}'>`;
     }
 
     var randomText = "";
