@@ -13,14 +13,14 @@ const users = [
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
   ["blurrybleu", "bleu.nekoweb.org", false],
   ["CorelVulpix", "s1nez.nekoweb.org", false],
-  ["cqrcin0", "cqrcin0.nekoweb.org", false]
+  ["cqrcin0", "cqrcin0.nekoweb.org", false],
   ["dimdendev", "dimden.dev", false],
   ["excelesia", "", false],
   ["flowerz-2005", "flowerz.nekoweb.org", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
-  ["julylmao", "july.lol", false]
+  ["julylmao", "july.lol", false],
   ["lakiitu", "doqmeat.com", false],
   ["microbenggu", "housepen.nekoweb.org", false],
   ["milkywaydotmoe", "milkyway.moe", false],
