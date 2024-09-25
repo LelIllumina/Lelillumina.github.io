@@ -1,3 +1,4 @@
 *.flac
 *.webm
 node_modules
+.unlighthouse
