@@ -8,132 +8,102 @@
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-26</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/not_found.html</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/meme</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/LelIllumina</loc>
-		<priority>0.91</priority>
-		<lastmod>2024-09-16</lastmod>
+		<priority>0.75</priority>
+		<lastmod>2024-09-26</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-23</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/CC</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/about</loc>
-		<priority>0.91</priority>
+		<priority>0.75</priority>
 		<lastmod>2024-09-22</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/3</loc>
-		<priority>0.82</priority>
-		<lastmod>2024-09-25</lastmod>
+		<priority>0.50</priority>
+		<lastmod>2024-09-26</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/2</loc>
-		<priority>0.82</priority>
-		<lastmod>2024-09-23</lastmod>
+		<priority>0.50</priority>
+		<lastmod>2024-09-26</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/page/1</loc>
-		<priority>0.82</priority>
-		<lastmod>2024-09-23</lastmod>
+		<priority>0.50</priority>
+		<lastmod>2024-09-26</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music/susumu</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/music/arcuied</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-16</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/settings</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-23</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/css</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-23</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/beta</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-25</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/about</loc>
-		<priority>0.82</priority>
+		<priority>0.50</priority>
 		<lastmod>2024-09-23</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/beta/settings</loc>
-		<priority>0.73</priority>
+		<priority>0.25</priority>
 		<lastmod>2024-09-25</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/beta/css</loc>
-		<priority>0.73</priority>
+		<priority>0.25</priority>
 		<lastmod>2024-09-25</lastmod>
 	</url>
 	<url>
 		<loc>https://lel.nekoweb.org/lastfm/beta/about</loc>
-		<priority>0.73</priority>
+		<priority>0.25</priority>
 		<lastmod>2024-09-25</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/node_modules/loglevel/demo</loc>
-		<priority>0.55</priority>
-		<lastmod>2024-09-25</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/loglevel@1.9.2/node_modules/loglevel/demo</loc>
-		<priority>0.45</priority>
-		<lastmod>2024-09-25</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/loglevel@1.9.1/node_modules/loglevel/demo</loc>
-		<priority>0.45</priority>
-		<lastmod>2024-09-22</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/loglevel-colored-level-prefix@1.0.0/node_modules/loglevel/demo</loc>
-		<priority>0.45</priority>
-		<lastmod>2024-09-25</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/loglevel@1.9.1/node_modules/loglevel/test/manual-test.html</loc>
-		<priority>0.36</priority>
-		<lastmod>2024-09-22</lastmod>
-	</url>
-	<url>
-		<loc>https://lel.nekoweb.org/node_modules/.pnpm/loglevel@1.9.1/node_modules/loglevel/vendor/grunt-template-jasmine-requirejs/src/templates/jasmine-requirejs.html</loc>
-		<priority>0.09</priority>
-		<lastmod>2024-09-22</lastmod>
 	</url>
 </urlset>

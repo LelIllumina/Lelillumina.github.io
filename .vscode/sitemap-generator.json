@@ -4,7 +4,12 @@
     "DomainName": "lel.nekoweb.org",
     "Root": "./",
     "IncludeExt": [".html", ".htm"],
-    "Exclude": ["/node_modules/", "page/sidebar.html", "page/template.html"],
+    "Exclude": [
+      "*/node_modules/*",
+      "*unlighthouse/*",
+      "page/sidebar.html",
+      "page/template.html"
+    ],
     "TagsToInclude": ["priority", "lastmod"],
     "DefaultChangeFrequency": "weekly",
     "TabCharacters": "\t",
