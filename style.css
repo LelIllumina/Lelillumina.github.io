@@ -337,5 +337,20 @@ footer {
 
 @font-face {
   font-family: Monocraft;
-  src: url("/assets/Monocraft-nerd-fonts-patched.ttf");
+  src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf");
+}
+
+@font-face {
+  font-family: "Bungee Spice";
+  src: url("/assets/fonts/BungeeSpice-Regular.ttf");
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("/assets/fonts/Raleway-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf");
 }
