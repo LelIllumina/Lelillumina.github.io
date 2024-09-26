@@ -2,3 +2,4 @@
 *.webm
 node_modules
 .unlighthouse
+.trunk
