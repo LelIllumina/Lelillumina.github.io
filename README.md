@@ -15,7 +15,8 @@ The main page uses multiple different scripts and embeds, ill list them all here
 - Theme [(here Catppuccin)](https://github.com/catppuccin/catppuccin)
 - LastFM Embed [(here)](https://github.com/JeffreyCA/lastfm-recently-played-readme)
 - Nekoweb Stats and NekoWebring [(here by max)](https://max.nekoweb.org/resources/nekoweb-stats)
-- Nekolink [(here by 6eamed)](https://username.nekoweb.org)
+- ~~Nekolink [(here by 6eamed)](https://username.nekoweb.org)~~
+- Nekolink Archive [(here by max)](https://max.nekoweb.org/~~nekolink/about/)
 - Palestine Cat [(here by pure)](https://pure.nekoweb.org/)
 - Palestine Button [(here by hillhouse)](https://hillhouse.neocities.org/journal/notes/palestine)
 - Cursor Effects [(here by tholman)](https://tholman.com/cursor-effects/)
