@@ -10,10 +10,9 @@ body {
 }
 
 h1,
-h2,
 p {
-  color: #d3c6aa;
   max-width: 800px;
+  color: #d3c6aa;
 }
 
 .altText {
@@ -46,6 +45,7 @@ h1 {
 h2 {
   font-family: "Cutive Mono", monospace;
   font-size: 14px;
+  max-width: 800px;
   color: #4f5b58;
   margin: 0;
 }
@@ -116,6 +116,8 @@ em {
     0 0 5px #83c092;
 }
 
+/* Animations */
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -160,8 +162,27 @@ em {
   }
 }
 
+/* Media queries */
+
 @media screen and (width <= 600px) {
   body {
     flex-wrap: wrap;
   }
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "Cutive Mono";
+  src: url("/assets/fonts/CutiveMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  src: url("/assets/fonts/CourierPrime-Regular.ttf");
 }
