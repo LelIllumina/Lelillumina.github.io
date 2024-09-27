@@ -10,6 +10,7 @@ body {
 }
 
 h1,
+h3,
 p {
   max-width: 800px;
   color: #d3c6aa;
@@ -37,7 +38,8 @@ a:not(:has(img)):hover {
   background: #7fbbb3;
 }
 
-h1 {
+h1,
+h3 {
   font-family: "Courier Prime", monospace;
   margin-bottom: 0;
 }
@@ -48,6 +50,12 @@ h2 {
   max-width: 800px;
   color: #4f5b58;
   margin: 0;
+}
+
+h3 {
+  font-family: "Cutive Mono", monospace;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .pic {
