@@ -1,16 +1,42 @@
 name: Deploy to Nekoweb
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Prepare build
+#         run: |
+#           mkdir -p ./build
+#           rsync -av --exclude='.*' --exclude='test' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.yaml' --exclude='eslint.config.mjs' ./ ./build
+
+#       - name: Deploy to Nekoweb
+#         uses: mp-pinheiro/nekoweb-deploy@0.2.4
+#         with:
+#           API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
+#           BUILD_DIR: "./build"
+#           DEPLOY_DIR: "/"
+#           CLEANUP: "False"
+#           DELAY: "0.5"
+#           NEKOWEB_PAGENAME: "lel"
+#           ENCRYPTION_KEY: ${{ secrets.NEKOWEB_ENCRYPTION_KEY }}
+
+on: [push]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
-
+    name: deploy2nekoweb
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Prepare build
@@ -18,13 +44,10 @@ jobs:
           mkdir -p ./build
           rsync -av --exclude='.*' --exclude='test' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.yaml' --exclude='eslint.config.mjs' ./ ./build
 
-      - name: Deploy to Nekoweb
-        uses: mp-pinheiro/nekoweb-deploy@0.2.4
+      - name: deploy2nekoweb
+        uses: deploy2nekoweb/deploy2nekoweb@v4
         with:
-          API_KEY: ${{ secrets.NEKOWEB_API_KEY }}
-          BUILD_DIR: "./build"
-          DEPLOY_DIR: "/"
-          CLEANUP: "False"
-          DELAY: "0.5"
-          NEKOWEB_PAGENAME: "lel"
-          ENCRYPTION_KEY: ${{ secrets.NEKOWEB_ENCRYPTION_KEY }}
+          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
+          nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
+          nekoweb-folder: "/"
+          directory: "build"
