@@ -7,13 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy2nekoweb
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Prepare build
+        run: |
+          mkdir -p ./build
+          rsync -av --exclude='.*' --exclude='test' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.json' --exclude='eslint.config.mjs' ./ ./build
 
       - name: deploy2nekoweb
         uses: deploy2nekoweb/deploy2nekoweb@main
         with:
           nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
           # nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
-          nekoweb-folder: "dist"
-          directory: "/"
+          nekoweb-folder: "dist/"
+          directory: "./build"
