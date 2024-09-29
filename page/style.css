@@ -9,11 +9,35 @@ body {
   display: flex;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 h1,
+h2,
 h3,
+h4,
+h5,
+h6,
 p {
   max-width: 800px;
   color: #d3c6aa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Courier Prime", monospace;
+  margin-bottom: 0;
+}
+
+.date {
+  font-family: "Cutive Mono", monospace;
+  color: #4f5b58;
+  margin: 0;
 }
 
 .altText {
@@ -22,6 +46,7 @@ p {
 }
 
 a {
+  font-family: "JetBrains Mono", monospace;
   animation: gradient-text 5s infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -38,32 +63,12 @@ a:not(:has(img)):hover {
   background: #7fbbb3;
 }
 
-h1,
-h3 {
-  font-family: "Courier Prime", monospace;
-  margin-bottom: 0;
-}
-
-h2 {
-  font-family: "Cutive Mono", monospace;
-  font-size: 14px;
-  max-width: 800px;
-  color: #4f5b58;
-  margin: 0;
-}
-
-h3 {
-  font-family: "Cutive Mono", monospace;
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
 .pic {
   display: block;
   padding: 5px;
   margin: 15px auto;
   border: 5px solid #4f5b58;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 p {
@@ -99,12 +104,18 @@ em {
   color: #e67e80;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #sidebar {
   margin: 0 5vw;
   animation: fade-in 7s;
   position: sticky;
-  top: 15vh;
+  top: 10vh;
   height: fit-content;
+  flex-direction: column;
+  max-width: 275px;
 }
 
 ::selection {
@@ -187,7 +198,7 @@ em {
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/assets/fonts/JetBrainsMono-Regular.ttf");
+  src: url("/assets/fonts/JetBrainsMonoNerdFontMono-Regular.ttf");
 }
 
 @font-face {

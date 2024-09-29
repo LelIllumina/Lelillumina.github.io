@@ -14,17 +14,17 @@
     <meta name="description" content="I love her so much" />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <title>Hakunon my Beloved</title>
-    <link rel="stylesheet" href="../style.min.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
     />
+    <link rel="stylesheet" href="../style.min.css" />
   </head>
   <body>
     <section id="mainText" style="margin: 45px 0 20px 0">
       <header style="animation: fade-in 0.5s">
         <h1>Hakunon my Beloved</h1>
-        <h2>September 23rd 2024</h2>
+        <p class="date">September 23rd 2024</p>
       </header>
       <p style="animation: fade-in 1s">
         I love her so much, I love all Female Main Characters so much!!
@@ -116,7 +116,9 @@
         Images taken from discord, twitter or the TYPE-MOON wiki.
       </p>
     </section>
-    <section id="sidebar"></section>
+    <section id="sidebar">
+      <section id="blogs"></section>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"
       defer
@@ -124,14 +126,14 @@
     <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <script>
       NProgress.configure({ showSpinner: false });
-      fetch("../sidebar.html")
+      fetch("../blogs.html")
         .then((response) => {
           return response.text();
         })
         .then((data) => {
-          document.getElementById("sidebar").innerHTML = data;
+          document.getElementById("blogs").innerHTML = data;
           var pjax = new Pjax({
-            selectors: ["title", "meta", "#mainText"],
+            selectors: ["title", "meta", "#mainText", "#sidebar"],
           });
         });
       document.addEventListener("pjax:send", () => {

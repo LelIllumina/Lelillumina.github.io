@@ -14,20 +14,20 @@
     <meta name="description" content="Its so fucking ass brooo" />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <title>I FUCKING HATE MATHS</title>
-    <link rel="stylesheet" href="../style.min.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/nprogress@0.2.0/nprogress.css"
     />
+    <link rel="stylesheet" href="../style.min.css" />
   </head>
   <body>
     <section id="mainText" style="margin: 45px 0 20px 0">
       <header style="animation: fade-in 1s">
         <h1>I FUCKING HATE MATHS</h1>
-        <h2>March 18th 2024</h2>
+        <p class="date">March 18th 2024</p>
       </header>
       <p style="animation: fade-in 2s">
-        Why do I need it pass a test for calculus level maths? like I
+        Why do I need to pass a test for calculus level maths? like I
         <i>could</i> find it useful IRL <i>maybe</i> but honestly Im only gonna
         use it to pass this test. I need to be good at math to be in computer
         science? Sure in that case <em>ILL LEARN WHAT I NEED</em> you know
@@ -68,7 +68,9 @@
         ripped from official past papers its so fucking dumb.
       </p>
     </section>
-    <section id="sidebar"></section>
+    <section id="sidebar">
+      <section id="blogs"></section>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"
       defer
@@ -76,12 +78,12 @@
     <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <script>
       NProgress.configure({ showSpinner: false });
-      fetch("../sidebar.html")
+      fetch("../blogs.html")
         .then((response) => {
           return response.text();
         })
         .then((data) => {
-          document.getElementById("sidebar").innerHTML = data;
+          document.getElementById("blogs").innerHTML = data;
           var pjax = new Pjax({
             selectors: ["title", "meta", "#mainText"],
           });

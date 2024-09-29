@@ -24,14 +24,14 @@
     <section id="mainText" style="margin: 45px 0 20px 0">
       <header style="animation: fade-in 1s">
         <h1>{TITLE}</h1>
-        <h2>{DATE}</h2>
+        <p class="date">{DATE}</p>
       </header>
       <p style="animation: fade-in 2s"></p>
       <p style="animation: fade-in 3s"></p>
       <p style="animation: fade-in 4s"></p>
       <p style="animation: fade-in 5s"></p>
     </section>
-    <section id="sidebar"></section>
+    <section id="blogs"></section>
     <script
       src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"
       defer
@@ -39,12 +39,12 @@
     <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <script>
       NProgress.configure({ showSpinner: false });
-      fetch("../sidebar.html")
+      fetch("../blogs.html")
         .then((response) => {
           return response.text();
         })
         .then((data) => {
-          document.getElementById("sidebar").innerHTML = data;
+          document.getElementById("blogs").innerHTML = data;
           var pjax = new Pjax({
             selectors: ["title", "meta", "#mainText"],
           });
