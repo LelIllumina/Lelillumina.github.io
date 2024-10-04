@@ -37,6 +37,7 @@ const connectWebSocket = (username) => {
 // Create Empty divs
 function createEmptyDiv(username, site) {
   const loadingDiv = document.getElementById("loading");
+  const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
   newUserDiv.className = "container";
@@ -51,6 +52,7 @@ function createEmptyDiv(username, site) {
       </div>
     </div>
 `;
+  fragment.appendChild(newUserDiv);
   loadingDiv.appendChild(newUserDiv);
 }
 
