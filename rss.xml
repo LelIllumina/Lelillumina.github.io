@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>The happenings of LelLand</title>
+        <description>What has lel been up to instead of gooning</description>
+        <link>https://lel.nekoweb.org</link>
+        <lastBuildDate>
+            Fri, 04 Oct 2024 23:56:26 +0000
+        </lastBuildDate>
+        <ttl>20000</ttl>
+    </channel>
+    <item>
+        <title>The start of NekoRSS</title>
+        <description>
+            Made a new rss.xml file for &lt;a
+            href=&quot;https://addons.mozilla.org/en-US/firefox/addon/nekofeed/&quot;&gt;NekoFeed&lt;/a&gt;
+        </description>
+        <link>https://lel.nekoweb.org/rss.xml</link>
+        <pubDate>
+            Fri, 04 Oct 2024 23:35:30 +0000
+        </pubDate>
+    </item>
+</rss>
