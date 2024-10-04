@@ -2,13 +2,11 @@
 const users = [
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "crisis.city", true],
-  ["frenzy9", "ironstar.nekoweb.org", true],
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
   ["ramudaamemura", "yumeo.nekoweb.org", true],
   ["tepiloxtl", "tepiloxtl.net", true],
-  ["thnlqd", "thinliquid.dev", true],
   ["abyssmaze", "eye.nekoweb.org", false],
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
   ["blurrybleu", "bleu.nekoweb.org", false],
@@ -18,6 +16,7 @@ const users = [
   ["excelesia", "", false],
   ["flowerz-2005", "flowerz.nekoweb.org", false],
   ["four-caddit", "fourstar.nekoweb.org", false],
+  ["frenzy9", "ironstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
   ["julylmao", "july.lol", false],
@@ -26,6 +25,7 @@ const users = [
   ["milkywaydotmoe", "milkyway.moe", false],
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
+  ["thnlqd", "thinliquid.dev", false],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],

@@ -45,21 +45,8 @@ const updateUserDiv = (username, site, track, userOnline) => {
     userDiv.parentNode.removeChild(userDiv);
   }
 
-  //
-  var coverImgUrl = track.image[2]["#text"];
   if (track.album.isnsfw === true) {
-    if (localStorage.nsfw == "off") {
-      coverImgUrl = track.image[2]["#text"];
-    } else if (localStorage.nsfw == "blurred") {
-      setTimeout(() => {
-        document.getElementById(`${username}-trackCover`).style.filter =
-          "blur(10px)";
-      }, 1);
-    } else if (localStorage.nsfw == "removed") {
-      coverImgUrl = null;
-    } else {
-      coverImgUrl = null; // Ensure any other values also nullify the cover image.
-    }
+    var coverImgUrl = nsfwFilter(track, coverImgUrl, username);
   } else {
     coverImgUrl = track.image[2]["#text"];
   }
@@ -74,27 +61,6 @@ const updateUserDiv = (username, site, track, userOnline) => {
     newUserDiv.querySelector(".listening"),
   );
 };
-
-// Check how many users are offline and if all are, display a "all offline" message
-function onlineUsersCheck(userOnline, scrobblingDiv, offlineDiv, newUserDiv) {
-  if (userOnline) {
-    // online++;
-    scrobblingDiv.appendChild(newUserDiv);
-  } else {
-    notPlaying++;
-    offlineDiv.appendChild(newUserDiv);
-
-    if (notPlaying === users.length) {
-      scrobblingDiv.innerHTML =
-        "<p>No one's listening to anything right now</p>";
-    } else {
-      const pTag = scrobblingDiv.querySelector("p");
-      if (pTag) {
-        pTag.remove();
-      }
-    }
-  }
-}
 
 // Create a div for ever user in users.js
 function createDiv(username, track, site, coverImgUrl) {
@@ -113,6 +79,48 @@ function createDiv(username, track, site, coverImgUrl) {
     </div>
 `;
   return newUserDiv;
+}
+
+// Check how many users are offline and if all are, display a "all offline" message
+function onlineUsersCheck(userOnline, scrobblingDiv, offlineDiv, newUserDiv) {
+  if (userOnline) {
+    scrobblingDiv.appendChild(newUserDiv);
+  } else {
+    notPlaying++;
+    offlineDiv.appendChild(newUserDiv);
+
+    if (notPlaying === users.length) {
+      scrobblingDiv.innerHTML =
+        "<p>No one's listening to anything right now</p>";
+    } else {
+      const pTag = scrobblingDiv.querySelector("p");
+      if (pTag) {
+        pTag.remove();
+      }
+    }
+  }
+}
+
+// NSFW Filter for album covers
+function nsfwFilter(track, coverImgUrl, username) {
+  const nsfwSetting = localStorage.nsfw;
+  const defaultCoverImg = track.image[2]["#text"];
+
+  switch (nsfwSetting) {
+    case "off":
+      coverImgUrl = defaultCoverImg;
+      break;
+    case "blurred":
+      setTimeout(() => {
+        document.getElementById(`${username}-trackCover`).style.filter =
+          "blur(10px)";
+      }, 1);
+      coverImgUrl = defaultCoverImg;
+      break;
+    case "removed":
+    default:
+      coverImgUrl = null;
+  }
 }
 
 // Function to adjust font sizes based on container dimensions
