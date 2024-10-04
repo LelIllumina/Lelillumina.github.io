@@ -47,7 +47,6 @@
       id="vertical"
     />
     <script src="users.min.js"></script>
-    <script src="socketfm.min.js"></script>
   </head>
 
   <body>
@@ -88,8 +87,10 @@
     </div>
     <main>
       <div id="scrobbling"></div>
-      <h2 id="seperator">Currently Offline (last scrobbled)</h2>
+      <h2 class="seperator">Currently Offline (showing last scrobbled)</h2>
       <div id="offline"></div>
+      <h2 class="seperator">Loading...</h2>
+      <div id="loading"></div>
     </main>
     <footer>
       <p>
@@ -99,6 +100,7 @@
       </p>
     </footer>
 
+    <script src="simplefm.min.js"></script>
     <script>
       // Switch orientation
       const verticalStyle = document.getElementById("vertical");

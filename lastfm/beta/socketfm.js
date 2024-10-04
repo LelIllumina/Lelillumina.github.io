@@ -23,9 +23,11 @@ const connectWebSocket = (username, site) => {
 
     // Create or update user div
     updateUserDiv(username, site, track, userOnline);
-    let onlineCounter = document.getElementById("counter");
-    var scrobbling = document.getElementById("scrobbling");
-    var online = scrobbling.querySelectorAll(".container").length;
+
+    // Online counter
+    const onlineCounter = document.getElementById("counter");
+    const scrobblingDiv = document.getElementById("scrobbling");
+    var online = scrobblingDiv.querySelectorAll(".container").length;
     onlineCounter.textContent = online;
   };
 
@@ -137,9 +139,9 @@ const adjustFontSizes = (trackInfoElement, songBox) => {
 
 /* // Function to handle fallback cover image
 const fallbackCover = (track) => {
-  let coverImageUrl = track.image[2]["#text"];
+  let coverImgUrl = track.image[2]["#text"];
   if (
-    coverImageUrl ===
+    coverImgUrl ===
     "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png"
   ) {
     const musicBrainzEndpoint = `https://musicbrainz.org/ws/2/release-group/?query=artist:${encodeURIComponent(track.artist.name)} AND release:${encodeURIComponent(track.album.name)}&fmt=json`;
@@ -156,7 +158,7 @@ const fallbackCover = (track) => {
             json.release_groups[0].covers.coverart.length > 0
               ? json.release_groups[0].covers.coverart[0].file
               : "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png";
-          coverImageUrl = coverArtUrl;
+          coverImgUrl = coverArtUrl;
         }
       })
       .catch((error) => {

@@ -125,6 +125,11 @@ footer {
   font-size: 25px;
 }
 
+#loading {
+  filter: opacity(20%) grayscale(100%);
+}
+
+#loading,
 #scrobbling,
 #offline {
   display: flex;
@@ -137,7 +142,7 @@ footer {
   filter: opacity(50%) grayscale(50%);
 }
 
-#seperator {
+.seperator {
   text-align: center;
   margin: 25px;
 }
