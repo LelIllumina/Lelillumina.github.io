@@ -6,29 +6,34 @@ var notPlaying = 0;
 
 // WebSocket connection function
 const connectWebSocket = (username) => {
-  const url = `${BASE_URL}${username}`;
-  const socket = new WebSocket(url);
+  return new Promise(function (resolve, reject) {
+    const url = `${BASE_URL}${username}`;
+    const socket = new WebSocket(url);
 
-  socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    const track = data.recenttracks.track[0];
+    socket.onopen = function () {
+      resolve(socket);
+    };
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      const track = data.recenttracks.track[0];
 
-    // Check user's online status
-    const userOnline = track.nowplaying === "true";
+      // Check user's online status
+      const userOnline = track.nowplaying === "true";
 
-    hydrateDiv(username, track, userOnline);
+      hydrateDiv(username, track, userOnline);
 
-    // Create or update user div
-    // updateUserDiv(username, site, track, userOnline);
-    let onlineCounter = document.getElementById("counter");
-    var scrobbling = document.getElementById("scrobbling");
-    var online = scrobbling.querySelectorAll(".container").length;
-    onlineCounter.textContent = online;
-  };
+      // Create or update user div
+      // updateUserDiv(username, site, track, userOnline);
+      let onlineCounter = document.getElementById("counter");
+      var scrobbling = document.getElementById("scrobbling");
+      var online = scrobbling.querySelectorAll(".container").length;
+      onlineCounter.textContent = online;
+    };
 
-  socket.onerror = (error) => {
-    console.error("WebSocket error:", error);
-  };
+    socket.onerror = function (error) {
+      reject(error);
+    };
+  });
 };
 
 // Create Empty divs
@@ -109,7 +114,22 @@ function nsfwFilter(track, username) {
   }
 }
 
-users.forEach(([username, site]) => {
-  createEmptyDiv(username, site);
-  connectWebSocket(username);
-});
+async function setupWebSocketConnections(users) {
+  try {
+    // Create the divs for each user first
+    users.forEach(([username, site]) => {
+      createEmptyDiv(username, site);
+    });
+
+    // Connect to all WebSocket connections in parallel
+    const connections = await Promise.all(
+      users.map(([username]) => connectWebSocket(username)),
+    );
+
+    console.log("All WebSocket connections established:", connections);
+  } catch (error) {
+    console.error("Error connecting to WebSockets:", error);
+  }
+}
+
+setupWebSocketConnections(users);
