@@ -1,15 +1,11 @@
 /* global users */
-/* exported online */
-
+/* exported notPlaying */
 // Constants
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
-
-// Variables
 var notPlaying = 0;
-var online = 0;
 
 // WebSocket connection function
-const connectWebSocket = (username, site) => {
+const connectWebSocket = (username) => {
   const url = `${BASE_URL}${username}`;
   const socket = new WebSocket(url);
 
@@ -20,8 +16,14 @@ const connectWebSocket = (username, site) => {
     // Check user's online status
     const userOnline = track.nowplaying === "true";
 
+    hydrateDiv(username, track, userOnline);
+
     // Create or update user div
-    updateUserDiv(username, site, track, userOnline);
+    // updateUserDiv(username, site, track, userOnline);
+    let onlineCounter = document.getElementById("counter");
+    var scrobbling = document.getElementById("scrobbling");
+    var online = scrobbling.querySelectorAll(".container").length;
+    onlineCounter.textContent = online;
   };
 
   socket.onerror = (error) => {
@@ -29,87 +31,85 @@ const connectWebSocket = (username, site) => {
   };
 };
 
-// Function to create or update user div based on online status
-const updateUserDiv = (username, site, track, userOnline) => {
-  const userDiv = document.getElementById(username);
-  const offlineDiv = document.getElementById("offline");
-  const scrobblingDiv = document.getElementById("scrobbling");
-
-  if (userDiv) {
-    userDiv.parentNode.removeChild(userDiv);
-  }
-  var coverImgUrl = track.image[2]["#text"];
-  if (track.album.isnsfw == true) {
-    if (localStorage.nsfw == "off") {
-      coverImgUrl = track.image[2]["#text"];
-    } else if (localStorage.nsfw == "blurred") {
-      setTimeout(() => {
-        document.getElementById(`${username}-trackCover`).style.filter =
-          "blur(10px)";
-      }, 1);
-    } else if (localStorage.nsfw == "removed") {
-      coverImgUrl = null;
-    } else {
-      coverImgUrl = null; // Ensure any other values also nullify the cover image.
-    }
-  } else {
-    coverImgUrl = track.image[2]["#text"];
-  }
-
+// Create Empty divs
+function createEmptyDiv(username, site) {
+  const loadingDiv = document.getElementById("loading");
+  const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
   newUserDiv.className = "container";
   newUserDiv.innerHTML = `
-      <div id="${username}-songBox" class="listening">
-        <img id="${username}-trackCover" class="trackCover" src="${coverImgUrl || "/images/NekoFM/NoArt.jpg"}" alt="">
-        <div id="${username}-trackInfo" class="trackInfo">
-          <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
-          <h2 id="${username}-trackName" class="trackName">${track.name}</h2>
-          <p id="${username}-artistName" class="artistName">${track.artist.name}</p>
-          <a id="${username}-searchButton" class="searchButton" href="https://www.google.com/search?q=${encodeURIComponent(track.name)}+${encodeURIComponent(track.artist.name)}" target="_blank"> Search Song</a>
-        </div>
+    <div id="${username}-songBox" class="listening">
+      <img id="${username}-trackCover" class="trackCover" src="/images/NekoFM/NoArt.jpg" alt="">
+      <div id="${username}-trackInfo" class="trackInfo">
+        <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
+        <h2 id="${username}-trackName" class="trackName">Track Name</h2>
+        <p id="${username}-artistName" class="artistName">Artist Name</p>
+        <a id="${username}-searchButton" class="searchButton" href="" target="_blank"> Search Song</a>
       </div>
-  `;
+    </div>
+`;
+  fragment.appendChild(newUserDiv);
+  loadingDiv.appendChild(newUserDiv);
+}
+
+// Hydrate Empty Divs
+function hydrateDiv(username, track, userOnline) {
+  // Set userDiv and default cover image
+  var scrobbling = document.getElementById("scrobbling");
+  var offline = document.getElementById("offline");
+  const userDiv = document.getElementById(username);
+  if (track.album.isnsfw === true) {
+    var coverImgUrl = nsfwFilter(track, username);
+  } else {
+    coverImgUrl = track.image[2]["#text"];
+  }
+
+  // Track elements
+  const trackNameEl = userDiv.querySelector(`#${username}-trackName`);
+  const artistNameEl = userDiv.querySelector(`#${username}-artistName`);
+  const coverImgEl = userDiv.querySelector(`#${username}-trackCover`);
+
+  trackNameEl.textContent = track.name;
+  artistNameEl.textContent = track.artist.name;
+  coverImgEl.src = coverImgUrl;
 
   if (userOnline) {
-    online++;
-    scrobblingDiv.appendChild(newUserDiv);
+    scrobbling.appendChild(userDiv);
   } else {
+    offline.appendChild(userDiv);
     notPlaying++;
-    offlineDiv.appendChild(newUserDiv);
-
-    if (notPlaying === users.length) {
-      scrobblingDiv.innerHTML =
-        "<p>No one's listening to anything right now</p>";
-    } else {
-      const pTag = scrobblingDiv.querySelector("p");
-      if (pTag) {
-        pTag.remove();
-      }
+  }
+  if (notPlaying === users.length) {
+    scrobbling.innerHTML = "<p>No one's listening to anything right now</p>";
+  } else {
+    const pTag = scrobbling.querySelector("p");
+    if (pTag) {
+      pTag.remove();
     }
   }
+}
+// NSFW Filter according to localStorage
+function nsfwFilter(track, username) {
+  const nsfwSetting = localStorage.nsfw;
+  const defaultCoverImg = track.image[2]["#text"];
+  const trackCover = document.getElementById(`${username}-trackCover`);
 
-  // Adjust font sizes if necessary
-  adjustFontSizes(
-    newUserDiv.querySelector(".trackInfo"),
-    newUserDiv.querySelector(".listening"),
-  );
-};
-
-// Function to adjust font sizes based on container dimensions
-const adjustFontSizes = (trackInfoElement, songBox) => {
-  const trackNameElement = trackInfoElement.querySelector(".trackName");
-  const artistNameElement = trackInfoElement.querySelector(".artistName");
-
-  if (
-    trackInfoElement.offsetHeight > songBox.offsetHeight ||
-    trackInfoElement.offsetWidth > songBox.offsetWidth
-  ) {
-    trackNameElement.style.fontSize = "60%";
-    artistNameElement.style.fontSize = "60%";
+  switch (nsfwSetting) {
+    case "off":
+      return defaultCoverImg;
+    case "blurred":
+      setTimeout(() => {
+        trackCover.style.filter = "blur(10px)";
+      }, 1);
+      return defaultCoverImg;
+    case "removed":
+    default:
+      return null;
   }
-};
+}
 
 users.forEach(([username, site]) => {
-  connectWebSocket(username, site);
+  createEmptyDiv(username, site);
+  connectWebSocket(username);
 });

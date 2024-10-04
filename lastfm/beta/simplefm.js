@@ -1,8 +1,5 @@
 /* global users */
 /* exported notPlaying */
-
-// TODO after optimization, pre make all siteboxs and then update them when you recieve data
-
 // Constants
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 var notPlaying = 0;

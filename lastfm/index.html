@@ -47,7 +47,6 @@
       id="vertical"
     />
     <script src="users.min.js"></script>
-    <script src="socketfm.min.js"></script>
   </head>
 
   <body>
@@ -78,11 +77,19 @@
         title="Hard Reset"
         onclick="reloadData();"
       />
+      <div>
+        <h2 class="counterType">Online:</h2>
+        <h2 id="counter">0</h2>
+        <h2 class="counterType">Total:</h2>
+        <h2 id="total">0</h2>
+      </div>
     </div>
     <main>
       <div id="scrobbling"></div>
-      <h2 id="seperator">Currently Offline (last scrobbled)</h2>
+      <h2 class="seperator">Currently Offline (showing last scrobbled)</h2>
       <div id="offline"></div>
+      <h2 class="seperator">Loading...</h2>
+      <div id="loading"></div>
     </main>
     <footer>
       <p>
@@ -100,6 +107,7 @@
         <a class="credit" href="/">Lel</a>
       </p>
     </footer>
+    <script src="socketfm.min.js"></script>
     <script>
       // Switch orientation
       const verticalStyle = document.getElementById("vertical");
@@ -128,6 +136,7 @@
         document.getElementById("scrobbling").innerHTML = "";
         document.getElementById("offline").innerHTML = "";
         notPlaying = 0;
+        online = 0;
       }
     </script>
     <script>
@@ -141,6 +150,10 @@
         "Now with Sockets for webs",
         "DM lel if this breaaks :3",
         "Site by Lel Illumina",
+        "She scrobble on my Neko till i fm",
+        "Who here got lastfm",
+        "no idea what this code does aint gonna lie",
+        "Erm what the scrobble",
       ];
       var counter = 0;
       var elem = document.getElementById("tagline");
@@ -182,6 +195,10 @@
           }
         });
       }
+    </script>
+    <script>
+      totalCounter = document.getElementById("total");
+      totalCounter.textContent = users.length;
     </script>
   </body>
 </html>
