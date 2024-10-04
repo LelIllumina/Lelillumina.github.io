@@ -105,21 +105,19 @@ function onlineUsersCheck(userOnline, scrobblingDiv, offlineDiv, newUserDiv) {
 function nsfwFilter(track, coverImgUrl, username) {
   const nsfwSetting = localStorage.nsfw;
   const defaultCoverImg = track.image[2]["#text"];
+  const trackCover = document.getElementById(`${username}-trackCover`);
 
   switch (nsfwSetting) {
     case "off":
-      coverImgUrl = defaultCoverImg;
-      break;
+      return defaultCoverImg;
     case "blurred":
       setTimeout(() => {
-        document.getElementById(`${username}-trackCover`).style.filter =
-          "blur(10px)";
+        trackCover.style.filter = "blur(10px)";
       }, 1);
-      coverImgUrl = defaultCoverImg;
-      break;
+      return defaultCoverImg;
     case "removed":
     default:
-      coverImgUrl = null;
+      return null;
   }
 }
 
