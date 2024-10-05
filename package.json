@@ -1,17 +1,17 @@
 {
   "name": "lel.nekoweb.org",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The lel nekoweb website",
   "main": "index.html",
   "dependencies": {
-    "eslint-scope": "^7.2.2",
-    "eslint-visitor-keys": "^3.4.3",
+    "eslint-scope": "^8.1.0",
+    "eslint-visitor-keys": "^4.1.0",
     "prettier-linter-helpers": "^1.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.11.1",
-    "eslint": "^8.57.1",
-    "globals": "^15.9.0",
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.10.0",
     "htmlhint": "^1.1.4",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
