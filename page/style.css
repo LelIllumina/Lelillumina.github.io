@@ -110,7 +110,7 @@ ul {
 
 #sidebar {
   margin: 0 5vw;
-  animation: fade-in 7s;
+  animation: fade-in 2s;
   position: sticky;
   top: 10vh;
   height: fit-content;
