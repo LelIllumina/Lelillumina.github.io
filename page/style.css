@@ -47,6 +47,7 @@ h6 {
 
 a {
   font-family: "JetBrains Mono", monospace;
+  color: #e67e80;
   animation: gradient-text 5s infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
