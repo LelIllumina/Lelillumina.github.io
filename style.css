@@ -18,7 +18,7 @@ body {
 body {
   background:
     linear-gradient(#00000080, #00000080),
-    url("/images/background.png") repeat;
+    url("/images/mainPage/background.png") repeat;
   animation: move-background 100s linear infinite;
   margin: 0;
   background-color: var(--base);

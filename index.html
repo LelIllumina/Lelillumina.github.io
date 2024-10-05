@@ -23,6 +23,12 @@
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="apple-touch-icon" href="/images/neicon_arc.jpg" />
     <link
+      rel="preload"
+      href="images/mainPage/background.png"
+      as="image"
+      type="image/png"
+    />
+    <link
       rel="alternate"
       type="application/rss+xml"
       title="feed two"
@@ -90,7 +96,7 @@
         <div class="block">
           <h2>Who's Lel?</h2>
           <img
-            src="images/upside_down_lel.avif"
+            src="images/mainPage/upside_down_lel.avif"
             id="pfp"
             alt="Picture of Lel"
           />
@@ -106,54 +112,72 @@
           <h2>Cool Sites</h2>
           <a href="https://nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://nekoweb.org/assets/buttons/button2.gif"
               title="Nekowebbbbbbb"
               alt="Nekoweb Button"
           /></a>
           <a href="https://hillhouse.neocities.org/journal/notes/palestine"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://hillhouse.neocities.org/_images/toybox/_buttons/riversea1.gif"
               title="FREE PALESTINE!!"
               alt="Palestine Button"
           /></a>
           <a href="https://dimden.dev/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://dimden.dev/services/images/88x31.gif"
               title="Dimden, made nekoweb"
               alt="Dimden Button"
           /></a>
           <a href="https://anlucas.neocities.org/88x31Buttons"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://anlucas.neocities.org/800x600.gif"
               title="Actually does look good 800x600!"
               alt="800x600 Button"
           /></a>
           <a href="https://districts.nekoweb.org"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://districts.nekoweb.org/img/districts002.png"
               title="Nekoweb districts"
               alt="districts Button"
           /></a>
           <a href="https://max.nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://max.nekoweb.org/images/button.png"
               title="max's apartment"
               alt="Max Button"
           /></a>
           <a href="https://social.nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://social.nekoweb.org/images/nekowebcafe.png"
               title="nekocafe"
               alt="Nekocafe Button"
           /></a>
           <a href="https://cyber.dabamos.de/88x31/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://cyber.dabamos.de/88x31/cuteanimegirls.gif"
               title="Animay Gurls"
               alt="Anime girl Button"
           /></a>
           <a href="https://melankorin.net/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="https://melankorin.net/assets/img/buttons/button-1.gif"
               title="melankorin"
               alt="melankorin button"
@@ -162,18 +186,24 @@
 
           <a href="https://lel.nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="images/buttons/lelbutton.gif"
               title="Lel Illuminaaaaaaaaa"
               alt="Lel Button 1"
           /></a>
           <a href="https://lel.nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="images/buttons/button.gif"
               title="Lel Illuminaaaaaaaaa"
               alt="Lel Button 2"
           /></a>
           <a href="https://lel.nekoweb.org/"
             ><img
+              decoding="async"
+              loading="lazy"
               src="images/buttons/button.png"
               title="Lel Illuminaaaaaaaaa"
               alt="Lel Button 3"
@@ -207,11 +237,25 @@
           style="margin-bottom: 13px; border: none"
         ></iframe>
         <div>
-          <img
-            src="images/LelsVCRwithhat.avif"
-            id="vcr"
-            alt="Awesome fucking hat"
-          />
+          <picture>
+            <source
+              srcset="images/mainPage/LelsVCRwithhat.jxl"
+              type="image/jxl"
+            />
+            <source
+              srcset="images/mainPage/LelsVCRwithhat.avif"
+              type="image/avif"
+            />
+            <img
+              height="460"
+              width="460"
+              decoding="async"
+              loading="lazy"
+              src="images/mainPage/LelsVCRwithhat.png"
+              id="vcr"
+              alt="Awesome fucking hat"
+            />
+          </picture>
           <p class="alt">
             Original by
             <a href="https://twitter.com/chibitoad/status/1448406173263171585"
@@ -289,7 +333,7 @@
         <div class="block">
           <a href="https://pure.nekoweb.org/">
             <img
-              src="images/palestineko.avif"
+              src="images/mainPage/palestineko.avif"
               style="width: 150px; height: fit-content; margin: 20px auto"
               alt="PALESTINE WILL BE FREE"
           /></a>
