@@ -3,10 +3,9 @@
     <channel>
         <title>The happenings of LelLand</title>
         <description>What has lel been up to instead of gooning</description>
-        <link>https://lel.nekoweb.org</link>
+        <link>https://lel.nekoweb.org/rss.xml</link>
         <lastBuildDate>
-            Sat, 05 Oct 2024 00:12:28 +0000
-        </lastBuildDate>
+            Sat, 05 Oct 2024 18:33:39 +0000        </lastBuildDate>
         <ttl>20000</ttl>
     </channel>
     <item>
