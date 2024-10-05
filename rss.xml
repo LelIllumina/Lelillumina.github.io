@@ -5,7 +5,7 @@
         <description>What has lel been up to instead of gooning</description>
         <link>https://lel.nekoweb.org</link>
         <lastBuildDate>
-            Fri, 04 Oct 2024 23:56:26 +0000
+            Sat, 05 Oct 2024 00:12:28 +0000
         </lastBuildDate>
         <ttl>20000</ttl>
     </channel>
@@ -18,6 +18,16 @@
         <link>https://lel.nekoweb.org/rss.xml</link>
         <pubDate>
             Fri, 04 Oct 2024 23:35:30 +0000
+        </pubDate>
+    </item>
+    <item>
+        <title>Refactor NekoFm</title>
+        <description>
+            Refactored and added a bunch of tweaks and features to NekoFM
+        </description>
+        <link>https://lel.nekoweb.org/lastfm/</link>
+        <pubDate>
+            Sat, 05 Oct 2024 00:12:28 +0000
         </pubDate>
     </item>
 </rss>
