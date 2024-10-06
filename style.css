@@ -177,11 +177,11 @@ main {
   box-shadow: 0 0 10px black;
 }
 
-#pfp {
-  height: 100px;
-  width: 100px;
-  display: block;
-  margin: auto;
+.img {
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  height: fit-content;
   border: 5px dashed #313244;
 }
 
@@ -200,20 +200,16 @@ main {
   text-align: center;
 }
 
-#vcr {
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  height: fit-content;
-  border: 5px dashed #313244;
-}
-
 #lastfm {
   height: auto;
   width: 100%;
   width: -moz-available;
   width: -webkit-fill-available;
   margin-bottom: 20px;
+}
+
+#scrobbled {
+  text-align: center;
 }
 
 #nekowebring table {
@@ -289,10 +285,6 @@ footer {
 
   #frame {
     width: auto;
-  }
-
-  #to-do {
-    margin: auto;
   }
 
   #top-right {

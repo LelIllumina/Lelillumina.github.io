@@ -97,7 +97,7 @@
           <h2>Who's Lel?</h2>
           <img
             src="images/mainPage/upside_down_lel.avif"
-            id="pfp"
+            class="img"
             alt="Picture of Lel"
           />
           <p class="alt">Me, im lel</p>
@@ -255,7 +255,7 @@
                 images/mainPage/LelsVCRwithhatx4.png 1200w
               "
               sizes="(min-width: 920px) 450px, (min-width: 620px) 35vw, calc(100vw - 76px)"
-              id="vcr"
+              class="img"
               alt="Awesome fucking hat"
             />
           </picture>
@@ -267,37 +267,47 @@
           </p>
         </div>
 
-        <a href="https://www.last.fm/user/lelillumina"
-          ><img
-            src="https://lastfm-recently-played.vercel.app/api?user=lelillumina"
-            id="lastfm"
-            alt="LastFM LelIllumina"
-        /></a>
+        <div id="nekowebring"></div>
 
-        <div id="nekowebring">
-          <script
-            type="text/javascript"
-            src="https://webring.nekoweb.org/onionring-variables.js"
-          ></script>
-          <script defer type="text/javascript" src="script.min.js"></script>
+        <div>
+          <p>
+            Im gonna put a lanyard discord widget right under here somewhere,
+            untill then join my nekoweb discord
+            <a href="https://discord.gg/D8TV8K8rMr">here</a>
+          </p>
         </div>
-
-        <p class="alt">
-          Cursor effects from
-          <a href="https://tholman.com/cursor-effects/">tholman</a>
-        </p>
       </div>
 
       <section class="sidebar">
         <div class="block" id="top-right">
           <h2>Stats:</h2>
-          <p id="created"><em>Created</em>:</p>
-          <p id="updated"><em>Updated</em>:</p>
-          <p id="visitors"><em>Visits</em>:</p>
-          <p id="followers"><em>Followers</em>:</p>
+          <p id="created"><em>Created</em>: Loading...</p>
+          <p id="updated"><em>Updated</em>: Loading...</p>
+          <p id="visitors"><em>Visits</em>: Loading...</p>
+          <p id="followers"><em>Followers</em>: Loading...</p>
           <p class="alt">
             Stolen from <a href="https://max.nekoweb.org/">max.nekoweb.org</a>
           </p>
+        </div>
+        <div class="block" id="scrobbled">
+          <h2 id="lastfm-status">Loading...</h2>
+          <div id="songBox">
+            <img
+              id="trackCover"
+              class="trackCover img"
+              src="/images/NekoFM/NoArt.png"
+              alt=""
+            />
+            <div id="trackInfo" class="trackInfo">
+              <h2 id="trackName" class="trackName">Loading...</h2>
+              <p id="artistName" class="artistName">Loading...</p>
+              <p id="siteName" class="siteName">
+                <a href="https://last.fm/user/LelIllumina" target="_blank"
+                  >my lastfm profile</a
+                >
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="block">
@@ -353,6 +363,11 @@
         • <a href="sitemap.xml">Sitemap</a>
       </p>
     </footer>
+    <script
+      type="text/javascript"
+      src="https://webring.nekoweb.org/onionring-variables.js"
+    ></script>
+    <script defer type="text/javascript" src="script.min.js"></script>
     <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
     <script>
       new cursoreffects.rainbowCursor({
@@ -360,71 +375,6 @@
         colors: ["#fad272", "#ffffff", "#8c3d7e"],
         size: 6,
       });
-    </script>
-    <script>
-      const weekday = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-
-      const d = new Date();
-      let dayIndex = d.getDay() + 1; // Get the index of the next day
-
-      if (dayIndex === 7) {
-        // If it's Saturday, set dayIndex to 0 (Sunday)
-        dayIndex = 0;
-      }
-
-      let day = weekday[dayIndex];
-      window.onload = function () {
-        var taglines = [
-          "NENENENEKO WEBBB!!!",
-          "Welcome to Lel Island!",
-          "Lel is out there to get you!",
-          "I may be dumb, but youre mean and thats worse",
-          "who says i can think",
-          "Report any bugs to me plssss :33333",
-          "im gonna hide something sinister here",
-          "THIS IS AN 18+ SITE, NO KIDS ALLOWED TIME TO GET 𝓯𝓻𝓮𝓪𝓴𝔂",
-          "who here has Nekoweb",
-          "Happy " + day + "!",
-          "Assalamualaikum Brothers...",
-          "Who up nekoing they web rn",
-          "In the Nekoweb",
-          "Strait up Webbing it",
-          "hehe",
-          "Lets justr say, my websait",
-          "i am not good",
-          "please sleep",
-          "erm.. what the web",
-          "one day i will sleep on time",
-          "TODAY IS THE DAY",
-          "I am the bone of my sword",
-          "and I, am SHIROU FUCKING EMIYA",
-          "i fuckin love fate",
-          "arcuied my beloved, saber my beloved",
-          "My tummy hurts",
-          "I dont even like minecraft",
-          "BREAKING NEWS: i erm, i forgor...",
-          "I don't know",
-          "Listen to susumu hirasawa",
-          "10 seconds ago is crazy",
-          "Now on atabook :3",
-          "tagging my line rn",
-          "New project mouthwash vid :D",
-          "Got the FLACs flaccing",
-          "The FLACs are now mp4s",
-          "I may or may not have forgotten about this",
-          "Hakunon My Beloved",
-        ];
-        var randomIndex = Math.floor(Math.random() * taglines.length);
-        document.getElementById("tagline").innerHTML = taglines[randomIndex];
-      };
     </script>
   </body>
 </html>
