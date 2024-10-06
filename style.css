@@ -178,11 +178,13 @@ main {
 }
 
 .img {
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
+  max-width: 100%;
+  max-width: -moz-available;
+  max-width: -webkit-fill-available;
   height: fit-content;
   border: 5px dashed #313244;
+  margin: auto;
+  display: block;
 }
 
 #buttons {
