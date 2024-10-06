@@ -1,6 +1,6 @@
 {
   "name": "lel.nekoweb.org",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The lel nekoweb website",
   "main": "index.html",
   "dependencies": {
