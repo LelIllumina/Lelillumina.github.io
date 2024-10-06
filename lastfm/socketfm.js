@@ -6,29 +6,34 @@ var notPlaying = 0;
 
 // WebSocket connection function
 const connectWebSocket = (username) => {
-  const url = `${BASE_URL}${username}`;
-  const socket = new WebSocket(url);
+  return new Promise(function (resolve, reject) {
+    const url = `${BASE_URL}${username}`;
+    const socket = new WebSocket(url);
 
-  socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    const track = data.recenttracks.track[0];
+    socket.onopen = function () {
+      resolve(socket);
+    };
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      const track = data.recenttracks.track[0];
 
-    // Check user's online status
-    const userOnline = track.nowplaying === "true";
+      // Check user's online status
+      const userOnline = track.nowplaying === "true";
 
-    hydrateDiv(username, track, userOnline);
+      hydrateDiv(username, track, userOnline);
 
-    // Create or update user div
-    // updateUserDiv(username, site, track, userOnline);
-    let onlineCounter = document.getElementById("counter");
-    var scrobbling = document.getElementById("scrobbling");
-    var online = scrobbling.querySelectorAll(".container").length;
-    onlineCounter.textContent = online;
-  };
+      // Create or update user div
+      // updateUserDiv(username, site, track, userOnline);
+      let onlineCounter = document.getElementById("counter");
+      var scrobbling = document.getElementById("scrobbling");
+      var online = scrobbling.querySelectorAll(".container").length;
+      onlineCounter.textContent = online;
+    };
 
-  socket.onerror = (error) => {
-    console.error("WebSocket error:", error);
-  };
+    socket.onerror = function (error) {
+      reject(error);
+    };
+  });
 };
 
 // Create Empty divs
@@ -40,7 +45,7 @@ function createEmptyDiv(username, site) {
   newUserDiv.className = "container";
   newUserDiv.innerHTML = `
     <div id="${username}-songBox" class="listening">
-      <img id="${username}-trackCover" class="trackCover" src="/images/NekoFM/NoArt.jpg" alt="">
+      <img id="${username}-trackCover" class="trackCover" src="/images/NekoFM/NoArt.png" alt="">
       <div id="${username}-trackInfo" class="trackInfo">
         <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
         <h2 id="${username}-trackName" class="trackName">Track Name</h2>
@@ -59,10 +64,15 @@ function hydrateDiv(username, track, userOnline) {
   var scrobbling = document.getElementById("scrobbling");
   var offline = document.getElementById("offline");
   const userDiv = document.getElementById(username);
-  if (track.album.isnsfw === true) {
-    var coverImgUrl = nsfwFilter(track, username);
-  } else {
-    coverImgUrl = track.image[2]["#text"];
+  var coverImgUrl = track.album.isnsfw
+    ? nsfwFilter(track, username)
+    : track.image[2]["#text"];
+
+  if (
+    coverImgUrl ===
+    "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+  ) {
+    coverImgUrl = "/images/NekoFM/NoArt.png";
   }
 
   // Track elements
@@ -72,7 +82,7 @@ function hydrateDiv(username, track, userOnline) {
 
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = track.artist.name;
-  coverImgEl.src = coverImgUrl;
+  coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
 
   if (userOnline) {
     scrobbling.appendChild(userDiv);
@@ -105,11 +115,26 @@ function nsfwFilter(track, username) {
       return defaultCoverImg;
     case "removed":
     default:
-      return null;
+      return "/images/NekoFM/NSFWCOVER.png";
   }
 }
 
-users.forEach(([username, site]) => {
-  createEmptyDiv(username, site);
-  connectWebSocket(username);
-});
+async function setupWebSocketConnections(users) {
+  try {
+    // Create the divs for each user first
+    await users.forEach(([username, site]) => {
+      createEmptyDiv(username, site);
+    });
+
+    // Connect to all WebSocket connections in parallel
+    const connections = await Promise.all(
+      users.map(([username]) => connectWebSocket(username))
+    );
+
+    console.log("All WebSocket connections established:", connections);
+  } catch (error) {
+    console.error("Error connecting to WebSockets:", error);
+  }
+}
+
+setupWebSocketConnections(users);
