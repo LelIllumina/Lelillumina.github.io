@@ -4,8 +4,10 @@ async function discordWidget() {
     "https://api.lanyard.rest/v1/users/850319718920224798"
   );
   const response = await request.json();
+  const json = response.data;
 
   const widget = document.getElementById("discord-widget");
+  const online = json.discord_status;
 
   // User info
   // Consts for each element
@@ -16,17 +18,25 @@ async function discordWidget() {
   const discordRPC = widget.querySelector(`#discord-rpc`);
 
   // Input values from JSON
-  discordName.textContent = response.data.discord_user.global_name;
-  discordUsername.textContent = "(" + response.data.discord_user.username + ")";
-  discordStatus.textContent = response.data.activities[0].state;
+  discordName.textContent = json.discord_user.global_name;
+  discordUsername.textContent = "(" + json.discord_user.username + ")";
 
   // Activity info
-  const hasNonCustomId = response.data.activities.some(
-    (activity) => activity.id !== "custom"
-  );
+  if (online != "offline") {
+    var hasNonCustomId = json.activities.some(
+      (activity) => activity.id !== "custom"
+    );
+    if (json.activities[0].emoji) {
+      discordStatus.textContent =
+        json.activities[0].emoji.name + " " + json.activities[0].state;
+    } else {
+      discordStatus.textContent = json.activities[0].state;
+    }
+  } else {
+    discordStatus.textContent = "Offline";
+  }
   if (hasNonCustomId === true) {
     // Consts for each element
-
     const discordActivityName = widget.querySelector("#discord-activity-name");
     const discordActivityImage = widget.querySelector("#discord-activity-img");
     const discordActivitySmallImage = widget.querySelector(
@@ -41,14 +51,12 @@ async function discordWidget() {
 
     // Add values to each element
     discordActivityImage.src =
-      "https://" +
-      response.data.activities[1].assets.large_image.split("/https/")[1];
+      "https://" + json.activities[1].assets.large_image.split("/https/")[1];
     discordActivitySmallImage.src =
-      "https://" +
-      response.data.activities[1].assets.small_image.split("/https/")[1];
-    discordActivityName.textContent = response.data.activities[1].name;
-    discordActivityDetails.textContent = response.data.activities[1].details;
-    discordActivityState.textContent = response.data.activities[1].state;
+      "https://" + json.activities[1].assets.small_image.split("/https/")[1];
+    discordActivityName.textContent = json.activities[1].name;
+    discordActivityDetails.textContent = json.activities[1].details;
+    discordActivityState.textContent = json.activities[1].state;
   } else {
     discordRPC.remove();
     widget.style.background = "none";
@@ -56,7 +64,6 @@ async function discordWidget() {
   }
 
   // Change pfp border color
-  const online = response.data.discord_status;
   switch (online) {
     case "online":
       pfp.style.borderColor = "#a6e3a1";
