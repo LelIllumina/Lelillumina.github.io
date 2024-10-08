@@ -35,7 +35,8 @@ let username = "lel"; // <<<--- Insert your username here!
   }
 })();
 
-const connectWebSocket = () => {
+// Scrobbled Widget
+const lastfmWidget = () => {
   return new Promise(function (resolve, reject) {
     const socket = new WebSocket(
       "wss://scrobbled.tepiloxtl.net/ws/get_last_track/lelillumina"
@@ -82,7 +83,7 @@ const connectWebSocket = () => {
     };
   });
 };
-connectWebSocket();
+lastfmWidget();
 
 // See what day it is + 1
 const weekday = [
