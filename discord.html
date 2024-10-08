@@ -11,8 +11,8 @@
     <script src="discord.js"></script>
     <title>Document</title>
   </head>
-  <body>
-    <div class="blocksq" id="discord-widget">
+  <body style="width: 35%">
+    <div id="discord-widget">
       <img
         src="https://api.lanyard.rest/850319718920224798.png"
         alt="discord pfp"
@@ -50,7 +50,13 @@
     </div>
 
     <style>
-      .blocksq {
+      .discord-text {
+        margin: auto;
+        text-align: left;
+        display: inline-block;
+      }
+
+      #discord-widget {
         background: linear-gradient(#1f1d2e 0 40%, #26233a 40% 100%);
         padding: 20px;
         border: 8px solid #191724;
@@ -61,16 +67,6 @@
           vertical-align: middle;
           color: #e0def4;
         }
-      }
-
-      .discord-text {
-        margin: auto;
-        text-align: left;
-        display: inline-block;
-      }
-
-      #discord-widget {
-        width: 40%;
       }
 
       #discord-pfp {
