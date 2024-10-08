@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
+    "autoprefixer": "^10.4.20",
+    "clean-css": "^5.3.3",
     "eslint": "^9.12.0",
     "globals": "^15.10.0",
     "htmlhint": "^1.1.4",
@@ -17,7 +19,8 @@
     "prettier-eslint": "^16.3.0",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
-    "stylelint-prettier": "^5.0.2"
+    "stylelint-prettier": "^5.0.2",
+    "terser": "^5.34.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
