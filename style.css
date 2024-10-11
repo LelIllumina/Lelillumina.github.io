@@ -19,6 +19,7 @@ body {
   background:
     linear-gradient(#00000080, #00000080),
     url("/images/mainPage/background.png") repeat;
+  background-attachment: fixed;
   animation: move-background 100s linear infinite;
   margin: 0;
   background-color: var(--base);
