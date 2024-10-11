@@ -26,6 +26,7 @@
     />
     <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
     <link rel="stylesheet" href="style.min.css" />
+    <link rel="stylesheet" href="/discord/discord.min.css" />
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="apple-touch-icon" href="/images/neicon_arc.jpg" />
     <link
@@ -272,15 +273,34 @@
           </p>
         </div>
 
-        <div id="nekowebring"></div>
-
         <div>
+          <div id="discord-widget-container"></div>
+
+          <script>
+            async function loadWidget() {
+              const response = await fetch("/discord/discord.html");
+              const html = await response.text();
+              document.getElementById("discord-widget-container").innerHTML =
+                html;
+
+              loadDiscordWidget();
+            }
+
+            // Load the widget when the page loads
+            loadWidget();
+          </script>
+
+          <br />
+
           <p>
-            Im gonna put a lanyard discord widget right under here somewhere,
-            untill then join my nekoweb discord
+            Lanyard Widget is DONE, Join my nekoweb discord too over ->
             <a href="https://discord.gg/D8TV8K8rMr">here</a>
+            <br />
+            I dont mind if you steal it, my codes messy tho so good luck
           </p>
         </div>
+
+        <div id="nekowebring"></div>
       </div>
 
       <section class="sidebar">
@@ -368,6 +388,7 @@
         • <a href="sitemap.xml">Sitemap</a>
       </p>
     </footer>
+    <script defer src="/discord/discord.min.js"></script>
     <script
       type="text/javascript"
       src="https://webring.nekoweb.org/onionring-variables.js"
