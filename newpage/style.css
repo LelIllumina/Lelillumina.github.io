@@ -1,0 +1,97 @@
+/* Main */
+:root {
+  --almostWhite: #fff2cc;
+  --cream: #fff2cc;
+  --orange: #ffc09b;
+  --peach: #ffbbba;
+  --lightGreen: #ffe1b6;
+  --peachier: #ffbbba;
+  --orangish: #ffc09b;
+  --creamish: #ffecd6;
+  --pink: #fc949f;
+  --link: #ea8988;
+  --purple: #fc949f;
+  --paleGreen: #bbd8bb;
+  --gray: #d5d5d5;
+  --lightBrown: #825044;
+  --darkBrown: #634c53;
+  --cookie: #875f6b;
+  --dough: #ffd0bc;
+  --lightRed: #b95c5c;
+  --crazyGreen: #95e995;
+  --gradientorange: linear-gradient(#fff2df, #fadabe);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url("https://nekoweb.org/assets/nekopattern.png") repeat;
+}
+
+body {
+  min-height: 100%;
+  font:
+    11pt "MS PGothic",
+    Tahoma,
+    Verdana,
+    sans-serif;
+}
+
+#header {
+  background: url("https://nekoweb.org/assets/checkerboard.png"),
+    linear-gradient(to bottom, var(--cookie), var(--darkBrown));
+  background-size:
+    10px 10px,
+    auto;
+  image-rendering: crisp-edges;
+  height: 120px;
+  width: 1200px;
+  margin: auto;
+}
+
+#mainbody {
+  margin: auto;
+  padding: 12px;
+  color: var(--darkBrown);
+  background: #fff9e6;
+  z-index: 0;
+  padding-left: calc(12px + 25px);
+  position: relative;
+  max-width: 1200px;
+}
+
+h1 {
+  font-size: 20px;
+  color: var(--almostWhite);
+  text-align: center;
+  padding-top: 15px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-bottom: 5px !important;
+  padding-bottom: 5px;
+  border-bottom: 2px dashed var(--orange);
+}
+
+p {
+  font-size: 17px;
+}
+
+a {
+  color: var(--link);
+  font-weight: bold;
+}
+
+#username {
+  font-size: 50px;
+  color: var(--dough);
+}
