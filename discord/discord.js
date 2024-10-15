@@ -1,7 +1,7 @@
 // Discord Widget by Lel :3
 
 const discord_ID = "850319718920224798"; // Your Discord ID here
-async function discordWidget() {
+(async function () {
   const response = await fetch(
     "https://api.lanyard.rest/v1/users/" + discord_ID
   );
@@ -50,7 +50,7 @@ async function discordWidget() {
   if (activities.length && activities[0].emoji) {
     elements.discordStatus.textContent = `${activities[0].emoji.name} ${activities[0].state}`;
   } else {
-    elements.discordStatus.textContent = activities[0].state || "No activity";
+    elements.discordStatus.textContent = activities[0].state || "";
   }
 
   if (hasNonCustomId) {
@@ -61,9 +61,9 @@ async function discordWidget() {
     if (assets && assets.small_image) {
       elements.discordActivitySmallImage.src = `https://${assets.small_image.split("/https/")[1]}`;
     }
-    elements.discordActivityName.textContent = name || "Unknown Activity";
-    elements.discordActivityDetails.textContent = details || "No Details";
-    elements.discordActivityState.textContent = state || "No State";
+    elements.discordActivityName.textContent = name || "";
+    elements.discordActivityDetails.textContent = details || "";
+    elements.discordActivityState.textContent = state || "";
   } else {
     elements.discordRPC.remove();
     widget.style.background = "none";
@@ -77,6 +77,4 @@ async function discordWidget() {
     dnd: "#eb6f92",
   };
   elements.pfp.style.borderColor = statusColorMap[online] || "";
-}
-
-discordWidget();
+})();
