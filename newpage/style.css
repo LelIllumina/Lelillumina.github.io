@@ -1,5 +1,6 @@
 /* Main */
 :root {
+  /* Using :root you can set variables to reuse */
   --almostWhite: #fff2cc;
   --cream: #fff2cc;
   --orange: #ffc09b;
