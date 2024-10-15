@@ -5,13 +5,9 @@
 
 // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
 
-let username = "lel"; // <<<--- Insert your username here!
-
 (async () => {
   try {
-    const request = await fetch(
-      `https://nekoweb.org/api/site/info/${username}`
-    );
+    const request = await fetch(`https://nekoweb.org/api/site/info/lel`);
     const json = await request.json();
 
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
@@ -36,7 +32,7 @@ let username = "lel"; // <<<--- Insert your username here!
 })();
 
 // Scrobbled Widget
-const lastfmWidget = () => {
+(async function () {
   return new Promise(function (resolve, reject) {
     const socket = new WebSocket(
       "wss://scrobbled.tepiloxtl.net/ws/get_last_track/lelillumina"
@@ -82,8 +78,7 @@ const lastfmWidget = () => {
       reject(error);
     };
   });
-};
-lastfmWidget();
+})();
 
 // See what day it is + 1
 const weekday = [
