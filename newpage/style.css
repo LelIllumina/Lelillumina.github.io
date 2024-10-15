@@ -64,6 +64,18 @@ body {
   padding-left: calc(12px + 25px);
   position: relative;
   max-width: 1200px;
+  min-height: calc(100% - 160px);
+}
+
+#footer {
+  background: var(--gradientorange);
+  border-top: #1a1019;
+  color: var(--almostwhite);
+  text-align: center;
+  font-size: 9pt;
+  padding: 12px;
+  width: 1200px;
+  margin: auto;
 }
 
 h1 {
