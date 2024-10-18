@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const users = [
+  ["ba-e", "ba-e.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "crisis.city", true],
   ["Giiki", "giikis2.nekoweb.org", true],
@@ -9,7 +10,6 @@ const users = [
   ["tepiloxtl", "tepiloxtl.net", true],
   ["abyssmaze", "eye.nekoweb.org", false],
   ["angelscrybIood", "fairyapple.nekoweb.org", false],
-  ["ba-e", "ba-e.nekoweb.org", false],
   ["blurrybleu", "bleu.nekoweb.org", false],
   ["CorelVulpix", "s1nez.nekoweb.org", false],
   ["cqrcin0", "cqrcin0.nekoweb.org", false],
@@ -20,6 +20,7 @@ const users = [
   ["frenzy9", "ironstar.nekoweb.org", false],
   ["garfieldhirou", "apfel.nekoweb.org", false],
   ["gerawrd_way", "captor.nekoweb.org", false],
+  ["gremlin682", "gremlin.nekoweb.org", false],
   ["iamdeka", "iamdeka.nekoweb.org", false],
   ["julylmao", "july.lol", false],
   ["lakiitu", "doqmeat.com", false],
@@ -28,6 +29,7 @@ const users = [
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
   ["thnlqd", "thinliquid.dev", false],
+  ["trademarkhell", "trademarkhell.net", false],
   ["oikmo", "oikmo.nekoweb.org", false],
 ];
 const devs = [
