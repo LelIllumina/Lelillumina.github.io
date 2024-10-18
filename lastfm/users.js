@@ -26,6 +26,7 @@ const users = [
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
   ["thnlqd", "thinliquid.dev", false],
+  ["oikmo", "oikmo.nekoweb.org", false],
 ];
 const devs = [
   ["LelIllumina", "lel.nekoweb.org"],
