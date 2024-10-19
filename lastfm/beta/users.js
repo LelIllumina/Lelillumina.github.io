@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const users = [
-  ["ba-e", "ba-e.nekoweb.org", true],
+  ["ba-e", "bae.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "crisis.city", true],
   ["Giiki", "giikis2.nekoweb.org", true],

@@ -5,7 +5,7 @@
 body {
   display: flex;
   flex-direction: column;
-  font-family: "MS Gothic", "MS PGothic", sans-serif;
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   height: 98%;
   background-color: #1c1b22;
 }
