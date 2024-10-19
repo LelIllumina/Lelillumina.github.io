@@ -13,6 +13,7 @@ const connectWebSocket = (username) => {
     socket.onopen = function () {
       resolve(socket);
     };
+
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       const track = data.recenttracks.track[0];
@@ -22,8 +23,6 @@ const connectWebSocket = (username) => {
 
       hydrateDiv(username, track, userOnline);
 
-      // Create or update user div
-      // updateUserDiv(username, site, track, userOnline);
       let onlineCounter = document.getElementById("counter");
       var scrobbling = document.getElementById("scrobbling");
       var online = scrobbling.querySelectorAll(".container").length;
@@ -33,13 +32,17 @@ const connectWebSocket = (username) => {
     socket.onerror = function (error) {
       reject(error);
     };
+
+    // Handle WebSocket close event
+    socket.onclose = function () {
+      console.log(`${username}'s WebSocket connection closed.`);
+    };
   });
 };
 
 // Create Empty divs
 function createEmptyDiv(username, site) {
   const loadingDiv = document.getElementById("loading");
-  const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
   newUserDiv.className = "container";
@@ -54,16 +57,17 @@ function createEmptyDiv(username, site) {
       </div>
     </div>
 `;
-  fragment.appendChild(newUserDiv);
   loadingDiv.appendChild(newUserDiv);
 }
 
 // Hydrate Empty Divs
 function hydrateDiv(username, track, userOnline) {
-  // Set userDiv and default cover image
-  var scrobbling = document.getElementById("scrobbling");
-  var offline = document.getElementById("offline");
+  const scrobbling = document.getElementById("scrobbling");
+  const offline = document.getElementById("offline");
   const userDiv = document.getElementById(username);
+
+  if (!userDiv) return; // Check if the div exists
+
   var coverImgUrl = track.album.isnsfw
     ? nsfwFilter(track, username)
     : track.image[2]["#text"];
@@ -75,14 +79,16 @@ function hydrateDiv(username, track, userOnline) {
     coverImgUrl = "/images/NekoFM/NoArt.png";
   }
 
-  // Track elements
   const trackNameEl = userDiv.querySelector(`#${username}-trackName`);
   const artistNameEl = userDiv.querySelector(`#${username}-artistName`);
   const coverImgEl = userDiv.querySelector(`#${username}-trackCover`);
 
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = track.artist.name;
-  coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
+
+  if (coverImgEl.src !== coverImgUrl) {
+    coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
+  }
 
   if (userOnline) {
     scrobbling.appendChild(userDiv);
@@ -90,6 +96,8 @@ function hydrateDiv(username, track, userOnline) {
     offline.appendChild(userDiv);
     notPlaying++;
   }
+
+  // Update UI if nobody is scrobbling
   if (notPlaying === users.length) {
     scrobbling.innerHTML = "<p>No one's listening to anything right now</p>";
   } else {
@@ -99,6 +107,7 @@ function hydrateDiv(username, track, userOnline) {
     }
   }
 }
+
 // NSFW Filter according to localStorage
 function nsfwFilter(track, username) {
   const nsfwSetting = localStorage.nsfw;
@@ -121,10 +130,13 @@ function nsfwFilter(track, username) {
 
 async function setupWebSocketConnections(users) {
   try {
-    // Create the divs for each user first
-    await users.forEach(([username, site]) => {
-      createEmptyDiv(username, site);
-    });
+    // Reset notPlaying counter
+    notPlaying = 0;
+
+    // Create the divs for each user first (using for...of to handle async properly)
+    for (const [username, site] of users) {
+      await createEmptyDiv(username, site);
+    }
 
     // Connect to all WebSocket connections in parallel
     const connections = await Promise.all(
@@ -137,4 +149,5 @@ async function setupWebSocketConnections(users) {
   }
 }
 
+// Start WebSocket connections for users
 setupWebSocketConnections(users);
