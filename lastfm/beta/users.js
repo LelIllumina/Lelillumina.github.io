@@ -2,7 +2,7 @@
 const users = [
   ["ba-e", "bae.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],
-  ["corvidaegalaxy", "crisis.city", true],
+  ["corvidaegalaxy", "corvidae.digital", true],
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "max.nekoweb.org", true],
