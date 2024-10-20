@@ -13,7 +13,7 @@ jobs:
       - name: Prepare build
         run: |
           mkdir -p ./build
-          rsync -av --exclude='.*' --exclude='node_modules' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.json' --exclude='eslint.config.mjs' ./ ./build
+          rsync -av --exclude='.*' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.json' --exclude='eslint.config.mjs' ./ ./build
 
       - name: deploy2nekoweb
         uses: deploy2nekoweb/deploy2nekoweb@main
