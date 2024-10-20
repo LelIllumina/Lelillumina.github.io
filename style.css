@@ -131,7 +131,7 @@ header {
   overflow: hidden;
 }
 
-#marquee {
+.marquee {
   display: block;
   width: 100%;
   height: 100%;
