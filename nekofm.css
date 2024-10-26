@@ -1,8 +1,22 @@
 songBox {
-  background-image: url(https://lel.nekoweb.org/images/CC/R.jpg);
-  border: 3px inset #40a02b;
-  outline: 3px outset green;
+  background-image: linear-gradient(#1e1e2ebd, #11111bf5),
+    url(https://lel.nekoweb.org/images/twirly.png);
+  border: 5px ridge #cba6f7;
   background-size: cover;
+  /* transition: 1s;
+   width: calc(100% - 45px);
+  height: calc(100% - 45px); */
+}
+
+/* songBox:hover {
+  height: calc(100% - 30px);
+  width: calc(100% - 30px);
+} */
+
+siteName {
+  margin: auto;
+  color: #a6adc8;
+  font-size: 1.5vmin;
 }
 
 trackInfo {
@@ -12,11 +26,10 @@ trackInfo {
 trackCover {
   height: 150px;
   float: left;
-  /* content: url(https://lel.nekoweb.org/images/CC/C.C.gif); */
 }
 
 trackName {
-  color: #080808;
+  color: #cdd6f4;
   font-size: 2vmin;
   font-weight: bold;
 }
@@ -28,8 +41,8 @@ artistName {
 }
 
 searchButton {
-  color: #232d30;
-  background: #55a66d;
+  color: #a6adc8;
+  background: #313244;
   font-size: 1vmax;
   padding: 4px;
   text-decoration: none;
