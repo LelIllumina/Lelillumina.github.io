@@ -7,7 +7,12 @@ export default [
     languageOptions: { sourceType: "script", globals: globals.browser },
   },
   {
-    ignores: ["**/*.min.js"]
+    ignores: ["**/*.min.js"],
   },
   pluginJs.configs.recommended,
+  {
+    parserOptions: {
+      sourceType: "module",
+    },
+  },
 ];
