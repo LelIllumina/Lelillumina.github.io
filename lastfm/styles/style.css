@@ -152,19 +152,19 @@ footer {
 }
 
 .trackName {
-  font-size: 2vmin;
+  font-size: 2em;
   font-weight: bold;
 }
 
 .artistName {
-  font-size: 1vmax;
+  font-size: 1em;
   margin: 5px auto;
 }
 
 .searchButton {
   color: #fff;
   background: #303030;
-  font-size: 1vmax;
+  font-size: 1em;
   padding: 4px;
   text-decoration: none;
 }
