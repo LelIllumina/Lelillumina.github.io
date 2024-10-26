@@ -48,7 +48,7 @@ function createEmptyDiv(username, site) {
   newUserDiv.className = "container";
   newUserDiv.innerHTML = `
     <div id="${username}-songBox" class="listening">
-      <img id="${username}-trackCover" class="trackCover" src="/images/NekoFM/NoArt.png" alt="">
+      <img id="${username}-trackCover" class="trackCover" src="/images/NekoFM/NoArt.png" alt="" height="150" width="150"/>
       <div id="${username}-trackInfo" class="trackInfo">
         <h3 id="${username}-siteName" class="siteName"><a href="https://last.fm/user/${username}" target="_blank">${username}</a> • <a href="https://${site}" target="_blank">${site}</a></h3>
         <h2 id="${username}-trackName" class="trackName">Track Name</h2>
@@ -84,6 +84,7 @@ function hydrateDiv(username, track, userOnline) {
   const artistNameEl = userDiv.querySelector(`#${username}-artistName`);
 
   coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
+  coverImgEl.alt = track.name;
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = track.artist.name;
 
