@@ -2,6 +2,10 @@
   color-scheme: dark;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -49,7 +53,6 @@ p {
 
 a {
   text-decoration: none;
-  font-size: 1.5vmin;
   color: darkgray;
 }
 
@@ -84,7 +87,7 @@ a {
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   margin: auto;
   color: darkgray;
-  font-size: 1.5vmin;
+  font-size: 12px !important;
 }
 
 .credit {
@@ -152,19 +155,19 @@ footer {
 }
 
 .trackName {
-  font-size: 2em;
+  font-size: 16px !important;
   font-weight: bold;
 }
 
 .artistName {
-  font-size: 1em;
+  font-size: 16px !important;
   margin: 5px auto;
 }
 
 .searchButton {
   color: #fff;
   background: #303030;
-  font-size: 1em;
+  font-size: 10px !important;
   padding: 4px;
   text-decoration: none;
 }
