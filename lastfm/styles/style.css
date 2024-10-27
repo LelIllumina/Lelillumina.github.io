@@ -129,7 +129,7 @@ footer {
 }
 
 #loading {
-  filter: opacity(20%) grayscale(100%);
+  filter: opacity(20%) grayscale(80%);
 }
 
 #loading,
@@ -150,10 +150,6 @@ footer {
   margin: 25px;
 }
 
-.trackInfo {
-  width: fit-content;
-}
-
 .trackName {
   font-size: 16px !important;
   font-weight: bold;
@@ -170,4 +166,9 @@ footer {
   font-size: 10px !important;
   padding: 4px;
   text-decoration: none;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("/assets/fonts/JetBrainsMonoNerdFontMono-Regular.ttf");
 }

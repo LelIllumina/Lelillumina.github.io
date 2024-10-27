@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const users = [
+export const users = [
   ["ba-e", "bae.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "corvidae.digital", true],
