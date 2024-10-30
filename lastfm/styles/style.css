@@ -5,6 +5,12 @@
     --primary: #5a3a3a;
     --secondary: #d08686;
     --accent: #fa2929;
+    --linearPrimarySecondary: linear-gradient(#c5a5a5, #792f2f);
+    --linearPrimaryAccent: linear-gradient(#c5a5a5, #d40505);
+    --linearSecondaryAccent: linear-gradient(#792f2f, #d40505);
+    --radialPrimarySecondary: radial-gradient(#c5a5a5, #792f2f);
+    --radialPrimaryAccent: radial-gradient(#c5a5a5, #d40505);
+    --radialSecondaryAccent: radial-gradient(#792f2f, #d40505);
   }
 }
 
@@ -17,6 +23,12 @@
     --primary: #c5a5a5;
     --secondary: #792f2f;
     --accent: #d40505;
+    --linearPrimarySecondary: linear-gradient(#c5a5a5, #792f2f);
+    --linearPrimaryAccent: linear-gradient(#c5a5a5, #d40505);
+    --linearSecondaryAccent: linear-gradient(#792f2f, #d40505);
+    --radialPrimarySecondary: radial-gradient(#c5a5a5, #792f2f);
+    --radialPrimaryAccent: radial-gradient(#c5a5a5, #d40505);
+    --radialSecondaryAccent: radial-gradient(#792f2f, #d40505);
   }
 }
 
@@ -27,7 +39,7 @@
 
 body {
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
-  font-weight: bolder;
+  font-weight: 800;
   color: var(--text);
   background-color: var(--background);
   display: flex;
@@ -181,7 +193,7 @@ footer {
 
 .trackName {
   font-size: 16px !important;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .artistName {
@@ -201,18 +213,19 @@ footer {
   font-family: "Jetbrains Mono";
   src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
   font-style: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: "Jetbrains Mono";
   src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @font-face {
   font-family: "Jetbrains Mono";
   src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
   font-style: normal;
-  font-weight: bolder;
+  font-weight: 800;
 }

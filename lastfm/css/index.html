@@ -68,6 +68,10 @@
         margin: auto 5%;
         padding: 20px;
       }
+      code {
+        font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+        font-weight: 400;
+      }
     </style>
   </head>
   <body>
@@ -112,11 +116,10 @@ songBox {
 siteName {
   margin: auto;
   color: darkgray;
-  font-size: 1.5vmin;
 }
 
 trackInfo {
-  /* You can set font-family here after importing from google fonts or your own site and it will apply to all text in your song box  */
+  /* You can set fonts here, beware of CORS though */
   width: fit-content;
 }
 
@@ -126,22 +129,24 @@ trackCover {
 }
 
 trackName {
-  font-size: 2vmin;
-  font-weight: bold;
+  color: white
 }
 
 artistName {
-  font-size: 1vmax;
   margin: 5px auto;
 }
 
 searchButton {
   color: #fff;
   background: #303030;
-  font-size: 1vmax;
   padding: 4px;
   text-decoration: none;
 }
+/*  
+  Obviously you can also use ::after and ::before css
+  Go ham with the custom css, use your own bg images if you want
+  If you mess up, it should effect the rest of the site so dont worry
+*/
         </code></pre>
         <br />
         <p>
@@ -158,5 +163,17 @@ searchButton {
         </p>
       </div>
     </main>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/tokyo-night-dark.min.css"
+    />
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>
