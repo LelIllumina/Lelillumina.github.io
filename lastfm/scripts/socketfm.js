@@ -1,7 +1,8 @@
 import { users } from "./users.min.js";
-// Constants
+// Vars and consts
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 let notPlaying = 0;
+let userArray = document.createDocumentFragment();
 
 const totalCounter = document.getElementById("total");
 totalCounter.textContent = users.length;
@@ -39,7 +40,6 @@ const connectWebSocket = (username) => {
 
 // Create Empty divs
 function createEmptyDiv(username, site) {
-  const loadingDiv = document.getElementById("loading");
   const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
@@ -55,8 +55,9 @@ function createEmptyDiv(username, site) {
       </div>
     </div>
 `;
-  fragment.appendChild(newUserDiv);
-  loadingDiv.appendChild(fragment);
+  fragment.append(newUserDiv);
+  // loadingDiv.append(fragment);
+  userArray.append(fragment);
 }
 
 // Hydrate Empty Divs
@@ -87,9 +88,9 @@ function hydrateDiv(username, track, userOnline) {
   artistNameEl.textContent = track.artist.name;
 
   if (userOnline) {
-    scrobbling.appendChild(userDiv);
+    scrobbling.append(userDiv);
   } else {
-    offline.appendChild(userDiv);
+    offline.append(userDiv);
     notPlaying++;
   }
   if (notPlaying === users.length) {
@@ -128,6 +129,8 @@ async function setupWebSocketConnections(users) {
     await users.forEach(([username, site]) => {
       createEmptyDiv(username, site);
     });
+    const loadingDiv = document.getElementById("loading");
+    loadingDiv.append(userArray);
 
     // Connect to all WebSocket connections in parallel
     const connections = await Promise.all(
