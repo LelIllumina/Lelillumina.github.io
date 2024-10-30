@@ -20,6 +20,7 @@
   }
 }
 
+/* Set sizing for songboxes */
 * {
   box-sizing: border-box;
 }
@@ -27,6 +28,7 @@
 body {
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   font-weight: bolder;
+  color: var(--text);
   background-color: var(--background);
   display: flex;
   flex-direction: column;
@@ -74,6 +76,8 @@ a {
   color: darkgray;
 }
 
+/* Navbar stuff */
+
 #navbar {
   display: inline;
 }
@@ -97,9 +101,12 @@ a {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: 20px;
-  color: #fff;
   text-align: center;
   padding: 14px 25px;
+}
+
+#navbar .activeNavLink {
+  color: var(--accent);
 }
 
 .siteName {
