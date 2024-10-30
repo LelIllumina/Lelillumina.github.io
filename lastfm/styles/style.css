@@ -1,5 +1,23 @@
-:root {
-  color-scheme: dark;
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #111212;
+    --background: #e8fdfd;
+    --primary: #5a3a3a;
+    --secondary: #d08686;
+    --accent: #fa2929;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --text: #edeeee;
+    --background: #021717;
+    --primary: #c5a5a5;
+    --secondary: #792f2f;
+    --accent: #d40505;
+  }
 }
 
 * {
@@ -7,11 +25,11 @@
 }
 
 body {
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+  font-weight: bolder;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
-  height: 98%;
-  background-color: #1c1b22;
 }
 
 main {
@@ -20,7 +38,8 @@ main {
 }
 
 h1 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 50px;
   margin: auto;
 }
@@ -30,7 +49,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin: 10px 0;
   font-size: 22px;
 }
@@ -45,7 +64,6 @@ h2 {
 }
 
 p {
-  font-family: "JetBrains Mono", "Courier New", courier, monospace;
   margin: auto;
   color: silver;
   font-size: 16px;
@@ -76,7 +94,8 @@ a {
 
 #navbar a {
   display: block;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 20px;
   color: #fff;
   text-align: center;
@@ -84,7 +103,6 @@ a {
 }
 
 .siteName {
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
   margin: auto;
   color: darkgray;
   font-size: 12px !important;
@@ -150,6 +168,10 @@ footer {
   margin: 25px;
 }
 
+.container * {
+  font-family: "JetBrains Mono", "Courier New", courier, monospace !important;
+}
+
 .trackName {
   font-size: 16px !important;
   font-weight: bold;
@@ -170,5 +192,20 @@ footer {
 
 @font-face {
   font-family: "Jetbrains Mono";
-  src: url("/assets/fonts/JetBrainsMonoNerdFontMono-Regular.ttf");
+  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Jetbrains Mono";
+  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: bolder;
 }
