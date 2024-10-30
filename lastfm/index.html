@@ -49,6 +49,7 @@
     />
     <script type="module" src="./scripts/socketfm.min.js"></script>
     <script type="module" src="./scripts/customCss.min.js" async></script>
+    <script src="./scripts/taglines.min.js"></script>
   </head>
 
   <body>
@@ -72,6 +73,25 @@
       <button title="Change orientation" class="button" id="orientation">
         ▤
       </button>
+      <script>
+        // Switch orientation
+        const verticalStyle = document.getElementById("vertical");
+        const HorizontalStyle = document.getElementById("horizontal");
+
+        document
+          .getElementById("orientation")
+          .addEventListener("click", function () {
+            if (verticalStyle.rel === "stylesheet") {
+              verticalStyle.rel = "alternate stylesheet";
+              HorizontalStyle.rel = "stylesheet";
+              document.getElementById("orientation").innerHTML = "▤";
+            } else {
+              verticalStyle.rel = "stylesheet";
+              HorizontalStyle.rel = "alternate stylesheet";
+              document.getElementById("orientation").innerHTML = "▥";
+            }
+          });
+      </script>
       <input
         class="button"
         id="reload"
@@ -80,6 +100,18 @@
         title="Hard Reset"
         onclick="reloadData();"
       />
+      <script>
+        // Reload button function
+        function reloadData() {
+          users.forEach(([username, site]) => {
+            connectWebSocket(username, site);
+          });
+          document.getElementById("scrobbling").innerHTML = "";
+          document.getElementById("offline").innerHTML = "";
+          notPlaying = 0;
+          online = 0;
+        }
+      </script>
       <div>
         <h2 class="counterType">Online:</h2>
         <h2 id="counter">0</h2>
@@ -111,37 +143,6 @@
       </p>
     </footer>
     <script>
-      // Switch orientation
-      const verticalStyle = document.getElementById("vertical");
-      const HorizontalStyle = document.getElementById("horizontal");
-
-      document
-        .getElementById("orientation")
-        .addEventListener("click", function () {
-          if (verticalStyle.rel === "stylesheet") {
-            verticalStyle.rel = "alternate stylesheet";
-            HorizontalStyle.rel = "stylesheet";
-            document.getElementById("orientation").innerHTML = "▤";
-          } else {
-            verticalStyle.rel = "stylesheet";
-            HorizontalStyle.rel = "alternate stylesheet";
-            document.getElementById("orientation").innerHTML = "▥";
-          }
-        });
-    </script>
-    <script>
-      // Reload button function
-      function reloadData() {
-        users.forEach(([username, site]) => {
-          connectWebSocket(username, site);
-        });
-        document.getElementById("scrobbling").innerHTML = "";
-        document.getElementById("offline").innerHTML = "";
-        notPlaying = 0;
-        online = 0;
-      }
-    </script>
-    <script>
       // Tagline changing script
       const taglinePhrases = [
         "Who's listening to what",
@@ -156,6 +157,8 @@
         "Who here got lastfm",
         "no idea what this code does aint gonna lie",
         "Erm what the scrobble",
+        "When the lel sparkles in september",
+        "Spoopy month of the lel",
       ];
       var counter = 0;
       var elem = document.getElementById("tagline");
@@ -172,6 +175,5 @@
         }, 1000);
       }
     </script>
-    <script></script>
   </body>
 </html>
