@@ -118,29 +118,6 @@
         <p>These settings are also sitewide.</p>
       </div>
     </main>
-    <script>
-      function deleteLocalStorage() {
-        localStorage.clear();
-      }
-
-      function setLocalStorage() {
-        let nsfwValue = document.querySelector(
-          'input[name="nsfw"]:checked'
-        ).value;
-        let cssEnabled = document.getElementById("customCSS").checked;
-
-        localStorage.nsfw = nsfwValue;
-        localStorage.customCSS = cssEnabled;
-      }
-
-      function submit() {
-        try {
-          setLocalStorage();
-          alert("Settings successfully saved");
-        } catch (error) {
-          alert("Error: " + error.message);
-        }
-      }
-    </script>
+    <script src="../scripts/localStorage.min.js"></script>
   </body>
 </html>
