@@ -39,7 +39,7 @@
 
 body {
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
-  font-weight: 800;
+  font-weight: 400;
   color: var(--text);
   background-color: var(--background);
   display: flex;
@@ -92,6 +92,7 @@ a {
 
 #navbar {
   display: inline;
+  font-weight: 800;
 }
 
 #navbar ul {
