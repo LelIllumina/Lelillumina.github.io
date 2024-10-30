@@ -25,7 +25,6 @@ const connectWebSocket = (username) => {
       hydrateDiv(username, track, userOnline);
 
       // Create or update user div
-      // updateUserDiv(username, site, track, userOnline);
       const onlineCounter = document.getElementById("counter");
       const scrobbling = document.getElementById("scrobbling");
       const online = scrobbling.querySelectorAll(".container").length;
@@ -94,11 +93,12 @@ function hydrateDiv(username, track, userOnline) {
     notPlaying++;
   }
   if (notPlaying === users.length) {
-    scrobbling.innerHTML = "<p>No one's listening to anything right now</p>";
+    scrobbling.innerHTML =
+      "<p id='noUsers'>No one's listening to anything right now</p>";
   } else {
-    const pTag = scrobbling.querySelector("p");
-    if (pTag) {
-      pTag.remove();
+    const noUsers = document.getElementById("noUsers");
+    if (noUsers) {
+      noUsers.remove();
     }
   }
 }
