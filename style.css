@@ -6,13 +6,7 @@
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
-}
-
-/* Viewport stuff */
-html,
-body {
-  height: 100%;
-}
+}
 
 /* Neco arc Background and Footer */
 body {
@@ -21,7 +15,10 @@ body {
     url("/images/mainPage/background.png") repeat;
   background-attachment: fixed;
   animation: move-background 100s linear infinite;
+  min-height: 100vh;
   margin: 0;
+  display:flex
+  flex-direction: column;
   background-color: var(--base);
 }
 
@@ -161,6 +158,7 @@ header {
 main {
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .sidebar {
