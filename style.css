@@ -6,7 +6,7 @@
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
-}
+}
 
 /* Neco arc Background and Footer */
 body {
@@ -17,7 +17,7 @@ body {
   animation: move-background 100s linear infinite;
   min-height: 100vh;
   margin: 0;
-  display:flex
+  display: flex;
   flex-direction: column;
   background-color: var(--base);
 }

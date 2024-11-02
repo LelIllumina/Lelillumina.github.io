@@ -82,7 +82,7 @@ function hydrateDiv(username, track, userOnline) {
   const trackNameEl = userDiv.querySelector(`#${username}-trackName`);
   const artistNameEl = userDiv.querySelector(`#${username}-artistName`);
 
-  coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
+  coverImgEl.src = coverImgUrl || "/images/NekoFM/NoArt.png";
   coverImgEl.alt = track.name;
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = track.artist.name;

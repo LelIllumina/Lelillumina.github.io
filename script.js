@@ -13,18 +13,22 @@
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
     const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
 
-    if (document.getElementById("created"))
+    if (document.getElementById("created")) {
       document.getElementById("created").innerHTML =
         `<em>Created</em>: ${created}`;
-    if (document.getElementById("updated"))
+    }
+    if (document.getElementById("updated")) {
       document.getElementById("updated").innerHTML =
         `<em>Updated</em>: ${updated}`;
-    if (document.getElementById("visitors"))
+    }
+    if (document.getElementById("visitors")) {
       document.getElementById("visitors").innerHTML =
         `<em>Visits</em>: ${json.views}`;
-    if (document.getElementById("followers"))
+    }
+    if (document.getElementById("followers")) {
       document.getElementById("followers").innerHTML =
         `<em>Followers</em>: ${json.followers}`;
+    }
   } catch (error) {
     console.error(error);
     // If you wish to insert some fallback here, you may do so!
@@ -52,7 +56,7 @@
         track.nowplaying === "false" ? "Last Played" : "Now Playing";
 
       // check if NSFW
-      var coverImgUrl = track.album.isnsfw
+      let coverImgUrl = track.album.isnsfw
         ? "/images/NekoFM/NSFWCOVER.png"
         : track.image[2]["#text"];
 
@@ -71,7 +75,7 @@
 
       trackNameEl.textContent = track.name;
       artistNameEl.textContent = "by " + track.artist.name;
-      coverImgEl.src = coverImgUrl ? coverImgUrl : "/images/NekoFM/NoArt.png";
+      coverImgEl.src = coverImgUrl || "/images/NekoFM/NoArt.png";
     };
 
     socket.onerror = function (error) {
@@ -102,7 +106,7 @@ if (dayIndex === 7) {
 // All of the lights
 let day = weekday[dayIndex];
 window.onload = function () {
-  var taglines = [
+  let taglines = [
     "NENENENEKO WEBBB!!!",
     "Welcome to Lel Island!",
     "Lel is out there to get you!",
@@ -142,7 +146,7 @@ window.onload = function () {
     "I may or may not have forgotten about this",
     "Hakunon My Beloved",
   ];
-  var randomIndex = Math.floor(Math.random() * taglines.length);
+  let randomIndex = Math.floor(Math.random() * taglines.length);
   document.getElementById("tagline").innerHTML = taglines[randomIndex];
 };
 
@@ -151,13 +155,13 @@ window.onload = function () {
 // === ONIONRING-WIDGET ===
 //Changing graphics cuz they look cooler
 
-var tag = document.getElementById(ringID); // Find the widget on the page
+let tag = document.getElementById(ringID); // Find the widget on the page
 
-var thisSite = window.location.href; // Get the URL of the site we're currently on
-var thisIndex = null; // Initialize thisIndex
+let thisSite = window.location.href; // Get the URL of the site we're currently on
+let thisIndex = null; // Initialize thisIndex
 
 // Go through the site list to see if this site is on it and find its position
-for (var i = 0; i < sites.length; i++) {
+for (let i = 0; i < sites.length; i++) {
   if (thisSite.startsWith(sites[i][0])) {
     // We use startsWith so this will match any subdirectory; users can put the widget on multiple pages
     thisIndex = i;
@@ -168,7 +172,7 @@ for (var i = 0; i < sites.length; i++) {
 // Go through the extras list to see if this site is on it, and find what website it is an extra for
 for (i = 0; i < extras.length; i++) {
   if (thisSite.startsWith(extras[i][0])) {
-    for (var s = 0; s < sites.length; s++) {
+    for (let s = 0; s < sites.length; s++) {
       if (sites[s][0] === extras[i][1]) {
         thisIndex = s;
         break;
@@ -178,11 +182,11 @@ for (i = 0; i < extras.length; i++) {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-lets
 function randomSite() {
-  var otherSites = sites.slice(); // Create a copy of the sites list
+  let otherSites = sites.slice(); // Create a copy of the sites list
   otherSites.splice(thisIndex, 1); // Remove the current site so we don't just land on it again
-  var randomIndex = Math.floor(Math.random() * otherSites.length);
+  let randomIndex = Math.floor(Math.random() * otherSites.length);
   location.href = otherSites[randomIndex][0];
 }
 
@@ -200,16 +204,16 @@ if (thisIndex == null) {
   );
 } else {
   // Find the 'next' and 'previous' sites in the ring
-  var previousIndex = thisIndex - 1 < 0 ? sites.length - 1 : thisIndex - 1;
-  var nextIndex = thisIndex + 1 >= sites.length ? 0 : thisIndex + 1;
+  let previousIndex = thisIndex - 1 < 0 ? sites.length - 1 : thisIndex - 1;
+  let nextIndex = thisIndex + 1 >= sites.length ? 0 : thisIndex + 1;
 
-  var indexText = "";
+  let indexText = "";
   // If you've chosen to include an index, this builds the link to that
   if (useIndex) {
     indexText = `<a href='${indexPage}'>`;
   }
 
-  var randomText = "";
+  let randomText = "";
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
     randomText = `<span onclick='randomSite()'><img src="images/Nekowebring/cat.png" alt="Random Site"></span>`;
