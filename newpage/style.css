@@ -24,6 +24,8 @@
 }
 
 * {
+  /* You can see what this does over here:
+ https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
   box-sizing: border-box;
 }
 
@@ -52,7 +54,7 @@ body {
     auto;
   image-rendering: crisp-edges;
   height: 120px;
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
 }
 
