@@ -204,12 +204,8 @@ main {
   text-align: center;
 }
 
-#lastfm {
-  height: auto;
-  width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  margin-bottom: 20px;
+#trackInfo {
+  margin-top: 18px;
 }
 
 #scrobbled {
