@@ -204,6 +204,7 @@ main {
   text-align: center;
 }
 
+/* stylelint-disable-next-line selector-id-pattern */
 #trackInfo {
   margin-top: 18px;
 }
