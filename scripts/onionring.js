@@ -1,9 +1,9 @@
 // === ONIONRING-WIDGET ===
 //Changing graphics cuz they look cooler
 
-let tag = document.getElementById(ringID); // Find the widget on the page
+const tag = document.getElementById(ringID); // Find the widget on the page
 
-let thisSite = window.location.href; // Get the URL of the site we're currently on
+const thisSite = window.location.href; // Get the URL of the site we're currently on
 let thisIndex = null; // Initialize thisIndex
 
 // Go through the site list to see if this site is on it and find its position
@@ -29,14 +29,14 @@ for (i = 0; i < extras.length; i++) {
 }
 
 function randomSite() {
-  let otherSites = sites.slice(); // Create a copy of the sites list
+  const otherSites = sites.slice(); // Create a copy of the sites list
   otherSites.splice(thisIndex, 1); // Remove the current site so we don't just land on it again
-  let randomIndex = Math.floor(Math.random() * otherSites.length);
+  const randomIndex = Math.floor(Math.random() * otherSites.length);
   location.href = otherSites[randomIndex][0];
 }
 
 // If we didn't find the site in the list, the widget displays a warning instead
-if (thisIndex == null) {
+if (thisIndex === null) {
   tag.insertAdjacentHTML(
     "afterbegin",
     `
@@ -49,8 +49,8 @@ if (thisIndex == null) {
   );
 } else {
   // Find the 'next' and 'previous' sites in the ring
-  let previousIndex = thisIndex - 1 < 0 ? sites.length - 1 : thisIndex - 1;
-  let nextIndex = thisIndex + 1 >= sites.length ? 0 : thisIndex + 1;
+  const previousIndex = thisIndex - 1 < 0 ? sites.length - 1 : thisIndex - 1;
+  const nextIndex = thisIndex + 1 >= sites.length ? 0 : thisIndex + 1;
 
   let indexText = "";
   // If you've chosen to include an index, this builds the link to that
@@ -61,7 +61,8 @@ if (thisIndex == null) {
   let randomText = "";
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
-    randomText = `<span onclick='randomSite()'><img src="images/Nekowebring/cat.png" alt="Random Site"></span>`;
+    randomText =
+      "<span onclick=\"randomSite()\"><img src='images/Nekowebring/cat.png' alt='Random Site'></span>";
   }
 
   // This is the code that displays the widget - EDIT THIS if you want to change the structure

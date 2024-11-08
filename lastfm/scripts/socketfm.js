@@ -2,7 +2,7 @@ import { users } from "./users.min.js";
 // Vars and consts
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 let notPlaying = 0;
-let userArray = document.createDocumentFragment();
+const userArray = document.createDocumentFragment();
 
 const totalCounter = document.getElementById("total");
 totalCounter.textContent = users.length;

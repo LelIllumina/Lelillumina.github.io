@@ -5,7 +5,7 @@
 
 (async () => {
   try {
-    const request = await fetch(`https://nekoweb.org/api/site/info/lel`);
+    const request = await fetch("https://nekoweb.org/api/site/info/lel");
     const json = await request.json();
 
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
@@ -67,9 +67,9 @@
 
       // Track elements
       const userDiv = document.getElementById("songBox");
-      const trackNameEl = userDiv.querySelector(`#trackName`);
-      const artistNameEl = userDiv.querySelector(`#artistName`);
-      const coverImgEl = userDiv.querySelector(`#trackCover`);
+      const trackNameEl = userDiv.querySelector("#trackName");
+      const artistNameEl = userDiv.querySelector("#artistName");
+      const coverImgEl = userDiv.querySelector("#trackCover");
 
       trackNameEl.textContent = track.name;
       artistNameEl.textContent = "by " + track.artist.name;
@@ -83,7 +83,7 @@
 })();
 
 (function () {
-  let taglines = [
+  const taglines = [
     "NENENENEKO WEBBB!!!",
     "Welcome to Lel Island!",
     "Lel is out there to get you!",
@@ -122,6 +122,6 @@
     "I may or may not have forgotten about this",
     "Hakunon My Beloved",
   ];
-  let randomIndex = Math.floor(Math.random() * taglines.length);
+  const randomIndex = Math.floor(Math.random() * taglines.length);
   document.getElementById("tagline").innerHTML = taglines[randomIndex];
 })();
