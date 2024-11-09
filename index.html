@@ -5,16 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Lel Illumina" />
-    <meta
-      property="og:image"
-      content="https://lel.nekoweb.org/images/neicon_arc.jpg"
-    />
-    <meta property="og:title" content="The Lel Illumina site" />
-    <meta property="og:description" content="The cult of the Lel" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lel.nekoweb.org/" />
-    <meta property="og:site_name" content="Nekoweb Lel" />
-    <meta name="theme-color" content="#cba6f7" />
     <title>Lel's Beautiful Neko Island</title>
     <meta
       name="description"
@@ -24,13 +14,77 @@
       name="keywords"
       content="Lel, anime, Type-Moon, ufotable, personal site, music, Nekoweb"
     />
-    <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
-    <link rel="stylesheet" href="style.min.css" />
+
+    <meta
+      property="og:image"
+      content="https://lel.nekoweb.org/images/neicon_arc.jpg"
+    />
+    <meta property="og:title" content="The Lel Illumina site" />
+    <meta property="og:description" content="The cult of the Lel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lel.nekoweb.org/" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+
+    <meta name="theme-color" content="#cba6f7" />
+
     <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
     <link rel="apple-touch-icon" href="/images/neicon_arc.jpg" />
+
+    <link rel="dns-prefetch" href="https://hillhouse.neocities.org/" />
+    <link rel="dns-prefetch" href="https://decolonizepalestine.com/" />
+    <link rel="dns-prefetch" href="https://nekoweb.org/" />
+    <link rel="dns-prefetch" href="https://melankorin.net" />
+    <link rel="dns-prefetch" href="https://trademarkhell.net/" />
+    <link rel="dns-prefetch" href="https://dimden.dev/" />
+    <link rel="dns-prefetch" href="https://districts.nekoweb.org" />
+    <link rel="dns-prefetch" href="https://max.nekoweb.org/" />
+    <link rel="dns-prefetch" href="https://social.nekoweb.org/" />
+    <link rel="dns-prefetch" href="https://cereza.zone/" />
+    <link rel="dns-prefetch" href="https://anlucas.neocities.org/" />
+    <link rel="dns-prefetch" href="https://cyber.dabamos.de/" />
+
+    <link rel="dns-prefetch" href="https://api.lanyard.rest/" />
+    <link rel="dns-prefetch" href="wss://scrobbled.tepiloxtl.net/" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/Monocraft-nerd-fonts-patched.ttf"
+      as="font"
+      type="font/ttf"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/BungeeSpice-Regular.ttf"
+      as="font"
+      type="font/ttf"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/Raleway-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/JosefinSans-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+    />
     <link
       rel="preload"
       href="images/mainPage/background.png"
+      as="image"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      href="images/mainPage/LelsVCRwithhatx2.jxl"
+      as="image"
+      type="image/png"
+    />
+    <link
+      rel="preload"
+      href="images/mainPage/LelsVCRwithhatx2.avif"
       as="image"
       type="image/png"
     />
@@ -40,6 +94,7 @@
       title="feed two"
       href="rss.xml"
     />
+
     <style type="text/css">
       body {
         cursor: url(/assets/neco-arcgodmode.cur), default;
@@ -47,6 +102,114 @@
 
       a {
         cursor: url(/assets/neco-arclooking.cur), pointer;
+      }
+    </style>
+    <style>
+      :root {
+        color-scheme: dark;
+
+        --text: #cdd6f4;
+        --base: #1e1e2e;
+        --mantle: #181825;
+        --crust: #11111b;
+      }
+
+      body {
+        background:
+          linear-gradient(#00000080, #00000080),
+          url("/images/mainPage/background.png") repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--base);
+        overflow-x: hidden;
+      }
+
+      header {
+        margin: 5px auto 10px;
+        width: 75%;
+        text-align: center;
+        background-color: var(--crust);
+        box-shadow: 0 3px 8px black;
+      }
+      .title {
+        font-family: "Bungee Spice", fantasy;
+        font-size: 40px;
+        margin: 10px;
+      }
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-image: linear-gradient(var(--crust), var(--mantle));
+      }
+      .navbar li {
+        display: inline;
+        float: left;
+        margin: auto;
+      }
+      .navbar a {
+        display: block;
+        color: var(--text);
+        text-align: center;
+        padding: 14px 25px;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+      }
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .sidebar > div {
+        width: 150px;
+      }
+      .block {
+        background-color: var(--base);
+        padding: 20px;
+        border: 8px solid var(--mantle);
+        margin: 5px;
+        box-shadow: 0 0 10px black;
+      }
+      .img {
+        max-width: 100%;
+        height: fit-content;
+        border: 5px dashed #313244;
+        margin: auto;
+        display: block;
+      }
+      #frame {
+        width: 460px;
+        text-align: center;
+      }
+      @font-face {
+        font-family: Monocraft;
+        src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "Bungee Spice";
+        src: url("/assets/fonts/BungeeSpice-Regular.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: Raleway;
+        src: url("/assets/fonts/Raleway-VariableFont_wght.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "Josefin Sans";
+        src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf")
+          format("truetype");
       }
     </style>
     <script type="application/ld+json">
@@ -68,6 +231,8 @@
         }
       }
     </script>
+    <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
+    <link rel="stylesheet" href="style.min.css" />
   </head>
 
   <body>
@@ -181,7 +346,7 @@
               height="31"
               width="88"
           /></a>
-          <a href="https://districts.nekoweb.org" target="_blank"
+          <a href="https://districts.nekoweb.org/" target="_blank"
             ><img
               decoding="async"
               loading="lazy"
@@ -208,6 +373,16 @@
               src="https://social.nekoweb.org/images/nekowebcafe.png"
               title="nekocafe"
               alt="Nekocafe Button"
+              height="31"
+              width="88"
+          /></a>
+          <a href="https://cereza.zone/" target="_blank"
+            ><img
+              decoding="async"
+              loading="lazy"
+              src="https://cereza.zone/res/webbutton/88x31.gif"
+              title="cereza.zone"
+              alt="Ceraza Button"
               height="31"
               width="88"
           /></a>
@@ -282,15 +457,19 @@
       </section>
 
       <div class="block" id="frame">
-        <h1>Fate Piracy Guide in WIP rn !!!</h1>
+        <h1>Migrating to Astro soon</h1>
         <p>
-          Ive started making the Fate/* Games piracy guide with links and info!
-          I still have to add many games but its coming along nicely, you can
-          view it right now <a href="/page/4/">here</a>, ill update it
-          eventually.
+          Gonna make my site into an
+          <a href="https://astro.build/" target="_blank">Astro</a> site soon, in
+          the meanwhile you can check out the current stuff on this
+          <a
+            href="http://github.com/Lelillumina/lelillumina.github.io"
+            target="_blank"
+            >Github repo</a
+          >
         </p>
         <iframe
-          loading="lazy"
+          loading="eager"
           title="Nekoweb Follow button"
           src="https://nekoweb.org/frame/follow"
           width="150"
@@ -359,7 +538,7 @@
       </div>
 
       <section class="sidebar">
-        <div class="block" id="top-right">
+        <div class="block" id="stats">
           <h2>Stats:</h2>
           <p id="created"><em>Created</em>: Loading...</p>
           <p id="updated"><em>Updated</em>: Loading...</p>

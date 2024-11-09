@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      prettier-stylelint:
-        specifier: ^0.4.2
-        version: 0.4.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.14.0
@@ -51,6 +47,9 @@ importers:
       prettier-linter-helpers:
         specifier: ^1.0.0
         version: 1.0.0
+      prettier-stylelint:
+        specifier: ^0.4.2
+        version: 0.4.2
       stylelint:
         specifier: ^16.10.0
         version: 16.10.0(typescript@5.6.3)

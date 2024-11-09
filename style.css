@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--base);
+  overflow-x: hidden;
 }
 
 /* Text formating */
@@ -281,14 +282,15 @@ footer {
   }
 
   .sidebar > div {
-    width: 40vw;
+    width: 80%;
   }
 
   #frame {
     width: auto;
   }
 
-  #top-right {
+  .block iframe,
+  .block img {
     margin: auto;
   }
 }
@@ -339,20 +341,20 @@ footer {
 
 @font-face {
   font-family: Monocraft;
-  src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf");
+  src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Bungee Spice";
-  src: url("/assets/fonts/BungeeSpice-Regular.ttf");
+  src: url("/assets/fonts/BungeeSpice-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Raleway;
-  src: url("/assets/fonts/Raleway-VariableFont_wght.ttf");
+  src: url("/assets/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Josefin Sans";
-  src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf");
+  src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf") format("truetype");
 }
