@@ -17,14 +17,14 @@ class DiscordWidget extends HTMLElement {
         </div>
         <div id="discord-rpc">
           <img
-            src="http://lel.nekoweb.org/images/transparent.webp"
+            src="https://lel.nekoweb.org/images/transparent.webp"
             alt=""
             id="discord-activity-img"
             height="100"
             width="100"
           />
           <img
-            src="http://lel.nekoweb.org/images/transparent.webp"
+            src="https://lel.nekoweb.org/images/transparent.webp"
             alt=""
             id="discord-activity-miniimg"
             height="25"
