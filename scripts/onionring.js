@@ -28,7 +28,7 @@ for (i = 0; i < extras.length; i++) {
   }
 }
 
-function randomSite() {
+export function randomSite() {
   const otherSites = sites.slice(); // Create a copy of the sites list
   otherSites.splice(thisIndex, 1); // Remove the current site so we don't just land on it again
   const randomIndex = Math.floor(Math.random() * otherSites.length);

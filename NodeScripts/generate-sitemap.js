@@ -35,8 +35,8 @@ function getFiles(dir, fileList = []) {
 
 // Function to generate sitemap XML content
 function generateSitemap(files) {
-  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  let sitemap = "<?xml version='1.0' encoding='UTF-8'?>";
+  sitemap += "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n";
 
   files.forEach((file) => {
     const relativePath = path
