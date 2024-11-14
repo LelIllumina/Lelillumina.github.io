@@ -212,5 +212,23 @@
         size: 6,
       });
     </script>
+    <script>
+      document.addEventListener("mouseover", function (event) {
+        const target = event.target;
+
+        if (target.tagName === "A" && target.href) {
+          if (
+            !document.querySelector(
+              `link[rel="prefetch"][href="${target.href}"]`
+            )
+          ) {
+            const link = document.createElement("link");
+            link.rel = "prefetch";
+            link.href = target.href;
+            document.head.appendChild(link);
+          }
+        }
+      });
+    </script>
   </body>
 </html>

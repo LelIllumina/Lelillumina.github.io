@@ -635,13 +635,10 @@
       });
     </script>
     <script>
-      // Attach a mouseover event listener to all anchor tags on the page
       document.addEventListener("mouseover", function (event) {
         const target = event.target;
 
-        // Check if the hovered element is an anchor tag with an href attribute
         if (target.tagName === "A" && target.href) {
-          // Prefetch the link only if it hasn't been prefetched before
           if (
             !document.querySelector(
               `link[rel="prefetch"][href="${target.href}"]`
