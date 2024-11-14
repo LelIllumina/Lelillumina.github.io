@@ -3,14 +3,13 @@ import { users } from "./users.min.js";
 
 if (localStorage.customCSS !== "false") {
   users.forEach((user) => {
-    const username = user[0];
-    const domain = user[1];
-    const hasCss = user[2];
-    const url = `https://${domain}/nekofm.css?` + Math.random(); // Random text to keep refreshing css
+    const [username, domain, hasCss] = user;
+    const url = `https://${domain}/nekofm.css?`; // Random text to keep refreshing css
     if (hasCss) {
       const link = document.createElement("link");
-      link.rel = "prefetch";
+      link.rel = "preload";
       link.href = url;
+      link.as = "style";
       document.head.appendChild(link);
       fetch(url)
         .then((response) => response.text())
