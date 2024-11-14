@@ -5,7 +5,7 @@ export const users = [
   ["corvidaegalaxy", "corvidae.digital", true],
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
-  ["maxpixels", "max.nekoweb.org", true],
+  ["maxpixels", "maxpixels.moe", true],
   ["ramudaamemura", "yumeo.nekoweb.org", true],
   ["tepiloxtl", "tepiloxtl.net", true],
   ["abyssmaze", "eye.nekoweb.org", false],

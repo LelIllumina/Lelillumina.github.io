@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>NekoFM</title>
     <meta name="author" content="Lel Illumina" />
+    <title>NekoFM</title>
     <meta
       name="description"
       content="Shows the lastfm scrobbling status of people on the Nekoweb"
     />
     <meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music" />
+
     <meta property="og:title" content="NekoFM" />
     <meta
       property="og:description"
@@ -23,22 +24,10 @@
       property="og:image"
       content="https://lel.nekoweb.org/images/NekoFM/NekoFM_ek.png"
     />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://lel.nekoweb.org/lastfm",
-        "name": "NekoFM",
-        "author": {
-          "@type": "Person",
-          "name": "Lel Illumina"
-        }
-      }
-    </script>
+
     <meta name="theme-color" content="#a20000" />
-    <link rel="apple-touch-icon" href="/images/NekoFM/NekoFM_ek.png" />
-    <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
     <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
+
     <link rel="stylesheet" href="./styles/style.min.css" />
     <link rel="stylesheet" href="./styles/horizontal.min.css" id="horizontal" />
     <link
@@ -47,9 +36,12 @@
       href="./styles/vertical.min.css"
       id="vertical"
     />
+
     <script type="module" src="./scripts/socketfm.min.js"></script>
     <script type="module" src="./scripts/customCss.min.js" async></script>
     <script src="./scripts/taglines.min.js"></script>
+
+    <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
   </head>
 
   <body>
@@ -130,10 +122,7 @@
       <p>
         DM me on discord if you want me to add or remove you • Want a widget on
         your own site? Check out
-        <a
-          class="credit"
-          href="https://max.nekoweb.org/resources/lastfm-widget"
-        >
+        <a class="credit" href="https://maxpixels.moe/resources/lastfm-widget">
           Max's code
         </a>
         • WebSocket API thanks to

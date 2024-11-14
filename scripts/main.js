@@ -1,7 +1,7 @@
 //  stats from api
-//  taken from https://max.nekoweb.org/resources/nekoweb-stats/
+//  taken from https://maxpixels.moe/resources/nekoweb-stats/
 
-// this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
+// this script is under the MIT license (https://maxpixels.moe/resources/license.txt)
 
 (async () => {
   try {
