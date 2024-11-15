@@ -57,6 +57,7 @@ class DiscordWidget extends HTMLElement {
 
     const elements = {
       pfp: this.querySelector("#discord-pfp"),
+      discord: this.querySelector("#discord-widget"),
       discordName: this.querySelector("#discord-name"),
       discordUsername: this.querySelector("#discord-username"),
       discordStatus: this.querySelector("#discord-status"),
@@ -82,10 +83,10 @@ class DiscordWidget extends HTMLElement {
     const hasNonCustomId = activities.some(
       (activity) => activity.id !== "custom"
     );
-    if (activities.length && activities[0].emoji) {
-      elements.discordStatus.textContent = `${activities[0].emoji.name} ${activities[0].state}`;
+    if (activities.length === 0) {
+      elements.discordStatus.textContent = "";
     } else {
-      elements.discordStatus.textContent = activities[0].state || "";
+      elements.discordStatus.textContent = `${(activities[0].emoji && activities[0].emoji.name) || ""} ${activities[0].state}`;
     }
 
     if (hasNonCustomId) {
@@ -101,6 +102,7 @@ class DiscordWidget extends HTMLElement {
       elements.discordActivityState.textContent = state || "";
     } else {
       elements.discordRPC.remove();
+      elements.discord.style.background = "#1f1d2e";
     }
 
     const statusColorMap = {
