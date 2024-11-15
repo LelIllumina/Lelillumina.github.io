@@ -9,9 +9,10 @@
   background: linear-gradient(#1f1d2e 0 40%, #26233a 40% 100%);
   padding: 20px;
   border: 8px solid #191724;
-  margin: 5px;
+  margin: 5px auto;
   box-shadow: 0 0 10px black;
   text-align: left;
+  width: 450px;
 }
 
 #discord-widget * {

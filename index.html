@@ -94,14 +94,6 @@
     />
 
     <style>
-      body {
-        cursor: url(/assets/neco-arcgodmode.cur), default;
-      }
-
-      a {
-        cursor: url(/assets/neco-arclooking.cur), pointer;
-      }
-
       :root {
         color-scheme: dark;
 
@@ -109,6 +101,10 @@
         --base: #1e1e2e;
         --mantle: #181825;
         --crust: #11111b;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
@@ -122,6 +118,11 @@
         flex-direction: column;
         background-color: var(--base);
         overflow-x: hidden;
+        cursor: url(/assets/neco-arcgodmode.cur), default;
+      }
+
+      a {
+        cursor: url(/assets/neco-arclooking.cur), pointer;
       }
 
       header {
@@ -166,7 +167,7 @@
         align-items: center;
       }
       .sidebar > div {
-        width: 150px;
+        width: 200px;
       }
       .block {
         background-color: var(--base);
@@ -183,7 +184,7 @@
         display: block;
       }
       #frame {
-        width: 460px;
+        width: 6000px;
         text-align: center;
       }
       @font-face {

@@ -8,6 +8,10 @@
   --crust: #11111b;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Neco arc Background and Footer */
 body {
   background:
@@ -169,7 +173,7 @@ main {
 }
 
 .sidebar > div {
-  width: 150px;
+  width: 200px;
 }
 
 .block {
@@ -201,7 +205,7 @@ main {
 }
 
 #frame {
-  width: 460px;
+  width: 600px;
   text-align: center;
 }
 
