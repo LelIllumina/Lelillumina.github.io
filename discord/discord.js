@@ -115,3 +115,5 @@ class DiscordWidget extends HTMLElement {
 }
 
 customElements.define("discord-widget", DiscordWidget);
+
+// TODO replace actitvity section with doc fragment and add a frag for each activity

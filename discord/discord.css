@@ -6,7 +6,7 @@
 }
 
 #discord-widget {
-  background: linear-gradient(#1f1d2e 0 40%, #26233a 40% 100%);
+  background: linear-gradient(#1f1d2e 0 calc(100px), #26233a calc(100px) 100%);
   padding: 20px;
   border: 8px solid #191724;
   margin: 5px auto;
