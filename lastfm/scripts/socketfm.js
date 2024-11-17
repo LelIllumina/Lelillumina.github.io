@@ -1,4 +1,4 @@
-import { users } from "./users.min.js";
+import { users } from "./users.js";
 // Vars and consts
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 let notPlaying = 0;

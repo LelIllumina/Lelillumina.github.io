@@ -1,8 +1,0 @@
-{
-    "version": 3,
-    "sources": [
-        "horizontal.css"
-    ],
-    "names": [],
-    "mappings": "AAAA,WACE,iBAAkB,KAClB,OAAQ,IAAI,MAAM,QAGpB,YACE,cAAe,mBAGjB,wCACE,WACE,iBAAkB,KAClB,OAAQ,IAAI,MAAM,QAClB,QAAS,KACT,QAAS,KACT,OAAQ,EACR,YAAa,OACb,UAAW,MAGb,WACE,UAAW,IACX,QAAS,KACT,OAAQ,EACR,SAAU,OACV,SAAU,SACV,QAAS,QAGX,YACE,cAAe,mBACf,OAAQ,MACR,MAAO,KACP,aAAc"
-}

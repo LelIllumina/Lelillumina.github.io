@@ -1,5 +1,5 @@
 // Fetching Custom CSS
-import { users } from "./users.min.js";
+import { users } from "./users.js";
 
 if (localStorage.customCSS !== "false") {
   users.forEach((user) => {

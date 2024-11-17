@@ -1,8 +1,0 @@
-{
-    "version": 3,
-    "sources": [
-        "sitemap.css"
-    ],
-    "names": [],
-    "mappings": "AAAA,MACE,aAAc,KAGhB,KACE,iBAAkB,QAClB,YAAa,UAGf,EACE,gBAAiB,KACjB,MAAO,QAGT,GACE,MAAO,QACP,OAAQ,KAGV,GACE,OAAQ,KAGV,GACE,MAAO,QACP,OAAQ,KAGV,WACE,iBAAkB,QAGpB,yBACA,yBACE,WAAY"
-}

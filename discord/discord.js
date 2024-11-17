@@ -2,7 +2,7 @@ class DiscordWidget extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
-      <link rel="stylesheet" href="/discord/discord.min.css">
+      <link rel="stylesheet" href="/discord/discord.css">
       <div id="discord-widget">
         <img
           src="https://api.lanyard.rest/850319718920224798.png"
