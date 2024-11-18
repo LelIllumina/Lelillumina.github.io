@@ -10,10 +10,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@main
 
-      - name: Prepare build
-        run: |
-          mkdir -p ./build
-          rsync -av --exclude='.*' --exclude='build' --exclude='package.json' --exclude='pnpm-lock.json' --exclude='eslint.config.mjs' ./ ./build
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Prepare dev
+        run: bun install
+
+      - name: Run Gulp
+        run: bun run gulp
 
       - name: deploy2nekoweb
         uses: deploy2nekoweb/deploy2nekoweb@main
