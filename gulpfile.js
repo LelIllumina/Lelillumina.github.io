@@ -1,11 +1,11 @@
-const gulp = require("gulp");
-const htmlmin = require("gulp-htmlmin");
-const cleanCSS = require("gulp-clean-css");
-const terser = require("gulp-terser");
-const rename = require("gulp-rename");
-const sourcemaps = require("gulp-sourcemaps");
-const replace = require("gulp-replace");
-const newer = require("gulp-newer");
+import gulp from "gulp";
+import htmlmin from "gulp-htmlmin";
+import cleanCSS from "gulp-clean-css";
+import terser from "gulp-terser";
+import rename from "gulp-rename";
+import sourcemaps from "gulp-sourcemaps";
+import replace from "gulp-replace";
+import newer from "gulp-newer";
 
 // Paths
 const paths = {
@@ -37,8 +37,12 @@ function minifyHtml() {
       replace(
         /(<script.*?src=")(.*?\.js)(".*?>)/g,
         (match, start, jsPath, end) => {
-          const minifiedPath = jsPath.replace(".js", ".min.js");
-          return `${start}${minifiedPath}${end}`;
+          // Check if the jsPath is a local file (doesn't start with http or https)
+          if (!/^https?:\/\//i.test(jsPath)) {
+            const minifiedPath = jsPath.replace(".js", ".min.js");
+            return `${start}${minifiedPath}${end}`;
+          }
+          return match; // Leave CDN links unchanged
         }
       )
     )
@@ -75,6 +79,7 @@ function minifyJs() {
     .pipe(rename({ suffix: ".min" }))
     .pipe(
       replace(/(\.\/|\.\.\/)(.*?\.js)/g, (match, prefix, jsPath) => {
+        // Update .js to .min.js for all local module imports
         const updatedPath = jsPath.replace(".js", ".min.js");
         return `${prefix}${updatedPath}`;
       })
@@ -108,6 +113,8 @@ function watchFiles() {
 const { series, parallel } = gulp;
 
 // Gulp tasks
-exports.build = series(parallel(minifyHtml, minifyCss, minifyJs, copyAssets));
-exports.watch = series(exports.build, watchFiles);
-exports.default = exports.build;
+export const build = series(
+  parallel(minifyHtml, minifyCss, minifyJs, copyAssets)
+);
+export const watch = series(build, watchFiles);
+export default build;
