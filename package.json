@@ -1,6 +1,6 @@
 {
   "name": "lel.nekoweb.org",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "The lel nekoweb website",
   "main": "index.html",
   "devDependencies": {
@@ -30,7 +30,8 @@
     "stylelint-prettier": "^5.0.2"
   },
   "scripts": {
-    "generate-sitemap": "node NodeScripts/generate-sitemap.min.js"
+    "generate-sitemap": "bun NodeScripts/generate-sitemap.min.js",
+    "build": "bun run gulp"
   },
   "repository": {
     "type": "git",
