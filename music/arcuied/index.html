@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -113,28 +113,68 @@
   </head>
   <body>
     <div>
-      <img id="arc1" class="arc" src="/images/arc/ArcueidTilt.png" />
-      <img id="arc2" class="arc" src="/images/arc/ArcueidBadass.png" />
-      <img id="arc3" class="arc" src="/images/arc/ArcueidNendo.png" />
-      <img id="arc4" class="arc" src="/images/arc/Arcueid.png" />
-      <img id="arc5" class="arc" src="/images/arc/ArcFigStand.png" />
-      <img id="arc6" class="arc" src="/images/arc/Arcremake.png" />
-      <img id="arc7" class="arc" src="/images/arc/ArcRemakeDress.png" />
-      <img id="arc8" class="arc" src="/images/arc/ArcDressTilt.png" />
+      <img
+        id="arc1"
+        class="arc"
+        src="/images/arc/ArcueidTilt.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc2"
+        class="arc"
+        src="/images/arc/ArcueidBadass.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc3"
+        class="arc"
+        src="/images/arc/ArcueidNendo.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc4"
+        class="arc"
+        src="/images/arc/Arcueid.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc5"
+        class="arc"
+        src="/images/arc/ArcFigStand.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc6"
+        class="arc"
+        src="/images/arc/Arcremake.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc7"
+        class="arc"
+        src="/images/arc/ArcRemakeDress.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc8"
+        class="arc"
+        src="/images/arc/ArcDressTilt.png"
+        alt="Arc My Beloved"
+      />
     </div>
 
     <div id="player">
-      <img class="cover" src="/images/arc/ReoNa.avif" />
+      <img class="cover" src="/images/arc/ReoNa.avif" alt="Album Image" />
       <audio controls autoplay id="audioPlayer">
-        <source src="Seimeisen.webm" type="audio/webm" />
-        <source src="Juvenile.webm" type="audio/webm" />
+        <source src="生命線.mp3" type="audio/mp3" />
+        <source src="ジュブナイル.mp3" type="audio/mp3" />
         <!--         <source src="https://files.catbox.moe/uzk19u.flac" type="audio/flac" />
         <source src="https://files.catbox.moe/s9v2qp.flac" type="audio/flac" /> -->
       </audio>
     </div>
     <script>
       var audioPlayer = document.getElementById("audioPlayer");
-      var songs = ["Seimeisen.webm", "Juvenile.webm"];
+      var songs = ["生命線.mp3", "ジュブナイル.mp3"];
       var currentSongIndex = 0;
 
       function shuffleArray(array) {
