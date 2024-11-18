@@ -3,3 +3,4 @@
 node_modules
 .unlighthouse
 .trunk
+dist
