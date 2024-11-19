@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 
-/* Neco arc Background and Footer */
+/* Neco arc Background and Footer placement */
 body {
   background:
     linear-gradient(#00000080, #00000080),
@@ -55,9 +55,19 @@ p {
   color: var(--text);
 }
 
+li {
+  margin: 10px auto;
+}
+
 a {
   color: #89b4fa;
   text-decoration: none;
+  transition: 0.5s ease-in-out;
+}
+
+a:hover {
+  color: #89dceb;
+  transition: 0.5s ease-in-out;
 }
 
 #frame p {
@@ -69,14 +79,6 @@ ul {
   list-style-type: circle;
   margin: auto;
   padding-left: 20px;
-}
-
-li {
-  margin: 10px auto;
-}
-
-li > a {
-  font-size: 15px;
 }
 
 .navbar ul {
@@ -232,7 +234,7 @@ footer {
 /* Scrollbar */
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
