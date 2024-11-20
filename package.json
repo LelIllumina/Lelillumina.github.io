@@ -3,6 +3,7 @@
   "version": "1.4.0",
   "description": "The lel nekoweb website",
   "main": "index.html",
+  "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "eslint": "^9.15.0",
@@ -21,13 +22,15 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-terser": "^2.1.0",
     "htmlhint": "^1.1.4",
+    "http-server": "^14.1.1",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
     "prettier-linter-helpers": "^1.0.0",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
-    "stylelint-prettier": "^5.0.2"
+    "stylelint-prettier": "^5.0.2",
+    "terser": "^5.36.0"
   },
   "scripts": {
     "generate-sitemap": "bun NodeScripts/generate-sitemap.min.js",
