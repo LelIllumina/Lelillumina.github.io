@@ -11,12 +11,14 @@ import newer from "gulp-newer";
 const paths = {
   src: "./", // Source directory
   dist: "./dist", // Output directory
-  html: ["./**/*.html", "!./node_modules/**"],
-  css: ["./**/*.css", "!./node_modules/**"],
-  js: ["./**/*.js", "!./node_modules/**"],
+  html: ["./**/*.html", "!./node_modules/**", "!./dist/**"],
+  css: ["./**/*.css", "!./node_modules/**", "!./dist/**"],
+  js: ["./**/*.js", "!./node_modules/**", "!./dist/**", "!./gulpfile.js"],
   assets: [
-    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico}",
+    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur}",
+    "./public/**",
     "!./node_modules/**",
+    "!./dist/**",
   ],
 };
 
@@ -90,7 +92,7 @@ function minifyJs() {
     .pipe(gulp.dest(paths.dist)); // Output original JS
 }
 
-// Copy assets (images, fonts, etc.) only if they are newer or missing
+// Copy assets (images, fonts, etc.) only if they are newer or missing and public folder
 function copyAssets() {
   return gulp
     .src(paths.assets, {
