@@ -5,10 +5,10 @@ class DiscordWidget extends HTMLElement {
       <link rel="stylesheet" href="/discord/discord.css">
       <div id="discord-widget">
         <img
-          src="https://api.lanyard.rest/850319718920224798.png"
+          src="https://cdn.discordapp.com/avatars/850319718920224798/61cf0f76a95b830cddc1042e792f37d0.webp?size=50"
           alt="discord pfp"
           id="discord-pfp"
-        />
+        />  
         <div id="discord-info" class="discordText">
           <h2 id="discord-name" class="discordText">Loading...</h2>
           <h3 id="discord-username" class="discordText">Loading...</h3>
