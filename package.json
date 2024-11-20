@@ -33,8 +33,9 @@
     "terser": "^5.36.0"
   },
   "scripts": {
-    "generate-sitemap": "bun NodeScripts/generate-sitemap.min.js",
-    "build": "bun run gulp"
+    "build": "bun run gulp",
+    "preview": "bunx http-server ./dist/ -b -g --cors",
+    "build-preview": "bunx gulp && bunx http-server ./dist/ -b -g --cors"
   },
   "repository": {
     "type": "git",
