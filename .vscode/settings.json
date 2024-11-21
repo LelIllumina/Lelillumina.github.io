@@ -1,8 +1,0 @@
-{
-  "files.exclude": {
-    "**/*.min.css": true,
-    "**/*.min.css.map": true,
-    "**/*.min.js": true,
-    "**/*.min.js.map": true
-  }
-}

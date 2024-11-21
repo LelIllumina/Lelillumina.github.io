@@ -1,6 +1,7 @@
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import gulp from "gulp";
+import htmlAutoprefixer from "gulp-html-autoprefixer";
 import htmlmin from "gulp-htmlmin";
 import newer from "gulp-newer";
 import postcss from "gulp-postcss";
@@ -8,6 +9,7 @@ import rename from "gulp-rename";
 import replace from "gulp-replace";
 import sourcemaps from "gulp-sourcemaps";
 import terser from "gulp-terser";
+import postcssNormalize from "postcss-normalize";
 
 // Paths
 const paths = {
@@ -53,6 +55,7 @@ function processHtml(filePath) {
         }
       )
     )
+    .pipe(htmlAutoprefixer())
     .pipe(
       htmlmin({
         collapseWhitespace: true,
@@ -68,7 +71,7 @@ function processHtml(filePath) {
 }
 
 function processCss(filePath) {
-  const plugins = [autoprefixer(), cssnano()];
+  const plugins = [autoprefixer(), cssnano(), postcssNormalize()];
 
   return gulp
     .src(filePath, { base: paths.src })
