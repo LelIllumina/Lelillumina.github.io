@@ -22,21 +22,20 @@ const paths = {
   ],
 };
 
-// Minify HTML and update CSS/JS links
-function minifyHtml() {
+// Named tasks for processing individual files
+function processHtml(filePath) {
+  console.log(`Processing HTML file: ${filePath}`);
   return gulp
-    .src(paths.html, { base: paths.src, since: gulp.lastRun(minifyHtml) })
+    .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
     .pipe(
       replace(
         /(<link.*?href=")(.*?\.css)(".*?>)/g,
         (match, start, cssPath, end) => {
-          // Check if the CSS file is local or CDN
           if (!/^https?:\/\//i.test(cssPath)) {
             const minifiedPath = cssPath.replace(".css", ".min.css");
             return `${start}${minifiedPath}${end}`;
           }
-          // CDN CSS files remain unchanged
           return match;
         }
       )
@@ -45,12 +44,11 @@ function minifyHtml() {
       replace(
         /(<script.*?src=")(.*?\.js)(".*?>)/g,
         (match, start, jsPath, end) => {
-          // Check if the jsPath is a local file (doesn't start with http or https)
           if (!/^https?:\/\//i.test(jsPath)) {
             const minifiedPath = jsPath.replace(".js", ".min.js");
             return `${start}${minifiedPath}${end}`;
           }
-          return match; // Leave CDN links unchanged
+          return match;
         }
       )
     )
@@ -60,71 +58,102 @@ function minifyHtml() {
         removeComments: true,
         minifyCSS: true,
         minifyJS: true,
+        minifyURLs: "https://lel.nekoweb.org/",
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
       })
     )
     .pipe(gulp.dest(paths.dist));
 }
 
-// Minify CSS
-function minifyCss() {
+function processCss(filePath) {
+  console.log(`Processing CSS file: ${filePath}`);
   return gulp
-    .src(paths.css, { base: paths.src, since: gulp.lastRun(minifyCss) })
+    .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest(paths.dist)) // Output minified CSS
-    .pipe(gulp.src(paths.css, { base: paths.src })) // Include original CSS files
-    .pipe(gulp.dest(paths.dist)); // Output original CSS
+    .pipe(gulp.dest(paths.dist));
 }
 
-// Minify JS and update module imports
-function minifyJs() {
+function processJs(filePath) {
+  console.log(`Processing JS file: ${filePath}`);
   return gulp
-    .src(paths.js, { base: paths.src, since: gulp.lastRun(minifyJs) })
+    .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(rename({ suffix: ".min" }))
     .pipe(
       replace(/(\.\/|\.\.\/)(.*?\.js)/g, (match, prefix, jsPath) => {
-        // Update .js to .min.js for all local module imports
         const updatedPath = jsPath.replace(".js", ".min.js");
         return `${prefix}${updatedPath}`;
       })
     )
     .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest(paths.dist)) // Output minified JS
-    .pipe(gulp.src(paths.js, { base: paths.src })) // Include original JS files
-    .pipe(gulp.dest(paths.dist)); // Output original JS
+    .pipe(gulp.dest(paths.dist));
 }
 
-// Copy assets (images, fonts, etc.) only if they are newer or missing and public folder
-function copyAssets() {
+function processAssets(filePath) {
+  console.log(`Processing asset file: ${filePath}`);
   return gulp
-    .src(paths.assets, {
-      base: paths.src,
-      encoding: false,
-      since: gulp.lastRun(copyAssets),
-    })
-    .pipe(newer(paths.dist)) // Check if the file is newer or missing in the destination
-    .pipe(gulp.dest(paths.dist)); // Copy the file if it's new or updated
+    .src(filePath, { base: paths.src })
+    .pipe(newer(paths.dist))
+    .pipe(gulp.dest(paths.dist));
 }
 
 // Watch files for changes
 function watchFiles() {
-  gulp.watch(paths.html, minifyHtml);
-  gulp.watch(paths.css, minifyCss);
-  gulp.watch(paths.js, minifyJs);
-  gulp.watch(paths.assets, copyAssets);
+  gulp.watch(paths.html).on("change", (path) => {
+    processHtml(path);
+  });
+
+  gulp.watch(paths.css).on("change", (path) => {
+    processCss(path);
+  });
+
+  gulp.watch(paths.js).on("change", (path) => {
+    processJs(path);
+  });
+
+  gulp.watch(paths.assets).on("change", (path) => {
+    processAssets(path);
+  });
 }
 
-const { series, parallel } = gulp;
+// Define build task
+function buildHtml() {
+  return gulp
+    .src(paths.html)
+    .pipe(newer(paths.dist))
+    .pipe(gulp.dest(paths.dist));
+}
 
-// Gulp tasks
-export const build = series(
-  parallel(minifyHtml, minifyCss, minifyJs, copyAssets)
+function buildCss() {
+  return gulp
+    .src(paths.css)
+    .pipe(newer(paths.dist))
+    .pipe(gulp.dest(paths.dist));
+}
+
+function buildJs() {
+  return gulp.src(paths.js).pipe(newer(paths.dist)).pipe(gulp.dest(paths.dist));
+}
+
+function buildAssets() {
+  return gulp
+    .src(paths.assets)
+    .pipe(newer(paths.dist))
+    .pipe(gulp.dest(paths.dist));
+}
+
+const build = gulp.series(
+  gulp.parallel(buildHtml, buildCss, buildJs, buildAssets)
 );
-export const watch = series(build, watchFiles);
+const watch = gulp.series(build, watchFiles);
+
+// Export tasks
+export { build, watch };
 export default build;
