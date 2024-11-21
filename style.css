@@ -1,3 +1,6 @@
+/* Import Font */
+@import url("/assets/fonts/mainpage/fonts.css");
+
 /* Color Vars */
 :root {
   color-scheme: dark;
@@ -31,6 +34,7 @@ body {
 h1 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 48px;
+  font-weight: 700;
   color: var(--text);
   text-shadow: 1px 1px #cba6f7;
   margin: 10px auto;
@@ -340,29 +344,4 @@ footer {
   100% {
     transform: scale(1) rotate(-20deg);
   }
-}
-
-/* Fonts */
-
-@font-face {
-  font-family: Monocraft;
-  src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bungee Spice";
-  src: url("/assets/fonts/BungeeSpice-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Raleway;
-  src: url("/assets/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Josefin Sans";
-  src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf") format("truetype");
-  font-display: swap;
 }
