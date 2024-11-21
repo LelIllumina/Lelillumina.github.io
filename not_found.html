@@ -4,18 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Lel Illumina" />
-    <link href="/style.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway&amp;family=Josefin+Sans&amp;family=Bungee+Spice&amp;family=VT323&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="/images/neicon_arc.jpg" />
-    <link rel="apple-touch-icon" href="/images/neicon_arc.jpg" />
     <title>404 You're lost</title>
-    <style type="text/css">
+    <meta name="description" content="404" />
+    <meta name="author" content="Lel Illumina" />
+
+    <style>
       body {
         cursor: url(/assets/neco-arcgodmode.cur), default;
       }
@@ -24,9 +17,10 @@
         cursor: url(/assets/neco-arclooking.cur), pointer;
       }
     </style>
+    <link href="/style.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body style="min-height: 100vh">
     <header>
       <div id="header">
         <div id="marquee">
@@ -46,33 +40,40 @@
         </ul>
       </nav>
     </header>
-    <main style="height: 100vh">
-      <div class="block" style="height: fit-content; width: 30vh">
-        <h2>404</h2>
+    <main>
+      <div class="block" style="height: fit-content; width: 450px">
+        <h1 style="text-align: center">
+          404 <span style="font-size: 28px">It's Nekover...</span>
+        </h1>
         <img
+          class="img"
           alt="watame headshake"
-          src="https://media1.tenor.com/m/xKhvQq6EuHEAAAAd/hololive-watame.gif"
-          style="
-            width: 100%;
-            width: -moz-available;
-            width: -webkit-fill-available;
-          "
+          src="/images/about/watame.webp"
+          style="margin: 20px auto"
+          height="320"
+          width="320"
         />
-        <p style="text-align: center; font-size: 15px">
-          Nothing on this page, go somewhere else.
-        </p>
+        <h2 style="text-align: center; font-size: 15px">
+          Fucked up in the ghettos tryna find sum page.
+        </h2>
       </div>
     </main>
     <footer>
-      <p>Lel Cult 2024</p>
+      <p style="margin: auto; font-size: 15px">
+        Lel Cult 2024 • This site is Open-Source on
+        <a href="https://github.com/LelIllumina/Lelillumina.github.io/"
+          >Github</a
+        >
+        • <a href="/sitemap.xml">Sitemap</a>
+      </p>
     </footer>
     <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-    <script>
+    <!-- <script>
       new cursoreffects.rainbowCursor({
         length: 10,
         colors: ["#fad272", "#ffffff", "#8c3d7e"],
         size: 6,
       });
-    </script>
+    </script> -->
   </body>
 </html>
