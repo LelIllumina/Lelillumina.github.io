@@ -1,45 +1,52 @@
 import { users } from "./users.js";
-// Vars and consts
+
+// Constants
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 let notPlaying = 0;
 const userArray = document.createDocumentFragment();
 
+// Set total counter
 const totalCounter = document.getElementById("total");
 totalCounter.textContent = users.length;
 
-// WebSocket connection function
+// Connect WebSocket
 const connectWebSocket = (username) => {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     const url = `${BASE_URL}${username}`;
     const socket = new WebSocket(url);
 
-    socket.onopen = function () {
-      resolve(socket);
-    };
-    socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      const track = data.recenttracks.track[0];
-
-      // Check user's online status
-      const userOnline = track.nowplaying === "true";
-
-      hydrateDiv(username, track, userOnline);
-
-      // Create or update user div
-      const onlineCounter = document.getElementById("counter");
-      const scrobbling = document.getElementById("scrobbling");
-      const online = scrobbling.querySelectorAll(".container").length;
-      onlineCounter.textContent = online;
-    };
-
-    socket.onerror = function (error) {
-      reject(error);
-    };
+    socket.onopen = () => resolve(socket);
+    socket.onmessage = (event) => handleWebSocketMessage(username, event);
+    socket.onerror = (error) => reject(error);
   });
 };
 
-// Create Empty divs
+// Handle WebSocket message
+function handleWebSocketMessage(username, event) {
+  const data = JSON.parse(event.data);
+  const track = data.recenttracks.track[0];
+  const userOnline = track.nowplaying === "true";
+
+  hydrateDiv(username, track, userOnline);
+  updateOnlineCounter();
+}
+
+// Update the online user counter
+function updateOnlineCounter() {
+  const onlineCounter = document.getElementById("counter");
+  const scrobbling = document.getElementById("scrobbling");
+  const online = scrobbling.querySelectorAll(".container").length;
+  onlineCounter.textContent = online;
+}
+
+// Create a new div for a user
 function createEmptyDiv(username, site) {
+  const fragment = createUserFragment(username, site);
+  userArray.append(fragment);
+}
+
+// Create a user fragment
+function createUserFragment(username, site) {
   const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
@@ -54,19 +61,34 @@ function createEmptyDiv(username, site) {
         <a id="${username}-searchButton" class="searchButton" href="" target="_blank">Search Song</a>
       </div>
     </div>
-`;
+  `;
   fragment.append(newUserDiv);
-  // loadingDiv.append(fragment);
-  userArray.append(fragment);
+  return fragment;
 }
 
-// Hydrate Empty Divs
+// Update a user's div with track details
 function hydrateDiv(username, track, userOnline) {
-  // Set userDiv and default cover image
+  const userDiv = document.getElementById(username);
   const scrobbling = document.getElementById("scrobbling");
   const offline = document.getElementById("offline");
-  const userDiv = document.getElementById(username);
-  let coverImgUrl = track.album.isnsfw
+
+  const coverImgUrl = getCoverImage(track, username);
+
+  updateTrackDetails(userDiv, track, coverImgUrl);
+
+  if (userOnline) {
+    moveUserToScrobbling(userDiv, scrobbling);
+  } else {
+    moveUserToOffline(userDiv, offline);
+  }
+
+  updateScrobblingStatus();
+}
+
+// Get cover image URL with NSFW filtering
+function getCoverImage(track, username) {
+  const isNsfw = track.album.isnsfw;
+  let coverImgUrl = isNsfw
     ? nsfwFilter(track, username)
     : track.image[2]["#text"];
 
@@ -76,23 +98,36 @@ function hydrateDiv(username, track, userOnline) {
   ) {
     coverImgUrl = "/images/NekoFM/NoArt.png";
   }
+  return coverImgUrl || "/images/NekoFM/NoArt.png";
+}
 
-  // Track elements
-  const coverImgEl = userDiv.querySelector(`#${username}-trackCover`);
-  const trackNameEl = userDiv.querySelector(`#${username}-trackName`);
-  const artistNameEl = userDiv.querySelector(`#${username}-artistName`);
+// Update track details in a user div
+function updateTrackDetails(userDiv, track, coverImgUrl) {
+  const coverImgEl = userDiv.querySelector(`#${userDiv.id}-trackCover`);
+  const trackNameEl = userDiv.querySelector(`#${userDiv.id}-trackName`);
+  const artistNameEl = userDiv.querySelector(`#${userDiv.id}-artistName`);
 
-  coverImgEl.src = coverImgUrl || "/images/NekoFM/NoArt.png";
+  coverImgEl.src = coverImgUrl;
   coverImgEl.alt = track.name;
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = track.artist.name;
+}
 
-  if (userOnline) {
-    scrobbling.append(userDiv);
-  } else {
-    offline.append(userDiv);
-    notPlaying++;
-  }
+// Move user to scrobbling section
+function moveUserToScrobbling(userDiv, scrobbling) {
+  scrobbling.append(userDiv);
+}
+
+// Move user to offline section
+function moveUserToOffline(userDiv, offline) {
+  offline.append(userDiv);
+  notPlaying++;
+}
+
+// Update the status of the scrobbling section
+function updateScrobblingStatus() {
+  const scrobbling = document.getElementById("scrobbling");
+
   if (notPlaying === users.length) {
     scrobbling.innerHTML =
       "<p id='noUsers'>No one's listening to anything right now</p>";
@@ -103,7 +138,8 @@ function hydrateDiv(username, track, userOnline) {
     }
   }
 }
-// NSFW Filter according to localStorage
+
+// Apply NSFW filter
 function nsfwFilter(track, username) {
   const nsfwSetting = localStorage.nsfw;
   const defaultCoverImg = track.image[2]["#text"];
@@ -123,16 +159,11 @@ function nsfwFilter(track, username) {
   }
 }
 
+// Setup WebSocket connections for all users
 async function setupWebSocketConnections(users) {
   try {
-    // Create the divs for each user first
-    await users.forEach(([username, site]) => {
-      createEmptyDiv(username, site);
-    });
-    const loadingDiv = document.getElementById("loading");
-    loadingDiv.append(userArray);
+    createUserDivs(users);
 
-    // Connect to all WebSocket connections in parallel
     const connections = await Promise.all(
       users.map(([username]) => connectWebSocket(username))
     );
@@ -143,4 +174,12 @@ async function setupWebSocketConnections(users) {
   }
 }
 
+// Create divs for all users
+function createUserDivs(users) {
+  users.forEach(([username, site]) => createEmptyDiv(username, site));
+  const loadingDiv = document.getElementById("loading");
+  loadingDiv.append(userArray);
+}
+
+// Initialize
 setupWebSocketConnections(users);
