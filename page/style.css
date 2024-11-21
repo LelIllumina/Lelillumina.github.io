@@ -46,7 +46,7 @@ h6 {
 }
 
 a {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Jetbrains Mono", monospace;
   color: #e67e80;
   animation: gradient-text 5s infinite;
   animation-fill-mode: forwards;
@@ -73,7 +73,7 @@ a:not(:has(img)):hover {
 }
 
 p {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Jetbrains Mono", monospace;
   line-height: 24px;
 }
 
@@ -195,14 +195,18 @@ ul {
 @font-face {
   font-family: "Cutive Mono";
   src: url("/assets/fonts/CutiveMono-Regular.ttf");
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
+  font-family: "Jetbrains Mono";
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Courier Prime";
   src: url("/assets/fonts/CourierPrime-Regular.ttf");
+  font-display: swap;
 }

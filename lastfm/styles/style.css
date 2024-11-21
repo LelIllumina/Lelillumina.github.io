@@ -189,7 +189,7 @@ footer {
 }
 
 .container * {
-  font-family: "JetBrains Mono", "Courier New", courier, monospace !important;
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace !important;
 }
 
 .trackName {
@@ -212,21 +212,27 @@ footer {
 
 @font-face {
   font-family: "Jetbrains Mono";
-  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Jetbrains Mono";
-  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Jetbrains Mono";
-  src: url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
   font-style: normal;
   font-weight: 800;
+  font-display: swap;
 }

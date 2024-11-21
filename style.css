@@ -347,6 +347,7 @@ footer {
 @font-face {
   font-family: Monocraft;
   src: url("/assets/fonts/Monocraft-nerd-fonts-patched.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
@@ -357,9 +358,11 @@ footer {
 @font-face {
   font-family: Raleway;
   src: url("/assets/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Josefin Sans";
   src: url("/assets/fonts/JosefinSans-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
 }
