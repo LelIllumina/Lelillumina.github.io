@@ -99,7 +99,7 @@ function processJs(filePath) {
 function processAssets(filePath) {
   console.log(`Processing asset file: ${filePath}`);
   return gulp
-    .src(filePath, { base: paths.src })
+    .src(filePath, { base: paths.src, encoding: false })
     .pipe(newer(paths.dist))
     .pipe(gulp.dest(paths.dist));
 }
@@ -144,7 +144,7 @@ function buildJs() {
 
 function buildAssets() {
   return gulp
-    .src(paths.assets)
+    .src(paths.assets, { encoding: false })
     .pipe(newer(paths.dist))
     .pipe(gulp.dest(paths.dist));
 }
