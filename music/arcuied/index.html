@@ -41,27 +41,27 @@
         height: 40px;
       }
       #player {
-        position: relative;
-        width: max-content;
         display: grid;
-        gap: 10px;
-        margin: 13vh auto;
+        position: relative;
         align-content: center;
+        gap: 10px;
         transition: 0.5s;
+        margin: 13vh auto;
+        width: max-content;
         overflow: hidden;
       }
       .ripple {
         position: absolute;
-        border-radius: 50%;
         transform: scale(0);
+        opacity: 1;
         animation: ripple-animation 0.8s ease-out;
+        border-radius: 50%;
         background: radial-gradient(
           circle,
           rgba(0, 0, 0, 0.3) 0%,
           rgba(0, 0, 0, 0) 80%
         );
         pointer-events: none;
-        opacity: 1;
       }
       @keyframes ripple-animation {
         to {
@@ -70,32 +70,32 @@
         }
       }
       .cover {
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
         width: 500px;
         height: auto;
-        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
       }
       .arc {
         position: fixed;
         pointer-events: none;
       }
       #arc1 {
-        left: 0px;
         bottom: 0px;
+        left: 0px;
         height: 450px;
       }
       #arc2 {
-        bottom: -47px;
         right: -170px;
+        bottom: -47px;
         height: 800px;
       }
       #arc3 {
-        rotate: 90deg;
         top: -120px;
+        rotate: 90deg;
         height: 550px;
       }
       #arc4 {
-        bottom: 0;
         right: 0;
+        bottom: 0;
         height: 550px;
       }
       #arc5 {
@@ -105,19 +105,19 @@
       }
       #arc6 {
         bottom: 50px;
-        height: 450px;
-        rotate: 45deg;
         left: -20px;
+        rotate: 45deg;
+        height: 450px;
       }
       #arc7 {
         bottom: 0;
-        height: 750px;
         left: 350px;
+        height: 750px;
       }
       #arc8 {
+        right: 550px;
         bottom: 0;
         height: 700px;
-        right: 550px;
       }
     </style>
   </head>

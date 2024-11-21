@@ -109,17 +109,17 @@
       }
 
       body {
+        display: flex;
+        flex-direction: column;
+        cursor: url(/assets/neco-arcgodmode.cur), default;
+        margin: 0;
         background:
           linear-gradient(#00000080, #00000080),
           url("/images/mainPage/background.png") repeat;
         background-attachment: fixed;
-        min-height: 100vh;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
         background-color: var(--base);
+        min-height: 100vh;
         overflow-x: hidden;
-        cursor: url(/assets/neco-arcgodmode.cur), default;
       }
 
       a {
@@ -128,22 +128,22 @@
 
       header {
         margin: 5px auto 10px;
+        box-shadow: 0 3px 8px black;
+        background-color: var(--crust);
         width: 75%;
         text-align: center;
-        background-color: var(--crust);
-        box-shadow: 0 3px 8px black;
       }
       .title {
-        font-family: "Bungee Spice", fantasy;
-        font-size: 40px;
         margin: 10px;
+        font-size: 40px;
+        font-family: "Bungee Spice", fantasy;
       }
       .navbar ul {
-        list-style-type: none;
         margin: 0;
+        background-image: linear-gradient(var(--crust), var(--mantle));
         padding: 0;
         overflow: hidden;
-        background-image: linear-gradient(var(--crust), var(--mantle));
+        list-style-type: none;
       }
       .navbar li {
         display: inline;
@@ -152,14 +152,14 @@
       }
       .navbar a {
         display: block;
+        padding: 14px 25px;
         color: var(--text);
         text-align: center;
-        padding: 14px 25px;
       }
       main {
         display: flex;
-        justify-content: center;
         flex: 1;
+        justify-content: center;
       }
 
       .sidebar {
@@ -171,18 +171,18 @@
         width: 200px;
       }
       .block {
-        background-color: var(--base);
-        padding: 20px;
-        border: 8px solid var(--mantle);
         margin: 5px;
         box-shadow: 0 0 10px black;
+        border: 8px solid var(--mantle);
+        background-color: var(--base);
+        padding: 20px;
       }
       .img {
+        display: block;
+        margin: auto;
+        border: 5px dashed #313244;
         max-width: 100%;
         height: fit-content;
-        border: 5px dashed #313244;
-        margin: auto;
-        display: block;
       }
       #frame {
         width: 6000px;

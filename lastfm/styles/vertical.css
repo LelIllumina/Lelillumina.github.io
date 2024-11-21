@@ -1,28 +1,28 @@
 .listening {
-  background-color: #111;
+  margin: 0;
   border: 4px ridge aliceblue;
+  background-color: #111;
+  padding: 20px;
   width: min-content;
   height: auto;
   max-height: min-content;
-  padding: 20px;
-  margin: 0;
 }
 
 .container {
-  height: auto;
-  width: auto;
-  max-width: 220px;
-  padding: 20px;
-  margin: 0;
-  overflow: hidden;
   position: relative;
   contain: content;
+  margin: 0;
+  padding: 20px;
+  width: auto;
+  max-width: 220px;
+  height: auto;
+  overflow: hidden;
 }
 
 .trackCover {
-  height: 150px;
   float: left;
   margin-bottom: 15px;
+  height: 150px;
 }
 
 .artistName {

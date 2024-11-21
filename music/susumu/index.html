@@ -44,27 +44,27 @@
         height: 40px;
       }
       #player {
-        position: relative;
-        width: max-content;
         display: grid;
-        gap: 10px;
-        margin: 13vh auto;
+        position: relative;
         align-content: center;
+        gap: 10px;
         transition: 0.5s;
+        margin: 13vh auto;
+        width: max-content;
         overflow: hidden;
       }
       .ripple {
         position: absolute;
-        border-radius: 50%;
         transform: scale(0);
+        opacity: 1;
         animation: ripple-animation 0.8s ease-out;
+        border-radius: 50%;
         background: radial-gradient(
           circle,
           rgba(0, 0, 0, 0.3) 0%,
           rgba(0, 0, 0, 0) 80%
         );
         pointer-events: none;
-        opacity: 1;
       }
 
       @keyframes ripple-animation {
@@ -74,33 +74,33 @@
         }
       }
       .cover {
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
         width: 500px;
         height: auto;
-        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
       }
       .susumu {
         position: fixed;
         pointer-events: none;
       }
       #susumu1 {
-        left: 0px;
         bottom: 0px;
+        left: 0px;
         height: 450px;
       }
       #susumu2 {
-        bottom: 0px;
         right: 0px;
+        bottom: 0px;
         height: 500px;
       }
       #susumu3 {
-        rotate: -90deg;
         top: 0;
         right: 0;
+        rotate: -90deg;
         height: 300px;
       }
       #susumu4 {
-        bottom: 0;
         right: -100px;
+        bottom: 0;
         height: 550px;
       }
       #susumu5 {
@@ -110,9 +110,9 @@
       }
       #susumu6 {
         top: 0;
-        height: 400px;
         left: -160px;
         rotate: 180deg;
+        height: 400px;
       }
     </style>
   </head>

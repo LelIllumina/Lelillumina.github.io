@@ -38,12 +38,12 @@
 }
 
 body {
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
-  font-weight: 400;
-  color: var(--text);
-  background-color: var(--background);
   display: flex;
   flex-direction: column;
+  background-color: var(--background);
+  color: var(--text);
+  font-weight: 400;
+  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
 }
 
 main {
@@ -52,10 +52,10 @@ main {
 }
 
 h1 {
+  margin: auto;
+  font-size: 50px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size: 50px;
-  margin: auto;
 }
 
 #logo {
@@ -63,9 +63,9 @@ h1 {
 }
 
 h2 {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin: 10px 0;
   font-size: 22px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #tagline {
@@ -84,8 +84,8 @@ p {
 }
 
 a {
-  text-decoration: none;
   color: darkgray;
+  text-decoration: none;
 }
 
 /* Navbar stuff */
@@ -96,11 +96,11 @@ a {
 }
 
 #navbar ul {
-  list-style-type: none;
+  float: right;
   margin: 10px;
   padding: 0;
   overflow: hidden;
-  float: right;
+  list-style-type: none;
 }
 
 #navbar li {
@@ -111,11 +111,11 @@ a {
 
 #navbar a {
   display: block;
+  padding: 14px 25px;
+  font-size: 20px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size: 20px;
   text-align: center;
-  padding: 14px 25px;
 }
 
 #navbar .activeNavLink {
@@ -138,20 +138,20 @@ footer {
 }
 
 .button {
-  background-color: unset;
-  border: none;
-  font-size: 25px;
   float: right;
-  margin: 10px;
   cursor: pointer;
+  margin: 10px;
+  border: none;
+  background-color: unset;
+  font-size: 25px;
 }
 
 #counter,
 #total,
 .counterType {
-  font-size: 25px;
-  margin: 10px;
   display: inline;
+  margin: 10px;
+  font-size: 25px;
 }
 
 .counterType {
@@ -184,8 +184,8 @@ footer {
 }
 
 .seperator {
-  text-align: center;
   margin: 25px;
+  text-align: center;
 }
 
 .container * {
@@ -193,46 +193,46 @@ footer {
 }
 
 .trackName {
-  font-size: 16px !important;
   font-weight: 600;
+  font-size: 16px !important;
 }
 
 .artistName {
-  font-size: 16px !important;
   margin: 5px auto;
+  font-size: 16px !important;
 }
 
 .searchButton {
-  color: #fff;
   background: #303030;
-  font-size: 10px !important;
   padding: 4px;
+  color: #fff;
+  font-size: 10px !important;
   text-decoration: none;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
   font-style: normal;
   font-weight: 400;
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
+  font-family: "Jetbrains Mono";
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
   font-style: normal;
   font-weight: 600;
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
+  font-family: "Jetbrains Mono";
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Jetbrains Mono";
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
   font-style: normal;
   font-weight: 800;
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
+  font-family: "Jetbrains Mono";
   font-display: swap;
 }

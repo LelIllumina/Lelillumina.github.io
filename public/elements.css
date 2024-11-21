@@ -1,1 +1,52 @@
-.site-box{background:url(https://nekoweb.org/site/lel/files/images/BG.apng);border-radius:3px;text-align:right}.site-box::after{content:url(https://nekoweb.org/site/lel/files/images/neco_blast.png);position:relative;bottom:190px;right:15px;display:block;width:195px;transition:transform 1.5s}.site-box .sitefeature{border:2px solid #ecbfa6;left:8px;bottom:8px}.site-box>a>p{color:#cdd6f4;margin-right:6px}.site-box>a>span{color:#cdd6f4;margin-right:10px}.site-box .follow{content:url(https://nekoweb.org/site/lel/files/images/neicon_arc.jpg);height:30px;float:right}.site-box:hover:after{transform:translate(90px,-9px) rotate(10deg)}.site-box>*{cursor:url(https://lel.nekoweb.org/neco-arcgodmode.cur),default}.site-box>:active{cursor:url(https://lel.nekoweb.org/neco-arclooking.cur),pointer}.follow{background-color:#cba6f7;color:#1e1e2e;border:2px outset #f5c2e7;height:35px;width:150px}.follow:active{background-color:#ca9ee6;border:2px inset #f5c2e7}
+.site-box {
+  border-radius: 3px;
+  background: url(https://nekoweb.org/site/lel/files/images/BG.apng);
+  text-align: right;
+}
+.site-box::after {
+  display: block;
+  position: relative;
+  right: 15px;
+  bottom: 190px;
+  transition: transform 1.5s;
+  width: 195px;
+  content: url(https://nekoweb.org/site/lel/files/images/neco_blast.png);
+}
+.site-box .sitefeature {
+  bottom: 8px;
+  left: 8px;
+  border: 2px solid #ecbfa6;
+}
+.site-box > a > p {
+  margin-right: 6px;
+  color: #cdd6f4;
+}
+.site-box > a > span {
+  margin-right: 10px;
+  color: #cdd6f4;
+}
+.site-box .follow {
+  float: right;
+  height: 30px;
+  content: url(https://nekoweb.org/site/lel/files/images/neicon_arc.jpg);
+}
+.site-box:hover:after {
+  transform: translate(90px, -9px) rotate(10deg);
+}
+.site-box > * {
+  cursor: url(https://lel.nekoweb.org/neco-arcgodmode.cur), default;
+}
+.site-box > :active {
+  cursor: url(https://lel.nekoweb.org/neco-arclooking.cur), pointer;
+}
+.follow {
+  border: 2px outset #f5c2e7;
+  background-color: #cba6f7;
+  width: 150px;
+  height: 35px;
+  color: #1e1e2e;
+}
+.follow:active {
+  border: 2px inset #f5c2e7;
+  background-color: #ca9ee6;
+}

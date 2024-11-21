@@ -1,36 +1,36 @@
 /* Main Page Fonts */
 
 @font-face {
-  font-family: "Bungee Spice";
+  font-style: normal;
   src:
     url("BungeeSpice-Regular.woff2") format("woff2"),
     url("BungeeSpice-Regular.ttf") format("truetype");
-  font-style: normal;
+  font-family: "Bungee Spice";
 }
 
 @font-face {
-  font-family: "Josefin Sans";
+  font-style: normal;
   src:
     url("JosefinSans-VariableFont_wght.woff2") format("woff2"),
     url("JosefinSans-VariableFont_wght.ttf") format("truetype");
-  font-style: normal;
+  font-family: "Josefin Sans";
   font-display: swap;
 }
 
 @font-face {
-  font-family: Monocraft;
+  font-style: normal;
   src:
     url("Monocraft-nerd-fonts-patched.woff2") format("woff2"),
     url("Monocraft-nerd-fonts-patched.ttf") format("truetype");
-  font-style: normal;
+  font-family: Monocraft;
   font-display: swap;
 }
 
 @font-face {
-  font-family: Raleway;
+  font-style: normal;
   src:
     url("Raleway-VariableFont_wght.woff2") format("woff2"),
     url("Raleway-VariableFont_wght.ttf") format("truetype");
-  font-style: normal;
+  font-family: Raleway;
   font-display: swap;
 }

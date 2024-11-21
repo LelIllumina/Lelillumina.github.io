@@ -8,13 +8,13 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: #89b4fa;
+  text-decoration: none;
 }
 
 h1 {
-  color: #cdd6f4;
   margin: 15px;
+  color: #cdd6f4;
 }
 
 td {
@@ -22,8 +22,8 @@ td {
 }
 
 th {
-  color: #11111b;
   height: 25px;
+  color: #11111b;
 }
 
 .header th {
