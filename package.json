@@ -36,7 +36,9 @@
     "build": "bunx gulp",
     "watch": "start bunx gulp watch && start bunx http-server ./dist/ -b -g --cors",
     "preview": "bunx http-server ./dist/ -b -g --cors",
-    "build-preview": "bunx gulp && bunx http-server ./dist/ -b -g --cors"
+    "build-preview": "bunx gulp && bunx http-server ./dist/ -b -g --cors",
+    "stylelint": "bunx stylelint '**/*.css' --fix",
+    "eslint": "bunx eslint --fix"
   },
   "repository": {
     "type": "git",
