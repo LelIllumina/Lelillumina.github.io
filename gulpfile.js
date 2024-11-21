@@ -15,7 +15,7 @@ const paths = {
   css: ["./**/*.css", "!./node_modules/**", "!./dist/**"],
   js: ["./**/*.js", "!./node_modules/**", "!./dist/**", "!./gulpfile.js"],
   assets: [
-    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur,mp4}",
+    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur,mp3}",
     "./public/**",
     "!./node_modules/**",
     "!./dist/**",
