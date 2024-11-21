@@ -15,7 +15,7 @@ const paths = {
   css: ["./**/*.css", "!./node_modules/**", "!./dist/**"],
   js: ["./**/*.js", "!./node_modules/**", "!./dist/**", "!./gulpfile.js"],
   assets: [
-    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur}",
+    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur,mp4}",
     "./public/**",
     "!./node_modules/**",
     "!./dist/**",
@@ -24,7 +24,6 @@ const paths = {
 
 // Named tasks for processing individual files
 function processHtml(filePath) {
-  console.log(`Processing HTML file: ${filePath}`);
   return gulp
     .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
@@ -67,7 +66,6 @@ function processHtml(filePath) {
 }
 
 function processCss(filePath) {
-  console.log(`Processing CSS file: ${filePath}`);
   return gulp
     .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
@@ -75,11 +73,12 @@ function processCss(filePath) {
     .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.src(filePath, { base: paths.src }))
     .pipe(gulp.dest(paths.dist));
 }
 
 function processJs(filePath) {
-  console.log(`Processing JS file: ${filePath}`);
   return gulp
     .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
@@ -93,11 +92,12 @@ function processJs(filePath) {
       })
     )
     .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.src(filePath, { base: paths.src }))
     .pipe(gulp.dest(paths.dist));
 }
 
 function processAssets(filePath) {
-  console.log(`Processing asset file: ${filePath}`);
   return gulp
     .src(filePath, { base: paths.src, encoding: false })
     .pipe(newer(paths.dist))
@@ -125,28 +125,19 @@ function watchFiles() {
 
 // Define build task
 function buildHtml() {
-  return gulp
-    .src(paths.html)
-    .pipe(newer(paths.dist))
-    .pipe(gulp.dest(paths.dist));
+  return processHtml(paths.html);
 }
 
 function buildCss() {
-  return gulp
-    .src(paths.css)
-    .pipe(newer(paths.dist))
-    .pipe(gulp.dest(paths.dist));
+  return processCss(paths.css);
 }
 
 function buildJs() {
-  return gulp.src(paths.js).pipe(newer(paths.dist)).pipe(gulp.dest(paths.dist));
+  return processJs(paths.js);
 }
 
 function buildAssets() {
-  return gulp
-    .src(paths.assets, { encoding: false })
-    .pipe(newer(paths.dist))
-    .pipe(gulp.dest(paths.dist));
+  return processAssets(paths.assets);
 }
 
 const build = gulp.series(
