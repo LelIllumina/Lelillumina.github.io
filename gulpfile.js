@@ -26,12 +26,18 @@ const paths = {
 function minifyHtml() {
   return gulp
     .src(paths.html, { base: paths.src })
+    .pipe(newer(paths.dist))
     .pipe(
       replace(
         /(<link.*?href=")(.*?\.css)(".*?>)/g,
         (match, start, cssPath, end) => {
-          const minifiedPath = cssPath.replace(".css", ".min.css");
-          return `${start}${minifiedPath}${end}`;
+          // Check if the CSS file is local or CDN
+          if (!/^https?:\/\//i.test(cssPath)) {
+            const minifiedPath = cssPath.replace(".css", ".min.css");
+            return `${start}${minifiedPath}${end}`;
+          }
+          // CDN CSS files remain unchanged
+          return match;
         }
       )
     )
@@ -63,6 +69,7 @@ function minifyHtml() {
 function minifyCss() {
   return gulp
     .src(paths.css, { base: paths.src, since: gulp.lastRun(minifyCss) })
+    .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
@@ -76,6 +83,7 @@ function minifyCss() {
 function minifyJs() {
   return gulp
     .src(paths.js, { base: paths.src, since: gulp.lastRun(minifyJs) })
+    .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(terser())
     .pipe(rename({ suffix: ".min" }))
