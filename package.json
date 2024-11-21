@@ -26,6 +26,7 @@
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
     "prettier-linter-helpers": "^1.0.0",
+    "prettier-plugin-css-order": "^2.1.2",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
