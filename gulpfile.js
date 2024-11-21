@@ -57,7 +57,7 @@ function processHtml(filePath) {
         removeComments: true,
         minifyCSS: true,
         minifyJS: true,
-        minifyURLs: "https://lel.nekoweb.org/",
+        // minifyURLs: "https://lel.nekoweb.org/",
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
       })
