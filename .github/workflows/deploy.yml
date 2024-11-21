@@ -27,4 +27,4 @@ jobs:
           nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
           nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
           nekoweb-folder: "/dist/"
-          directory: "./build/dist"
+          directory: "./dist"
