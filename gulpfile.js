@@ -1,11 +1,13 @@
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 import gulp from "gulp";
 import htmlmin from "gulp-htmlmin";
-import cleanCSS from "gulp-clean-css";
-import terser from "gulp-terser";
-import rename from "gulp-rename";
-import sourcemaps from "gulp-sourcemaps";
-import replace from "gulp-replace";
 import newer from "gulp-newer";
+import postcss from "gulp-postcss";
+import rename from "gulp-rename";
+import replace from "gulp-replace";
+import sourcemaps from "gulp-sourcemaps";
+import terser from "gulp-terser";
 
 // Paths
 const paths = {
@@ -66,11 +68,13 @@ function processHtml(filePath) {
 }
 
 function processCss(filePath) {
+  const plugins = [autoprefixer(), cssnano()];
+
   return gulp
     .src(filePath, { base: paths.src })
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
-    .pipe(cleanCSS())
+    .pipe(postcss(plugins))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dist))
