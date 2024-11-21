@@ -51,31 +51,32 @@
     <link rel="preconnect" href="https://api.lanyard.rest/" crossorigin />
 
     <link
-      rel="prefetch"
+      rel="preload"
       href="/assets/fonts/Monocraft-nerd-fonts-patched.ttf"
       as="font"
       type="font/ttf"
     />
     <link
-      rel="prefetch"
+      rel="preload"
       href="/assets/fonts/BungeeSpice-Regular.ttf"
       as="font"
       type="font/ttf"
     />
     <link
-      rel="prefetch"
+      rel="preload"
       href="/assets/fonts/Raleway-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
     />
     <link
-      rel="prefetch"
+      rel="preload"
       href="/assets/fonts/JosefinSans-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
     />
     <link
-      rel="prefetch"
+      rel="preload"
+      fetchpriority="high"
       href="images/mainPage/LelsVCRwithhat.webp"
       as="image"
       type="image/webp"
@@ -588,6 +589,8 @@
               src="images/mainPage/palestineko.avif"
               style="max-width: 100%; max-height: 100%"
               alt="PALESTINE WILL BE FREE"
+              height="100"
+              width="140"
           /></a>
         </div>
       </section>
@@ -604,14 +607,14 @@
     </footer>
     <script src="https://webring.nekoweb.org/onionring-variables.js"></script>
     <script src="scripts/onionring.js"></script>
-    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <!-- <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
     <script>
       new cursoreffects.rainbowCursor({
         length: 10,
         colors: ["#fad272", "#ffffff", "#8c3d7e"],
         size: 6,
       });
-    </script>
+    </script> -->
     <script>
       document.addEventListener("mouseover", function (event) {
         const target = event.target;

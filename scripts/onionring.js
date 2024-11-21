@@ -63,22 +63,45 @@ if (thisIndex === null) {
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
     randomText =
-      "<span onclick=\"randomSite()\"><img src='images/Nekowebring/cat.png' alt='Random Site'></span>";
+      "<span onclick=\"randomSite()\"><img src='images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
   }
 
   // This is the code that displays the widget - EDIT THIS if you want to change the structure
   tag.insertAdjacentHTML(
     "afterbegin",
-    `
-  <table>
-    <tr>
-      <td class='webring-prev'><a href='${sites[previousIndex][0]}'><img src="images/Nekowebring/prev.png" alt="Previous Site"></a></td>
-      <td style="text-align: center;" class='webring-info'>${indexText}<img src="images/Nekowebring/nekowebring.png" alt="NekoWebRing Index"></a></br>
-      <span class='webring-links'>
-        ${randomText}
-      <td class='webring-next'><a href='${sites[nextIndex][0]}'><img src="images/Nekowebring/next.png" alt="Next Site"></a></td>
-    </tr>
-  </table>
+    `<table>
+      <tr>
+        <td class="webring-prev">
+          <a href="${sites[previousIndex][0]}">
+            <img
+              src="images/Nekowebring/prev.png"
+              alt="Previous Site"
+              height="44"
+              width="19"
+          /></a>
+        </td>
+        <td style="text-align: center" class="webring-info">
+          <a href="${indexPage}">
+            <img
+              src="images/Nekowebring/nekowebring.png"
+              alt="NekoWebRing Index"
+              height="20"
+              width="88"
+          /></a>
+        </td>
+        <span class="webring-links">${randomText}</span>
+
+        <td class="webring-next">
+          <a href="${sites[nextIndex][0]}"
+            ><img
+              src="images/Nekowebring/next.png"
+              alt="Next Site"
+              height="44"
+              width="19"
+          /></a>
+        </td>
+      </tr>
+    </table>
   `
   );
 }
