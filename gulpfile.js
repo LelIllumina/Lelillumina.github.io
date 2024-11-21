@@ -25,7 +25,7 @@ const paths = {
 // Minify HTML and update CSS/JS links
 function minifyHtml() {
   return gulp
-    .src(paths.html, { base: paths.src })
+    .src(paths.html, { base: paths.src, since: gulp.lastRun(minifyHtml) })
     .pipe(newer(paths.dist))
     .pipe(
       replace(
