@@ -30,6 +30,7 @@ export const users = [
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
   ["thnlqd", "thinliquid.dev", false],
+  ["evierie", "summertime.nekoweb.org", false],
   ["trademarkhell", "trademarkhell.net", false],
   ["oikmo", "oikmo.nekoweb.org", false],
 ];
