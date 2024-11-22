@@ -155,3 +155,7 @@ const watch = gulp.series(build, watchFiles);
 // Export tasks
 export { build, watch };
 export default build;
+
+// so the idea is that i make a src folder and put all kindas pages and css in it
+// but i keep the nested folder names the same so i can make gulp copy 1:1 from each folder
+// and its nicer over here
