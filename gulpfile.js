@@ -15,21 +15,22 @@ import postcssNormalize from "postcss-normalize";
 const paths = {
   src: "./", // Source directory
   dist: "./dist", // Output directory
-  html: ["./**/*.html", "!./node_modules/**", "!./dist/**"],
-  css: ["./**/*.css", "!./node_modules/**", "!./dist/**"],
-  js: ["./**/*.js", "!./node_modules/**", "!./dist/**", "!./gulpfile.js"],
-  assets: [
-    "./**/*.{png,avif,jxl,jpg,jpeg,gif,svg,webp,ttf,woff,woff2,eot,otf,ico,cur,mp3}",
-    "./public/**",
+  html: ["./src/pages/**/*.html", "!./node_modules/**", "!./dist/**"],
+  css: ["./src/css/**/*.css", "!./node_modules/**", "!./dist/**"],
+  js: [
+    "./src/scripts/**/*.js",
     "!./node_modules/**",
     "!./dist/**",
+    "!./gulpfile.js",
   ],
+  assets: ["./assets/**", "!./node_modules/**", "!./dist/**"],
+  public: "./public/**",
 };
 
 // Named tasks for processing individual files
 function processHtml(filePath) {
   return gulp
-    .src(filePath, { base: paths.src })
+    .src(filePath, { base: "./src/pages" })
     .pipe(newer(paths.dist))
     .pipe(
       replace(
@@ -74,20 +75,20 @@ function processCss(filePath) {
   const plugins = [autoprefixer(), cssnano(), postcssNormalize()];
 
   return gulp
-    .src(filePath, { base: paths.src })
+    .src(filePath, { base: "./src/css" })
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(postcss(plugins))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dist))
-    .pipe(gulp.src(filePath, { base: paths.src }))
+    .pipe(gulp.src(filePath, { base: "./src/css" }))
     .pipe(gulp.dest(paths.dist));
 }
 
 function processJs(filePath) {
   return gulp
-    .src(filePath, { base: paths.src })
+    .src(filePath, { base: "./src/scripts" })
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(terser())
@@ -100,13 +101,20 @@ function processJs(filePath) {
     )
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dist))
-    .pipe(gulp.src(filePath, { base: paths.src }))
+    .pipe(gulp.src(filePath, { base: "./src/scripts" }))
     .pipe(gulp.dest(paths.dist));
 }
 
 function processAssets(filePath) {
   return gulp
-    .src(filePath, { base: paths.src, encoding: false })
+    .src(filePath, { base: "./", encoding: false })
+    .pipe(newer(paths.dist))
+    .pipe(gulp.dest(paths.dist));
+}
+
+function copyPublic(filePath) {
+  return gulp
+    .src(filePath, { base: "./public", encoding: false })
     .pipe(newer(paths.dist))
     .pipe(gulp.dest(paths.dist));
 }
@@ -147,8 +155,12 @@ function buildAssets() {
   return processAssets(paths.assets);
 }
 
+function buildPublic() {
+  return copyPublic(paths.public);
+}
+
 const build = gulp.series(
-  gulp.parallel(buildHtml, buildCss, buildJs, buildAssets)
+  gulp.parallel(buildHtml, buildCss, buildJs, buildAssets, buildPublic)
 );
 const watch = gulp.series(build, watchFiles);
 
