@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  image-rendering: pixelated;
+}
+
+html {
+  overflow: hidden !important;
+}
+
+img {
+  pointer-events: none;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -5;
+  filter: saturate(90%) brightness(65%) contrast(150%) hue-rotate(20deg);
+  background-image: url("/assets/images/CC/L.jpg"),
+    url("/assets/images/CC/R.jpg");
+  background-size: cover;
+  background-blend-mode: lighten;
+  width: 100vw;
+  height: 100vh;
+}
+
+#sparkle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -4;
+  width: 100vw;
+  height: 100vh;
+}
+
+#flowers {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  filter: opacity(60%) contrast(140%) hue-rotate(20deg);
+  width: 100vw;
+  height: 100vh;
+}
+
+#spintop,
+#spinbottom {
+  position: absolute;
+  z-index: -2;
+  filter: opacity(80%) saturate(60%) hue-rotate(20deg);
+  animation: spin 5s linear infinite;
+}
+
+#spintop {
+  top: 0;
+  right: 0;
+}
+
+#spinbottom {
+  bottom: 0;
+  left: 0;
+}
+
+#corner {
+  position: absolute;
+  top: 0;
+  z-index: -3;
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
+  width: auto;
+  height: 100vh;
+}
+
+#hanging {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -3;
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
+  width: auto;
+  height: 100vh;
+}
+
+#content {
+  filter: none;
+  animation: bub 3s infinite;
+  margin: auto;
+  margin-top: 100px;
+  box-shadow:
+    0 0 5px #0e0,
+    0 0 5px #0e0 inset;
+  border: 15px solid transparent;
+  background: rgb(100 200 100 / 50%);
+  background-image: url("/assets/images/CC/heart.png"),
+    url("/assets/images/CC/transbayer8.png");
+  background-position: center;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  width: 80vw;
+  height: 65vh;
+  text-shadow:
+    0 0 10px black,
+    0 0 10px black;
+
+  #text {
+    margin: 20px 100px 20px 300px;
+    color: whitesmoke;
+  }
+
+  h1,
+  h2,
+  p {
+    padding: 10px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+}
+
+#waifu {
+  position: fixed;
+  bottom: 0;
+  transform: rotateY(180deg);
+  filter: drop-shadow(6px 6px 10px black);
+  animation: fade 1s linear infinite;
+  height: 95vh;
+}
+
+@keyframes bub {
+  0% {
+    box-shadow:
+      0 0 5px #0e0,
+      0 0 5px #0e0 inset;
+  }
+
+  33% {
+    box-shadow:
+      0 0 10px #0e0,
+      0 0 0 #0e0 inset;
+  }
+
+  66% {
+    box-shadow:
+      0 0 5px #0e0,
+      0 0 10px #0e0 inset;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

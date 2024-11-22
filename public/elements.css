@@ -1,6 +1,6 @@
 .site-box {
   border-radius: 3px;
-  background: url(https://nekoweb.org/site/lel/files/images/BG.apng);
+  background: url(https://nekoweb.org/site/lel/files/assets/images/BG.apng);
   text-align: right;
 }
 .site-box::after {
@@ -10,7 +10,7 @@
   bottom: 190px;
   transition: transform 1.5s;
   width: 195px;
-  content: url(https://nekoweb.org/site/lel/files/images/neco_blast.png);
+  content: url(https://nekoweb.org/site/lel/files/assets/images/neco_blast.png);
 }
 .site-box .sitefeature {
   bottom: 8px;
@@ -28,7 +28,7 @@
 .site-box .follow {
   float: right;
   height: 30px;
-  content: url(https://nekoweb.org/site/lel/files/images/neicon_arc.jpg);
+  content: url(https://nekoweb.org/site/lel/files/assets/images/neicon_arc.jpg);
 }
 .site-box:hover:after {
   transform: translate(90px, -9px) rotate(10deg);
