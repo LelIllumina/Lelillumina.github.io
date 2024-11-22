@@ -4,7 +4,7 @@ import { users } from "./users.js";
 if (localStorage.customCSS !== "false") {
   users.forEach((user) => {
     const [username, domain, hasCss] = user;
-    const url = `https://${domain}/nekofm.css?`; // Random text to keep refreshing css
+    const url = `https://${domain}/nekofm.css`; // Random text to keep refreshing css
     if (hasCss) {
       const link = document.createElement("link");
       link.rel = "preload";
