@@ -180,15 +180,21 @@
         alt="Album Image"
       />
       <audio controls autoplay id="audioPlayer">
-        <source src="生命線.mp3" type="audio/mpeg" />
-        <source src="ジュブナイル.mp3" type="audio/mpeg" />
+        <source src="/assets/music/arcuied/生命線.mp3" type="audio/mpeg" />
+        <source
+          src="/assets/music/arcuied/ジュブナイル.mp3"
+          type="audio/mpeg"
+        />
         <!--         <source src="https://files.catbox.moe/uzk19u.flac" type="audio/flac" />
         <source src="https://files.catbox.moe/s9v2qp.flac" type="audio/flac" /> -->
       </audio>
     </div>
     <script>
       const audioPlayer = document.getElementById("audioPlayer");
-      let songs = ["生命線.mp3", "ジュブナイル.mp3"];
+      let songs = [
+        "/assets/music/arcuied/生命線.mp3",
+        "/assets/music/arcuied/ジュブナイル.mp3",
+      ];
       let currentSongIndex = 0;
 
       function shuffleArray(array) {
