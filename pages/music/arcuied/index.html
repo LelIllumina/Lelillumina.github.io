@@ -1,4 +1,202 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Lel Illumina"><meta name="theme-color" content="#f38ba8"><meta property="og:image" content="/assets/images/arc/ReoNa.avif"><meta property="og:title" content="Arcueid My Beloved"><meta property="og:description" content="Reona My Beloved"><meta property="og:url" content="https://lel.nekoweb.org/music/arcuied"><meta property="og:site_name" content="Nekoweb Lel"><meta property="twitter:card" content="summary_large_image"><link rel="icon" type="image/x-icon" href="/assets/images/neicon_arc.jpg"><title>Arcueid My beloved</title><script>window.transitionToPage=function(o){document.querySelector("body").style.opacity=0,setTimeout(function(){window.location.href=o},500)},document.addEventListener("DOMContentLoaded",function(o){document.querySelector("body").style.opacity=1})</script><style>:root{color-scheme:dark}body{opacity:0;transition:opacity .5s;background-color:#282828}#audioPlayer{width:500px;height:40px}#player{display:grid;position:relative;-ms-flex-line-pack:center;align-content:center;gap:10px;transition:.5s;margin:13vh auto;width:-webkit-max-content;width:-moz-max-content;width:max-content;overflow:hidden}.ripple{position:absolute;-webkit-transform:scale(0);transform:scale(0);opacity:1;-webkit-animation:ripple-animation .8s ease-out;animation:ripple-animation .8s ease-out;border-radius:50%;background:radial-gradient(circle,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 80%);pointer-events:none}@-webkit-keyframes ripple-animation{to{-webkit-transform:scale(5);transform:scale(5);opacity:0}}@keyframes ripple-animation{to{-webkit-transform:scale(5);transform:scale(5);opacity:0}}.cover{box-shadow:0 0 20px 20px rgba(0,0,0,.35);width:500px;height:auto}.arc{position:fixed;pointer-events:none}#arc1{bottom:0;left:0;height:450px}#arc2{right:-170px;bottom:-47px;height:800px}#arc3{top:-120px;rotate:90deg;height:550px}#arc4{right:0;bottom:0;height:550px}#arc5{bottom:-420px;left:950px;rotate:15deg}#arc6{bottom:50px;left:-20px;rotate:45deg;height:450px}#arc7{bottom:0;left:350px;height:750px}#arc8{right:550px;bottom:0;height:700px}</style></head><body><div><img id="arc1" class="arc" src="/assets/images/arc/ArcueidTilt.png" alt="Arc My Beloved"> <img id="arc2" class="arc" src="/assets/images/arc/ArcueidBadass.png" alt="Arc My Beloved"> <img id="arc3" class="arc" src="/assets/images/arc/ArcueidNendo.png" alt="Arc My Beloved"> <img id="arc4" class="arc" src="/assets/images/arc/Arcueid.png" alt="Arc My Beloved"> <img id="arc5" class="arc" src="/assets/images/arc/ArcFigStand.png" alt="Arc My Beloved"> <img id="arc6" class="arc" src="/assets/images/arc/Arcremake.png" alt="Arc My Beloved"> <img id="arc7" class="arc" src="/assets/images/arc/ArcRemakeDress.png" alt="Arc My Beloved"> <img id="arc8" class="arc" src="/assets/images/arc/ArcDressTilt.png" alt="Arc My Beloved"></div><div id="player"><img class="cover" src="/assets/images/arc/ReoNa.avif" alt="Album Image"><audio controls autoplay id="audioPlayer"><source src="&#x751F;&#x547D;&#x7DDA;.mp3" type="audio/mpeg"><source src="&#x30B8;&#x30E5;&#x30D6;&#x30CA;&#x30A4;&#x30EB;.mp3" type="audio/mpeg"></audio></div><script>const audioPlayer = document.getElementById("audioPlayer");
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="Lel Illumina" />
+    <meta name="theme-color" content="#f38ba8" />
+    <meta property="og:image" content="/assets/images/arc/ReoNa.avif" />
+    <meta property="og:title" content="Arcueid My Beloved" />
+    <meta property="og:description" content="Reona My Beloved" />
+    <meta property="og:url" content="https://lel.nekoweb.org/music/arcuied" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/neicon_arc.jpg" />
+    <title>Arcueid My beloved</title>
+    <script>
+      (window.transitionToPage = function (o) {
+        (document.querySelector("body").style.opacity = 0),
+          setTimeout(function () {
+            window.location.href = o;
+          }, 500);
+      }),
+        document.addEventListener("DOMContentLoaded", function (o) {
+          document.querySelector("body").style.opacity = 1;
+        });
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        opacity: 0;
+        transition: opacity 0.5s;
+        background-color: #282828;
+      }
+      #audioPlayer {
+        width: 500px;
+        height: 40px;
+      }
+      #player {
+        display: grid;
+        position: relative;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        gap: 10px;
+        transition: 0.5s;
+        margin: 13vh auto;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        overflow: hidden;
+      }
+      .ripple {
+        position: absolute;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+        -webkit-animation: ripple-animation 0.8s ease-out;
+        animation: ripple-animation 0.8s ease-out;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0.3) 0,
+          rgba(0, 0, 0, 0) 80%
+        );
+        pointer-events: none;
+      }
+      @-webkit-keyframes ripple-animation {
+        to {
+          -webkit-transform: scale(5);
+          transform: scale(5);
+          opacity: 0;
+        }
+      }
+      @keyframes ripple-animation {
+        to {
+          -webkit-transform: scale(5);
+          transform: scale(5);
+          opacity: 0;
+        }
+      }
+      .cover {
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+        width: 500px;
+        height: auto;
+      }
+      .arc {
+        position: fixed;
+        pointer-events: none;
+      }
+      #arc1 {
+        bottom: 0;
+        left: 0;
+        height: 450px;
+      }
+      #arc2 {
+        right: -170px;
+        bottom: -47px;
+        height: 800px;
+      }
+      #arc3 {
+        top: -120px;
+        rotate: 90deg;
+        height: 550px;
+      }
+      #arc4 {
+        right: 0;
+        bottom: 0;
+        height: 550px;
+      }
+      #arc5 {
+        bottom: -420px;
+        left: 950px;
+        rotate: 15deg;
+      }
+      #arc6 {
+        bottom: 50px;
+        left: -20px;
+        rotate: 45deg;
+        height: 450px;
+      }
+      #arc7 {
+        bottom: 0;
+        left: 350px;
+        height: 750px;
+      }
+      #arc8 {
+        right: 550px;
+        bottom: 0;
+        height: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img
+        id="arc1"
+        class="arc"
+        src="/assets/images/arc/ArcueidTilt.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc2"
+        class="arc"
+        src="/assets/images/arc/ArcueidBadass.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc3"
+        class="arc"
+        src="/assets/images/arc/ArcueidNendo.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc4"
+        class="arc"
+        src="/assets/images/arc/Arcueid.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc5"
+        class="arc"
+        src="/assets/images/arc/ArcFigStand.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc6"
+        class="arc"
+        src="/assets/images/arc/Arcremake.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc7"
+        class="arc"
+        src="/assets/images/arc/ArcRemakeDress.png"
+        alt="Arc My Beloved"
+      />
+      <img
+        id="arc8"
+        class="arc"
+        src="/assets/images/arc/ArcDressTilt.png"
+        alt="Arc My Beloved"
+      />
+    </div>
+    <div id="player">
+      <img
+        class="cover"
+        src="/assets/images/arc/ReoNa.avif"
+        alt="Album Image"
+      /><audio controls autoplay id="audioPlayer">
+        <source src="&#x751F;&#x547D;&#x7DDA;.mp3" type="audio/mpeg" />
+        <source
+          src="&#x30B8;&#x30E5;&#x30D6;&#x30CA;&#x30A4;&#x30EB;.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+    </div>
+    <script>
+      const audioPlayer = document.getElementById("audioPlayer");
       let songs = ["生命線.mp3", "ジュブナイル.mp3"];
       let currentSongIndex = 0;
 
@@ -29,7 +227,10 @@
         }
         audioPlayer.src = songs[currentSongIndex];
         audioPlayer.play();
-      });</script><script>const player = document.getElementById("player");
+      });
+    </script>
+    <script>
+      const player = document.getElementById("player");
 
       player.addEventListener("click", async function (e) {
         if (audioPlayer.paused) {
@@ -50,4 +251,7 @@
 
         this.appendChild(ripple);
         ripple.addEventListener("animationend", () => ripple.remove());
-      });</script></body></html>
+      });
+    </script>
+  </body>
+</html>

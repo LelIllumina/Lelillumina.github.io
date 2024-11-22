@@ -1,4 +1,99 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Custom CSS | NekoFM</title><meta name="author" content="Lel Illumina"><meta name="description" content="How to change Custom CSS for your panel"><meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music"><meta property="og:title" content="Custom Css | NekoFM"><meta property="og:description" content="How to change Custom CSS for your panel"><meta property="og:type" content="website"><meta property="og:url" content="https://lel.nekoweb.org/lastfm/css"><meta property="og:site_name" content="Nekoweb Lel"><meta property="og:image" content="https://lel.nekoweb.org/assets/images/NekoFM/NekoFM_ek.png"><meta name="theme-color" content="#a20000"><link rel="icon" type="image/x-icon" href="/assets/images/NekoFM/NekoFM_ek.png"><link rel="stylesheet" href="../styles/style.min.css"><style>p{line-height:30px}.passage{margin:25px 10%}.block{display:block;padding:0 20px}.filename{margin:20px;line-height:normal}code,pre{border-radius:5px;background-color:#273434;padding:3px}pre{margin:auto 5%;padding:20px}code{font-weight:400;font-family:"Jetbrains Mono","Courier New",courier,monospace}</style></head><body><header><div id="title"><a href="/lastfm/"><img id="logo" src="/assets/images/NekoFM/NekoFM.png" alt="NekoFM"></a><nav id="navbar"><ul><li><a href="../">Home</a></li><li><a href="../about/">About</a></li><li><a href="../css" class="activeNavLink">Custom CSS</a></li><li><a href="../settings">Settings</a></li></ul></nav><h2 id="tagline">Custom CSS Guide</h2></div></header><main><div class="passage"><h2>Before making file</h2><p>Before you make your custom CSS file <strong>please DM me on discord</strong> so I can enable CSS for you!!</p><h2>Make File</h2><p>To apply custom CSS, you need to create a file called <code>nekofm.css</code> in the root directory of your site ( The &quot;/&quot; folder aka the highest folder on your site) and then paste the following code into it</p><br><pre><p class="filename">nekofm.css (default settings)</p><hr><code class="block">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Custom CSS | NekoFM</title>
+    <meta name="author" content="Lel Illumina" />
+    <meta
+      name="description"
+      content="How to change Custom CSS for your panel"
+    />
+    <meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music" />
+    <meta property="og:title" content="Custom Css | NekoFM" />
+    <meta
+      property="og:description"
+      content="How to change Custom CSS for your panel"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lel.nekoweb.org/lastfm/css" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta
+      property="og:image"
+      content="https://lel.nekoweb.org/assets/images/NekoFM/NekoFM_ek.png"
+    />
+    <meta name="theme-color" content="#a20000" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/images/NekoFM/NekoFM_ek.png"
+    />
+    <link rel="stylesheet" href="../styles/style.min.css" />
+    <style>
+      p {
+        line-height: 30px;
+      }
+      .passage {
+        margin: 25px 10%;
+      }
+      .block {
+        display: block;
+        padding: 0 20px;
+      }
+      .filename {
+        margin: 20px;
+        line-height: normal;
+      }
+      code,
+      pre {
+        border-radius: 5px;
+        background-color: #273434;
+        padding: 3px;
+      }
+      pre {
+        margin: auto 5%;
+        padding: 20px;
+      }
+      code {
+        font-weight: 400;
+        font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="title">
+        <a href="/lastfm/"
+          ><img id="logo" src="/assets/images/NekoFM/NekoFM.png" alt="NekoFM"
+        /></a>
+        <nav id="navbar">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../css" class="activeNavLink">Custom CSS</a></li>
+            <li><a href="../settings">Settings</a></li>
+          </ul>
+        </nav>
+        <h2 id="tagline">Custom CSS Guide</h2>
+      </div>
+    </header>
+    <main>
+      <div class="passage">
+        <h2>Before making file</h2>
+        <p>
+          Before you make your custom CSS file
+          <strong>please DM me on discord</strong> so I can enable CSS for you!!
+        </p>
+        <h2>Make File</h2>
+        <p>
+          To apply custom CSS, you need to create a file called
+          <code>nekofm.css</code> in the root directory of your site ( The
+          &quot;/&quot; folder aka the highest folder on your site) and then
+          paste the following code into it
+        </p>
+        <br />
+        <pre><p class="filename">nekofm.css (default settings)</p><hr><code class="block">
 songBox {
   background-color: #111;
   border: 4px ridge aliceblue;
@@ -39,4 +134,27 @@ searchButton {
   Go ham with the custom css, use your own bg images if you want
   If you mess up, it should effect the rest of the site so dont worry
 */
-        </code></pre><br><p>After that you can change the properties to your liking, anything goes but I might restrict properties if they tend to break stuff.<br>I will update this to be more thorough soon!<br>But besides that it should work!!<br>Please do <strong>Ctrl + Shift + R</strong> after creating/editing the file to see changes, thanksssss! People with custom domains might have issues because of Cloudflare&apos;s cache rules!!</p></div></main><link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/tokyo-night-dark.min.css"><script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script><script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script><script>hljs.highlightAll()</script></body></html>
+        </code></pre>
+        <br />
+        <p>
+          After that you can change the properties to your liking, anything goes
+          but I might restrict properties if they tend to break stuff.<br />I
+          will update this to be more thorough soon!<br />But besides that it
+          should work!!<br />Please do <strong>Ctrl + Shift + R</strong> after
+          creating/editing the file to see changes, thanksssss! People with
+          custom domains might have issues because of Cloudflare&apos;s cache
+          rules!!
+        </p>
+      </div>
+    </main>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/tokyo-night-dark.min.css"
+    />
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
