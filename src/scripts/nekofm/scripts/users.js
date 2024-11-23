@@ -3,6 +3,7 @@ export const users = [
   ["ba-e", "bae.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],
   ["corvidaegalaxy", "corvidae.digital", true],
+  ["evierie", "summertime.nekoweb.org", true],
   ["Giiki", "giikis2.nekoweb.org", true],
   ["LelIllumina", "lel.nekoweb.org", true],
   ["maxpixels", "maxpixels.moe", true],
@@ -30,7 +31,6 @@ export const users = [
   ["pupfae", "gup.nekoweb.org", false],
   ["raidopaizer", "raidopaizer.nekoweb.org", false],
   ["thnlqd", "thinliquid.dev", false],
-  ["evierie", "summertime.nekoweb.org", true],
   ["trademarkhell", "trademarkhell.net", false],
   ["oikmo", "oikmo.nekoweb.org", false],
 ];
