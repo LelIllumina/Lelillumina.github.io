@@ -6,11 +6,12 @@ if (localStorage.customCSS !== "false") {
     const [username, domain, hasCss] = user;
     const url = `https://${domain}/nekofm.css`; // Random text to keep refreshing css
     if (hasCss) {
-      // const link = document.createElement("link");
-      // link.rel = "preload";
-      // link.href = url;
-      // link.as = "style";
-      // document.head.appendChild(link);
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.href = url;
+      link.as = "fetch";
+      document.head.appendChild(link);
+
       fetch(url)
         .then((response) => response.text())
         .then((data) => {
