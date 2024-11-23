@@ -48,10 +48,8 @@
   },
   "scripts": {
     "build": "gulp",
-    "eslintify": "eslint --fix",
-    "prettify": "prettier '**/*.{xml,js,css,html}' --write",
+    "chores": "eslint --fix && stylelint '**/*.css' --fix && prettier '**/*.{xml,js,css,html}' --write",
     "preview": "http-server ./dist/ -b -g --cors",
-    "stylelintify": "stylelint '**/*.css' --fix",
     "watch": "gulp watch"
   },
   "browserslist": [
