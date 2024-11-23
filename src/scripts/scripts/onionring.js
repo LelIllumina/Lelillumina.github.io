@@ -53,12 +53,6 @@ if (thisIndex === null) {
   const previousIndex = thisIndex - 1 < 0 ? sites.length - 1 : thisIndex - 1;
   const nextIndex = thisIndex + 1 >= sites.length ? 0 : thisIndex + 1;
 
-  let indexText = "";
-  // If you've chosen to include an index, this builds the link to that
-  if (useIndex) {
-    indexText = `<a href='${indexPage}'>`;
-  }
-
   let randomText = "";
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
