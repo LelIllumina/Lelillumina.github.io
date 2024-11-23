@@ -63,7 +63,7 @@ if (thisIndex === null) {
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
     randomText =
-      "<span onclick=\"randomSite()\"><img src='images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
+      "<span onclick=\"randomSite()\"><img src='/assets/images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
   }
 
   // This is the code that displays the widget - EDIT THIS if you want to change the structure
@@ -74,7 +74,7 @@ if (thisIndex === null) {
         <td class="webring-prev">
           <a href="${sites[previousIndex][0]}">
             <img
-              src="images/Nekowebring/prev.png"
+              src="/assets/images/Nekowebring/prev.png"
               alt="Previous Site"
               height="44"
               width="19"
@@ -83,7 +83,7 @@ if (thisIndex === null) {
         <td style="text-align: center" class="webring-info">
           <a href="${indexPage}">
             <img
-              src="images/Nekowebring/nekowebring.png"
+              src="/assets/images/Nekowebring/nekowebring.png"
               alt="NekoWebRing Index"
               height="20"
               width="88"
@@ -94,7 +94,7 @@ if (thisIndex === null) {
         <td class="webring-next">
           <a href="${sites[nextIndex][0]}"
             ><img
-              src="images/Nekowebring/next.png"
+              src="/assets/images/Nekowebring/next.png"
               alt="Next Site"
               height="44"
               width="19"
