@@ -48,7 +48,6 @@
   },
   "scripts": {
     "build": "gulp",
-    "build-preview": "gulp && bunx http-server ./dist/ -b -g --cors",
     "eslintify": "eslint --fix",
     "prettify": "prettier '**/*.{xml,js,css,html}' --write",
     "preview": "http-server ./dist/ -b -g --cors",
