@@ -34,7 +34,7 @@ export const users = [
   ["trademarkhell", "trademarkhell.net", false],
   ["oikmo", "oikmo.nekoweb.org", false],
 ];
-const devs = [
+const _devs = [
   ["LelIllumina", "lel.nekoweb.org"],
   ["tepiloxtl", "tepiloxtl.net"],
 ];
