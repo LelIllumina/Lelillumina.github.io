@@ -33,6 +33,7 @@
     "http-server": "^14.1.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
+    "postcss-html": "^1.7.0",
     "postcss-normalize": "^13.0.1",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
@@ -42,13 +43,14 @@
     "prettier-plugin-package": "^1.4.0",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^16.10.0",
+    "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2",
     "terser": "^5.36.0"
   },
   "scripts": {
     "build": "gulp",
-    "chores": "eslint --fix && stylelint '**/*.css' --fix && prettier '**/*.{xml,js,css,html}' --write",
+    "chores": "eslint --fix && stylelint '**/*.{css,html}' --fix && prettier '**/*.{xml,js,css,html}' --write",
     "preview": "http-server ./dist/ -b -g --cors",
     "watch": "gulp watch"
   },

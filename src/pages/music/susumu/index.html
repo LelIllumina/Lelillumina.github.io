@@ -34,15 +34,18 @@
       :root {
         color-scheme: dark;
       }
+
       body {
         opacity: 0;
         transition: opacity 0.5s;
         background-color: #282828;
       }
-      #audioPlayer {
+
+      #audio-player {
         width: 500px;
         height: 40px;
       }
+
       #player {
         display: grid;
         position: relative;
@@ -53,6 +56,7 @@
         width: max-content;
         overflow: hidden;
       }
+
       .ripple {
         position: absolute;
         transform: scale(0);
@@ -61,8 +65,8 @@
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(0, 0, 0, 0.3) 0%,
-          rgba(0, 0, 0, 0) 80%
+          rgb(0 0 0 / 30%) 0%,
+          rgb(0 0 0 / 0%) 80%
         );
         pointer-events: none;
       }
@@ -73,41 +77,49 @@
           opacity: 0;
         }
       }
+
       .cover {
-        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 0 20px 20px rgb(0 0 0 / 35%);
         width: 500px;
         height: auto;
       }
+
       .susumu {
         position: fixed;
         pointer-events: none;
       }
+
       #susumu1 {
-        bottom: 0px;
-        left: 0px;
+        bottom: 0;
+        left: 0;
         height: 450px;
       }
+
       #susumu2 {
-        right: 0px;
-        bottom: 0px;
+        right: 0;
+        bottom: 0;
         height: 500px;
       }
+
       #susumu3 {
         top: 0;
         right: 0;
         rotate: -90deg;
         height: 300px;
       }
+
       #susumu4 {
         right: -100px;
         bottom: 0;
         height: 550px;
       }
+
       #susumu5 {
         bottom: -420px;
         left: 950px;
         rotate: 15deg;
       }
+
       #susumu6 {
         top: 0;
         left: -160px;
@@ -162,7 +174,7 @@
         src="/assets/images/susumu/siren.avif"
         alt="Siren Album Cover"
       />
-      <audio controls autoplay id="audioPlayer">
+      <audio controls autoplay id="audio-player">
         <source
           src="/assets/music/susumu/On Line Malaysia.mp3"
           type="audio/mpeg"

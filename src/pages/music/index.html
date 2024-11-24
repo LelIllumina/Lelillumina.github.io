@@ -30,32 +30,36 @@
       :root {
         color-scheme: dark;
       }
+
       body {
         opacity: 0;
         transition: opacity 0.5s;
         background-color: #282828;
       }
+
       h1 {
-        color: #999999;
+        color: #999;
         font-size: 45px;
         font-family: serif;
         text-align: center;
       }
+
       #container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
+
       .cover {
         transition: 0.3s;
         margin: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 8px 0 rgb(0 0 0 / 50%);
         width: 450px;
         height: 450px;
       }
 
       .cover:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+        box-shadow: 0 8px 16px 0 rgb(0 0 0 / 80%);
       }
     </style>
   </head>

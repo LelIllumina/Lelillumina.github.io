@@ -31,15 +31,18 @@
       :root {
         color-scheme: dark;
       }
+
       body {
         opacity: 0;
         transition: opacity 0.5s;
         background-color: #282828;
       }
-      #audioPlayer {
+
+      #audio-player {
         width: 500px;
         height: 40px;
       }
+
       #player {
         display: grid;
         position: relative;
@@ -50,6 +53,7 @@
         width: max-content;
         overflow: hidden;
       }
+
       .ripple {
         position: absolute;
         transform: scale(0);
@@ -58,62 +62,73 @@
         border-radius: 50%;
         background: radial-gradient(
           circle,
-          rgba(0, 0, 0, 0.3) 0%,
-          rgba(0, 0, 0, 0) 80%
+          rgb(0 0 0 / 30%) 0%,
+          rgb(0 0 0 / 0%) 80%
         );
         pointer-events: none;
       }
+
       @keyframes ripple-animation {
         to {
           transform: scale(5);
           opacity: 0;
         }
       }
+
       .cover {
-        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 0 20px 20px rgb(0 0 0 / 35%);
         width: 500px;
         height: auto;
       }
+
       .arc {
         position: fixed;
         pointer-events: none;
       }
+
       #arc1 {
-        bottom: 0px;
-        left: 0px;
+        bottom: 0;
+        left: 0;
         height: 450px;
       }
+
       #arc2 {
         right: -170px;
         bottom: -47px;
         height: 800px;
       }
+
       #arc3 {
         top: -120px;
         rotate: 90deg;
         height: 550px;
       }
+
       #arc4 {
         right: 0;
         bottom: 0;
         height: 550px;
       }
+
       #arc5 {
         bottom: -420px;
         left: 950px;
         rotate: 15deg;
       }
+
       #arc6 {
         bottom: 50px;
         left: -20px;
         rotate: 45deg;
         height: 450px;
       }
+
       #arc7 {
         bottom: 0;
         left: 350px;
         height: 750px;
       }
+
       #arc8 {
         right: 550px;
         bottom: 0;
@@ -179,7 +194,7 @@
         src="/assets/images/arc/ReoNa.avif"
         alt="Album Image"
       />
-      <audio controls autoplay id="audioPlayer">
+      <audio controls autoplay id="audio-player">
         <source src="/assets/music/arcuied/生命線.mp3" type="audio/mpeg" />
         <source
           src="/assets/music/arcuied/ジュブナイル.mp3"
