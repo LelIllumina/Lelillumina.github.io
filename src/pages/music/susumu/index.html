@@ -37,8 +37,8 @@
 
       body {
         opacity: 0;
-        transition: opacity 0.5s;
         background-color: #282828;
+        transition: opacity 0.5s;
       }
 
       #audio-player {
@@ -47,28 +47,34 @@
       }
 
       #player {
-        display: grid;
         position: relative;
-        align-content: center;
-        gap: 10px;
-        transition: 0.5s;
-        margin: 13vh auto;
-        width: max-content;
+
         overflow: hidden;
+        display: grid;
+        gap: 10px;
+        align-content: center;
+
+        width: max-content;
+        margin: 13vh auto;
+
+        transition: 0.5s;
       }
 
       .ripple {
+        pointer-events: none;
+
         position: absolute;
         transform: scale(0);
+
         opacity: 1;
-        animation: ripple-animation 0.8s ease-out;
-        border-radius: 50%;
         background: radial-gradient(
           circle,
           rgb(0 0 0 / 30%) 0%,
           rgb(0 0 0 / 0%) 80%
         );
-        pointer-events: none;
+        border-radius: 50%;
+
+        animation: ripple-animation 0.8s ease-out;
       }
 
       @keyframes ripple-animation {
@@ -79,14 +85,14 @@
       }
 
       .cover {
-        box-shadow: 0 0 20px 20px rgb(0 0 0 / 35%);
         width: 500px;
         height: auto;
+        box-shadow: 0 0 20px 20px rgb(0 0 0 / 35%);
       }
 
       .susumu {
-        position: fixed;
         pointer-events: none;
+        position: fixed;
       }
 
       #susumu1 {

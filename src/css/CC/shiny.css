@@ -14,34 +14,39 @@ img {
 
 .background {
   position: fixed;
+  z-index: -5;
   top: 0;
   left: 0;
-  z-index: -5;
-  filter: saturate(90%) brightness(65%) contrast(150%) hue-rotate(20deg);
+
+  width: 100vw;
+  height: 100vh;
+
   background-image: url("/assets/images/CC/L.jpg"),
     url("/assets/images/CC/R.jpg");
   background-size: cover;
   background-blend-mode: lighten;
-  width: 100vw;
-  height: 100vh;
+  filter: saturate(90%) brightness(65%) contrast(150%) hue-rotate(20deg);
 }
 
 #sparkle {
   position: fixed;
+  z-index: -4;
   top: 0;
   left: 0;
-  z-index: -4;
+
   width: 100vw;
   height: 100vh;
 }
 
 #flowers {
   position: absolute;
-  top: 0;
   z-index: -1;
-  filter: opacity(60%) contrast(140%) hue-rotate(20deg);
+  top: 0;
+
   width: 100vw;
   height: 100vh;
+
+  filter: opacity(60%) contrast(140%) hue-rotate(20deg);
 }
 
 #spintop,
@@ -64,40 +69,47 @@ img {
 
 #corner {
   position: absolute;
-  top: 0;
   z-index: -3;
-  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
+  top: 0;
+
   width: auto;
   height: 100vh;
+
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
 }
 
 #hanging {
   position: absolute;
+  z-index: -3;
   top: 0;
   right: 0;
-  z-index: -3;
-  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
+
   width: auto;
   height: 100vh;
+
+  filter: opacity(50%) contrast(150%) hue-rotate(20deg);
 }
 
 #content {
-  filter: none;
-  animation: bub 3s infinite;
+  width: 80vw;
+  height: 65vh;
   margin: auto;
   margin-top: 100px;
-  box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
-  border: 15px solid transparent;
+
+  text-shadow: 0 0 10px black, 0 0 10px black;
+
   background: rgb(100 200 100 / 50%);
   background-image: url("/assets/images/CC/heart.png"),
     url("/assets/images/CC/transbayer8.png");
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 35%;
-  background-repeat: no-repeat;
   background-blend-mode: overlay;
-  width: 80vw;
-  height: 65vh;
-  text-shadow: 0 0 10px black, 0 0 10px black;
+  filter: none;
+  border: 15px solid transparent;
+  box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
+
+  animation: bub 3s infinite;
 
   #text {
     margin: 20px 100px 20px 300px;
@@ -119,9 +131,12 @@ img {
   position: fixed;
   bottom: 0;
   transform: rotateY(180deg);
-  filter: drop-shadow(6px 6px 10px black);
-  animation: fade 1s linear infinite;
+
   height: 95vh;
+
+  filter: drop-shadow(6px 6px 10px black);
+
+  animation: fade 1s linear infinite;
 }
 
 @keyframes bub {

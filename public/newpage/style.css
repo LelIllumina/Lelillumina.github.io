@@ -31,10 +31,10 @@
 
 html,
 body {
-  margin: 0;
-  background: url("https://nekoweb.org/assets/nekopattern.png") repeat;
-  padding: 0;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("https://nekoweb.org/assets/nekopattern.png") repeat;
 }
 
 body {
@@ -47,54 +47,64 @@ body {
 }
 
 #header {
+  max-width: 1200px;
+  height: 120px;
   margin: auto;
+
   background: url("https://nekoweb.org/assets/checkerboard.png"),
     linear-gradient(to bottom, var(--cookie), var(--darkBrown));
   background-size:
     10px 10px,
     auto;
+
   image-rendering: crisp-edges;
-  max-width: 1200px;
-  height: 120px;
 }
 
 #mainbody {
   position: relative;
   z-index: 0;
-  margin: auto;
-  background: #fff9e6;
-  padding: 12px;
-  padding-left: calc(12px + 25px);
+
   max-width: 1200px;
   min-height: calc(100% - 160px);
+  margin: auto;
+  padding: 12px;
+  padding-left: calc(12px + 25px);
+
   color: var(--darkBrown);
+
+  background: #fff9e6;
 }
 
 #footer {
-  margin: auto;
-  border-top: #1a1019;
-  background: var(--gradientorange);
-  padding: 12px;
   width: 1200px;
-  color: var(--almostwhite);
+  margin: auto;
+  padding: 12px;
+
   font-size: 9pt;
+  color: var(--almostwhite);
   text-align: center;
+
+  background: var(--gradientorange);
+  border-top: #1a1019;
 }
 
 h1 {
   margin: auto;
   padding-top: 15px;
-  color: var(--almostWhite);
+
   font-size: 20px;
+  color: var(--almostWhite);
   text-align: center;
 }
 
 h2 {
   margin-top: 10px;
   margin-bottom: 5px !important;
-  border-bottom: 2px dashed var(--orange);
   padding-bottom: 5px;
+
   font-size: 20pt;
+
+  border-bottom: 2px dashed var(--orange);
 }
 
 p {
@@ -102,11 +112,11 @@ p {
 }
 
 a {
-  color: var(--link);
   font-weight: bold;
+  color: var(--link);
 }
 
 #username {
-  color: var(--dough);
   font-size: 50px;
+  color: var(--dough);
 }

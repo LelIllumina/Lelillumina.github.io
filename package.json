@@ -10,7 +10,6 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.15.0",
     "@prettier/plugin-xml": "^3.4.1",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "cssnano-preset-advanced": "^7.0.6",
@@ -40,11 +39,11 @@
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
     "prettier-linter-helpers": "^1.0.0",
-    "prettier-plugin-css-order": "^2.1.2",
     "prettier-plugin-embed": "^0.4.15",
     "prettier-plugin-package": "^1.4.0",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^16.10.0",
+    "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2",
@@ -53,13 +52,11 @@
   "scripts": {
     "build": "gulp",
     "chores": "eslint --fix && stylelint '**/*.{css,html}' --fix && prettier '**/*.{xml,js,css,html}' --write",
-    "choresNew": "stylelint '**/*.{css,html}' --fix && biome check --write ./src",
+    "choresNew": "prettier '**/*.html' --write && stylelint '**/*.{css,html}' --fix && biome check --write ./src",
     "preview": "http-server ./dist/ -b -g --cors",
     "watch": "gulp watch"
   },
-  "browserslist": [
-    "last 1 version"
-  ],
+  "browserslist": ["last 1 version"],
   "cssnano": {
     "preset": "advanced"
   },
@@ -67,10 +64,7 @@
     "type": "git",
     "url": "git+https://github.com/LelIllumina/Lelillumina.github.io.git"
   },
-  "keywords": [
-    "nekoweb",
-    "website"
-  ],
+  "keywords": ["nekoweb", "website"],
   "author": "Lel",
   "license": "ISC",
   "bugs": {

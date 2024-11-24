@@ -16,8 +16,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color-scheme: dark;
-
     --text: #edeeee;
     --background: #021717;
     --primary: #c5a5a5;
@@ -29,6 +27,8 @@
     --radialPrimarySecondary: radial-gradient(#c5a5a5, #792f2f);
     --radialPrimaryAccent: radial-gradient(#c5a5a5, #d40505);
     --radialSecondaryAccent: radial-gradient(#792f2f, #d40505);
+
+    color-scheme: dark;
   }
 }
 
@@ -40,10 +40,12 @@
 body {
   display: flex;
   flex-direction: column;
-  background-color: var(--background);
-  color: var(--text);
-  font-weight: 400;
+
   font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+  font-weight: 400;
+  color: var(--text);
+
+  background-color: var(--background);
 }
 
 main {
@@ -53,9 +55,9 @@ main {
 
 h1 {
   margin: auto;
-  font-size: 50px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  font-size: 50px;
 }
 
 #logo {
@@ -64,8 +66,8 @@ h1 {
 
 h2 {
   margin: 10px 0;
-  font-size: 22px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 22px;
 }
 
 #tagline {
@@ -79,8 +81,8 @@ h2 {
 
 p {
   margin: auto;
-  color: silver;
   font-size: 16px;
+  color: silver;
 }
 
 a {
@@ -97,24 +99,28 @@ a {
 
 #navbar ul {
   float: right;
+  overflow: hidden;
+
   margin: 10px;
   padding: 0;
-  overflow: hidden;
+
   list-style-type: none;
 }
 
 #navbar li {
-  display: inline;
   float: left;
+  display: inline;
   margin: auto;
 }
 
 #navbar a {
   display: block;
+
   padding: 14px 25px;
-  font-size: 20px;
+
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -124,8 +130,8 @@ a {
 
 .siteName {
   margin: auto;
-  color: darkgray;
   font-size: 12px !important;
+  color: darkgray;
 }
 
 .credit {
@@ -133,17 +139,21 @@ a {
 }
 
 footer {
-  margin: 20px auto;
   width: fit-content;
+  margin: 20px auto;
 }
 
 .button {
-  float: right;
   cursor: pointer;
+
+  float: right;
+
   margin: 10px;
-  border: none;
-  background-color: unset;
+
   font-size: 25px;
+
+  background-color: unset;
+  border: none;
 }
 
 #counter,
@@ -193,8 +203,8 @@ footer {
 }
 
 .trackName {
-  font-weight: 600;
   font-size: 16px !important;
+  font-weight: 600;
 }
 
 .artistName {
@@ -203,36 +213,38 @@ footer {
 }
 
 .searchButton {
-  background: #303030;
   padding: 4px;
-  color: #fff;
+
   font-size: 10px !important;
+  color: #fff;
   text-decoration: none;
+
+  background: #303030;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Jetbrains Mono";
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: local("Jetbrains Mono"),
     url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
-  font-family: "Jetbrains Mono";
-  font-display: swap;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Jetbrains Mono";
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
   src: local("Jetbrains Mono"),
     url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
-  font-family: "Jetbrains Mono";
-  font-display: swap;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Jetbrains Mono";
   font-weight: 800;
+  font-style: normal;
+  font-display: swap;
   src: local("Jetbrains Mono"),
     url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
-  font-family: "Jetbrains Mono";
-  font-display: swap;
 }

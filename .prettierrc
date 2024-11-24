@@ -5,10 +5,8 @@
   "trailingComma": "es5",
   "printWidth": 80,
   "plugins": [
-    "prettier-plugin-css-order",
     "@prettier/plugin-xml",
     "prettier-plugin-package",
-    "prettier-plugin-embed",
-    "@trivago/prettier-plugin-sort-imports"
+    "prettier-plugin-embed"
   ]
 }

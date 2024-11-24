@@ -5,8 +5,8 @@
 body {
   display: flex;
   margin: 0 10vw;
-  background-color: #1e2326;
   text-align: justify;
+  background-color: #1e2326;
 }
 
 h1 {
@@ -36,8 +36,8 @@ h6 {
 
 .date {
   margin: 0;
-  color: #4f5b58;
   font-family: "Cutive Mono", monospace;
+  color: #4f5b58;
 }
 
 .altText {
@@ -46,12 +46,13 @@ h6 {
 }
 
 a {
-  animation: gradient-text 5s infinite;
-  animation-direction: alternate;
-  animation-fill-mode: forwards;
-  color: #e67e80;
   font-family: "Jetbrains Mono", monospace;
+  color: #e67e80;
   text-decoration: none;
+
+  animation: gradient-text 5s infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
 }
 
 .indexLink {
@@ -59,22 +60,24 @@ a {
 }
 
 a:not(:has(img)):hover {
-  animation: 0;
-  background: #7fbbb3;
   color: #1e2326;
+  background: #7fbbb3;
+  animation: 0;
 }
 
 .pic {
   display: block;
-  margin: 15px auto;
-  border: 5px solid #4f5b58;
-  padding: 5px;
+
   max-width: 400px;
+  margin: 15px auto;
+  padding: 5px;
+
+  border: 5px solid #4f5b58;
 }
 
 p {
-  line-height: 24px;
   font-family: "Jetbrains Mono", monospace;
+  line-height: 24px;
 }
 
 i {
@@ -82,19 +85,19 @@ i {
 }
 
 #bold {
-  color: #d699b6;
   font-weight: bolder;
+  color: #d699b6;
 }
 
 strong {
+  color: #0000;
   background-image: linear-gradient(#83c092, #7fbbb3);
   background-clip: text;
-  color: #0000;
 }
 
 small {
-  color: #9da9a0;
   font-size: 10px;
+  color: #9da9a0;
 }
 
 sub {
@@ -112,16 +115,19 @@ ul {
 #sidebar {
   position: sticky;
   top: 10vh;
+
   flex-direction: column;
-  animation: fade-in 2s;
-  margin: 0 5vw;
+
   max-width: 275px;
   height: fit-content;
+  margin: 0 5vw;
+
+  animation: fade-in 2s;
 }
 
 ::selection {
-  background: #7fbbb3;
   color: #1e2326;
+  background: #7fbbb3;
 }
 
 /* NProgress */
@@ -191,20 +197,20 @@ ul {
 /* Fonts */
 
 @font-face {
-  src: url("/assets/fonts/CutiveMono-Regular.ttf");
   font-family: "Cutive Mono";
   font-display: swap;
+  src: url("/assets/fonts/CutiveMono-Regular.ttf");
 }
 
 @font-face {
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
   font-family: "Jetbrains Mono";
   font-display: swap;
+  src: local("Jetbrains Mono"),
+    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
 }
 
 @font-face {
-  src: url("/assets/fonts/CourierPrime-Regular.ttf");
   font-family: "Courier Prime";
   font-display: swap;
+  src: url("/assets/fonts/CourierPrime-Regular.ttf");
 }
