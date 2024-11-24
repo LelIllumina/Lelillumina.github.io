@@ -15,15 +15,10 @@ import postcssNormalize from "postcss-normalize";
 const paths = {
   src: "./", // Source directory
   dist: "./dist", // Output directory
-  html: ["./src/pages/**/*.html", "!./node_modules/**", "!./dist/**"],
-  css: ["./src/css/**/*.css", "!./node_modules/**", "!./dist/**"],
-  js: [
-    "./src/scripts/**/*.js",
-    "!./node_modules/**",
-    "!./dist/**",
-    "!./gulpfile.js",
-  ],
-  assets: ["./assets/**", "!./node_modules/**", "!./dist/**"],
+  html: "./src/pages/**/*.html",
+  css: "./src/css/**/*.css",
+  js: "./src/scripts/**/*.js",
+  assets: "./assets/**",
   public: "./public/**",
 };
 
@@ -94,9 +89,9 @@ function processJs(filePath) {
     .pipe(terser())
     .pipe(rename({ suffix: ".min" }))
     .pipe(
-      replace(/(\.\/|\.\.\/)(.*?\.js)/g, (prefix, jsPath) => {
+      replace(/(["'`])(.*?\.js)\1/g, (_match, quote, jsPath) => {
         const updatedPath = jsPath.replace(".js", ".min.js");
-        return `${prefix}${updatedPath}`;
+        return `${quote}${updatedPath}${quote}`;
       })
     )
     .pipe(sourcemaps.write("."))
