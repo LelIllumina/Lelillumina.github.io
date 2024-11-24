@@ -57,13 +57,13 @@ if (thisIndex === null) {
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
     randomText =
-      "<span onclick=\"randomSite()\"><img src='/assets/images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
+      "<span href='javascript:void(0)' onclick='randomSite()'><img src='/assets/images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
   }
 
   // This is the code that displays the widget - EDIT THIS if you want to change the structure
   tag.insertAdjacentHTML(
     "afterbegin",
-    `<table>
+    /* HTML */ `<table>
       <tr>
         <td class="webring-prev">
           <a href="${sites[previousIndex][0]}">
@@ -82,8 +82,9 @@ if (thisIndex === null) {
               height="20"
               width="88"
           /></a>
+          <br />
+          <span class="webring-links">${randomText}</span>
         </td>
-        <span class="webring-links">${randomText}</span>
 
         <td class="webring-next">
           <a href="${sites[nextIndex][0]}"
@@ -95,7 +96,6 @@ if (thisIndex === null) {
           /></a>
         </td>
       </tr>
-    </table>
-  `
+    </table> `
   );
 }
