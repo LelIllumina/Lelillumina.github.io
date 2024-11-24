@@ -16,7 +16,7 @@ for (let i = 0; i < sites.length; i++) {
 }
 
 // Go through the extras list to see if this site is on it, and find what website it is an extra for
-for (i = 0; i < extras.length; i++) {
+for (let i = 0; i < extras.length; i++) {
   if (thisSite.startsWith(extras[i][0])) {
     for (let s = 0; s < sites.length; s++) {
       if (sites[s][0] === extras[i][1]) {
@@ -28,13 +28,13 @@ for (i = 0; i < extras.length; i++) {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
 function randomSite() {
   const otherSites = sites.slice(); // Create a copy of the sites list
   otherSites.splice(thisIndex, 1); // Remove the current site so we don't just land on it again
   const randomIndex = Math.floor(Math.random() * otherSites.length);
   location.href = otherSites[randomIndex][0];
 }
+window.randomSite = randomSite;
 
 // If we didn't find the site in the list, the widget displays a warning instead
 if (thisIndex === null) {
