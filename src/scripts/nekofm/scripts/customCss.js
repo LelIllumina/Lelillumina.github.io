@@ -4,7 +4,8 @@ import { users } from "./users.js";
 if (localStorage.customCSS !== "false") {
   users.forEach((user) => {
     const [username, domain, hasCss] = user;
-    const url = `https://${domain}/nekofm.css`; // Random text to keep refreshing css
+    const url = `https://${domain}/nekofm.css`; // Random text to keep refreshing CSS
+
     if (hasCss) {
       const link = document.createElement("link");
       link.rel = "preload";
@@ -15,11 +16,22 @@ if (localStorage.customCSS !== "false") {
       fetch(url)
         .then((response) => response.text())
         .then((data) => {
-          // Prefixing CSS selectors with `#${username}-`
+          // Prefixing CSS selectors with `#${username}`
           const modifiedCss = data.replace(
-            /(^|})([^{]+)/g,
-            (p1, p2) => `${p1} #${username}-${p2.trim()}`
+            /(^|})\s*([^{@}]+)\s*{/g,
+            (match, prefix, selector) => {
+              // Avoid prefixing inside @keyframes and similar blocks
+              if (/^\s*@/.test(selector)) return match;
+
+              // Prefix selectors
+              const prefixedSelectors = selector
+                .split(",")
+                .map((sel) => `#${username}-${sel.trim()}`)
+                .join(", ");
+              return `${prefix} ${prefixedSelectors} {`;
+            }
           );
+
           const styleTag = document.createElement("style");
           styleTag.innerHTML = modifiedCss;
           document.head.appendChild(styleTag);
