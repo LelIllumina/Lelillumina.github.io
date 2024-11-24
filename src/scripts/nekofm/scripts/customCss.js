@@ -18,7 +18,7 @@ if (localStorage.customCSS !== "false") {
           // Prefixing CSS selectors with `#${username}-`
           const modifiedCss = data.replace(
             /(^|})([^{]+)/g,
-            (match, p1, p2) => `${p1} #${username}-${p2.trim()}`
+            (p1, p2) => `${p1} #${username}-${p2.trim()}`
           );
           const styleTag = document.createElement("style");
           styleTag.innerHTML = modifiedCss;

@@ -86,9 +86,7 @@ img {
   animation: bub 3s infinite;
   margin: auto;
   margin-top: 100px;
-  box-shadow:
-    0 0 5px #0e0,
-    0 0 5px #0e0 inset;
+  box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
   border: 15px solid transparent;
   background: rgb(100 200 100 / 50%);
   background-image: url("/assets/images/CC/heart.png"),
@@ -99,9 +97,7 @@ img {
   background-blend-mode: overlay;
   width: 80vw;
   height: 65vh;
-  text-shadow:
-    0 0 10px black,
-    0 0 10px black;
+  text-shadow: 0 0 10px black, 0 0 10px black;
 
   #text {
     margin: 20px 100px 20px 300px;
@@ -130,21 +126,15 @@ img {
 
 @keyframes bub {
   0% {
-    box-shadow:
-      0 0 5px #0e0,
-      0 0 5px #0e0 inset;
+    box-shadow: 0 0 5px #0e0, 0 0 5px #0e0 inset;
   }
 
   33% {
-    box-shadow:
-      0 0 10px #0e0,
-      0 0 0 #0e0 inset;
+    box-shadow: 0 0 10px #0e0, 0 0 0 #0e0 inset;
   }
 
   66% {
-    box-shadow:
-      0 0 5px #0e0,
-      0 0 10px #0e0 inset;
+    box-shadow: 0 0 5px #0e0, 0 0 10px #0e0 inset;
   }
 }
 

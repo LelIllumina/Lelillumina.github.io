@@ -21,8 +21,7 @@ body {
   flex-direction: column;
   animation: move-background 100s linear infinite;
   margin: 0;
-  background:
-    linear-gradient(#00000080, #00000080),
+  background: linear-gradient(#00000080, #00000080),
     url("/assets/images/mainPage/background.png") repeat;
   background-attachment: fixed;
   background-color: var(--base);
@@ -142,9 +141,7 @@ header {
   display: block;
   position: relative;
   left: 100%;
-  animation:
-    marquee 5s ease 1s,
-    marquee-loop 0s ease 6s forwards;
+  animation: marquee 5s ease 1s, marquee-loop 0s ease 6s forwards;
   width: 100%;
   height: 100%;
 }
@@ -160,9 +157,7 @@ header {
   color: #ff0;
   font-size: 20px;
   font-family: Monocraft, monospace;
-  text-shadow:
-    0 0 10px black,
-    0 0 10px black;
+  text-shadow: 0 0 10px black, 0 0 10px black;
 }
 
 main {

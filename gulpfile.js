@@ -94,7 +94,7 @@ function processJs(filePath) {
     .pipe(terser())
     .pipe(rename({ suffix: ".min" }))
     .pipe(
-      replace(/(\.\/|\.\.\/)(.*?\.js)/g, (match, prefix, jsPath) => {
+      replace(/(\.\/|\.\.\/)(.*?\.js)/g, (prefix, jsPath) => {
         const updatedPath = jsPath.replace(".js", ".min.js");
         return `${prefix}${updatedPath}`;
       })

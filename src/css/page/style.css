@@ -131,9 +131,7 @@ ul {
 }
 
 #nprogress .peg {
-  box-shadow:
-    0 0 10px #83c092,
-    0 0 5px #83c092;
+  box-shadow: 0 0 10px #83c092, 0 0 5px #83c092;
 }
 
 /* Animations */
