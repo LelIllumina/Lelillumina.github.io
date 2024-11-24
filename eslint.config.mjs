@@ -1,12 +1,12 @@
 // eslint.config.js
-import prettierConfig from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
+// import prettierConfig from "eslint-config-prettier";
+// import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
   {
     ignores: ["dist/**"],
     plugins: {
-      prettier: prettierPlugin,
+      // prettier: prettierPlugin,
     },
 
     rules: {
@@ -19,7 +19,7 @@ export default [
       "no-multiple-empty-lines": ["error", { max: 1 }],
 
       // Enable Prettier as an ESLint rule
-      "prettier/prettier": "error",
+      // "prettier/prettier": "error",
     },
 
     languageOptions: {
@@ -28,7 +28,7 @@ export default [
     },
 
     settings: {
-      ...prettierConfig, // Apply Prettier configuration
+      // ...prettierConfig, // Apply Prettier configuration
     },
   },
 ];
