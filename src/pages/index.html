@@ -96,12 +96,12 @@
 
     <style>
       :root {
-        color-scheme: dark;
-
         --text: #cdd6f4;
         --base: #1e1e2e;
         --mantle: #181825;
         --crust: #11111b;
+
+        color-scheme: dark;
       }
 
       * {
@@ -109,17 +109,20 @@
       }
 
       body {
+        cursor: url("/assets/neco-arcgodmode.cur"), default;
+
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
-        cursor: url("/assets/neco-arcgodmode.cur"), default;
+
+        min-height: 100vh;
         margin: 0;
+
         background:
           linear-gradient(#00000080, #00000080),
           url("/assets/images/mainPage/background.png") repeat;
-        background-attachment: fixed;
         background-color: var(--base);
-        min-height: 100vh;
-        overflow-x: hidden;
+        background-attachment: fixed;
       }
 
       a {
@@ -127,30 +130,35 @@
       }
 
       header {
-        margin: 5px auto 10px;
-        box-shadow: 0 3px 8px black;
-        background-color: var(--crust);
         width: 75%;
+        margin: 5px auto 10px;
+
         text-align: center;
+
+        background-color: var(--crust);
+        box-shadow: 0 3px 8px black;
       }
 
       .title {
         margin: 10px;
-        font-size: 40px;
         font-family: "Bungee Spice", fantasy;
+        font-size: 40px;
       }
 
       .navbar ul {
-        margin: 0;
-        background-image: linear-gradient(var(--crust), var(--mantle));
-        padding: 0;
         overflow: hidden;
+
+        margin: 0;
+        padding: 0;
+
         list-style-type: none;
+
+        background-image: linear-gradient(var(--crust), var(--mantle));
       }
 
       .navbar li {
-        display: inline;
         float: left;
+        display: inline;
         margin: auto;
       }
 
@@ -179,18 +187,21 @@
 
       .block {
         margin: 5px;
-        box-shadow: 0 0 10px black;
-        border: 8px solid var(--mantle);
-        background-color: var(--base);
         padding: 20px;
+
+        background-color: var(--base);
+        border: 8px solid var(--mantle);
+        box-shadow: 0 0 10px black;
       }
 
       .img {
         display: block;
-        margin: auto;
-        border: 5px dashed #313244;
+
         max-width: 100%;
         height: fit-content;
+        margin: auto;
+
+        border: 5px dashed #313244;
       }
 
       #frame {
@@ -430,26 +441,8 @@
       </section>
 
       <div class="block" id="frame">
-        <h1>Migrating to Astro soon</h1>
-        <p>
-          Gonna make my site into an
-          <a href="https://astro.build/" target="_blank">Astro</a> site soon, in
-          the meanwhile you can check out the current stuff on this
-          <a
-            href="http://github.com/Lelillumina/lelillumina.github.io"
-            target="_blank"
-            >Github repo</a
-          >
-        </p>
-        <iframe
-          loading="eager"
-          title="Nekoweb Follow button"
-          src="https://nekoweb.org/frame/follow"
-          width="150"
-          height="35"
-          style="margin-bottom: 13px; border: none"
-        ></iframe>
-
+        <h1 style="text-align: center">She Lel on my Nekoweb till I org</h1>
+        <br />
         <img
           decoding="async"
           loading="eager"
@@ -474,14 +467,11 @@
         <div>
           <script type="module" src="/discord/discord.js"></script>
           <discord-widget discord-id="850319718920224798"></discord-widget>
-
           <br />
-
           <p>
-            Lanyard Widget is DONE, Join my nekoweb discord too over ->
-            <a href="https://discord.gg/D8TV8K8rMr">here</a>
+            Join my server too
+            <a href="https://discord.gg/D8TV8K8rMr">Invite link</a>
             <br />
-            I dont mind if you steal it, my codes messy tho so good luck
           </p>
         </div>
 
@@ -510,6 +500,14 @@
           <p id="followers"><em>Followers</em>: Loading...</p>
           <p class="alt">
             Stolen from <a href="https://maxpixels.moe/">maxpixels.moe</a>
+            <iframe
+              loading="eager"
+              title="Nekoweb Follow button"
+              src="https://nekoweb.org/frame/follow"
+              width="150"
+              height="35"
+              style="margin-bottom: 13px; border: none"
+            ></iframe>
           </p>
         </div>
         <div class="block" id="scrobbled">
