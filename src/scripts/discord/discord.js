@@ -4,18 +4,20 @@ class DiscordWidget extends HTMLElement {
     this.innerHTML = /* HTML */ `
       <link rel="stylesheet" href="/discord/discord.css" />
       <div id="discord-widget">
-        <img
-          src="https://api.lanyard.rest/850319718920224798.webp"
-          alt="discord pfp"
-          id="discord-pfp"
-          height="50"
-          width="50"
-        />
-        <div id="discord-info" class="discordText">
-          <h2 id="discord-name" class="discordText">Loading...</h2>
-          <h3 id="discord-username" class="discordText">Loading...</h3>
-          <br />
-          <p id="discord-status" class="discordText">Loading...</p>
+        <div id="discord-header">
+          <img
+            src="https://api.lanyard.rest/850319718920224798.webp"
+            alt="discord pfp"
+            id="discord-pfp"
+            height="50"
+            width="50"
+          />
+          <div id="discord-info" class="discordText">
+            <h2 id="discord-name" class="discordText">Loading...</h2>
+            <h3 id="discord-username" class="discordText">Loading...</h3>
+            <br />
+            <p id="discord-status" class="discordText">Loading...</p>
+          </div>
         </div>
         <div id="discord-rpc">
           <img
