@@ -237,7 +237,58 @@
     <div id="tagline">Loading...</div>
 
     <main>
-      <section class="sidebar">
+      <section class="block" id="frame" style="order: 2">
+        <h1 style="text-align: center">She Lel on my Nekoweb till I org</h1>
+        <br />
+        <img
+          decoding="async"
+          loading="eager"
+          height="460"
+          width="460"
+          src="/assets/images/mainPage/LelsVCRwithhat.webp"
+          class="img"
+          alt="Awesome fucking hat"
+        />
+
+        <p class="alt">
+          Full quality
+          <a href="/assets/images/mainPage/LelsVCRwithhat.png" download
+            >Download</a
+          >
+          | Original by
+          <a href="https://twitter.com/chibitoad/status/1448406173263171585"
+            >@chibitoad</a
+          >
+        </p>
+
+        <div>
+          <script type="module" src="/discord/discord.js"></script>
+          <discord-widget discord-id="850319718920224798"></discord-widget>
+          <br />
+          <p>
+            Join my discord server too:
+            <a href="https://discord.gg/D8TV8K8rMr">Invite link</a>
+            <br />
+          </p>
+        </div>
+
+        <div id="webrings" style="display: flex">
+          <div id="nekowebring"></div>
+          <webring-container
+            style="margin: 0 auto; padding: 15px; border: solid 1px var(--text)"
+          >
+            <config key="type" value="catppuccin-mocha"></config>
+            <config
+              key="font"
+              value="Overused Grotesk, Arial, sans-serif"
+            ></config>
+            <config key="fill" value="false"></config>
+            <script src="https://palette.nekoweb.org/webring.js"></script>
+          </webring-container>
+        </div>
+      </section>
+
+      <section class="sidebar" style="order: 1">
         <div class="block">
           <h2>Who's Lel?</h2>
           <img
@@ -440,58 +491,7 @@
         </div>
       </section>
 
-      <div class="block" id="frame">
-        <h1 style="text-align: center">She Lel on my Nekoweb till I org</h1>
-        <br />
-        <img
-          decoding="async"
-          loading="eager"
-          height="460"
-          width="460"
-          src="/assets/images/mainPage/LelsVCRwithhat.webp"
-          class="img"
-          alt="Awesome fucking hat"
-        />
-
-        <p class="alt">
-          Full quality
-          <a href="/assets/images/mainPage/LelsVCRwithhat.png" download
-            >Download</a
-          >
-          | Original by
-          <a href="https://twitter.com/chibitoad/status/1448406173263171585"
-            >@chibitoad</a
-          >
-        </p>
-
-        <div>
-          <script type="module" src="/discord/discord.js"></script>
-          <discord-widget discord-id="850319718920224798"></discord-widget>
-          <br />
-          <p>
-            Join my discord server too:
-            <a href="https://discord.gg/D8TV8K8rMr">Invite link</a>
-            <br />
-          </p>
-        </div>
-
-        <div id="webrings" style="display: flex">
-          <div id="nekowebring"></div>
-          <webring-container
-            style="margin: 0 auto; padding: 15px; border: solid 1px var(--text)"
-          >
-            <config key="type" value="catppuccin-mocha"></config>
-            <config
-              key="font"
-              value="Overused Grotesk, Arial, sans-serif"
-            ></config>
-            <config key="fill" value="false"></config>
-            <script src="https://palette.nekoweb.org/webring.js"></script>
-          </webring-container>
-        </div>
-      </div>
-
-      <section class="sidebar">
+      <section class="sidebar" style="order: 3">
         <div class="block" id="stats">
           <h2>Stats:</h2>
           <p id="created"><em>Created</em>: Loading...</p>
@@ -500,6 +500,7 @@
           <p id="followers"><em>Followers</em>: Loading...</p>
           <p class="alt">
             Stolen from <a href="https://maxpixels.moe/">maxpixels.moe</a>
+            <br />
             <br />
             <iframe
               loading="eager"
