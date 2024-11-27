@@ -1,8 +1,8 @@
+import html from "@html-eslint/eslint-plugin";
 // eslint.config.js
 // import prettierConfig from "eslint-config-prettier";
 // import prettierPlugin from "eslint-plugin-prettier";
 import ermhtml from "eslint-plugin-html";
-import html from "@html-eslint/eslint-plugin";
 
 export default [
   {

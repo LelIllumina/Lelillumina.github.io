@@ -4,6 +4,7 @@ import gulp from "gulp";
 import htmlAutoprefixer from "gulp-html-autoprefixer";
 import htmlmin from "gulp-htmlmin";
 import newer from "gulp-newer";
+import plumber from "gulp-plumber";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
 import replace from "gulp-replace";
@@ -26,6 +27,7 @@ const paths = {
 function processHtml(filePath) {
   return gulp
     .src(filePath, { base: "./src/pages" })
+    .pipe(plumber())
     .pipe(newer(paths.dist))
     .pipe(
       replace(
@@ -71,6 +73,7 @@ function processCss(filePath) {
 
   return gulp
     .src(filePath, { base: "./src/css" })
+    .pipe(plumber())
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(postcss(plugins))
@@ -84,6 +87,7 @@ function processCss(filePath) {
 function processJs(filePath) {
   return gulp
     .src(filePath, { base: "./src/scripts" })
+    .pipe(plumber())
     .pipe(newer(paths.dist))
     .pipe(sourcemaps.init())
     .pipe(terser())
@@ -103,6 +107,7 @@ function processJs(filePath) {
 function processAssets(filePath) {
   return gulp
     .src(filePath, { base: "./", encoding: false })
+    .pipe(plumber())
     .pipe(newer(paths.dist))
     .pipe(gulp.dest(paths.dist));
 }
@@ -110,27 +115,32 @@ function processAssets(filePath) {
 function copyPublic(filePath) {
   return gulp
     .src(filePath, { base: "./public", encoding: false })
+    .pipe(plumber())
     .pipe(newer(paths.dist))
     .pipe(gulp.dest(paths.dist));
 }
 
 // Watch files for changes
 function watchFiles() {
-  gulp.watch(paths.html).on("change", (path) => {
-    processHtml(path);
-  });
+  try {
+    gulp.watch(paths.html).on("change", (path) => {
+      processHtml(path);
+    });
 
-  gulp.watch(paths.css).on("change", (path) => {
-    processCss(path);
-  });
+    gulp.watch(paths.css).on("change", (path) => {
+      processCss(path);
+    });
 
-  gulp.watch(paths.js).on("change", (path) => {
-    processJs(path);
-  });
+    gulp.watch(paths.js).on("change", (path) => {
+      processJs(path);
+    });
 
-  gulp.watch(paths.assets).on("change", (path) => {
-    processAssets(path);
-  });
+    gulp.watch(paths.assets).on("change", (path) => {
+      processAssets(path);
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // Define build task

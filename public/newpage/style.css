@@ -39,11 +39,7 @@ body {
 
 body {
   min-height: 100%;
-  font:
-    11pt "MS PGothic",
-    Tahoma,
-    Verdana,
-    sans-serif;
+  font: 11pt "MS PGothic", Tahoma, Verdana, sans-serif;
 }
 
 #header {
@@ -53,9 +49,7 @@ body {
 
   background: url("https://nekoweb.org/assets/checkerboard.png"),
     linear-gradient(to bottom, var(--cookie), var(--darkBrown));
-  background-size:
-    10px 10px,
-    auto;
+  background-size: 10px 10px, auto;
 
   image-rendering: crisp-edges;
 }

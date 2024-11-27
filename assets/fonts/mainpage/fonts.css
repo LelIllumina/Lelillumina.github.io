@@ -3,8 +3,7 @@
 @font-face {
   font-family: "Bungee Spice";
   font-style: normal;
-  src:
-    url("BungeeSpice-Regular.woff2") format("woff2"),
+  src: url("BungeeSpice-Regular.woff2") format("woff2"),
     url("BungeeSpice-Regular.ttf") format("truetype");
 }
 
@@ -12,8 +11,7 @@
   font-family: "Josefin Sans";
   font-style: normal;
   font-display: swap;
-  src:
-    url("JosefinSans-VariableFont_wght.woff2") format("woff2"),
+  src: url("JosefinSans-VariableFont_wght.woff2") format("woff2"),
     url("JosefinSans-VariableFont_wght.ttf") format("truetype");
 }
 
@@ -21,8 +19,7 @@
   font-family: Monocraft;
   font-style: normal;
   font-display: swap;
-  src:
-    url("Monocraft-nerd-fonts-patched.woff2") format("woff2"),
+  src: url("Monocraft-nerd-fonts-patched.woff2") format("woff2"),
     url("Monocraft-nerd-fonts-patched.ttf") format("truetype");
 }
 
@@ -30,7 +27,6 @@
   font-family: Raleway;
   font-style: normal;
   font-display: swap;
-  src:
-    url("Raleway-VariableFont_wght.woff2") format("woff2"),
+  src: url("Raleway-VariableFont_wght.woff2") format("woff2"),
     url("Raleway-VariableFont_wght.ttf") format("truetype");
 }
