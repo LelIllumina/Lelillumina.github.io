@@ -190,7 +190,7 @@ main {
 }
 
 .sidebar > div {
-  width: 200px;
+  width: 250px;
 }
 
 .block {
@@ -220,6 +220,7 @@ main {
 #buttons img {
   width: 88px;
   height: 31px;
+  margin: 1px;
 }
 
 #frame {
