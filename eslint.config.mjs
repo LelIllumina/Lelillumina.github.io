@@ -1,11 +1,13 @@
 // eslint.config.js
 // import prettierConfig from "eslint-config-prettier";
 // import prettierPlugin from "eslint-plugin-prettier";
+import html from "eslint-plugin-html";
 
 export default [
   {
     ignores: ["dist/**"],
     plugins: {
+      html,
       // prettier: prettierPlugin,
     },
 
