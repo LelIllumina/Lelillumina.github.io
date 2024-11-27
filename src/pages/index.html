@@ -88,6 +88,12 @@
       type="image/png"
     />
     <link
+      rel="preload"
+      href="https://nekoweb.org/api/site/info/lel"
+      as="fetch"
+      type="application/json"
+    />
+    <link
       rel="alternate"
       type="application/rss+xml"
       title="feed two"
@@ -239,6 +245,10 @@
     <main>
       <section class="block" id="frame" style="order: 2">
         <h1 style="text-align: center">She Lel on my Nekoweb till I org</h1>
+        <div id="views-counter"></div>
+        <p style="font-size: 12px; color: gray; text-align: center">
+          Visits since creation
+        </p>
         <br />
         <img
           decoding="async"
@@ -469,12 +479,15 @@
               width="88"
           /></a>
         </div>
-        <div class="block" style="width: fit-content">
+        <div
+          class="block"
+          style="box-sizing: revert; width: 200px; height: 200px; padding: 0"
+        >
           <iframe
             loading="lazy"
             title="NekoLink"
-            width="150"
-            height="150"
+            width="200"
+            height="200"
             style="border: none"
             src="https://rice.nekoweb.org/nekolink.html"
           ></iframe>
@@ -486,7 +499,6 @@
           <h2>Stats:</h2>
           <p id="created"><em>Created</em>: Loading...</p>
           <p id="updated"><em>Updated</em>: Loading...</p>
-          <p id="visitors"><em>Visits</em>: Loading...</p>
           <p id="followers"><em>Followers</em>: Loading...</p>
           <p class="alt">
             Stolen from <a href="https://maxpixels.moe/">maxpixels.moe</a>

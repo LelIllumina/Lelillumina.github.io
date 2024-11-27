@@ -15,10 +15,25 @@
       `<em>Created</em>: ${created}`;
     document.getElementById("updated").innerHTML =
       `<em>Updated</em>: ${updated}`;
-    document.getElementById("visitors").innerHTML =
-      `<em>Visits</em>: ${json.views}`;
+    // document.getElementById("visitors").innerHTML =
+    //   `<em>Visits</em>: ${json.views}`;
     document.getElementById("followers").innerHTML =
       `<em>Followers</em>: ${json.followers}`;
+    const container = document.getElementById("views-counter");
+    const digits = json.views.toString().split(""); // Split the number into individual digits
+    container.innerHTML = ""; // Clear previous content
+
+    digits.forEach((digit) => {
+      if (!isNaN(digit)) {
+        // Ensure it's a valid digit
+        const img = document.createElement("img");
+        img.src = `/assets/images/numbers/${digit}.gif`; // Adjust path to your digit images
+        img.alt = digit;
+        img.height = 100;
+        img.width = 45;
+        container.appendChild(img);
+      }
+    });
   } catch (error) {
     console.error(error);
     // If you wish to insert some fallback here, you may do so!

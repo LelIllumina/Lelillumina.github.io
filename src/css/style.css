@@ -212,6 +212,10 @@ main {
   border: 5px dashed #313244;
 }
 
+#views-counter {
+  height: 100px;
+}
+
 #buttons {
   text-align: center;
   image-rendering: pixelated;
