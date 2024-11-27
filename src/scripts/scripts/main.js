@@ -6,6 +6,11 @@
 (async () => {
   try {
     const request = await fetch("https://nekoweb.org/api/site/info/lel");
+
+    if (!request.ok) {
+      throw new Error(`HTTP Error: ${request.status}`);
+    }
+
     const json = await request.json();
 
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
@@ -19,24 +24,43 @@
     //   `<em>Visits</em>: ${json.views}`;
     document.getElementById("followers").innerHTML =
       `<em>Followers</em>: ${json.followers}`;
+
     const container = document.getElementById("views-counter");
     const digits = json.views.toString().split(""); // Split the number into individual digits
     container.innerHTML = ""; // Clear previous content
 
     digits.forEach((digit) => {
-      if (!isNaN(digit)) {
-        // Ensure it's a valid digit
-        const img = document.createElement("img");
-        img.src = `/assets/images/numbers/${digit}.gif`; // Adjust path to your digit images
-        img.alt = digit;
-        img.height = 100;
-        img.width = 45;
-        container.appendChild(img);
-      }
+      const img = document.createElement("img");
+      img.src = `/assets/images/numbers/${digit}.gif`; // Adjust path to your digit images
+      img.alt = digit;
+      img.height = 100;
+      img.width = 45;
+      container.appendChild(img);
     });
   } catch (error) {
     console.error(error);
-    // If you wish to insert some fallback here, you may do so!
+
+    const container = document.getElementById("views-counter");
+    const subtitle = document.getElementById("subtitle");
+
+    subtitle.innerHTML = "Script failed Noooooo";
+    container.innerHTML = "";
+
+    let status = "Unknown";
+    if (error.message.startsWith("HTTP Error:")) {
+      status = error.message.split(": ")[1];
+    }
+
+    const numbers = status.split("");
+
+    numbers.forEach((num) => {
+      const img = document.createElement("img");
+      img.src = `/assets/images/numbers/${num}.gif`;
+      img.alt = num;
+      img.height = 100;
+      img.width = 45;
+      container.appendChild(img);
+    });
   }
 })();
 

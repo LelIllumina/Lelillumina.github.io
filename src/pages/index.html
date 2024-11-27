@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Standard tags -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +16,7 @@
       content="Lel, anime, Type-Moon, ufotable, personal site, music, Nekoweb"
     />
 
+    <!-- OpenGraph Embed shit -->
     <meta
       property="og:image"
       content="https://lel.nekoweb.org/assets/images/mainPage/LelsVCRwithhatx4.png"
@@ -23,31 +25,41 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:alt" content="Lel with cool hat" />
-    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:title" content="The Lel Illumina site" />
     <meta property="og:description" content="The cult of the Lel" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lel.nekoweb.org/" />
     <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <meta name="theme-color" content="#cba6f7" />
     <link rel="icon" type="image/x-icon" href="/assets/images/neicon_arc.jpg" />
 
-    <link rel="dns-prefetch" href="https://hillhouse.neocities.org/" />
-    <link rel="dns-prefetch" href="https://decolonizepalestine.com/" />
-    <link rel="dns-prefetch" href="https://nekoweb.org/" />
-    <link rel="dns-prefetch" href="https://melankorin.net" />
-    <link rel="dns-prefetch" href="https://trademarkhell.net/" />
-    <link rel="dns-prefetch" href="https://dimden.dev/" />
-    <link rel="dns-prefetch" href="https://districts.nekoweb.org" />
-    <link rel="dns-prefetch" href="https://maxpixels.moe/" />
-    <link rel="dns-prefetch" href="https://social.nekoweb.org/" />
-    <link rel="dns-prefetch" href="https://cereza.zone/" />
-    <link rel="dns-prefetch" href="https://anlucas.neocities.org/" />
-    <link rel="dns-prefetch" href="https://cyber.dabamos.de/" />
+    <!-- Connect to button hotlinks -->
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://hillhouse.neocities.org/"
+    />
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://decolonizepalestine.com/"
+    />
+    <link rel="dns-prefetch preconnect" href="https://nekoweb.org/" />
+    <link rel="dns-prefetch preconnect" href="https://melankorin.net" />
+    <link rel="dns-prefetch preconnect" href="https://trademarkhell.net/" />
+    <link rel="dns-prefetch preconnect" href="https://dimden.dev/" />
+    <link rel="dns-prefetch preconnect" href="https://districts.nekoweb.org" />
+    <link rel="dns-prefetch preconnect" href="https://maxpixels.moe/" />
+    <link rel="dns-prefetch preconnect" href="https://social.nekoweb.org/" />
+    <link rel="dns-prefetch preconnect" href="https://cereza.zone/" />
+    <link rel="dns-prefetch preconnect" href="https://anlucas.neocities.org/" />
+    <link rel="dns-prefetch preconnect" href="https://cyber.dabamos.de/" />
 
-    <link rel="dns-prefetch" href="https://lastfm.freetls.fastly.net/" />
-    <link rel="dns-prefetch" href="https://api.lanyard.rest/" />
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://lastfm.freetls.fastly.net/"
+    />
+    <link rel="dns-prefetch preconnect" href="https://api.lanyard.rest/" />
     <link rel="preconnect" href="https://api.lanyard.rest/" crossorigin />
 
     <link
@@ -89,6 +101,66 @@
     />
     <link
       rel="preload"
+      href="/assets/images/numbers/0.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/9.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/8.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/7.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/6.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/5.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/4.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/3.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/2.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
+      href="/assets/images/numbers/1.gif"
+      as="image"
+      type="image/gif"
+    />
+    <link
+      rel="preload"
       href="https://nekoweb.org/api/site/info/lel"
       as="fetch"
       type="application/json"
@@ -99,122 +171,6 @@
       title="feed two"
       href="rss.xml"
     />
-
-    <style>
-      :root {
-        --text: #cdd6f4;
-        --base: #1e1e2e;
-        --mantle: #181825;
-        --crust: #11111b;
-
-        color-scheme: dark;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        cursor: url("/assets/neco-arcgodmode.cur"), default;
-
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-
-        min-height: 100vh;
-        margin: 0;
-
-        background:
-          linear-gradient(#00000080, #00000080),
-          url("/assets/images/mainPage/background.png") repeat;
-        background-color: var(--base);
-        background-attachment: fixed;
-      }
-
-      a {
-        cursor: url("/assets/neco-arclooking.cur"), pointer;
-      }
-
-      header {
-        width: 75%;
-        margin: 5px auto 10px;
-
-        text-align: center;
-
-        background-color: var(--crust);
-        box-shadow: 0 3px 8px black;
-      }
-
-      .title {
-        margin: 10px;
-        font-family: "Bungee Spice", fantasy;
-        font-size: 40px;
-      }
-
-      .navbar ul {
-        overflow: hidden;
-
-        margin: 0;
-        padding: 0;
-
-        list-style-type: none;
-
-        background-image: linear-gradient(var(--crust), var(--mantle));
-      }
-
-      .navbar li {
-        float: left;
-        display: inline;
-        margin: auto;
-      }
-
-      .navbar a {
-        display: block;
-        padding: 14px 25px;
-        color: var(--text);
-        text-align: center;
-      }
-
-      main {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-      }
-
-      .sidebar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .sidebar > div {
-        width: 250px;
-      }
-
-      .block {
-        margin: 5px;
-        padding: 20px;
-
-        background-color: var(--base);
-        border: 8px solid var(--mantle);
-        box-shadow: 0 0 10px black;
-      }
-
-      .img {
-        display: block;
-
-        max-width: 100%;
-        height: fit-content;
-        margin: auto;
-
-        border: 5px dashed #313244;
-      }
-
-      #frame {
-        width: 6000px;
-        text-align: center;
-      }
-    </style>
 
     <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
     <link rel="stylesheet" href="style.css" />
@@ -245,18 +201,22 @@
     <main>
       <section class="block" id="frame" style="order: 2">
         <h1 style="text-align: center">She Lel on my Nekoweb till I org</h1>
-        <div id="views-counter"></div>
-        <p style="font-size: 12px; color: gray; text-align: center">
-          Visits since creation
-        </p>
+        <div id="views-counter">
+          <img src="/assets/images/numbers/0.gif" alt="0" />
+          <img src="/assets/images/numbers/1.gif" alt="1" />
+          <img src="/assets/images/numbers/2.gif" alt="2" />
+          <img src="/assets/images/numbers/3.gif" alt="3" />
+          <img src="/assets/images/numbers/4.gif" alt="4" />
+        </div>
+        <p id="subtitle">Visits since creation</p>
         <br />
         <img
+          class="img"
           decoding="async"
           loading="eager"
           height="460"
           width="460"
           src="/assets/images/mainPage/LelsVCRwithhat.webp"
-          class="img"
           alt="Awesome fucking hat"
         />
 
@@ -270,6 +230,7 @@
             >@chibitoad</a
           >
         </p>
+        <br />
 
         <div>
           <script type="module" src="/discord/discord.js"></script>
@@ -302,8 +263,8 @@
         <div class="block">
           <h2>Who's Lel?</h2>
           <img
-            src="/assets/images/mainPage/upside_down_lel.avif"
             class="img"
+            src="/assets/images/mainPage/upside_down_lel.avif"
             alt="Lel"
             height="100"
             width="100"
@@ -501,7 +462,8 @@
           <p id="updated"><em>Updated</em>: Loading...</p>
           <p id="followers"><em>Followers</em>: Loading...</p>
           <p class="alt">
-            Stolen from <a href="https://maxpixels.moe/">maxpixels.moe</a>
+            Stolen from
+            <a href="https://maxpixels.moe/">maxpixels.moe</a>
             <br />
             <br />
             <iframe
@@ -518,18 +480,18 @@
           <h2 id="lastfm-status">Loading...</h2>
           <div id="songBox">
             <img
-              decoding="async"
-              id="trackCover"
               class="trackCover img"
+              id="trackCover"
+              decoding="async"
               src="/assets/images/NekoFM/NoArt.png"
               alt=""
               height="150"
               width="150"
             />
-            <div id="trackInfo" class="trackInfo">
-              <h2 id="trackName" class="trackName">Loading...</h2>
-              <p id="artistName" class="artistName">Loading...</p>
-              <p id="siteName" class="siteName">
+            <div class="trackInfo" id="trackInfo">
+              <h2 class="trackName" id="trackName">Loading...</h2>
+              <p class="artistName" id="artistName">Loading...</p>
+              <p class="siteName" id="siteName">
                 <a href="https://last.fm/user/LelIllumina" target="_blank"
                   >My lastfm profile</a
                 >
@@ -604,13 +566,13 @@
     <script src="https://webring.nekoweb.org/onionring-variables.js"></script>
     <script src="scripts/onionring.js"></script>
     <!-- <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-    <script>
+      <script>
       new cursoreffects.rainbowCursor({
-        length: 10,
-        colors: ["#fad272", "#ffffff", "#8c3d7e"],
-        size: 6,
+      length: 10,
+      colors: ["#fad272", "#ffffff", "#8c3d7e"],
+      size: 6,
       });
-    </script> -->
+      </script> -->
     <script>
       document.addEventListener("mouseover", function (event) {
         const target = event.target;
