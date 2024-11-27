@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 export const users = [
   ["ba-e", "bae.nekoweb.org", true],
   ["chimeridae", "chimera.pet", true],

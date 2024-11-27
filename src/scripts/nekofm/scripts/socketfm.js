@@ -52,27 +52,27 @@ function createUserFragment(username, site) {
   newUserDiv.id = username;
   newUserDiv.className = "container";
   newUserDiv.innerHTML = /* HTML */ `
-    <div id="${username}-songBox" class="listening">
+    <div class="listening" id="${username}-songBox">
       <img
-        id="${username}-trackCover"
         class="trackCover"
+        id="${username}-trackCover"
         src="/assets/images/NekoFM/loading.png"
         alt=""
         height="150"
         width="150"
       />
-      <div id="${username}-trackInfo" class="trackInfo">
-        <h3 id="${username}-siteName" class="siteName">
+      <div class="trackInfo" id="${username}-trackInfo">
+        <h3 class="siteName" id="${username}-siteName">
           <a href="https://last.fm/user/${username}" target="_blank"
             >${username}</a
           >
           • <a href="https://${site}" target="_blank">${site}</a>
         </h3>
-        <h2 id="${username}-trackName" class="trackName">Loading...</h2>
-        <p id="${username}-artistName" class="artistName">Loading...</p>
+        <h2 class="trackName" id="${username}-trackName">Loading...</h2>
+        <p class="artistName" id="${username}-artistName">Loading...</p>
         <a
-          id="${username}-searchButton"
           class="searchButton"
+          id="${username}-searchButton"
           href=""
           target="_blank"
           >Search Song</a

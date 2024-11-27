@@ -74,7 +74,7 @@ if (thisIndex === null) {
               width="19"
           /></a>
         </td>
-        <td style="text-align: center" class="webring-info">
+        <td class="webring-info" style="text-align: center">
           <a href="${indexPage}">
             <img
               src="/assets/images/Nekowebring/nekowebring.png"

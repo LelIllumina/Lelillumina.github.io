@@ -55,7 +55,7 @@
             <li><a href="../">Home</a></li>
             <li><a href="../about/">About</a></li>
             <li><a href="../css">Custom CSS</a></li>
-            <li><a href="../settings" class="activeNavLink">Settings</a></li>
+            <li><a class="activeNavLink" href="../settings">Settings</a></li>
           </ul>
         </nav>
         <h2 id="tagline">Settings</h2>
@@ -68,8 +68,8 @@
         <br />
         <label class="option" for="nsfw-removed">
           <input
-            type="radio"
             id="nsfw-removed"
+            type="radio"
             name="nsfw"
             value="removed"
             checked
@@ -78,28 +78,25 @@
         </label>
         <br />
         <label class="option" for="nsfw-blurred">
-          <input type="radio" id="nsfw-blurred" name="nsfw" value="blurred" />
+          <input id="nsfw-blurred" type="radio" name="nsfw" value="blurred" />
           Blurred
         </label>
         <br />
         <label class="option" for="nsfw">
-          <input type="radio" id="nsfw" name="nsfw" value="off" />
+          <input id="nsfw" type="radio" name="nsfw" value="off" />
           Show
         </label>
         <br /><br />
         <label for="customCSS">Custom CSS:</label>
-        <input
-          type="checkbox"
-          id="customCSS"
-          name="customCSS"
-          checked
-        /><br /><br />
+        <input id="customCSS" type="checkbox" name="customCSS" checked />
+        <br /><br />
         <input type="submit" value="Save" onclick="submit()" />
         <input
           type="reset"
           value="Delete LocalStorage"
           onclick="deleteLocalStorage(); alert('LocalStorage Cleared')"
-        /><br /><br /><br />
+        />
+        <br /><br /><br />
       </div>
       <div id="notes">
         <h2>Notes:</h2>

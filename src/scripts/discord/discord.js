@@ -6,40 +6,40 @@ class DiscordWidget extends HTMLElement {
       <div id="discord-widget">
         <div id="discord-header">
           <img
+            id="discord-pfp"
             src="https://api.lanyard.rest/850319718920224798.webp"
             alt="discord pfp"
-            id="discord-pfp"
             height="50"
             width="50"
           />
-          <div id="discord-info" class="discordText">
-            <h2 id="discord-name" class="discordText">Loading...</h2>
-            <h3 id="discord-username" class="discordText">Loading...</h3>
+          <div class="discordText" id="discord-info">
+            <h2 class="discordText" id="discord-name">Loading...</h2>
+            <h3 class="discordText" id="discord-username">Loading...</h3>
             <br />
-            <p id="discord-status" class="discordText">Loading...</p>
+            <p class="discordText" id="discord-status">Loading...</p>
           </div>
         </div>
         <div id="discord-rpc">
           <img
+            id="discord-activity-img"
             src="https://lel.nekoweb.org/assets/images/transparent.webp"
             alt=""
-            id="discord-activity-img"
             height="100"
             width="100"
           />
           <img
+            id="discord-activity-miniimg"
             src="https://lel.nekoweb.org/assets/images/transparent.webp"
             alt=""
-            id="discord-activity-miniimg"
             height="25"
             width="25"
           />
-          <div id="discord-activity" class="discordText">
-            <h2 id="discord-activity-name" class="discordText">Loading...</h2>
+          <div class="discordText" id="discord-activity">
+            <h2 class="discordText" id="discord-activity-name">Loading...</h2>
             <br />
-            <p id="discord-activity-details" class="discordText">Loading...</p>
+            <p class="discordText" id="discord-activity-details">Loading...</p>
             <br />
-            <p id="discord-activity-state" class="discordText">Loading...</p>
+            <p class="discordText" id="discord-activity-state">Loading...</p>
           </div>
         </div>
       </div>

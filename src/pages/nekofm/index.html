@@ -33,14 +33,14 @@
     />
 
     <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/horizontal.css" id="horizontal" />
+    <link id="horizontal" rel="stylesheet" href="./styles/horizontal.css" />
     <link
+      id="vertical"
       rel="prefetch stylesheet"
       media="screen and (max-width: 860px)"
       href="./styles/vertical.css"
-      id="vertical"
     />
-
+    <link rel="modulepreload" href="./scripts/users.js" />
     <script type="module" src="./scripts/socketfm.js"></script>
     <script type="module" src="./scripts/customCss.js"></script>
     <script src="./scripts/taglines.js"></script>
@@ -56,7 +56,7 @@
         /></a>
         <nav id="navbar">
           <ul>
-            <li><a href="#" class="activeNavLink">Home</a></li>
+            <li><a class="activeNavLink" href="#">Home</a></li>
             <li><a href="./about/">About</a></li>
             <li><a href="./css">Custom CSS</a></li>
             <li><a href="./settings">Settings</a></li>
@@ -66,7 +66,7 @@
       </div>
     </header>
     <div>
-      <button title="Change orientation" class="button" id="orientation">
+      <button class="button" id="orientation" title="Change orientation">
         ▤
       </button>
       <script>
@@ -126,6 +126,7 @@
       <p>
         DM me on discord if you want me to add or remove you • Want a widget on
         your own site? Check out
+
         <a class="credit" href="https://maxpixels.moe/resources/lastfm-widget">
           Max's code
         </a>
