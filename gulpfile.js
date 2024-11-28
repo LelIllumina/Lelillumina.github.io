@@ -8,6 +8,7 @@ import plumber from "gulp-plumber";
 import postcss from "gulp-postcss";
 import rename from "gulp-rename";
 import replace from "gulp-replace";
+import sitemap from "gulp-sitemap";
 import sourcemaps from "gulp-sourcemaps";
 import terser from "gulp-terser";
 import postcssNormalize from "postcss-normalize";
@@ -120,6 +121,18 @@ function copyPublic(filePath) {
     .pipe(gulp.dest(paths.dist));
 }
 
+function processSitemap(filepath) {
+  return gulp
+    .src(filepath, { base: "./src/pages", read: false })
+    .pipe(
+      sitemap({
+        siteUrl: "https://lel.nekoweb.org",
+        images: true,
+      })
+    )
+    .pipe(gulp.dest(paths.dist));
+}
+
 // Watch files for changes
 function watchFiles() {
   try {
@@ -164,15 +177,22 @@ function buildPublic() {
   return copyPublic(paths.public);
 }
 
+function buildSitemap() {
+  return processSitemap(paths.html);
+}
+
 const build = gulp.series(
-  gulp.parallel(buildHtml, buildCss, buildJs, buildAssets, buildPublic)
+  gulp.parallel(
+    buildHtml,
+    buildCss,
+    buildJs,
+    buildAssets,
+    buildPublic,
+    buildSitemap
+  )
 );
 const watch = gulp.series(build, watchFiles);
 
 // Export tasks
 export { build, watch };
 export default build;
-
-// so the idea is that i make a src folder and put all kindas pages and css in it
-// but i keep the nested folder names the same so i can make gulp copy 1:1 from each folder
-// and its nicer over here
