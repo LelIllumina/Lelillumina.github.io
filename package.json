@@ -57,7 +57,7 @@
   },
   "scripts": {
     "build": "gulp",
-    "choresNew": "eslint --fix && prettier '**/*.html' --write && stylelint '**/*.{css,html}' --fix && biome check --write ./src",
+    "choresNew": "eslint --fix --cache && prettier '**/*.html' --write --cache && stylelint '**/*.{css,html}' --fix --cache && biome check --write ./src",
     "preview": "http-server ./dist/ -b -g --cors",
     "watch": "gulp watch"
   },
