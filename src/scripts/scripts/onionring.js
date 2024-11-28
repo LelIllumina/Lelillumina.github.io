@@ -56,8 +56,15 @@ if (thisIndex === null) {
   let randomText = "";
   // If you've chosen to include a random button, this builds the link that does that
   if (useRandom) {
-    randomText =
-      "<span href='javascript:void(0)' onclick='randomSite()'><img src='/assets/images/Nekowebring/cat.png' alt='Random Site' height='13' width='16' ></span>";
+    randomText = /* HTML */ `<span
+      href="javascript:void(0)"
+      onclick="randomSite()"
+      ><img
+        src="/assets/images/Nekowebring/cat.png"
+        alt="Random Site"
+        height="16"
+        width="17"
+    /></span>`;
   }
 
   // This is the code that displays the widget - EDIT THIS if you want to change the structure
@@ -70,8 +77,8 @@ if (thisIndex === null) {
             <img
               src="/assets/images/Nekowebring/prev.png"
               alt="Previous Site"
-              height="44"
-              width="19"
+              height="24"
+              width="17"
           /></a>
         </td>
         <td class="webring-info" style="text-align: center">
@@ -79,7 +86,7 @@ if (thisIndex === null) {
             <img
               src="/assets/images/Nekowebring/nekowebring.png"
               alt="NekoWebRing Index"
-              height="20"
+              height="24"
               width="88"
           /></a>
           <br />
@@ -91,8 +98,8 @@ if (thisIndex === null) {
             ><img
               src="/assets/images/Nekowebring/next.png"
               alt="Next Site"
-              height="44"
-              width="19"
+              height="24"
+              width="17"
           /></a>
         </td>
       </tr>
