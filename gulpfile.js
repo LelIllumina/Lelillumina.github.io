@@ -24,6 +24,34 @@ const paths = {
   public: "./public/**",
 };
 
+async function generateCriticalCss() {
+  // const { generate } = await import("critical");
+  const { stream: critical } = await import("critical");
+
+  return gulp
+    .src(paths.dist + "/**/*.html")
+    .pipe(
+      critical({
+        base: "dist/",
+        inline: true,
+      })
+    )
+    .on("error", (err) => {
+      log.error(err.message);
+    })
+    .pipe(gulp.dest(paths.dist));
+}
+
+//   return generate({
+//     inline: true,
+//     base: "./",
+//     src: filePath.html,
+//     ignore: {
+//       atrule: ["@font-face"],
+//     },
+//   });
+// }
+
 // Named tasks for processing individual files
 function processHtml(filePath) {
   return gulp
@@ -66,6 +94,9 @@ function processHtml(filePath) {
         removeStyleLinkTypeAttributes: true,
       })
     )
+    .on("end", () => {
+      generateCriticalCss();
+    })
     .pipe(gulp.dest(paths.dist));
 }
 
