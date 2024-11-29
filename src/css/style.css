@@ -83,7 +83,7 @@ ul {
   list-style-type: circle;
 }
 
-.navbar ul {
+#navbar ul {
   overflow: hidden;
 
   margin: 0;
@@ -94,28 +94,33 @@ ul {
   background-image: linear-gradient(var(--crust), var(--mantle));
 }
 
-.navbar li {
+#navbar li {
   float: left;
   display: inline;
   margin: auto;
 }
 
-.navbar a {
+#navbar a {
   display: block;
   padding: 14px 25px;
   color: var(--text);
   text-align: center;
 }
 
-.navbar li a:hover {
+#navbar li a:hover {
   background-color: var(--mantle);
   transition: 0.5s;
 }
 
-.title {
+#hamburger,
+#mobile-navbar {
+  display: none;
+}
+
+#title {
   margin: 10px;
   font-family: "Bungee Spice", fantasy;
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 .alt {
@@ -324,6 +329,28 @@ footer {
   .block iframe,
   .block img {
     margin: auto;
+  }
+
+  #navbar {
+    display: none;
+  }
+
+  #hamburger {
+    display: block;
+  }
+
+  #mobile-navbar ul {
+    list-style-type: none;
+  }
+
+  #mobile-navbar a {
+    color: var(--text);
+    text-align: center;
+  }
+
+  #mobile-navbar a:hover {
+    background-color: var(--mantle);
+    transition: 0.5s;
   }
 }
 
