@@ -23,38 +23,19 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/neicon_arc.jpg" />
 
     <link rel="stylesheet" href="/style.css" />
-    <style type="text/css">
-      body {
-        cursor: url("/assets/neco-arcgodmode.cur"), default;
-      }
-
-      a {
-        cursor: url("/assets/neco-arclooking.cur"), pointer;
-      }
-
-      #frame {
-        width: 50%;
-      }
-
-      h2,
-      p,
-      li {
-        text-align: left;
-      }
-
+    <style>
       h2 {
         margin: 20px auto 10px;
+        text-align: left;
       }
     </style>
   </head>
   <body>
     <header>
       <div id="header">
-        <div id="marquee">
-          <a class="title" href="/"><i>It's about time!</i></a>
-        </div>
+        <a id="title" href="/"><i>It's about time!</i></a>
       </div>
-      <nav class="navbar">
+      <nav id="navbar">
         <ul>
           <li><a href="/nekofm/">NekoFM</a></li>
           <li><a href="https://lel.atabook.org/">Guestbook</a></li>
@@ -65,9 +46,31 @@
           <li><a href="/about/">About</a></li>
         </ul>
       </nav>
+      <nav id="mobile-navbar">
+        <ul>
+          <li><a href="/nekofm/">NekoFM</a></li>
+          <li><a href="https://lel.atabook.org/">Guestbook</a></li>
+          <li><a href="/page/1/">Blog</a></li>
+          <li><a href="/music/">Music</a></li>
+          <li><a href="/meme/">Bocchi</a></li>
+          <li><a href="/newpage/">Newpage Submission</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <a id="hamburger" href="javascript:void(0)" onclick="openLinks()">☰</a>
+      <script>
+        function openLinks() {
+          var x = document.getElementById("mobile-navbar");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+      </script>
     </header>
     <main>
-      <div class="block" id="frame">
+      <div class="block about">
         <h1>About</h1>
         <p>
           This is just a personal site I made for fun. Ill post some info about

@@ -153,18 +153,6 @@ header {
   background-image: linear-gradient(var(--mantle), var(--crust));
 }
 
-.marquee {
-  position: relative;
-  left: 100%;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  animation: marquee 5s ease 1s, marquee-loop 0s ease 6s forwards;
-}
-
 #tagline {
   position: absolute;
   top: 100px;
@@ -187,6 +175,18 @@ main {
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+section:nth-child(1) {
+  order: 2;
+}
+
+section:nth-child(2) {
+  order: 1;
+}
+
+section:nth-child(3) {
+  order: 3;
 }
 
 .sidebar {
@@ -314,7 +314,6 @@ footer {
   }
 
   .sidebar {
-    order: 1;
     margin: auto;
   }
 
@@ -323,6 +322,7 @@ footer {
   }
 
   #frame {
+    order: 1;
     width: auto;
   }
 
@@ -363,26 +363,6 @@ footer {
 
   100% {
     background-position: 100% 100%;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    left: 100%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes marquee-loop {
-  0% {
-    left: 0;
-  }
-
-  100% {
-    left: 0;
   }
 }
 
