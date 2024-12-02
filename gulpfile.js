@@ -29,28 +29,29 @@ async function generateCriticalCss() {
   const { stream: critical } = await import("critical");
 
   return gulp
-    .src(paths.dist + "/**/*.html")
+    .src([
+      `${paths.dist}/**/*.html`,
+      `!${paths.dist}/lastfm/index.html`,
+      `!${paths.dist}/page/index.html`,
+    ])
     .pipe(
       critical({
-        base: "dist/",
+        base: paths.dist,
         inline: true,
+        ignore: {
+          atrule: ["@font-face"],
+        },
+        // css: [`${paths.dist}/**/*.css`],
       })
     )
     .on("error", (err) => {
       log.error(err.message);
     })
-    .pipe(gulp.dest(paths.dist));
+    .pipe(gulp.dest(paths.dist))
+    .on("end", () => {
+      console.log("Finished Critical CSS");
+    });
 }
-
-//   return generate({
-//     inline: true,
-//     base: "./",
-//     src: filePath.html,
-//     ignore: {
-//       atrule: ["@font-face"],
-//     },
-//   });
-// }
 
 // Named tasks for processing individual files
 function processHtml(filePath) {
@@ -95,6 +96,7 @@ function processHtml(filePath) {
       })
     )
     .on("end", () => {
+      console.log("Starting Critical CSS");
       generateCriticalCss();
     })
     .pipe(gulp.dest(paths.dist));
