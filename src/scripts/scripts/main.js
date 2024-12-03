@@ -78,13 +78,13 @@
       const data = JSON.parse(event.data);
       const track = data.recenttracks.track[0];
 
-      // Check user's online status
       const status = document.getElementById("lastfm-status");
 
+      // Check user's online status
       status.textContent =
         track.nowplaying === "false" ? "Last Played" : "Now Playing";
 
-      // check if NSFW
+      // Check if Album Cover is NSFW
       let coverImgUrl = track.album.isnsfw
         ? "/assets/images/NekoFM/NSFWCOVER.png"
         : track.image[2]["#text"];
@@ -93,7 +93,7 @@
         coverImgUrl ===
         "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
       ) {
-        coverImgUrl = "/assets/images/NekoFM/NoArt.png";
+        coverImgUrl = "/assets/images/NekoFM/NoArt.svg";
       }
 
       // Track elements

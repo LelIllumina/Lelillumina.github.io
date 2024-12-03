@@ -114,9 +114,9 @@ function getCoverImage(track, username) {
     coverImgUrl ===
     "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
   ) {
-    coverImgUrl = "/assets/images/NekoFM/NoArt.png";
+    coverImgUrl = "/assets/images/NekoFM/NoArt.svg";
   }
-  return coverImgUrl || "/assets/images/NekoFM/NoArt.png";
+  return coverImgUrl || "/assets/images/NekoFM/NoArt.svg";
 }
 
 // Update track details in a user div
