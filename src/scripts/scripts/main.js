@@ -17,9 +17,9 @@
     const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
 
     document.getElementById("created").innerHTML =
-      `<em>Created</em>: ${created}`;
+      `<em>Created</em>: <time datetime="${created}">${created}</time>`;
     document.getElementById("updated").innerHTML =
-      `<em>Updated</em>: ${updated}`;
+      `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
     // document.getElementById("visitors").innerHTML =
     //   `<em>Visits</em>: ${json.views}`;
     document.getElementById("followers").innerHTML =
