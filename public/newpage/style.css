@@ -114,3 +114,10 @@ a {
   font-size: 50px;
   color: var(--dough);
 }
+
+code {
+  padding: 0 2px;
+  background-color: var(--dough);
+  border: solid 1px;
+  border-radius: 5px;
+}
