@@ -53,6 +53,10 @@
         animation-fill-mode: forwards;
         animation-direction: alternate;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
 
@@ -347,15 +351,6 @@
           .then((data) => {
             document.getElementById("blogs").innerHTML = data;
           });
-      });
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
       });
     </script>
   </body>
