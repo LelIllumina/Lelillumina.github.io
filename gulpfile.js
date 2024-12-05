@@ -55,51 +55,53 @@ async function generateCriticalCss() {
 
 // Named tasks for processing individual files
 function processHtml(filePath) {
-  return gulp
-    .src(filePath, { base: "./src/pages" })
-    .pipe(plumber())
-    .pipe(newer(paths.dist))
-    .pipe(
-      replace(
-        /(<link.*?href=")(.*?\.css)(".*?>)/g,
-        (match, start, cssPath, end) => {
-          if (!/^https?:\/\//i.test(cssPath)) {
-            const minifiedPath = cssPath.replace(".css", ".min.css");
-            return `${start}${minifiedPath}${end}`;
+  return (
+    gulp
+      .src(filePath, { base: "./src/pages" })
+      .pipe(plumber())
+      .pipe(newer(paths.dist))
+      .pipe(
+        replace(
+          /(<link.*?href=")(.*?\.css)(".*?>)/g,
+          (match, start, cssPath, end) => {
+            if (!/^https?:\/\//i.test(cssPath)) {
+              const minifiedPath = cssPath.replace(".css", ".min.css");
+              return `${start}${minifiedPath}${end}`;
+            }
+            return match;
           }
-          return match;
-        }
+        )
       )
-    )
-    .pipe(
-      replace(
-        /(<script.*?src=")(.*?\.js)(".*?>)/g,
-        (match, start, jsPath, end) => {
-          if (!/^https?:\/\//i.test(jsPath)) {
-            const minifiedPath = jsPath.replace(".js", ".min.js");
-            return `${start}${minifiedPath}${end}`;
+      .pipe(
+        replace(
+          /(<script.*?src=")(.*?\.js)(".*?>)/g,
+          (match, start, jsPath, end) => {
+            if (!/^https?:\/\//i.test(jsPath)) {
+              const minifiedPath = jsPath.replace(".js", ".min.js");
+              return `${start}${minifiedPath}${end}`;
+            }
+            return match;
           }
-          return match;
-        }
+        )
       )
-    )
-    .pipe(htmlAutoprefixer())
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-        minifyCSS: true,
-        minifyJS: true,
-        // minifyURLs: "https://lel.nekoweb.org/",
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-      })
-    )
-    .on("end", () => {
-      console.log("Starting Critical CSS");
-      generateCriticalCss();
-    })
-    .pipe(gulp.dest(paths.dist));
+      .pipe(htmlAutoprefixer())
+      .pipe(
+        htmlmin({
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyCSS: true,
+          minifyJS: true,
+          // minifyURLs: "https://lel.nekoweb.org/",
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+        })
+      )
+      // .on("end", () => {
+      //   console.log("Starting Critical CSS");
+      //   generateCriticalCss();
+      // })
+      .pipe(gulp.dest(paths.dist))
+  );
 }
 
 function processCss(filePath) {
