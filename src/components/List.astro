@@ -1,52 +1,52 @@
 ---
-type Props = Record<string, never>
+type Props = Record<string, never>;
 
-import MdiBrushOutline from '~icons/mdi/brush-outline'
-import MdiCheckboxMarkedCircleMinusOutline from '~icons/mdi/checkbox-marked-circle-minus-outline'
-import MdiFormatText from '~icons/mdi/format-text'
-import MdiHelpRhombusOutline from '~icons/mdi/help-rhombus-outline'
-import MdiHomeVariantOutline from '~icons/mdi/home-variant-outline'
-import MdiLaunch from '~icons/mdi/launch'
-import MdiPaletteOutline from '~icons/mdi/palette-outline'
-import MdiTriforce from '~icons/mdi/triforce'
-import MdiViewGalleryOutline from '~icons/mdi/view-gallery-outline'
+import MdiBrushOutline from "~icons/mdi/brush-outline";
+import MdiCheckboxMarkedCircleMinusOutline from "~icons/mdi/checkbox-marked-circle-minus-outline";
+import MdiFormatText from "~icons/mdi/format-text";
+import MdiHelpRhombusOutline from "~icons/mdi/help-rhombus-outline";
+import MdiHomeVariantOutline from "~icons/mdi/home-variant-outline";
+import MdiLaunch from "~icons/mdi/launch";
+import MdiPaletteOutline from "~icons/mdi/palette-outline";
+import MdiTriforce from "~icons/mdi/triforce";
+import MdiViewGalleryOutline from "~icons/mdi/view-gallery-outline";
 
-import Dimden from '/src/assets/images/mainPage/dimden.svg'
+import Dimden from "@components/Dimden.astro";
 
 interface link {
-  icon: astroHTML.JSX.Element
-  label: string
-  url: string
-  class: string
+  icon: astroHTML.JSX.Element;
+  label: string;
+  url: string;
+  class: string;
 }
 
 const links: link[] = [
-  { icon: MdiHomeVariantOutline, label: 'Index', url: '/main/', class: '  ' },
+  { icon: MdiHomeVariantOutline, label: "Index", url: "/main/", class: "  " },
   {
     icon: MdiCheckboxMarkedCircleMinusOutline,
-    label: 'Quiz Results',
-    url: '/quiz/',
-    class: 'wip',
+    label: "Quiz Results",
+    url: "/quiz/",
+    class: "wip",
   },
   {
     icon: MdiPaletteOutline,
-    label: 'Oc Buttons',
-    url: '/buttons/',
-    class: '',
+    label: "Oc Buttons",
+    url: "/buttons/",
+    class: "",
   },
   {
     icon: MdiViewGalleryOutline,
-    label: 'Lel Gallery',
-    url: '/gallery/',
-    class: 'wip',
+    label: "Lel Gallery",
+    url: "/gallery/",
+    class: "wip",
   },
-  { icon: MdiBrushOutline, label: 'CSS Themes', url: '/themes/', class: 'wip' },
-  { icon: Dimden, label: 'Dimden Colors', url: '/dimden/', class: 'wip' },
-  { icon: MdiTriforce, label: 'Cool Shit', url: '/cool/', class: '' },
-  { icon: MdiHelpRhombusOutline, label: 'About', url: '/about/', class: '' },
-  { icon: MdiFormatText, label: 'Blog', url: '/blogs/', class: '' },
-]
-const currentUrl = Astro.url.pathname
+  { icon: MdiBrushOutline, label: "CSS Themes", url: "/themes/", class: "wip" },
+  { icon: Dimden, label: "Dimden Colors", url: "/dimden/", class: "wip" },
+  { icon: MdiTriforce, label: "Cool Shit", url: "/cool/", class: "" },
+  { icon: MdiHelpRhombusOutline, label: "About", url: "/about/", class: "" },
+  { icon: MdiFormatText, label: "Blog", url: "/blogs/", class: "" },
+];
+const currentUrl = Astro.url.pathname;
 ---
 
 <div id="list">

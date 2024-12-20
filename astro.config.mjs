@@ -20,7 +20,7 @@ export default defineConfig({
       xslURL: "/sitemap.xsl",
     }),
   ],
-  experimental: {
-    svg: true,
-  },
+  // experimental: {
+  //   svg: true,
+  // },
 });
