@@ -1,28 +1,28 @@
 ---
-import Outer from '@layouts/Outer.astro'
-import '@fontsource/dm-mono'
-import { Image } from 'astro:assets'
-import thing from '@assets/images/mainPage/thing.png'
+import Outer from "@layouts/Outer.astro";
+import "@fontsource/dm-mono";
+import { Image } from "astro:assets";
+import thing from "@assets/images/mainPage/thing.png";
 
 const props = {
-  title: 'Before you enter...',
-  desc: 'Warning Page before entering',
-  keywords: 'lel, nekoweb, website, info',
-  imageUrl: '/src/assets/images/mainPage/thing.png',
+  title: "Before you enter...",
+  desc: "Warning Page before entering",
+  keywords: "lel, nekoweb, website, info",
+  imageUrl: "/images/opengraph/thing.png",
   imageWidth: 1920,
   imageHeight: 1080,
-  imageAlt: 'Thing idk',
-  accent: '#cba6f7',
-}
+  imageAlt: "Thing idk",
+  accent: "#cba6f7",
+};
 interface Props {
-  title: string
-  desc: string
-  keywords: string
-  imageUrl: string
-  imageWidth: number
-  imageHeight: number
-  imageAlt: string
-  accent: string
+  title: string;
+  desc: string;
+  keywords: string;
+  imageUrl: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  accent: string;
 }
 ---
 
