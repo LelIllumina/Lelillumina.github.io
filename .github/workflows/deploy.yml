@@ -1,25 +1,20 @@
-name: Deploy to Nekoweb
+name: Deploy to NekoWeb
 
 on: [push]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-    name: deploy2nekoweb
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@main
-
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v2
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
-          bun-version: latest
-
-      - name: Prepare dev
-        run: bun install
-
-      - name: Run Gulp
-        run: bun run gulp
+          path: |
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+      - name: Install, build, and upload your site output
+        uses: withastro/action@v2
 
       - name: deploy2nekoweb
         uses: deploy2nekoweb/deploy2nekoweb@main
@@ -27,4 +22,4 @@ jobs:
           nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
           nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
           nekoweb-folder: "/dist/"
-          directory: "./dist"
+          directory: "dist"
