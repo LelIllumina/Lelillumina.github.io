@@ -1,0 +1,10 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+type Props = HTMLAttributes<'img'>
+
+const props = Astro.props
+const { title } = props
+---
+
+<img {...props} class="pic" />
+<small class="alt-text">{title}</small>

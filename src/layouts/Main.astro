@@ -1,0 +1,76 @@
+---
+interface Props {
+  title: string
+  desc: string
+  keywords: string
+  imageUrl: string
+  imageWidth: number
+  imageHeight: number
+  imageAlt: string
+  accent: string
+}
+
+import Adverts from '@components/Adverts.astro'
+import Buttons from '@components/Buttons.astro'
+import LelInfo from '@components/LelInfo.astro'
+import List from '@components/List.astro'
+import Socials from '@components/Socials.astro'
+import Outer from './Outer.astro'
+import '@fontsource/dm-mono/400.css'
+import '@fontsource/dm-mono/500.css'
+import '@fontsource/ibm-plex-mono/400.css'
+import '@fontsource/ibm-plex-mono/700.css'
+import '@styles/main.css'
+import ClarityHashtagSolid from '~icons/clarity/hashtag-solid'
+
+const props = Astro.props
+const { title, desc } = props
+---
+
+<Outer {...props}>
+  <Buttons />
+  <List />
+  <LelInfo />
+  <div id="page-info">
+    <ClarityHashtagSolid id="hashtag" />
+    <h2>lel@nekoweb</h2>
+    <p>
+      {title}
+    </p>
+    <Socials />
+  </div>
+  <div id="page" transition:animate="fade">
+    <slot />
+  </div>
+  <div id="marquee">
+    <marquee behaviour="scroll" direction="left" id="theMarquee"
+      >{desc}<span id="tagline"></span></marquee
+    >
+  </div>
+  <Adverts />
+
+  <Fragment slot="head"
+    ><link
+      rel="dns-prefetch preconnect"
+      href="https://hillhouse.neocities.org/"
+    />
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://decolonizepalestine.com/"
+    />
+    <link rel="dns-prefetch preconnect" href="https://nekoweb.org/" />
+    <link rel="dns-prefetch preconnect" href="https://melankorin.net" />
+    <link rel="dns-prefetch preconnect" href="https://trademarkhell.net/" />
+    <link rel="dns-prefetch preconnect" href="https://dimden.dev/" />
+    <link rel="dns-prefetch preconnect" href="https://districts.nekoweb.org" />
+    <link rel="dns-prefetch preconnect" href="https://maxpixels.moe/" />
+    <link rel="dns-prefetch preconnect" href="https://social.nekoweb.org/" />
+    <link rel="dns-prefetch preconnect" href="https://cereza.zone/" />
+    <link rel="dns-prefetch preconnect" href="https://anlucas.neocities.org/" />
+    <link rel="dns-prefetch preconnect" href="https://cyber.dabamos.de/" />
+    <link rel="dns-prefetch preconnect" href="https://eyeorb.net/" />
+    <link rel="dns-prefetch preconnect" href="https://rice.place/" />
+    <slot name="head" />
+    <script src="/src/scripts/tagline.ts" type="module" lang="ts"></script>
+  </Fragment>
+</Outer>

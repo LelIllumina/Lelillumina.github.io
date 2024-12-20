@@ -1,0 +1,123 @@
+/* Main */
+:root {
+  /* Using :root you can set variables to reuse */
+  --almostWhite: #fff2cc;
+  --cream: #fff2cc;
+  --orange: #ffc09b;
+  --peach: #ffbbba;
+  --lightGreen: #ffe1b6;
+  --peachier: #ffbbba;
+  --orangish: #ffc09b;
+  --creamish: #ffecd6;
+  --pink: #fc949f;
+  --link: #ea8988;
+  --purple: #fc949f;
+  --paleGreen: #bbd8bb;
+  --gray: #d5d5d5;
+  --lightBrown: #825044;
+  --darkBrown: #634c53;
+  --cookie: #875f6b;
+  --dough: #ffd0bc;
+  --lightRed: #b95c5c;
+  --crazyGreen: #95e995;
+  --gradientorange: linear-gradient(#fff2df, #fadabe);
+}
+
+* {
+  /* You can see what this does over here:
+ https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("https://nekoweb.org/assets/nekopattern.png") repeat;
+}
+
+body {
+  min-height: 100%;
+  font: 11pt "MS PGothic", Tahoma, Verdana, sans-serif;
+}
+
+#header {
+  max-width: 1200px;
+  height: 120px;
+  margin: auto;
+
+  background: url("https://nekoweb.org/assets/checkerboard.png"),
+    linear-gradient(to bottom, var(--cookie), var(--darkBrown));
+  background-size: 10px 10px, auto;
+
+  image-rendering: crisp-edges;
+}
+
+#mainbody {
+  position: relative;
+  z-index: 0;
+
+  max-width: 1200px;
+  min-height: calc(100% - 160px);
+  margin: auto;
+  padding: 12px;
+  padding-left: calc(12px + 25px);
+
+  color: var(--darkBrown);
+
+  background: #fff9e6;
+}
+
+#footer {
+  width: 1200px;
+  margin: auto;
+  padding: 12px;
+
+  font-size: 9pt;
+  color: var(--almostwhite);
+  text-align: center;
+
+  background: var(--gradientorange);
+  border-top: #1a1019;
+}
+
+h1 {
+  margin: auto;
+  padding-top: 15px;
+
+  font-size: 20px;
+  color: var(--almostWhite);
+  text-align: center;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 5px !important;
+  padding-bottom: 5px;
+
+  font-size: 20pt;
+
+  border-bottom: 2px dashed var(--orange);
+}
+
+p {
+  font-size: 17px;
+}
+
+a {
+  font-weight: bold;
+  color: var(--link);
+}
+
+#username {
+  font-size: 50px;
+  color: var(--dough);
+}
+
+code {
+  padding: 0 2px;
+  background-color: var(--dough);
+  border: solid 1px;
+  border-radius: 5px;
+}

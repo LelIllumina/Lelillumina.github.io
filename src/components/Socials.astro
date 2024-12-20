@@ -1,0 +1,93 @@
+---
+type Props = Record<string, never>
+
+import Email from '@assets/images/mainpage/cockli.svg'
+import SimpleIconsAnilist from '~icons/simple-icons/anilist'
+import SimpleIconsDiscord from '~icons/simple-icons/discord'
+import SimpleIconsGithub from '~icons/simple-icons/github'
+import SimpleIconsInstagram from '~icons/simple-icons/instagram'
+import SimpleIconsMyanimelist from '~icons/simple-icons/myanimelist'
+import SimpleIconsTwitter from '~icons/simple-icons/twitter'
+---
+
+<ul>
+  <li>
+    <a
+      href="https://x.com/lel_illumina/"
+      title="Twitter"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter"><SimpleIconsTwitter /></a
+    >
+  </li>
+  <li>
+    <a
+      href="https://instagram.com/lellumina/"
+      title="Instagram"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"><SimpleIconsInstagram /></a
+    >
+  </li>
+  <li>
+    <a
+      href="https://discord.com/users/850319718920224798/"
+      title="Discord"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Discord"><SimpleIconsDiscord /></a
+    >
+  </li>
+  <li>
+    <a
+      href="https://github.com/LelIllumina/"
+      title="Github"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Github"><SimpleIconsGithub /></a
+    >
+  </li>
+  <li>
+    <a
+      href="https://myanimelist.net/profile/LelIllumina/"
+      title="MyAnimeList"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="MyAnimeList"><SimpleIconsMyanimelist /></a
+    >
+  </li>
+  <li>
+    <a
+      href="https://anilist.co/user/LelIllumina/"
+      title="Anilist"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Anilist"><SimpleIconsAnilist /></a
+    >
+  </li>
+  <li>
+    <a
+      href="mailto:lelillumina@tfwno.gf"
+      title="Cock.li Mail"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Cock.li Mail"><Email /></a
+    >
+
+    <style>
+      li {
+        float: right;
+
+        a {
+          margin: 0 5px;
+          color: var(--text);
+          transition: 0.2s;
+        }
+
+        a:hover {
+          color: var(--link);
+        }
+      }
+    </style>
+  </li>
+</ul>

@@ -1,0 +1,23 @@
+---
+type Props = Record<string, never>
+
+import { Image } from 'astro:assets'
+import palestinetoria from '@assets/images/mainPage/palestineCastoria.gif'
+import palestineko from '@assets/images/mainPage/palestineko.avif'
+---
+
+<div id="adverts">
+  <div style="overflow:auto; max-height: 100%;">
+    <iframe
+      title="NekoLink"
+      width="200"
+      height="200"
+      style=" height: 200px;border: none;"
+      src="https://rice.nekoweb.org/nekolink.html"
+      loading="eager"></iframe>
+    <a href="https://pure.nekoweb.org/">
+      <Image src={palestineko} alt="Palestine Neko" loading="eager" /></a
+    >
+    <Image src={palestinetoria} alt="Palestine Castoria" loading="eager" />
+  </div>
+</div>

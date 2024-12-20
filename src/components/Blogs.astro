@@ -1,0 +1,38 @@
+---
+type Props = Record<string, never>
+import { getCollection } from 'astro:content'
+const posts = await getCollection('blog')
+---
+
+<section id="sidebar" transition:persist>
+  <div>
+    <h2>Blogs:</h2>
+    <ul style="padding: 0;">
+      {
+        posts.map((post) => (
+          <li style="margin: 16px 0">
+            <a class="index-link" href={`/blogs/${post.id}`}>
+              {post.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <h2>Links:</h2>
+    <p>
+      <a href="https://remblanc.nekoweb.org"
+        ><img
+          src="https://remblanc.nekoweb.org/images/button.png"
+          alt="remblanc"
+          title="remblanc's incredible site"
+        /></a
+      >
+    </p>
+    <p>
+      <a href="https://nekoweb.org">The Nekowebs</a>
+    </p>
+    <p><a href="/">Back to the Main page</a></p>
+  </div>
+</section>

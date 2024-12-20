@@ -1,0 +1,132 @@
+@import url("variables.css");
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template: "Buttons List PageInfo PageInfo" 0.2fr "Buttons List Page Adverts" 2.6fr "Buttons LelInfo marquee Adverts" 0.2fr / 110px 0.7fr 2.4fr 0.7fr;
+  gap: 15px;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 15px;
+
+  font-family: "DM Mono", monospace;
+  color: var(--text);
+
+  background-color: var(--background);
+
+  * {
+    scrollbar-color: rgb(0 0 0 / 0%);
+    scrollbar-width: thin;
+  }
+}
+
+body > div {
+  position: relative;
+  padding: 20px;
+  border: 2px solid var(--foreground);
+  transition: 0.5s;
+}
+
+body > div::before {
+  content: attr(id);
+
+  position: absolute;
+  top: -15px;
+  left: 10px;
+
+  overflow: visible;
+
+  width: fit-content;
+  padding: 5px;
+
+  font-weight: 900;
+  color: var(--text-dark);
+
+  background-color: var(--background);
+
+  transition: 0.5s;
+}
+
+body > div:hover {
+  border: 2px solid var(--accent);
+}
+
+body > div:hover::before {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: auto;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+#buttons {
+  grid-area: Buttons;
+  padding: 0;
+}
+
+#list {
+  grid-area: List;
+}
+
+#lel-info {
+  grid-area: LelInfo;
+}
+
+#marquee {
+  grid-area: marquee;
+}
+
+#page {
+  grid-area: Page;
+}
+
+#adverts {
+  grid-area: Adverts;
+  text-align: center;
+
+  * {
+    max-width: 200px;
+    height: auto;
+    margin: 10px 0;
+  }
+}
+
+#page-info {
+  grid-area: PageInfo;
+  font-size: 1rem;
+
+  * {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  > h2 {
+    margin-right: 10px;
+    padding-right: 20px;
+    font-size: 1rem;
+    border-right: thin solid var(--foreground);
+  }
+}
+
+#hashtag {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+a {
+  color: var(--link);
+}

@@ -1,0 +1,138 @@
+---
+type Props = Record<string, never>
+
+import MdiBrushOutline from '~icons/mdi/brush-outline'
+import MdiCheckboxMarkedCircleMinusOutline from '~icons/mdi/checkbox-marked-circle-minus-outline'
+import MdiFormatText from '~icons/mdi/format-text'
+import MdiHelpRhombusOutline from '~icons/mdi/help-rhombus-outline'
+import MdiHomeVariantOutline from '~icons/mdi/home-variant-outline'
+import MdiLaunch from '~icons/mdi/launch'
+import MdiPaletteOutline from '~icons/mdi/palette-outline'
+import MdiTriforce from '~icons/mdi/triforce'
+import MdiViewGalleryOutline from '~icons/mdi/view-gallery-outline'
+
+import Dimden from '/src/assets/images/mainPage/dimden.svg'
+
+interface link {
+  icon: astroHTML.JSX.Element
+  label: string
+  url: string
+  class: string
+}
+
+const links: link[] = [
+  { icon: MdiHomeVariantOutline, label: 'Index', url: '/main/', class: '  ' },
+  {
+    icon: MdiCheckboxMarkedCircleMinusOutline,
+    label: 'Quiz Results',
+    url: '/quiz/',
+    class: 'wip',
+  },
+  {
+    icon: MdiPaletteOutline,
+    label: 'Oc Buttons',
+    url: '/buttons/',
+    class: '',
+  },
+  {
+    icon: MdiViewGalleryOutline,
+    label: 'Lel Gallery',
+    url: '/gallery/',
+    class: 'wip',
+  },
+  { icon: MdiBrushOutline, label: 'CSS Themes', url: '/themes/', class: 'wip' },
+  { icon: Dimden, label: 'Dimden Colors', url: '/dimden/', class: 'wip' },
+  { icon: MdiTriforce, label: 'Cool Shit', url: '/cool/', class: '' },
+  { icon: MdiHelpRhombusOutline, label: 'About', url: '/about/', class: '' },
+  { icon: MdiFormatText, label: 'Blog', url: '/blogs/', class: '' },
+]
+const currentUrl = Astro.url.pathname
+---
+
+<div id="list">
+  <div id="container">
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            {link.label === "Blog" && <hr />}
+            <link.icon />
+            <a
+              href={link.url}
+              class={
+                (currentUrl === link.url ? "active" : "") + " " + link.class
+              }
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul id="external">
+      <li>
+        <MdiLaunch /><a href="https://snippets.nekoweb.org/">Snippets Site</a>
+      </li>
+    </ul>
+    <p id="info">
+      Crossed out links aren't made yet <br /> Others are pretty barebones
+    </p>
+  </div>
+</div>
+<style>
+  #container {
+    overflow: auto;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 10px;
+    list-style-type: none;
+
+    * {
+      font-size: 1rem;
+      line-height: 40px;
+      color: var(--text-dark);
+      text-decoration: dotted;
+
+      /* text-align: center; */
+      vertical-align: middle;
+
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: var(--text);
+    }
+
+    hr {
+      color: var(--text-dark);
+      border-color: var(--text-dark);
+    }
+  }
+
+  .active {
+    color: var(--text);
+  }
+
+  .wip {
+    color: var(--text-darker);
+    text-decoration: line-through;
+  }
+
+  #external {
+    position: absolute;
+    bottom: 15px;
+  }
+
+  svg {
+    margin: 0 10px 0 0;
+    font-size: 1rem;
+  }
+
+  #info {
+    font-size: 0.6rem;
+    color: var(--text-dark);
+    text-align: center;
+  }
+</style>

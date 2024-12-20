@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string
+  desc: string
+  keywords: string
+  imageUrl: string
+  imageWidth: number
+  imageHeight: number
+  imageAlt: string
+  accent: string
+}
+
+import Head from '@components/Head.astro'
+const props = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <Head {...props} />
+    <slot name="head" slot="head" />
+  </head>
+  <body transition:animate="none">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,54 @@
+songbox {
+  background-image: linear-gradient(#1e1e2ebd, #11111bf5),
+    url("https://lel.nekoweb.org/assets/images/twirly.png");
+  background-size: cover;
+  border: 5px ridge #cba6f7;
+}
+
+sitename {
+  margin: auto;
+  font-size: 1.5vmin;
+  color: #a6adc8;
+}
+
+trackinfo {
+  width: fit-content;
+}
+
+trackcover {
+  float: left;
+  height: 150px;
+  animation: album-spin 10s infinite;
+}
+
+trackname {
+  font-size: 2vmin;
+  font-weight: bold;
+  color: #cdd6f4;
+}
+
+artistname {
+  margin: 5px auto;
+  font-size: 1vmax;
+  color: #a6adc8;
+}
+
+searchbutton {
+  padding: 4px;
+
+  font-size: 1vmax;
+  color: #a6adc8;
+  text-decoration: none;
+
+  background: #313244;
+}
+
+@keyframes album-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

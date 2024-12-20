@@ -1,0 +1,9 @@
+:root {
+  --background: oklch(19% 0 0deg);
+  --foreground: oklch(31% 0 0deg);
+  --text: oklch(80% 0 0deg);
+  --text-dark: oklch(60% 0 0deg);
+  --text-darker: oklch(40% 0 0deg);
+  --accent: oklch(78.71% 0.1187 304.77deg);
+  --link: oklch(73% 0.12 200deg);
+}

@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets'
+import Main from '@layouts/Main.astro'
+
+const props = {
+  title: 'Buttons',
+  desc: "Buttons I've made myself (bad)",
+  keywords: 'lel, nekoweb, website, button, buttons',
+  imageUrl: '/src/assets/images/buttons/LIES.png',
+  imageWidth: 88,
+  imageHeight: 31,
+  imageAlt: 'Lie button',
+  accent: '#cba6f7',
+}
+---
+
+<Main {...props}>
+  <h1>Buttons</h1>
+  <h2>Ones I've made for personal use</h2>
+  <p>
+    I dont have many, and most of these have inside lore and are NSFW, but here
+    they are. They're also in the sidebar as you can see.
+  </p>
+
+  <div>
+    <span>
+      <Image
+        decoding="async"
+        loading="eager"
+        src="/images/buttons/subahibibutton1.png"
+        title="Subahibi"
+        alt="Subarashiki Hibi"
+        height="31"
+        width="88"
+      />
+      <textarea name="Subahibi" id="subahibi1"
+        ><img decoding="async" loading="eager"
+        src="https://lel.nekoweb.org/images/buttons/subahibibutton1.png"
+        title="Subahibi" alt="Subarashiki Hibi" height="31" width="88" /></textarea
+      >
+    </span>
+    <span>
+      <Image
+        decoding="async"
+        loading="eager"
+        src="/images/buttons/subahibibutton2.png"
+        title="Subahibi"
+        alt="Subarashiki Hibi"
+        height="31"
+        width="88"
+      />
+      <textarea name="Subah Bakhair" id="subahibi2"
+        ><img decoding="async" loading="eager"
+        src="https://lel.nekoweb.org/images/buttons/subahibibutton2.png"
+        title="Subahibi" alt="Subarashiki Hibi" height="31" width="88" /></textarea
+      >
+    </span>
+    <span>
+      <Image
+        decoding="async"
+        loading="eager"
+        src="/images/buttons/butt on.png"
+        title="Butt On"
+        alt="Butt On"
+        height="31"
+        width="88"
+      />
+      <textarea name="Butt On" id="butt"
+        ><img decoding="async" loading="eager"
+        src="https://lel.nekoweb.org/images/buttons/butt on.png" title="Butt On"
+        alt="Butt On" height="31" width="88" /></textarea
+      ></span
+    >
+  </div>
+  <span>
+    <Image
+      decoding="async"
+      loading="eager"
+      src="/images/buttons/LIES.png"
+      title="LIESSSSS THEY WERE ALL LIES"
+      alt="lyes"
+      height="31"
+      width="88"
+    />
+    <textarea name="Lies" id="lies"
+      ><img decoding="async" loading="eager"
+      src="https://lel.nekoweb.org/images/buttons/LIES.png" title="LIESSSSS THEY
+      WERE ALL LIES" alt="lyes" height="31" width="88" /></textarea
+    >
+  </span>
+  <br />
+  <h2>NSFW Buttons Archive</h2>
+  <p>
+    Here's some archived and aggregated NSFW buttons, like the ones you can see
+    on the sidebar, they're tricky to find in the sea of button on most button
+    lists, so I want to make them easier to find.
+  </p>
+  <h3>Currently a WIP</h3>
+</Main>
+
+<style>
+  span {
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    vertical-align: middle;
+  }
+
+  img {
+    margin: auto 0;
+  }
+</style>

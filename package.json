@@ -1,0 +1,37 @@
+{
+  "name": "lel.nekoweb.org",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "bunx --bun astro dev",
+    "build": "bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "sync": "bunx --bun astro sync",
+    "lint": "bunx --bun prettier '**/*.astro' --write --cache && bunx --bun stylelint 'src/**/*.{css,html,astro}' --fix --cache && bunx --bun biome check --write ./src"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/rss": "^4.0.10",
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/courier-prime": "^5.1.0",
+    "@fontsource/cutive-mono": "^5.1.0",
+    "@fontsource/dm-mono": "^5.1.0",
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.1",
+    "@iconify/json": "^2.2.286",
+    "astro": "^5.1.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-embed": "^0.4.15",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-package": "^1.4.0",
+    "sharp": "^0.33.5",
+    "stylelint-config-clean-order": "^6.1.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "unplugin-icons": "^0.22.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

@@ -1,0 +1,113 @@
+---
+import { Image } from 'astro:assets'
+import Main from '@layouts/Main.astro'
+
+const props = {
+  title: "Nekoweb's #1 Gooner",
+  desc: 'Welcome to my site! You WILL regret your visit!! :3',
+  keywords: 'lel, nekoweb, website, neco arc, gooning, NSFW, stuff',
+  imageUrl: '/src/assets/images/mainPage/SaintLelsVCR.png',
+  imageWidth: 1200,
+  imageHeight: 1200,
+  imageAlt: 'Saint Lel',
+  accent: '#cba6f7',
+}
+
+import Lel from '/src/assets/images/mainPage/SaintLelsVCR.png'
+
+import num0 from '/src/assets/images/numbers/0.gif'
+import num1 from '/src/assets/images/numbers/1.gif'
+import num2 from '/src/assets/images/numbers/2.gif'
+import num3 from '/src/assets/images/numbers/3.gif'
+import num4 from '/src/assets/images/numbers/4.gif'
+---
+
+<Main {...props}>
+  <div style="overflow:auto; max-height:70vh;">
+    <h1>Welcome to the top resource for Lelism</h1>
+    <p>
+      Enjoy my new layout and explore! P.S This site looks better on <span
+        style="color: orange;">firefox</span
+      >
+    </p>
+
+    <br />
+
+    <div id="views">
+      <div id="views-counter">
+        <Image src={num0} alt="0" loading="eager" decoding="async" />
+        <Image src={num1} alt="1" loading="eager" decoding="async" />
+        <Image src={num2} alt="2" loading="eager" decoding="async" />
+        <Image src={num3} alt="3" loading="eager" decoding="async" />
+        <Image src={num4} alt="4" loading="eager" decoding="async" />
+      </div>
+      <p id="subtitle">Visits since creation</p>
+    </div>
+
+    <div style="display: flex; justify-content: space-around">
+      <div id="stats">
+        <h2>Stats:</h2>
+        <p id="created"><em>Created</em>: Loading...</p>
+        <p id="updated"><em>Updated</em>: Loading...</p>
+        <p id="followers"><em>Followers</em>: Loading...</p>
+
+        <br />
+
+        <iframe
+          loading="eager"
+          title="Nekoweb Follow button"
+          src="https://nekoweb.org/frame/follow"
+          width="150"
+          height="35"
+          style="margin-bottom: 13px; border: none"></iframe>
+      </div>
+
+      <div>
+        <Image
+          src={Lel}
+          alt="Saint Lel"
+          width="350"
+          id="lel"
+          loading="eager"
+          decoding="async"
+        />
+        <p class="smol">Meet Saint Lel, the patron saint of Lelism</p>
+      </div>
+    </div>
+
+    <br />
+    <discord-widget discord-id="850319718920224798"></discord-widget>
+    <link rel="stylesheet" href="/src/styles/discord/discord.css" />
+  </div>
+</Main>
+
+<script type="module" src="/src/scripts/discord/discord.ts" lang="ts"></script>
+<script type="module" src="/src/scripts/discord/api.ts" lang="ts"></script>
+<script type="module" src="/src/scripts/main.ts" lang="ts"></script>
+
+<style>
+  #views {
+    text-align: center;
+  }
+
+  #stats {
+    margin: auto 0;
+  }
+
+  #lel {
+    height: 350px;
+    padding: 5px;
+    border: 5px double var(--foreground);
+    transition: 1s;
+  }
+
+  #lel:hover {
+    border: 5px double var(--accent);
+  }
+
+  .smol {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+    text-align: center;
+  }
+</style>

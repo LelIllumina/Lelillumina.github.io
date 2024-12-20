@@ -1,0 +1,68 @@
+.site-box {
+  text-align: right;
+  background: url("https://lel.nekoweb.org/images/BG.apng");
+  border-radius: 3px;
+}
+
+.site-box::after {
+  content: url("https://lel.nekoweb.org/images/neco_blast.png");
+
+  position: relative;
+  right: 15px;
+  bottom: 190px;
+
+  display: block;
+
+  width: 195px;
+
+  transition: transform 1.5s;
+}
+
+.site-box .sitefeature {
+  bottom: 8px;
+  left: 8px;
+  border: 2px solid #ecbfa6;
+}
+
+.site-box > a > p {
+  margin-right: 6px;
+  color: #cdd6f4;
+}
+
+.site-box > a > span {
+  margin-right: 10px;
+  color: #cdd6f4;
+}
+
+.site-box .follow {
+  content: url("https://lel.nekoweb.org/images/neicon_arc.jpg");
+  float: right;
+  height: 30px;
+}
+
+.site-box:hover::after {
+  transform: translate(90px, -9px) rotate(10deg);
+}
+
+.site-box > * {
+  cursor: url("https://lel.nekoweb.org/assets/neco-arcgodmode.cur"), default;
+}
+
+.site-box > :active {
+  cursor: url("https://lel.nekoweb.org/assets/neco-arclooking.cur"), pointer;
+}
+
+.follow {
+  width: 150px;
+  height: 35px;
+
+  color: #1e1e2e;
+
+  background-color: #cba6f7;
+  border: 2px outset #f5c2e7;
+}
+
+.follow:active {
+  background-color: #ca9ee6;
+  border: 2px inset #f5c2e7;
+}

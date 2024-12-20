@@ -4,11 +4,12 @@ Just my personal site hosted on nekoweb, made in pure html, css and javascript.
 
 ## Templating
 
-Wanna use my site as a template? Sure, just remove all the content and write your own, a lot of the pages have different themes so you can pick whichever one or even just parts of them, just credit me if you do :3 or else ill find you.
-
-Unfortunately i dont plan on making any actual themes, not that there any good in the first place, but i do plan on migrating to Astro, and then you could use those Astro Layouts.
+Wanna use my site as a template? Sure if you use this github repo, otherwise itll be a bit hard
 
 ## Credits
+
+> [!IMPORTANT] Outdated Credits
+> These credits are for the old layout
 
 ### Main Index
 
