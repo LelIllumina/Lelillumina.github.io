@@ -1,4 +1,14 @@
 ---
+interface Props {
+  title: string;
+  desc: string;
+  keywords: string;
+  imageUrl: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  accent: string;
+}
 import Outer from "@layouts/Outer.astro";
 import "@fontsource/dm-mono";
 import { Image } from "astro:assets";
@@ -14,16 +24,6 @@ const props = {
   imageAlt: "Thing idk",
   accent: "#cba6f7",
 };
-interface Props {
-  title: string;
-  desc: string;
-  keywords: string;
-  imageUrl: string;
-  imageWidth: number;
-  imageHeight: number;
-  imageAlt: string;
-  accent: string;
-}
 ---
 
 <Outer {...props}>
@@ -88,10 +88,16 @@ interface Props {
       flex-direction: column;
 
       margin: auto;
-      margin: 0 100px;
-      padding: 20px;
+      margin: 0;
+      padding: 20px 100px;
 
       text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: auto;
     }
   </style>
 </Outer>
