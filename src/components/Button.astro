@@ -1,34 +1,20 @@
 ---
 import { Image } from "astro:assets";
 
-const { src, title, alt } = Astro.props;
+const { src, title, alt, loading } = Astro.props;
 ---
 
-<span>
-  <Image
-    decoding="async"
-    loading="eager"
-    src={src}
-    title={title}
-    alt={alt}
-    height="31"
-    width="88"
-  />
-  <textarea name="Lies" id="lies"
-    ><img decoding="async" loading="eager" src={src} title={title} alt={alt} height="31"
-    width="88" /></textarea
-  >
-</span>
+<Image
+  decoding="async"
+  loading={loading}
+  src={src}
+  title={title}
+  alt={alt}
+  height="31"
+  width="88"
+/>
 <style>
-  span {
-    display: flex;
-    gap: 10px;
-    align-content: center;
-    vertical-align: middle;
-  }
-
   img {
-    margin: auto 0;
     image-rendering: pixelated;
   }
 </style>

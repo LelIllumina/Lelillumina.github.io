@@ -1,0 +1,27 @@
+---
+import Button from "./Button.astro";
+
+const props = Astro.props;
+const { src, title, alt } = props;
+---
+
+<span>
+  <Button {...props} />
+  <textarea name="Lies" id="lies"
+    ><img decoding="async" loading="eager" src={src} title={title} alt={alt} height="31"
+    width="88" /></textarea
+  >
+</span>
+<style>
+  span {
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    vertical-align: middle;
+  }
+
+  img {
+    margin: auto 0;
+    image-rendering: pixelated;
+  }
+</style>
