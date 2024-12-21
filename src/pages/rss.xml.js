@@ -1,11 +1,11 @@
-import { getCollection } from 'astro:content'
-import rss from '@astrojs/rss'
+import { getCollection } from "astro:content";
+import rss from "@astrojs/rss";
 
 export async function GET(context) {
-  const blog = await getCollection('blog')
+  const blog = await getCollection("blog");
   return rss({
-    title: 'lel@nekoweb',
-    description: 'THE site for lel and gooning',
+    title: "lel@nekoweb",
+    description: "THE site for lel and gooning",
     site: context.site,
     items: blog.map((post) => ({
       guid: post.data.id,
@@ -14,7 +14,7 @@ export async function GET(context) {
       description: post.data.desc,
       // Compute RSS link from post `id`
       // This example assumes all posts are rendered as `/blog/[id]` routes
-      link: `/blog/${post.id}/`,
+      link: `/blogs/${post.id}/`,
     })),
-  })
+  });
 }
