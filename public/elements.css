@@ -1,68 +1,90 @@
 .site-box {
-  text-align: right;
-  background: url("https://lel.nekoweb.org/images/BG.apng");
-  border-radius: 3px;
+  font-family: "DM Mono", monospace;
+  color: #bebebe;
+  background: #141414;
 }
 
-.site-box::after {
-  content: url("https://lel.nekoweb.org/images/neco_blast.png");
-
-  position: relative;
-  right: 15px;
-  bottom: 190px;
-
-  display: block;
-
-  width: 195px;
-
-  transition: transform 1.5s;
+a {
+  color: #303030;
 }
 
-.site-box .sitefeature {
-  bottom: 8px;
-  left: 8px;
-  border: 2px solid #ecbfa6;
+.site-box > a {
+  color: #bebebe;
 }
 
 .site-box > a > p {
-  margin-right: 6px;
-  color: #cdd6f4;
+  font-size: 0;
 }
 
-.site-box > a > span {
-  margin-right: 10px;
-  color: #cdd6f4;
-}
-
-.site-box .follow {
-  content: url("https://lel.nekoweb.org/images/neicon_arc.jpg");
-  float: right;
-  height: 30px;
-}
-
-.site-box:hover::after {
-  transform: translate(90px, -9px) rotate(10deg);
-}
-
-.site-box > * {
-  cursor: url("https://lel.nekoweb.org/assets/neco-arcgodmode.cur"), default;
-}
-
-.site-box > :active {
-  cursor: url("https://lel.nekoweb.org/assets/neco-arclooking.cur"), pointer;
+.site-box > a > p::before {
+  content: "lel@nekoweb";
+  margin: 0 2px;
+  font-size: 16px;
 }
 
 .follow {
-  width: 150px;
-  height: 35px;
-
-  color: #1e1e2e;
-
-  background-color: #cba6f7;
-  border: 2px outset #f5c2e7;
+  font-family: "DM Mono", monospace;
+  color: #bebebe;
+  background: #141414;
+  border: 2px double #303030;
 }
 
-.follow:active {
-  background-color: #ca9ee6;
-  border: 2px inset #f5c2e7;
+.sitefeature {
+  width: 259px;
+  height: 150px;
+  margin: 0;
+  border: 1px solid #303030;
+}
+
+.post-box {
+  font-family: "DM Mono", monospace;
+  color: #bebebe;
+
+  background-color: #141414;
+  border: 5px solid #303030;
+  border-radius: 0;
+
+  transition: 1s;
+}
+
+.post-box .post-author {
+  display: none;
+}
+
+.post-box .post-dot {
+  display: none;
+}
+
+.post-box:hover {
+  border: 5px solid #cba6f7;
+}
+
+.post-box::before {
+  content: "lel@nekoweb";
+
+  position: absolute;
+  transform: translateY(-27px);
+
+  padding: 5px;
+
+  background: #141414;
+
+  transition: 1s;
+}
+
+.post-box:hover::before {
+  color: #cba6f7;
+}
+
+.post-title {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/dm-mono@latest/latin-400-normal.woff2")
+    format("woff2");
 }
