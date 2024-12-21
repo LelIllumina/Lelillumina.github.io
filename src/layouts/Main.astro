@@ -1,30 +1,30 @@
 ---
 interface Props {
-  title: string
-  desc: string
-  keywords: string
-  imageUrl: string
-  imageWidth: number
-  imageHeight: number
-  imageAlt: string
-  accent: string
+  title: string;
+  desc: string;
+  keywords: string;
+  imageUrl: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  accent: string;
 }
 
-import Adverts from '@components/Adverts.astro'
-import Buttons from '@components/Buttons.astro'
-import LelInfo from '@components/LelInfo.astro'
-import List from '@components/List.astro'
-import Socials from '@components/Socials.astro'
-import Outer from './Outer.astro'
-import '@fontsource/dm-mono/400.css'
-import '@fontsource/dm-mono/500.css'
-import '@fontsource/ibm-plex-mono/400.css'
-import '@fontsource/ibm-plex-mono/700.css'
-import '@styles/main.css'
-import ClarityHashtagSolid from '~icons/clarity/hashtag-solid'
+import Adverts from "@components/Adverts.astro";
+import Buttons from "@components/Buttons.astro";
+import LelInfo from "@components/LelInfo.astro";
+import List from "@components/List.astro";
+import Socials from "@components/Socials.astro";
+import Outer from "./Outer.astro";
+import "@fontsource/dm-mono/400.css";
+import "@fontsource/dm-mono/500.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/700.css";
+import "@styles/main.css";
+import ClarityHashtagSolid from "~icons/clarity/hashtag-solid";
 
-const props = Astro.props
-const { title, desc } = props
+const props = Astro.props;
+const { title, desc } = props;
 ---
 
 <Outer {...props}>
@@ -71,6 +71,6 @@ const { title, desc } = props
     <link rel="dns-prefetch preconnect" href="https://eyeorb.net/" />
     <link rel="dns-prefetch preconnect" href="https://rice.place/" />
     <slot name="head" />
-    <script src="/src/scripts/tagline.ts" type="module" lang="ts"></script>
+    <script src="/src/scripts/tagline.ts"></script>
   </Fragment>
 </Outer>
