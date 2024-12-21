@@ -23,17 +23,31 @@ a {
 }
 
 .follow {
+  width: 152px;
+  height: 35px;
+
   font-family: "DM Mono", monospace;
+  font-size: 11px;
   color: #bebebe;
+
   background: #141414;
-  border: 2px double #303030;
+  border: 5px double #303030;
+  border-radius: 0;
+
+  transition: 1s;
 }
 
-.sitefeature {
-  width: 259px;
-  height: 150px;
+.follow:hover {
+  border: 5px double #cba6f7;
+}
+
+.site-box .sitefeature {
+  width: 275px;
+  height: 149px;
   margin: 0;
-  border: 1px solid #303030;
+
+  border: 0;
+  border-bottom: 2px solid #303030;
 }
 
 .post-box {
