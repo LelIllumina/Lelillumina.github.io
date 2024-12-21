@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Main from "@layouts/Main.astro";
+import Button from "@components/Button.astro";
 
 const props = {
   title: "Buttons",
@@ -23,87 +23,32 @@ const props = {
   </p>
 
   <div>
-    <span>
-      <Image
-        decoding="async"
-        loading="eager"
-        src="/images/buttons/subahibibutton1.png"
-        title="Subahibi"
-        alt="Subarashiki Hibi"
-        height="31"
-        width="88"
-      />
-      <textarea name="Subahibi" id="subahibi1"
-        ><img decoding="async" loading="eager"
-        src="https://lel.nekoweb.org/images/buttons/subahibibutton1.png"
-        title="Subahibi" alt="Subarashiki Hibi" height="31" width="88" /></textarea
-      >
-    </span>
-    <span>
-      <Image
-        decoding="async"
-        loading="eager"
-        src="/images/buttons/subahibibutton2.png"
-        title="Subahibi"
-        alt="Subarashiki Hibi"
-        height="31"
-        width="88"
-      />
-      <textarea name="Subah Bakhair" id="subahibi2"
-        ><img decoding="async" loading="eager"
-        src="https://lel.nekoweb.org/images/buttons/subahibibutton2.png"
-        title="Subahibi" alt="Subarashiki Hibi" height="31" width="88" /></textarea
-      >
-    </span>
-    <span>
-      <Image
-        decoding="async"
-        loading="eager"
-        src="/images/buttons/butt on.png"
-        title="Butt On"
-        alt="Butt On"
-        height="31"
-        width="88"
-      />
-      <textarea name="Butt On" id="butt"
-        ><img decoding="async" loading="eager"
-        src="https://lel.nekoweb.org/images/buttons/butt on.png" title="Butt On"
-        alt="Butt On" height="31" width="88" /></textarea
-      ></span
-    >
-  </div>
-  <span>
-    <Image
-      decoding="async"
-      loading="eager"
+    <Button
+      src="/images/buttons/subahibibutton1.png"
+      title="Subahibi"
+      alt="Subarashiki Hibi"
+    />
+
+    <Button
+      src="/images/buttons/subahibibutton2.png"
+      title="Subahibi"
+      alt="Subarashiki Hibi"
+    />
+
+    <Button src="/images/buttons/butt on.png" title="Butt On" alt="Butt On" />
+
+    <Button
       src="/images/buttons/LIES.png"
       title="LIESSSSS THEY WERE ALL LIES"
       alt="lyes"
-      height="31"
-      width="88"
     />
-    <textarea name="Lies" id="lies"
-      ><img decoding="async" loading="eager"
-      src="https://lel.nekoweb.org/images/buttons/LIES.png" title="LIESSSSS THEY
-      WERE ALL LIES" alt="lyes" height="31" width="88" /></textarea
-    >
-  </span>
-  <span>
-    <Image
-      decoding="async"
-      loading="eager"
+
+    <Button
       src="/images/buttons/lel@Button.png"
       title="lel@button"
       alt="lel@nekoweb button"
-      height="31"
-      width="88"
     />
-    <textarea name="Lies" id="lies"
-      ><img decoding="async" loading="eager"
-      src="/images/buttons/lel@Button.png" title="lel@button" alt="lel@nekoweb
-      button" height="31" width="88" /></textarea
-    >
-  </span>
+  </div>
   <br />
   <h2>NSFW Buttons Archive</h2>
   <p>
@@ -113,16 +58,3 @@ const props = {
   </p>
   <h3>Currently a WIP</h3>
 </Main>
-
-<style>
-  span {
-    display: flex;
-    gap: 10px;
-    align-content: center;
-    vertical-align: middle;
-  }
-
-  img {
-    margin: auto 0;
-  }
-</style>
