@@ -1,0 +1,97 @@
+---
+import DimdenImage from "@components/DimdenImage.astro";
+import Main from "@layouts/Main.astro";
+
+const props = {
+  title: "Different Colors of Dimden",
+  desc: "The many different faces of dimden",
+  keywords: "lel, nekoweb, website, button, buttons",
+  imageUrl: "/images/dimden/aryanDimden.png",
+  imageWidth: 1024,
+  imageHeight: 1024,
+  imageAlt: "Aryan Dimden",
+  accent: "#cba6f7",
+};
+---
+
+<Main {...props}>
+  <div style="overflow:auto; max-height:72vh;">
+    <h1>Different Colors of Dimden</h1>
+    <p>Dumb inside joke, click for full res</p>
+    <div class="array">
+      <DimdenImage
+        src="/images/dimden/aryanDimden.png"
+        alt="Aryan Dimden"
+        name="Blondimden"
+        desc=`"Be the dimden the Japanese think you are"`
+      />
+      <DimdenImage
+        src="/images/dimden/bimben.png"
+        alt="bimben"
+        name="Bimben"
+        desc="slightly different blonde"
+      />
+      <DimdenImage
+        src="/images/dimden/evilDimden.png"
+        alt="EVIL Dimden"
+        name="EVIL Dimden"
+        desc="Kuroneko dimden..."
+      />
+      <DimdenImage
+        src="/images/dimden/jimjen.png"
+        alt="Jimjen"
+        name="Jimjen"
+        desc="Jimothy Jeniffer"
+      />
+      <DimdenImage
+        src="/images/dimden/kimken.png"
+        alt="kimken"
+        name="kimken"
+        desc="Miku Dimden"
+      />
+      <DimdenImage
+        src="/images/dimden/pimpen.png"
+        alt="pimpen"
+        name="pimpen"
+        desc="Ourple"
+      />
+      <DimdenImage
+        src="/images/dimden/rimren.png"
+        alt="rimren"
+        name="rimren"
+        desc="Lilium"
+      />
+      <DimdenImage
+        src="/images/dimden/crayonDimden.png"
+        alt="Crayon Dimden"
+        name="Lo-Fi Dimden"
+        desc="They ran outta budget"
+      />
+      <DimdenImage
+        src="/images/dimden/brightRainbow.png"
+        alt="Rainbow Dimden"
+        name="Rainbow Dimden"
+        desc="Dimden but Rainbow"
+      />
+      <DimdenImage
+        src="/images/dimden/lightRainbow.png"
+        alt="Light Rainbow Dimden"
+        name="Unnoticable Dimden"
+        desc="Wharts"
+      />
+      <DimdenImage
+        src="/images/dimden/desatRainbow.png"
+        alt="Desaturated Rainbow Dimden"
+        name="Desaturated Dimden"
+        desc="Like Rainbow dimden but his dye's faded"
+      />
+    </div>
+  </div>
+</Main>
+<style>
+  .array {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+</style>

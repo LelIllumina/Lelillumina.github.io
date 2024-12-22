@@ -1,0 +1,54 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+  name: string;
+  desc: string;
+}
+
+const { src, alt, name, desc } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/dimden/*"
+);
+
+const image = images[`/src/assets${src}`];
+
+if (!image)
+  throw new Error(
+    `"/src/assets${src}" does not exist in glob: "src/assets/images/dimden/*"`
+  );
+---
+
+<div class="card">
+  <a href={src} target="_blank" rel="noopener noreferrer">
+    <Image src={image()} alt={alt} width="100" loading="eager" />
+  </a>
+  <h2>{name}</h2>
+  <p>{desc}</p>
+</div>
+
+<style>
+  .card {
+    width: max-content;
+    min-width: 150px;
+    max-width: 250px;
+    padding: 10px;
+
+    text-align: center;
+
+    background: var(--foreground);
+    border: 5px solid var(--text-darker);
+  }
+
+  img {
+    border: 5px double var(--text-darker);
+    transition: 1s;
+  }
+
+  img:hover {
+    border: 5px double var(--accent);
+  }
+</style>
