@@ -11,7 +11,7 @@ interface Props {
 
 const { src, alt, name, desc } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/dimden/*"
+  "/src/assets/images/dimden/*.png"
 );
 
 const image = images[`/src/assets${src}`];
