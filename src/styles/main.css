@@ -15,6 +15,7 @@ body {
   padding: 15px;
 
   font-family: "DM Mono", monospace;
+  line-height: 25px;
   color: var(--text);
 
   background-color: var(--background);
@@ -73,6 +74,12 @@ h6 {
 #buttons {
   grid-area: Buttons;
   padding: 0;
+
+  > div {
+    overflow: auto;
+    height: 96%;
+    text-align: center;
+  }
 }
 
 #list {
@@ -88,7 +95,12 @@ h6 {
 }
 
 #page {
+  overflow: auto;
   grid-area: Page;
+}
+
+#page::before {
+  content: none;
 }
 
 #adverts {
