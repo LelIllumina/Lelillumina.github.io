@@ -1,12 +1,7 @@
+import fetchNekostats from "./nekostats";
 (async () => {
   try {
-    const request = await fetch("https://nekoweb.org/api/site/info/lel");
-
-    if (!request.ok) {
-      throw new Error(`HTTP Error: ${request.status}`);
-    }
-
-    const json = await request.json();
+    const json = await fetchNekostats("lel");
 
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
     const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
