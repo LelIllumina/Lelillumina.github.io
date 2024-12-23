@@ -27,6 +27,42 @@ const props = Astro.props;
 const { title, desc } = props;
 ---
 
+<style>
+  :root {
+    --background: oklch(19% 0 0deg);
+    --foreground: oklch(31% 0 0deg);
+    --text: oklch(80% 0 0deg);
+    --text-dark: oklch(60% 0 0deg);
+    --text-darker: oklch(40% 0 0deg);
+    --accent: oklch(78.71% 0.1187 304.77deg);
+    --link: oklch(73% 0.12 200deg);
+  }
+
+  #themes {
+    position: fixed;
+    z-index: 2;
+    right: 10px;
+    bottom: 10px;
+
+    padding: 10px;
+
+    color: var(--text);
+
+    background: var(--foreground);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  }
+
+  #theme-dropdown {
+    padding: 5px;
+
+    font-size: 1rem;
+    color: var(--text);
+
+    background: var(--background);
+    border: none;
+  }
+</style>
+
 <Outer {...props}>
   <Buttons />
   <List />
@@ -39,6 +75,28 @@ const { title, desc } = props;
     </p>
     <Socials />
   </div>
+
+  <div id="themes">
+    <script src="/src/scripts/themes.ts"></script>
+    <script>
+      import { setTheme } from "../scripts/themes";
+      function loadTheme(): void {
+        const savedTheme = localStorage.getItem("theme") || "default";
+        setTheme(savedTheme);
+      }
+      document.addEventListener("astro:after-swap", loadTheme);
+      loadTheme();
+    </script>
+
+    <label for="theme-dropdown">Select Theme:</label>
+    <select id="theme-dropdown">
+      <option value="default">Default</option>
+      <option value="catppuccin">Catppuccin</option>
+      <option value="rosepine">Rose Pine</option>
+      <option value="jollytheme">Jolly Theme</option>
+    </select>
+  </div>
+
   <div id="page" transition:animate="fade">
     <slot />
   </div>
