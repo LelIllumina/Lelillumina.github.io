@@ -8,16 +8,38 @@ import palestineko from "@assets/images/mainPage/palestineko.avif";
 
 <div id="adverts">
   <div style="overflow:auto; max-height: 100%;">
-    <iframe
-      title="NekoLink"
-      width="200"
-      height="200"
-      style=" height: 200px;border: none;"
-      src="https://rice.nekoweb.org/nekolink.html"
-      loading="eager"></iframe>
-    <a href="https://pure.nekoweb.org/">
-      <Image src={palestineko} alt="Palestine Neko" loading="eager" /></a
-    >
-    <Image src={palestinetoria} alt="Palestine Castoria" loading="eager" />
+    <div id="scrobbled">
+      <h2 id="lastfm-status">Loading...</h2>
+      <div id="songBox">
+        <img
+          class="trackCover img"
+          id="trackCover"
+          decoding="async"
+          src="/images/NekoFM/loading.png"
+          alt=""
+          height="150"
+          width="150"
+        />
+        <div class="trackInfo" id="trackInfo">
+          <h2 class="trackName" id="trackName">Loading...</h2>
+          <p class="artistName" id="artistName">Loading...</p>
+          <p class="siteName" id="siteName"></p>
+        </div>
+        <script src="/src/scripts/lastfm.ts"></script>
+
+        <a href="https://pure.nekoweb.org/">
+          <Image src={palestineko} alt="Palestine Neko" loading="eager" />
+        </a>
+
+        <Image src={palestinetoria} alt="Palestine Castoria" loading="eager" />
+        <iframe
+          title="NekoLink"
+          width="200"
+          height="200"
+          style=" height: 200px;border: none;"
+          src="https://rice.nekoweb.org/nekolink.html"
+          loading="eager"></iframe>
+      </div>
+    </div>
   </div>
 </div>

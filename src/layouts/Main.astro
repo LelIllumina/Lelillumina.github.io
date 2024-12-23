@@ -128,7 +128,16 @@ const { title, desc } = props;
     <link rel="dns-prefetch preconnect" href="https://cyber.dabamos.de/" />
     <link rel="dns-prefetch preconnect" href="https://eyeorb.net/" />
     <link rel="dns-prefetch preconnect" href="https://rice.place/" />
-    <slot name="head" />
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://lastfm.freetls.fastly.net/"
+    />
+    <link
+      rel="dns-prefetch preconnect"
+      href="https://api.lanyard.rest/"
+      crossorigin
+    />
     <script src="/src/scripts/tagline.ts"></script>
+    <slot name="head" />
   </Fragment>
 </Outer>
