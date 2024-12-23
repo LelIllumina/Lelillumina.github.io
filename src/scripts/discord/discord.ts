@@ -1,8 +1,8 @@
-import { type DiscordData, fetchDiscordData } from './api'
+import { type DiscordData, fetchDiscordData } from "./api";
 
 export class DiscordWidget extends HTMLElement {
   constructor() {
-    super()
+    super();
     this.innerHTML = /* HTML */ `
       <div id="discord-widget">
         <div id="discord-header">
@@ -45,93 +45,93 @@ export class DiscordWidget extends HTMLElement {
           </div>
         </div>
       </div>
-    `
+    `;
   }
 
   private getElements() {
     return {
-      discord: this.querySelector('#discord-widget') as HTMLDivElement,
-      pfp: this.querySelector('#discord-pfp') as HTMLImageElement,
-      discordName: this.querySelector('#discord-name') as HTMLHeadingElement,
+      discord: this.querySelector("#discord-widget") as HTMLDivElement,
+      pfp: this.querySelector("#discord-pfp") as HTMLImageElement,
+      discordName: this.querySelector("#discord-name") as HTMLHeadingElement,
       discordUsername: this.querySelector(
-        '#discord-username',
+        "#discord-username",
       ) as HTMLHeadingElement,
       discordStatus: this.querySelector(
-        '#discord-status',
+        "#discord-status",
       ) as HTMLParagraphElement,
-      discordRPC: this.querySelector('#discord-rpc') as HTMLDivElement,
+      discordRPC: this.querySelector("#discord-rpc") as HTMLDivElement,
       discordActivityName: this.querySelector(
-        '#discord-activity-name',
+        "#discord-activity-name",
       ) as HTMLHeadingElement,
       discordActivityImage: this.querySelector(
-        '#discord-activity-img',
+        "#discord-activity-img",
       ) as HTMLImageElement,
       discordActivitySmallImage: this.querySelector(
-        '#discord-activity-miniimg',
+        "#discord-activity-miniimg",
       ) as HTMLImageElement,
       discordActivityDetails: this.querySelector(
-        '#discord-activity-details',
+        "#discord-activity-details",
       ) as HTMLParagraphElement,
       discordActivityState: this.querySelector(
-        '#discord-activity-state',
+        "#discord-activity-state",
       ) as HTMLParagraphElement,
-    }
+    };
   }
 
   private updateWidget(data: DiscordData) {
-    const elements = this.getElements()
+    const elements = this.getElements();
     const {
       discord_user: { global_name, username },
       discord_status: online,
       activities = [],
-    } = data
+    } = data;
 
-    elements.discordName.textContent = global_name
-    elements.discordUsername.textContent = `(${username})`
+    elements.discordName.textContent = global_name;
+    elements.discordUsername.textContent = `(${username})`;
 
-    if (online === 'offline') {
-      elements.discordStatus.textContent = 'Offline'
-      elements.discordRPC.remove()
-      return
+    if (online === "offline") {
+      elements.discordStatus.textContent = "Offline";
+      elements.discordRPC.remove();
+      return;
     }
 
     const hasNonCustomId = activities.some(
-      (activity: { id: string }) => activity.id !== 'custom',
-    )
+      (activity: { id: string }) => activity.id !== "custom",
+    );
 
     if (activities.length === 0) {
-      elements.discordStatus.textContent = ''
+      elements.discordStatus.textContent = "";
     } else {
-      elements.discordStatus.textContent = `${activities[0].emoji?.name || ''} ${activities[0].state}`
+      elements.discordStatus.textContent = `${activities[0].emoji?.name || ""} ${activities[0].state}`;
     }
 
     if (hasNonCustomId) {
-      const { assets, name, details, state } = activities[1] || {}
+      const { assets, name, details, state } = activities[1] || {};
       if (assets?.large_image) {
-        elements.discordActivityImage.src = `https://${assets.large_image.split('/https/')[1]}`
+        elements.discordActivityImage.src = `https://${assets.large_image.split("/https/")[1]}`;
       }
       if (assets?.small_image) {
-        elements.discordActivitySmallImage.src = `https://${assets.small_image.split('/https/')[1]}`
+        elements.discordActivitySmallImage.src = `https://${assets.small_image.split("/https/")[1]}`;
       }
-      elements.discordActivityName.textContent = name || ''
-      elements.discordActivityDetails.textContent = details || ''
-      elements.discordActivityState.textContent = state || ''
+      elements.discordActivityName.textContent = name || "";
+      elements.discordActivityDetails.textContent = details || "";
+      elements.discordActivityState.textContent = state || "";
     } else {
-      elements.discordRPC.remove()
-      elements.discord.style.background = '#1f1d2e'
+      elements.discordRPC.remove();
+      elements.discord.style.background = "#1f1d2e";
     }
   }
 
   async connectedCallback() {
-    const discordId = this.getAttribute('discord-id') || '850319718920224798'
+    const discordId = this.getAttribute("discord-id") || "850319718920224798";
     try {
-      const data = await fetchDiscordData(discordId)
-      this.updateWidget(data)
+      const data = await fetchDiscordData(discordId);
+      this.updateWidget(data);
     } catch (error) {
-      console.error('Failed to fetch Discord data:', error)
+      console.error("Failed to fetch Discord data:", error);
       // Handle error state here
     }
   }
 }
 
-customElements.define('discord-widget', DiscordWidget)
+customElements.define("discord-widget", DiscordWidget);

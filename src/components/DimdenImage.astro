@@ -1,6 +1,6 @@
 ---
-import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   src: string;
@@ -11,14 +11,14 @@ interface Props {
 
 const { src, alt, name, desc } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/dimden/*.png"
+  "/src/assets/images/dimden/*.png",
 );
 
 const image = images[`/src/assets${src}`];
 
 if (!image)
   throw new Error(
-    `"/src/assets${src}" does not exist in glob: "src/assets/images/dimden/*"`
+    `"/src/assets${src}" does not exist in glob: "src/assets/images/dimden/*"`,
   );
 ---
 

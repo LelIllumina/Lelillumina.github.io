@@ -1,13 +1,13 @@
 ---
 interface Props {
-  title: string
-  desc: string
-  keywords: string
-  imageUrl: string
-  imageWidth: number
-  imageHeight: number
-  imageAlt: string
-  accent: string
+  title: string;
+  desc: string;
+  keywords: string;
+  imageUrl: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageAlt: string;
+  accent: string;
 }
 
 const {
@@ -19,10 +19,10 @@ const {
   imageHeight,
   imageAlt,
   accent,
-} = Astro.props
+} = Astro.props;
 
-const currentUrl = new URL(Astro.url.pathname, Astro.site)
-import { ClientRouter } from 'astro:transitions'
+const currentUrl = new URL(Astro.url.pathname, Astro.site);
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!-- Standard tags -->

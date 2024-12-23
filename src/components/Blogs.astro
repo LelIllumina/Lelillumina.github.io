@@ -1,7 +1,7 @@
 ---
-type Props = Record<string, never>
-import { getCollection } from 'astro:content'
-const posts = await getCollection('blog')
+type Props = Record<string, never>;
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
 ---
 
 <section id="sidebar" transition:persist>

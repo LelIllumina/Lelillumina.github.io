@@ -1,23 +1,23 @@
 ---
 interface Props {
-  title: string
-  desc: string
-  link: string
-  bgColor?: string
-  borderColor?: string
-  textColor?: string
-  image?: string | ImageMetadata | Promise<{ default: ImageMetadata }>
+  title: string;
+  desc: string;
+  link: string;
+  bgColor?: string;
+  borderColor?: string;
+  textColor?: string;
+  image?: string | ImageMetadata | Promise<{ default: ImageMetadata }>;
 }
 
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
 const { title, desc, link, bgColor, borderColor, textColor, image } =
-  Astro.props
+  Astro.props;
 
-const bgcolor = bgColor || 'oklch(23% 0 0deg);'
-const bordercolor = borderColor || 'var(--foreground)'
-const textcolor = textColor || 'var(--text)'
-const imageurl = image || '/src/assets/images/transparent.webp'
+const bgcolor = bgColor || "oklch(23% 0 0deg);";
+const bordercolor = borderColor || "var(--foreground)";
+const textcolor = textColor || "var(--text)";
+const imageurl = image || "/src/assets/images/transparent.webp";
 ---
 
 <div class="item">
