@@ -76,7 +76,26 @@ import num4 from "/src/assets/images/numbers/4.gif";
   </div>
 
   <br />
+  <h2>Discord status:</h2>
   <discord-widget discord-id="850319718920224798"></discord-widget>
+
+  <h2>Webrings:</h2>
+  <div id="nekowebring">
+    <script is:inline src="https://webring.nekoweb.org/onionring-variables.js"
+    ></script>
+    <script is:inline src="https://webring.nekoweb.org/onionring-widget.js"
+    ></script>
+    <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
+  </div>
+
+  <webring-container
+    style="margin: 0 auto; padding: 15px; border: solid 1px var(--text)"
+  >
+    <config key="type" value="catppuccin-mocha"></config>
+    <config key="font" value="Overused Grotesk, Arial, sans-serif"></config>
+    <config key="fill" value="false"></config>
+    <script is:inline src="https://palette.nekoweb.org/webring.js"></script>
+  </webring-container>
 </Main>
 
 <script src="/src/scripts/discord/discord.ts"></script>
