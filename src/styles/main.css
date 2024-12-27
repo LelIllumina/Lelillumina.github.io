@@ -71,6 +71,10 @@ h6 {
   font-family: "IBM Plex Mono", monospace;
 }
 
+h2 {
+  margin: 10px auto;
+}
+
 #buttons {
   grid-area: Buttons;
   padding: 0;

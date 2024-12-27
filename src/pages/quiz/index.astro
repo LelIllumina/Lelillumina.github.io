@@ -1,0 +1,154 @@
+---
+import Main from "@layouts/Main.astro";
+import { Image } from "astro:assets";
+
+const props = {
+  title: "Who am i really",
+  desc: "Random quizes online I've done",
+  keywords: "lel, nekoweb, website, neco arc, gooning, NSFW, stuff, quiz",
+  imageUrl: "/images/opengraph/giphy.gif",
+  imageWidth: 1200,
+  imageHeight: 1200,
+  imageAlt: "she no on my bu till i",
+  accent: "#cba6f7",
+};
+---
+
+<Main {...props}>
+  <h1>Quiz Results</h1>
+  <p>Results from random online quizes I've seen</p>
+  <h2>The Otaku:</h2>
+  <a
+    href="https://www.theotaku.com/quizzes/view/4097/what_dere_type_are_you%3F"
+    target="_blank"
+    ><Image
+      src="http://www.theotaku.com/guru_results/4097_Dandere.jpg"
+      alt="What Dere Type Are You?"
+      height="200"
+      width="400"
+    />
+  </a>
+  <a
+    href="https://www.theotaku.com/quizzes/view/3743/what_anime_hair_color_best_suits_your_personality%3F"
+    ><Image
+      src="http://www.theotaku.com/guru_results/3743_Blue_Hair.jpg"
+      alt="What Anime Hair Color Best Suits Your Personality?"
+      height="200"
+      width="400"
+    />
+  </a>
+  <a
+    href="https://www.theotaku.com/quizzes/view/4069/what_type_of_otaku_are_you%3F"
+    ><Image
+      src="http://www.theotaku.com/guru_results/4069_Hardcore_Otaku.jpg"
+      alt="What Anime Hair Color Best Suits Your Personality?"
+      height="200"
+      width="400"
+    />
+    <a
+      href="https://www.theotaku.com/quizzes/view/3281/which_hidamari_apartment_resident_are_you%3F"
+      ><Image
+        src="https://www.theotaku.com/guru_results/3281_Nazuna.jpg"
+        alt="What Anime Hair Color Best Suits Your Personality?"
+        height="200"
+        width="400"
+      />
+    </a>
+    <a
+      href="https://www.theotaku.com/quizzes/view/4084/which_huniepop_girl_is_perfect_for_you%3F"
+      ><Image
+        src="https://www.theotaku.com/guru_results/4084_Nikki_Ann_Marie.jpg"
+        alt="What Anime Hair Color Best Suits Your Personality?"
+        height="200"
+        width="400"
+      />
+    </a>
+    <h2>IDR Labs:</h2>
+    <a href="https://www.idrlabs.com/wife-rating-scale/test.php">
+      <Image
+        src="https://www.idrlabs.com/graphic/wife-rating-scale?1&p=0&l=EN&i=0"
+        alt="0% Wife"
+        width="294"
+        height="250"
+      />
+    </a>
+    <a href="https://www.idrlabs.com/husband-rating-scale/test.php">
+      <Image
+        src="https://www.idrlabs.com/graphic/husband-rating-scale?p=42&l=EN&i=2"
+        alt="42% Husband"
+        width="294"
+        height="250"
+      />
+    </a>
+    <a href="https://www.idrlabs.com/rorschach/test.php">
+      <Image
+        src="https://www.idrlabs.com/graphic/rorschach?4&l=EN&i=1"
+        alt="Mentally stable somehow"
+        width="365"
+        height="180"
+      />
+    </a>
+    <a href="https://www.idrlabs.com/homophobia/test.php">
+      <Image
+        src="https://charts.idrlabs.com/graphic/homophobia?p=56,47,70,58&l=EN"
+        alt="HOMOPHOBIA NUMERO UNO"
+        width="365"
+        height="180"
+      />
+    </a>
+    <a href="https://www.idrlabs.com/sexual-orientation/test.php">
+      <Image
+        src="https://www.idrlabs.com/graphic/sexual-orientation?p=17.9,92.9&l=EN"
+        alt="I LOVE YURI THO"
+        width="312"
+        height="300"
+      />
+      <a href="https://www.idrlabs.com/racism/test.php">
+        <Image
+          src="https://www.idrlabs.com/graphic/racism?p=33,0&l=EN"
+          alt="So like"
+          width="425"
+          height="242"
+        />
+      </a>
+      <a href="https://www.idrlabs.com/moral-alignment/test.php">
+        <Image
+          src="https://www.idrlabs.com/moral-alignment/2/35/2/39.2/graph.png"
+          alt="im good??"
+          width="300"
+          height="237"
+        />
+      </a>
+      <h2>Random Ones:</h2>
+
+      <div style="display: flex;gap: 15px;">
+        <a
+          href="https://web.archive.org/web/20060703170318/http://home.uchicago.edu/~alexis/ostan.htm"
+          target="_blank"
+        >
+          <Image
+            src="https://web.archive.org/web/20051229183219im_/http://home.uchicago.edu/~alexis/linux.jpg"
+            alt="linux-tan"
+            height="200"
+            width="200"
+          /></a
+        >
+        <p>
+          You are Linux. You're not as well known as the others, but you have a
+          devoted following bordering on the fanatical, and with your penguin
+          suit and GNU helmet, you will someday bring Microsoft toppling down.
+        </p>
+      </div>
+
+      <a href="http://rice.place/quiz.html" target="_blank"
+        ><Image
+          src="https://rice.place/ricequiz/whiterice.png"
+          alt="normal"
+          title="you are white rice"
+          width="200"
+          height="170"
+        /></a
+      ></a
+    >
+  </a>
+</Main>
