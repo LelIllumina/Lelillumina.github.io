@@ -1,0 +1,113 @@
+---
+import "@fontsource-variable/jetbrains-mono";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Settings | NekoFM</title>
+    <meta name="author" content="Lel Illumina" />
+    <meta name="description" content="Change view settings for NekoFM" />
+    <meta name="keywords" content="Nekoweb, LastFM, NekoFM, Music" />
+    <meta property="og:title" content="Settings | NekoFM" />
+    <meta property="og:description" content="Change view settings for NekoFM" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lel.nekoweb.org/nekofm/settings" />
+    <meta property="og:site_name" content="Nekoweb Lel" />
+    <meta
+      property="og:image"
+      content="https://lel.nekoweb.org/images/NekoFM/NekoFM_ek.png"
+    />
+    <meta name="theme-color" content="#a20000" />
+    <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
+    <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
+    <link rel="stylesheet" href="/src/styles/nekofm/style.css" />
+    <style>
+      p,
+      label {
+        line-height: 30px;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 200px;
+        margin: 50px 10%;
+      }
+
+      .option {
+        color: silver;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="title">
+        <a href="/nekofm/"
+          ><img id="logo" src="/images/NekoFM/NekoFM.png" alt="NekoFM" />
+        </a>
+        <nav id="navbar">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about/">About</a></li>
+            <li><a href="../css">Custom CSS</a></li>
+            <li><a class="activeNavLink" href="../settings">Settings</a></li>
+          </ul>
+        </nav>
+        <h2 id="tagline">Settings</h2>
+      </div>
+    </header>
+    <main>
+      <div id="form">
+        <h2>Settings</h2>
+        <label for="nsfw">NSFW Album Covers:</label>
+        <br />
+        <label class="option" for="nsfw-removed">
+          <input
+            id="nsfw-removed"
+            type="radio"
+            name="nsfw"
+            value="removed"
+            checked
+          />
+          Removed
+        </label>
+        <br />
+        <label class="option" for="nsfw-blurred">
+          <input id="nsfw-blurred" type="radio" name="nsfw" value="blurred" />
+          Blurred
+        </label>
+        <br />
+        <label class="option" for="nsfw">
+          <input id="nsfw" type="radio" name="nsfw" value="off" />
+          Show
+        </label>
+        <br /><br />
+        <label for="customCSS">Custom CSS:</label>
+        <input id="customCSS" type="checkbox" name="customCSS" checked />
+        <br /><br />
+        <input type="submit" value="Save" onclick="submit()" />
+        <input
+          type="reset"
+          value="Delete LocalStorage"
+          onclick="deleteLocalStorage(); alert('LocalStorage Cleared')"
+        />
+        <br /><br /><br />
+      </div>
+      <div id="notes">
+        <h2>Notes:</h2>
+        <p>
+          Using settings uses localStorage, however I only store these settings
+          in localStorage and nothing else, the data stays on your device and I
+          can never view it. Settings are checked and applied clientside.
+        </p>
+        <br /><br />
+        <p>These settings are also sitewide.</p>
+      </div>
+    </main>
+    <script src="/src/scripts/nekofm/localStorage.js"></script>
+  </body>
+</html>

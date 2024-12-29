@@ -1,0 +1,212 @@
+/* stylelint-disable selector-class-pattern */
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #111212;
+    --background: #e8fdfd;
+    --primary: #5a3a3a;
+    --secondary: #d08686;
+    --accent: #fa2929;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #edeeee;
+    --background: #021717;
+    --primary: #c5a5a5;
+    --secondary: #792f2f;
+    --accent: #d40505;
+
+    color-scheme: dark;
+  }
+}
+
+/* Set sizing for songboxes */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: "JetBrains Mono Variable", "Courier New", courier, monospace;
+  font-weight: 400;
+  color: var(--text);
+
+  background-color: var(--background);
+}
+
+main {
+  flex-grow: 1;
+  min-height: max-content;
+}
+
+h1 {
+  margin: auto;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 50px;
+}
+
+#logo {
+  height: 50px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 22px;
+}
+
+#tagline {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.hide {
+  opacity: 0 !important;
+}
+
+p {
+  margin: auto;
+  font-size: 16px;
+  color: silver;
+}
+
+a {
+  color: darkgray;
+  text-decoration: none;
+}
+
+/* Navbar stuff */
+
+#navbar {
+  display: inline;
+  font-weight: 800;
+}
+
+#navbar ul {
+  float: right;
+  overflow: hidden;
+
+  margin: 10px;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+#navbar li {
+  float: left;
+  display: inline;
+  margin: auto;
+}
+
+#navbar a {
+  display: block;
+
+  padding: 14px 25px;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+#navbar .activeNavLink {
+  color: var(--accent);
+}
+
+.siteName {
+  margin: auto;
+  font-size: 12px !important;
+  color: darkgray;
+}
+
+.credit {
+  font-size: 16px;
+}
+
+footer {
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.button {
+  cursor: pointer;
+
+  float: right;
+
+  margin: 10px;
+
+  font-size: 25px;
+
+  background-color: unset;
+  border: none;
+}
+
+#counter,
+#total,
+.counterType {
+  display: inline;
+  margin: 10px;
+  font-size: 25px;
+}
+
+.counterType {
+  margin: 10px 0 10px 100px;
+}
+
+#title {
+  margin: 25px;
+}
+
+#reload {
+  font-size: 25px;
+}
+
+#loading {
+  filter: opacity(20%) grayscale(80%);
+}
+
+#loading,
+#scrobbling,
+#offline {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  min-height: 30%;
+}
+
+#offline {
+  filter: opacity(50%) grayscale(50%);
+}
+
+.seperator {
+  margin: 25px;
+  text-align: center;
+}
+
+.container * {
+  font-family: "JetBrains Mono Variable", "Courier New", courier, monospace !important;
+}
+
+.trackName {
+  font-size: 16px !important;
+  font-weight: 600;
+}
+
+.artistName {
+  margin: 5px auto;
+  font-size: 16px !important;
+}
+
+.searchButton {
+  padding: 4px;
+
+  font-size: 10px !important;
+  color: #fff;
+  text-decoration: none;
+
+  background: #303030;
+}

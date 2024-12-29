@@ -1,0 +1,40 @@
+.listening {
+  background-color: #111;
+  border: 4px ridge aliceblue;
+}
+
+.trackCover {
+  border-radius: var(--coverBorder);
+}
+
+@media only screen and (width >= 860px) {
+  .listening {
+    display: flex;
+    align-items: center;
+
+    min-width: 250px;
+    margin: 0;
+    padding: 20px;
+
+    background-color: #111;
+    border: 4px ridge aliceblue;
+  }
+
+  .container {
+    position: relative;
+
+    contain: content;
+    overflow: hidden;
+
+    max-width: 33%;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .trackCover {
+    float: left;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: var(--coverBorder);
+  }
+}
