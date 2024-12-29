@@ -13,14 +13,17 @@ const props = {
   accent: "#cba6f7",
 };
 
-import catppuccin from "/src/assets/images/CoolShit/catppuccin.png";
-import rosepine from "/src/assets/images/CoolShit/rosepine.svg";
+import catppuccin from "@assets/images/CoolShit/catppuccin.png";
+import rosepine from "@assets/images/CoolShit/rosepine.min.svg";
+import partytown from "@assets/images/CoolShit/partytown.min.svg";
+import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
+import bunny from "@assets/images/CoolShit/bunny.min.svg";
 ---
 
 <Main {...props}>
   <h1>Cool stuff I found</h1>
   <p>Random cool things I found online that I wanted to share</p>
-  <h2>Themes</h2>
+  <h2>Themes:</h2>
   <Link
     title="Everforest"
     desc="Nice green theme"
@@ -47,5 +50,53 @@ import rosepine from "/src/assets/images/CoolShit/rosepine.svg";
     textColor="#e0def4"
     image={rosepine}
   />
-  <h2></h2>
+  <h2>Webdev:</h2>
+  <Link
+    title="Party Town"
+    desc="Moves scripts to a service worker for non-blocking execution"
+    link="https://partytown.builder.io/"
+    borderColor="#FF37AD"
+    textColor="#2890E9"
+    image={partytown}
+  />
+  <Link
+    title="icônes"
+    desc="icon library"
+    link="https://icones.js.org/"
+    bgColor="#181818"
+    borderColor="#282828"
+    textColor="#d1d5db"
+  />
+  <Link
+    title="Yay.boo"
+    desc="No signup Webhost "
+    link="https://yay.boo/"
+    bgColor="#000000"
+    borderColor="#242424"
+    textColor="#ffffff"
+    image={yayboo}
+  />
+  <h2>Etc:</h2>
+  <Link
+    title="Bunny.net Fonts"
+    desc="Google Fonts Compatible font API"
+    link="https://fonts.bunny.net/"
+    bgColor="#002649"
+    borderColor="#223C6A"
+    textColor="#ffffff"
+    image={bunny}
+  />
+  <Link
+    title="OSX on Docker "
+    desc="OSX on a docker container, regardless of "
+    link="https://github.com/sickcodes/Docker-OSX"
+  />
+  <Link
+    title="math4devs"
+    desc="Math terms shown using javascript code"
+    link="https://math4devs.com/"
+    bgColor="#191919"
+    borderColor="#2a2e33"
+    textColor="#ffffff"
+  />
 </Main>
