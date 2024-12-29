@@ -1,0 +1,29 @@
+---
+import Main from "@layouts/Main.astro";
+import { Image } from "astro:assets";
+
+const props = {
+  title: "CSS Userstyles/themes",
+  desc: "Stylus themes ive made, rip old layout",
+  keywords:
+    "lel, nekoweb, website, neco arc, gooning, NSFW, stuff, css, stylus, userstyles, css themes",
+  imageUrl: "/images/opengraph/kidnap.gif",
+  imageWidth: 600,
+  imageHeight: 338,
+  imageAlt: "Me when i kidnap you",
+  accent: "#cba6f7",
+};
+---
+
+<Main {...props}>
+  <h1>Nekoweb:</h1>
+  <div>
+    <Image
+      src="https://lel.hadsex.today/6VyzBMmLo.png"
+      alt="Pekoweb"
+      width="200"
+      height="200"
+    />
+    <h2><a href="https://userstyles.world/style/18724/pekoweb">Pekoweb</a></h2>
+  </div>
+</Main>
