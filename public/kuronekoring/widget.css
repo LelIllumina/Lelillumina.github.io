@@ -1,0 +1,12 @@
+#kuronekoring {
+  display: flex;
+  gap: 8px;
+
+  width: min-content;
+  margin: auto;
+  padding: 10px;
+
+  color: whitesmoke;
+
+  background-color: black;
+}
