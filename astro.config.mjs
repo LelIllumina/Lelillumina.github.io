@@ -20,6 +20,9 @@ export default defineConfig({
       xslURL: "/sitemap.xsl",
     }),
   ],
+  image: {
+    remotePatterns: [{ pathname: "/**" }],
+  },
   // experimental: {
   //   svg: true,
   // },
