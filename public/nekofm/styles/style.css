@@ -41,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace;
+  font-family: "JetBrains Mono Variable", "Courier New", courier, monospace;
   font-weight: 400;
   color: var(--text);
 
@@ -199,7 +199,7 @@ footer {
 }
 
 .container * {
-  font-family: "Jetbrains Mono", "Courier New", courier, monospace !important;
+  font-family: "JetBrains Mono Variable", "Courier New", courier, monospace !important;
 }
 
 .trackName {
@@ -220,31 +220,4 @@ footer {
   text-decoration: none;
 
   background: #303030;
-}
-
-@font-face {
-  font-family: "Jetbrains Mono";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Jetbrains Mono";
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Jetbrains Mono";
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-  src: local("Jetbrains Mono"),
-    url("/assets/fonts/Jetbrains/JetBrainsMonoNerdFontMono-ExtraBold.ttf");
 }

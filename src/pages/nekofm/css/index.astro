@@ -32,8 +32,7 @@ import "@fontsource-variable/jetbrains-mono";
     <meta name="theme-color" content="#a20000" />
     <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
 
-    <link rel="stylesheet" href="/nekofm/styles/style.css
-/style.css" />
+    <link rel="stylesheet" href="/nekofm/styles/style.css" />
     <style>
       p {
         line-height: 30px;
@@ -79,10 +78,10 @@ import "@fontsource-variable/jetbrains-mono";
         >
         <nav id="navbar">
           <ul>
-            <li><a href="../">Home</a></li>
-            <li><a href="../about/">About</a></li>
-            <li><a class="activeNavLink" href="../css">Custom CSS</a></li>
-            <li><a href="../settings">Settings</a></li>
+            <li><a href='/nekofm/"'>Home</a></li>
+            <li><a href="/nekofm/about/">About</a></li>
+            <li><a class="activeNavLink" href="/nekofm/css/">Custom CSS</a></li>
+            <li><a href="/nekofm/settings/">Settings</a></li>
           </ul>
         </nav>
         <h2 id="tagline">Custom CSS Guide</h2>
@@ -170,19 +169,15 @@ searchButton {
     </main>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/tokyo-night-dark.min.css"
+      href="https://unpkg.com/@highlightjs/cdn-assets@latest/styles/tokyo-night-dark.min.css"
     />
     <script
-      src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"
-    ></script>
-
-    <!-- and it's easy to individually load additional languages -->
-    <script
-      src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/go.min.js"
+      is:inline
+      src="https://unpkg.com/@highlightjs/cdn-assets@latest/highlight.min.js"
     ></script>
 
     <script is:inline>
-      hljs.highlightAll();
+      addEventListener("DOMContentLoaded", hljs.highlightAll());
     </script>
   </body>
 </html>

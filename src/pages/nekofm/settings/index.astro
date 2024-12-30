@@ -24,8 +24,7 @@ import "@fontsource-variable/jetbrains-mono";
     <meta name="theme-color" content="#a20000" />
     <link rel="preconnect" href="https://lastfm.freetls.fastly.net" />
     <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
-    <link rel="stylesheet" href="/nekofm/styles/style.css
-/style.css" />
+    <link rel="stylesheet" href="/nekofm/styles/style.css" />
     <style>
       p,
       label {
@@ -52,10 +51,12 @@ import "@fontsource-variable/jetbrains-mono";
         </a>
         <nav id="navbar">
           <ul>
-            <li><a href="../">Home</a></li>
-            <li><a href="../about/">About</a></li>
-            <li><a href="../css">Custom CSS</a></li>
-            <li><a class="activeNavLink" href="../settings">Settings</a></li>
+            <li><a href="/nekofm/">Home</a></li>
+            <li><a href="/nekofm/about/">About</a></li>
+            <li><a href="/nekofm/css/">Custom CSS</a></li>
+            <li>
+              <a class="activeNavLink" href="/nekofm/settings/">Settings</a>
+            </li>
           </ul>
         </nav>
         <h2 id="tagline">Settings</h2>
@@ -109,6 +110,6 @@ import "@fontsource-variable/jetbrains-mono";
         <p>These settings are also sitewide.</p>
       </div>
     </main>
-    <script src="/src/scripts/nekofm/localStorage.js"></script>
+    <script is:inline src="/src/scripts/nekofm/localStorage.js"></script>
   </body>
 </html>
