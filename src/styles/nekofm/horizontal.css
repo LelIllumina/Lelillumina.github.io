@@ -1,3 +1,5 @@
+/* stylelint-disable custom-property-pattern */
+/* stylelint-disable selector-class-pattern */
 .listening {
   background-color: #111;
   border: 4px ridge aliceblue;
