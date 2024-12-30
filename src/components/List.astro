@@ -1,17 +1,17 @@
 ---
 type Props = Record<string, never>;
 
+import Dimden from "@components/Dimden.astro";
 import MdiBrushOutline from "~icons/mdi/brush-outline";
 import MdiCheckboxMarkedCircleMinusOutline from "~icons/mdi/checkbox-marked-circle-minus-outline";
 import MdiFormatText from "~icons/mdi/format-text";
 import MdiHelpRhombusOutline from "~icons/mdi/help-rhombus-outline";
 import MdiHomeVariantOutline from "~icons/mdi/home-variant-outline";
+import MdiLastfm from "~icons/mdi/lastfm";
 import MdiLaunch from "~icons/mdi/launch";
 import MdiPaletteOutline from "~icons/mdi/palette-outline";
 import MdiTriforce from "~icons/mdi/triforce";
 import MdiViewGalleryOutline from "~icons/mdi/view-gallery-outline";
-
-import Dimden from "@components/Dimden.astro";
 
 interface link {
   icon: astroHTML.JSX.Element;
@@ -45,6 +45,7 @@ const links: link[] = [
   { icon: MdiTriforce, label: "Cool Shit", url: "/cool/", class: "" },
   { icon: MdiHelpRhombusOutline, label: "About", url: "/about/", class: "" },
   { icon: MdiFormatText, label: "Blog", url: "/blogs/", class: "" },
+  { icon: MdiLastfm, label: "NekoFM", url: "/nekofm/", class: "" },
 ];
 const currentUrl = Astro.url.pathname;
 ---
@@ -70,9 +71,6 @@ const currentUrl = Astro.url.pathname;
       }
     </ul>
     <ul id="external">
-      <li>
-        <MdiLaunch /><a href="/nekofm/">NekoFM</a>
-      </li>
       <li>
         <MdiLaunch /><a href="https://lel.atabook.org/">Guestbook</a>
       </li>
