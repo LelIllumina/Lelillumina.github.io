@@ -171,7 +171,6 @@ function nsfwFilter(track, username) {
         trackCover.style.filter = "blur(10px)";
       }, 1);
       return defaultCoverImg;
-    case "removed":
     default:
       return "/images/NekoFM/NSFWCOVER.png";
   }
@@ -194,7 +193,9 @@ async function setupWebSocketConnections(users) {
 
 // Create divs for all users
 function createUserDivs(users) {
-  users.forEach(([username, site]) => createEmptyDiv(username, site));
+  for (const [username, site] of users) {
+    createEmptyDiv(username, site);
+  }
   const loadingDiv = document.getElementById("loading");
   loadingDiv.append(userArray);
 }

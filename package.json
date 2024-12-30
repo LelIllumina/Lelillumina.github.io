@@ -10,6 +10,7 @@
     "lint": "bunx --bun prettier '**/*.astro' --write --cache && bunx --bun stylelint 'src/**/*.{css,html,astro}' --fix --cache && bunx --bun biome check --write ./src"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
@@ -30,6 +31,7 @@
     "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5.7.2",
     "unplugin-icons": "^0.22.0"
   },
   "browserslist": [
