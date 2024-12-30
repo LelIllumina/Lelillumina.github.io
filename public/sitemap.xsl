@@ -13,13 +13,6 @@
             <th style="
                   width: 90%;
                   ">URL</th>
-            <th style="
-                  width: 0;
-                  ">Priority</th>
-            <th style="
-                  width: 10%;
-                  ">Last Modified</th>
-          </tr>
           <xsl:for-each select="s:urlset/s:url">
             <tr>
               <td><a href="{s:loc}"><xsl:value-of select="s:loc"/></a></td>

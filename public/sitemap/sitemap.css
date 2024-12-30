@@ -1,0 +1,36 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: monospace;
+  background-color: #1e1e2e;
+}
+
+a {
+  color: #89b4fa;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 15px;
+  color: #cdd6f4;
+}
+
+td {
+  height: 40px;
+}
+
+th {
+  height: 25px;
+  color: #11111b;
+}
+
+.header th {
+  background-color: #cba6f7;
+}
+
+tbody > tr > td:nth-child(2),
+tbody > tr > td:nth-child(3) {
+  text-align: center;
+}
