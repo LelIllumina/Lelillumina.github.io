@@ -13,11 +13,8 @@ webring = {
   // PREV and NEXT get replaced with neighboring site urls
   // choose which widget to display by adding a data-widget="widgetname" attribute on the script
   widgets: {
-    default: /* html */ `
-    <link
-        rel="stylesheet"
-        href="/kuronekoring/widget.css"
-      />
+    default: /*html*/ `
+    <link rel="stylesheet" href="/kuronekoring/widget.css" />
       <div id="kuronekoring">
         <a href="PREV"><</a>
         <div>KuroNeko Webring</div>
