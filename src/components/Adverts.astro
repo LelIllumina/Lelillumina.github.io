@@ -4,6 +4,7 @@ type Props = Record<string, never>;
 import { Image } from "astro:assets";
 import palestinetoria from "@assets/images/mainPage/palestineCastoria.gif";
 import palestineko from "@assets/images/mainPage/palestineko.avif";
+import loading from "@assets/images/NekoFM/loading.png";
 ---
 
 <div id="adverts">
@@ -11,11 +12,12 @@ import palestineko from "@assets/images/mainPage/palestineko.avif";
     <div id="scrobbled">
       <h2 id="lastfm-status">Loading...</h2>
       <div id="songBox">
-        <img
+        <Image
           class="trackCover img"
           id="trackCover"
           decoding="async"
-          src="/images/NekoFM/loading.png"
+          loading="eager"
+          src={loading}
           alt=""
           height="150"
           width="150"
