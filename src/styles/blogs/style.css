@@ -71,7 +71,6 @@ a:not(:has(img)):hover {
   max-width: 400px;
   margin: 15px auto;
   padding: 5px;
-
   border: 5px solid #4f5b58;
 }
 

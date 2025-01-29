@@ -138,11 +138,11 @@ footer {
   float: right;
 
   margin: 10px;
+  border: none;
 
   font-size: 25px;
 
   background-color: unset;
-  border: none;
 }
 
 #counter,
