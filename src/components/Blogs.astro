@@ -2,6 +2,11 @@
 type Props = Record<string, never>;
 import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
+
+// Sort posts by date (assuming you have a date field in frontmatter)
+const sortedPosts = posts.sort(
+  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+);
 ---
 
 <section id="sidebar" transition:persist>
@@ -9,7 +14,7 @@ const posts = await getCollection("blog");
     <h2>Blogs:</h2>
     <ul style="padding: 0;">
       {
-        posts.map((post) => (
+        sortedPosts.map((post) => (
           <li style="margin: 16px 0">
             <a class="index-link" href={`/blogs/${post.id}`}>
               {post.data.title}
