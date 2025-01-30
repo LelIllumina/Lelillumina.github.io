@@ -1,5 +1,5 @@
 ---
-import Image from "astro:assets";
+import { Image } from "astro:assets";
 import Main from "@layouts/Main.astro";
 
 const props = {
@@ -12,9 +12,127 @@ const props = {
   imageAlt: "",
   accent: "#cba6f7",
 };
+
+import CompLel from "@assets/images/lel/ComputerLel.png";
+import PinkLel from "@assets/images/lel/PinkLel.png";
+import Haku from "@assets/images/lel/HakunonPose.png";
+import HakuDith from "@assets/images/lel/HakunonPoseDithered.png";
+import leliel from "@assets/images/lel/lelieldesign.webp";
+import VCR from "@assets/images/lel/LelsVCRwithhat.png";
+import Saint from "@assets/images/lel/SaintLelsVCR.png";
+import meow from "@assets/images/lel/meow-neko-arc.gif";
 ---
 
 <Main {...props}>
   <h1>Gallery Of lel:</h1>
-  <p>Ill add lel images here</p>
+  <p>
+    Very simple gallery of some of the images i've made, not best quality. Hover
+    for alt versions
+  </p><div class="gallery">
+    <div class="gallery-item hover-swap">
+      <div class="image-container">
+        <Image
+          src={PinkLel}
+          alt="Computer but pink"
+          height="250"
+          loading="eager"
+          class="default-img"
+        />
+        <Image
+          src={CompLel}
+          alt="Me on the computer"
+          height="250"
+          loading="eager"
+          class="hover-img"
+        />
+      </div>
+    </div>
+    <div class="gallery-item hover-swap">
+      <div class="image-container">
+        <Image
+          src={HakuDith}
+          alt="Dithered Hakunon"
+          height="300"
+          loading="eager"
+          class="default-img"
+        />
+        <Image
+          src={Haku}
+          alt="Hakunon Lel"
+          height="300"
+          loading="eager"
+          class="hover-img"
+        />
+      </div>
+    </div>
+    <div class="gallery-item hover-swap">
+      <Image
+        src={VCR}
+        alt="Me in the VCR"
+        height="250"
+        loading="eager"
+        class="default-img"
+      />
+      <Image
+        src={Saint}
+        alt="Chirstmas 2024"
+        height="250"
+        loading="eager"
+        class="hover-img"
+      />
+    </div>
+    <div class="gallery-item">
+      <Image src={leliel} alt="Evangelion Lel" height="200" loading="eager" />
+    </div>
+    <div class="gallery-item">
+      <Image src={meow} alt="Meow" height="300" loading="eager" />
+    </div>
+  </div>
 </Main>
+
+<style>
+  .gallery {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+  }
+
+  .hover-swap .image-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hover-swap img {
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-swap .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .hover-swap:hover .default-img {
+    opacity: 0;
+  }
+
+  .hover-swap:hover .hover-img {
+    opacity: 1;
+  }
+</style>
