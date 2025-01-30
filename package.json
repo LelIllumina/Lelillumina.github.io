@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.1.0",
   "scripts": {
-    "dev": "bunx --bun astro dev",
-    "build": "bunx --bun astro build",
+    "dev": "bunx --bun --smol astro dev",
+    "build": "bunx --bun --smol astro build",
     "preview": "bunx --bun astro preview",
     "sync": "bunx --bun astro sync",
     "lint": "bunx --bun prettier '**/*.astro' --write --cache && bunx --bun stylelint 'src/**/*.{css,html,astro}' --fix --cache && bunx --bun biome check --write ./src"
