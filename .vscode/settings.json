@@ -1,0 +1,9 @@
+{
+    "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+        "desc",
+        "neko-birthday",
+        "nekoweb",
+        "tm",
+        "trademarkhell"
+    ]
+}
