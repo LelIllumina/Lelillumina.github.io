@@ -1,4 +1,4 @@
-#kuronekoring {
+#lelring {
   display: flex;
   gap: 8px;
 
@@ -6,7 +6,7 @@
   margin: auto;
   padding: 10px;
 
-  color: whitesmoke;
+  color: #993344;
 
-  background-color: black;
+  background-color: #ffc0cb;
 }

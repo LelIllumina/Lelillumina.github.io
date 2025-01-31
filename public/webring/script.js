@@ -14,11 +14,11 @@ webring = {
   // choose which widget to display by adding a data-widget="widgetname" attribute on the script
   widgets: {
     default: /*html*/ `
-    <link rel="stylesheet" href="/kuronekoring/widget.css" />
-      <div id="kuronekoring">
+    <link rel="stylesheet" href="/webring/widget.css" />
+      <div id="lelring">
         <a href="PREV"><</a>
-        <div>KuroNeko Webring</div>
-        <a href="NEXT">></a>
+        <div>Lel Loving Club</div>
+        <a href="NEXT">3</a>
       </div>
     `,
     another: `
@@ -30,10 +30,10 @@ webring = {
   },
 
   // widget css
-  stylesheet: "https://lel.nekoweb.org/kuronekoring/widget.css",
+  stylesheet: "https://lel.nekoweb.org/webring/widget.css",
 
   // html inserted instead of your widget on sites that aren't in the ring
-  error: "<div>This site isn't part of the webring yet.</div>",
+  error: "<div>This site does NOT love lel.</div>",
 };
 
 // code
