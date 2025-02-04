@@ -34,6 +34,12 @@ h6 {
   font-family: "Courier Prime", monospace;
 }
 
+.desc {
+  margin: 0;
+  font-family: "Cutive Mono", monospace;
+  color: #637973;
+}
+
 .date {
   margin: 0;
   font-family: "Cutive Mono", monospace;

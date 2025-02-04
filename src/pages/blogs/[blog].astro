@@ -18,6 +18,7 @@ const { title, date } = post.data;
 <BlogLayout {title} {date}>
   <header>
     <h1>{title}</h1>
+    <p class="desc">{post.data.desc}</p>
     <p class="date">{date.toLocaleDateString()}</p>
   </header>
   <Content />
