@@ -1,15 +1,16 @@
 {
-    "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
-        "bandwagon-ing",
-        "desc",
-        "dogeza",
-        "gooning",
-        "mf",
-        "mfs",
-        "neko-birthday",
-        "nekoweb",
-        "tm",
-        "trademarkhell"
-    ],
-    "languageToolLinter.languageTool.disabledRules": "ASK_NO_PREPOSITION,Y_ALL"
+  "languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+    "bandwagon-ing",
+    "desc",
+    "dogeza",
+    "gooning",
+    "mf",
+    "mfs",
+    "neko-birthday",
+    "nekoversary",
+    "nekoweb",
+    "tm",
+    "trademarkhell"
+  ],
+  "languageToolLinter.languageTool.disabledRules": "ASK_NO_PREPOSITION,Y_ALL"
 }
