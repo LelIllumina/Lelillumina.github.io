@@ -3,8 +3,11 @@ export function deleteLocalStorage() {
 }
 
 function setLocalStorage() {
-  const nsfwValue = document.querySelector("input[name='nsfw']:checked").value;
-  const cssEnabled = document.getElementById("customCSS").checked;
+  const nsfwValue = (
+    document.querySelector("input[name='nsfw']:checked") as HTMLInputElement
+  ).value;
+  const cssEnabled = (document.getElementById("customCSS") as HTMLInputElement)
+    .checked;
 
   localStorage.nsfw = nsfwValue;
   localStorage.customCSS = cssEnabled;
@@ -15,6 +18,10 @@ export function submit() {
     setLocalStorage();
     alert("Settings successfully saved");
   } catch (error) {
-    alert(`Error: ${error.message}`);
+    if (error instanceof Error) {
+      alert(`Error: ${error.message}`);
+    } else {
+      alert("An unknown error occurred");
+    }
   }
 }
