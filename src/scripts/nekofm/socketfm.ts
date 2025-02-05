@@ -1,57 +1,49 @@
-import { users } from "./users.js";
+import { users } from "./users.ts";
 
 // Constants
 const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 let notPlaying = 0;
 const userArray = document.createDocumentFragment();
 
-// Set total counter
-const totalCounter = document.getElementById("total");
-totalCounter.textContent = users.length;
+// DOM Elements with non-null assertions
+const totalCounter = document.getElementById("total")!;
+totalCounter.textContent = users.length.toString();
 
-// Connect WebSocket
-const connectWebSocket = (username) => {
-  return new Promise((resolve, reject) => {
+const connectWebSocket = (username: string): Promise<WebSocket> =>
+  new Promise((resolve, reject) => {
     const url = `${BASE_URL}${username}`;
     const socket = new WebSocket(url);
-
     socket.onopen = () => resolve(socket);
     socket.onmessage = (event) => handleWebSocketMessage(username, event);
     socket.onerror = (error) => reject(error);
   });
-};
 
-// Handle WebSocket message
-function handleWebSocketMessage(username, event) {
+function handleWebSocketMessage(username: string, event: MessageEvent) {
   const data = JSON.parse(event.data);
   const track = data.recenttracks.track[0];
   const userOnline = track.nowplaying === "true";
-
   hydrateDiv(username, track, userOnline);
   updateOnlineCounter();
 }
 
-// Update the online user counter
 function updateOnlineCounter() {
-  const onlineCounter = document.getElementById("counter");
-  const scrobbling = document.getElementById("scrobbling");
+  const onlineCounter = document.getElementById("counter")!;
+  const scrobbling = document.getElementById("scrobbling")!;
   const online = scrobbling.querySelectorAll(".container").length;
-  onlineCounter.textContent = online;
+  onlineCounter.textContent = online.toString();
 }
 
-// Create a new div for a user
-function createEmptyDiv(username, site) {
+function createEmptyDiv(username: string, site: string) {
   const fragment = createUserFragment(username, site);
   userArray.append(fragment);
 }
 
-// Create a user fragment
-function createUserFragment(username, site) {
+function createUserFragment(username: string, site: string) {
   const fragment = document.createDocumentFragment();
   const newUserDiv = document.createElement("div");
   newUserDiv.id = username;
   newUserDiv.className = "container";
-  newUserDiv.innerHTML = /* HTML */ `
+  newUserDiv.innerHTML = `
     <div class="listening" id="${username}-songBox">
       <img
         class="trackCover"
@@ -63,20 +55,12 @@ function createUserFragment(username, site) {
       />
       <div class="trackInfo" id="${username}-trackInfo">
         <h3 class="siteName" id="${username}-siteName">
-          <a href="https://last.fm/user/${username}" target="_blank"
-            >${username}</a
-          >
+          <a href="https://last.fm/user/${username}" target="_blank">${username}</a>
           • <a href="https://${site}" target="_blank">${site}</a>
         </h3>
         <h2 class="trackName" id="${username}-trackName">Loading...</h2>
         <p class="artistName" id="${username}-artistName">Loading...</p>
-        <a
-          class="searchButton"
-          id="${username}-searchButton"
-          href=""
-          target="_blank"
-          >Search Song</a
-        >
+        <a class="searchButton" id="${username}-searchButton" href="" target="_blank">Search Song</a>
       </div>
     </div>
   `;
@@ -84,27 +68,21 @@ function createUserFragment(username, site) {
   return fragment;
 }
 
-// Update a user's div with track details
-function hydrateDiv(username, track, userOnline) {
-  const userDiv = document.getElementById(username);
-  const scrobbling = document.getElementById("scrobbling");
-  const offline = document.getElementById("offline");
-
+function hydrateDiv(username: string, track: any, userOnline: boolean) {
+  const userDiv = document.getElementById(username)!;
+  const scrobbling = document.getElementById("scrobbling")!;
+  const offline = document.getElementById("offline")!;
   const coverImgUrl = getCoverImage(track, username);
-
   updateTrackDetails(userDiv, track, coverImgUrl);
-
   if (userOnline) {
     moveUserToScrobbling(userDiv, scrobbling);
   } else {
     moveUserToOffline(userDiv, offline);
   }
-
   updateScrobblingStatus();
 }
 
-// Get cover image URL with NSFW filtering
-function getCoverImage(track, username) {
+function getCoverImage(track: any, username: string): string {
   const isNsfw = track.album.isnsfw;
   let coverImgUrl = isNsfw
     ? nsfwFilter(track, username)
@@ -119,11 +97,16 @@ function getCoverImage(track, username) {
   return coverImgUrl || "/images/NekoFM/NoArt.svg";
 }
 
-// Update track details in a user div
-function updateTrackDetails(userDiv, track, coverImgUrl) {
-  const coverImgEl = userDiv.querySelector(`#${userDiv.id}-trackCover`);
-  const trackNameEl = userDiv.querySelector(`#${userDiv.id}-trackName`);
-  const artistNameEl = userDiv.querySelector(`#${userDiv.id}-artistName`);
+function updateTrackDetails(
+  userDiv: HTMLElement,
+  track: any,
+  coverImgUrl: string,
+) {
+  const coverImgEl = userDiv.querySelector(
+    `#${userDiv.id}-trackCover`,
+  ) as HTMLImageElement;
+  const trackNameEl = userDiv.querySelector(`#${userDiv.id}-trackName`)!;
+  const artistNameEl = userDiv.querySelector(`#${userDiv.id}-artistName`)!;
 
   coverImgEl.src = coverImgUrl;
   coverImgEl.alt = track.name;
@@ -131,44 +114,36 @@ function updateTrackDetails(userDiv, track, coverImgUrl) {
   artistNameEl.textContent = track.artist.name;
 }
 
-// Move user to scrobbling section
-function moveUserToScrobbling(userDiv, scrobbling) {
+function moveUserToScrobbling(userDiv: HTMLElement, scrobbling: HTMLElement) {
   scrobbling.append(userDiv);
 }
 
-// Move user to offline section
-function moveUserToOffline(userDiv, offline) {
+function moveUserToOffline(userDiv: HTMLElement, offline: HTMLElement) {
   offline.append(userDiv);
   notPlaying++;
 }
 
-// Update the status of the scrobbling section
 function updateScrobblingStatus() {
-  const scrobbling = document.getElementById("scrobbling");
-
+  const scrobbling = document.getElementById("scrobbling")!;
   if (notPlaying === users.length) {
     scrobbling.innerHTML =
       "<p id='noUsers'>No one's listening to anything right now</p>";
   } else {
     const noUsers = document.getElementById("noUsers");
-    if (noUsers) {
-      noUsers.remove();
-    }
+    if (noUsers) noUsers.remove();
   }
 }
 
-// Apply NSFW filter
-function nsfwFilter(track, username) {
+function nsfwFilter(track: any, username: string): string {
   const nsfwSetting = localStorage.nsfw;
   const defaultCoverImg = track.image[2]["#text"];
   const trackCover = document.getElementById(`${username}-trackCover`);
-
   switch (nsfwSetting) {
     case "off":
       return defaultCoverImg;
     case "blurred":
       setTimeout(() => {
-        trackCover.style.filter = "blur(10px)";
+        if (trackCover) (trackCover as HTMLElement).style.filter = "blur(10px)";
       }, 1);
       return defaultCoverImg;
     default:
@@ -176,29 +151,28 @@ function nsfwFilter(track, username) {
   }
 }
 
-// Setup WebSocket connections for all users
-async function setupWebSocketConnections(users) {
+async function setupWebSocketConnections(
+  users: { username: string; site: string; customCSS: boolean }[],
+) {
   try {
     createUserDivs(users);
-
     const connections = await Promise.all(
-      users.map(([username]) => connectWebSocket(username)),
+      users.map((user) => connectWebSocket(user.username)),
     );
-
     console.log("All WebSocket connections established:", connections);
   } catch (error) {
     console.error("Error connecting to WebSockets:", error);
   }
 }
 
-// Create divs for all users
-function createUserDivs(users) {
-  for (const [username, site] of users) {
+function createUserDivs(
+  users: { username: string; site: string; customCSS: boolean }[],
+) {
+  for (const { username, site } of users) {
     createEmptyDiv(username, site);
   }
-  const loadingDiv = document.getElementById("loading");
+  const loadingDiv = document.getElementById("loading")!;
   loadingDiv.append(userArray);
 }
 
-// Initialize
 setupWebSocketConnections(users);

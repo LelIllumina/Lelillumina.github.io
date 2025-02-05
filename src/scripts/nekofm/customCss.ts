@@ -1,12 +1,11 @@
-// Fetching Custom CSS
-import { users } from "./users.js";
+import { users } from "./users.ts";
 
 if (localStorage.customCSS !== "false") {
-  for (let i = 0; i < users.length; i++) {
-    const [username, domain, hasCss] = users[i];
-    const url = `https://${domain}/nekofm.css`; // Random text to keep refreshing CSS
+  for (const user of users) {
+    const { username, site, customCSS } = user;
+    const url = `https://${site}/nekofm.css`;
 
-    if (hasCss) {
+    if (customCSS) {
       const link = document.createElement("link");
       link.rel = "preload";
       link.href = url;
@@ -16,17 +15,13 @@ if (localStorage.customCSS !== "false") {
       fetch(url)
         .then((response) => response.text())
         .then((data) => {
-          // Prefixing CSS selectors with `#${username}`
           const modifiedCss = data.replace(
             /(^|})\s*([^{@}]+)\s*{/g,
             (match, prefix, selector) => {
-              // Avoid prefixing inside @keyframes and similar blocks
               if (/^\s*@/.test(selector)) return match;
-
-              // Prefix selectors
               const prefixedSelectors = selector
                 .split(",")
-                .map((sel) => `#${username}-${sel.trim()}`)
+                .map((sel: string) => `#${username}-${sel.trim()}`)
                 .join(", ");
               return `${prefix} ${prefixedSelectors} {`;
             },
