@@ -42,8 +42,9 @@ import "@fontsource-variable/jetbrains-mono";
         color: silver;
       }
     </style>
+    <script src="/src/scripts/nekofm/settings/localStorage.ts"></script>
   </head>
-  <body>
+  <body onload="applySavedSettings()">
     <header>
       <div id="title">
         <a href="/nekofm/"
@@ -68,13 +69,7 @@ import "@fontsource-variable/jetbrains-mono";
         <label for="nsfw">NSFW Album Covers:</label>
         <br />
         <label class="option" for="nsfw-removed">
-          <input
-            id="nsfw-removed"
-            type="radio"
-            name="nsfw"
-            value="removed"
-            checked
-          />
+          <input id="nsfw-removed" type="radio" name="nsfw" value="removed" />
           Removed
         </label>
         <br />
@@ -89,13 +84,13 @@ import "@fontsource-variable/jetbrains-mono";
         </label>
         <br /><br />
         <label for="customCSS">Custom CSS:</label>
-        <input id="customCSS" type="checkbox" name="customCSS" checked />
+        <input id="customCSS" type="checkbox" name="customCSS" />
         <br /><br />
         <input type="submit" value="Save" onclick="submit()" />
         <input
           type="reset"
           value="Delete LocalStorage"
-          onclick="deleteLocalStorage(); alert('LocalStorage Cleared')"
+          onclick="deleteSettings(); alert('LocalStorage Cleared')"
         />
         <br /><br /><br />
       </div>
@@ -110,6 +105,5 @@ import "@fontsource-variable/jetbrains-mono";
         <p>These settings are also sitewide.</p>
       </div>
     </main>
-    <script is:inline src="/src/scripts/nekofm/localStorage.ts"></script>
   </body>
 </html>
