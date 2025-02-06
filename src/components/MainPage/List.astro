@@ -1,7 +1,7 @@
 ---
 type Props = Record<string, never>;
 
-import Dimden from "@components/Dimden.astro";
+import Dimden from "@components/MainPage/Dimden/Dimden.astro";
 import MdiBrushOutline from "~icons/mdi/brush-outline";
 import MdiCheckboxMarkedCircleMinusOutline from "~icons/mdi/checkbox-marked-circle-minus-outline";
 import MdiFormatText from "~icons/mdi/format-text";
@@ -63,6 +63,7 @@ const currentUrl = Astro.url.pathname;
               class={
                 (currentUrl === link.url ? "active" : "") + " " + link.class
               }
+              data-astro-prefetch
             >
               {link.label}
             </a>

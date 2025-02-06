@@ -5,7 +5,10 @@ import sitemap from "@astrojs/sitemap";
 import Icons from "unplugin-icons/vite";
 
 export default defineConfig({
-  prefetch: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "viewport",
+  },
   site: "https://lel.nekoweb.org",
   vite: {
     plugins: [
@@ -23,7 +26,9 @@ export default defineConfig({
   // image: {
   //   remotePatterns: [{ pathname: "/**" }],
   // },
-  // experimental: {
-  //   svg: true,
-  // },
+  experimental: {
+    // svg: true,
+    contentIntellisense: true,
+    clientPrerender: true,
+  },
 });
