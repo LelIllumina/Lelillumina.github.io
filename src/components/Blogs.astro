@@ -1,5 +1,6 @@
 ---
 type Props = Record<string, never>;
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 
@@ -28,10 +29,12 @@ const sortedPosts = posts.sort(
     <h2>Links:</h2>
     <p>
       <a href="https://remblanc.nekoweb.org"
-        ><img
+        ><Image
           src="https://remblanc.nekoweb.org/images/button.png"
           alt="remblanc"
           title="remblanc's incredible site"
+          width="88"
+          height="31"
         /></a
       >
     </p>
