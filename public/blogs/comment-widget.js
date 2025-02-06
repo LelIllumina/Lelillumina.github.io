@@ -20,11 +20,11 @@
 // const s_stylePath = "comment-widget.css";
 const s_formId = "1FAIpQLSexEjotHTkehhBr86wCYKktbbwqT12_1hDtdX4xNAdvT_Pk6A";
 const s_nameId = "1686412617";
-const s_websiteId = "1339773803";
-const s_textId = "1517011430";
+const s_websiteId = "1441380439";
+const s_textId = "564461565";
 const s_pageId = "245059329";
 const s_replyId = "539195664";
-const s_sheetId = "1OSx00QwIqlSF_tAJ4UbRsgm6nhEccqqgKrru259Kzs8";
+const s_sheetId = "1M4CmLW31yseGpuCbVEaIic9Gv0Hna-2vbBhveet098Q";
 
 // The values below are necessary for accurate timestamps, I've filled it in with EST as an example
 const s_timezone = 5; // Your personal timezone (Example: UTC-5:00 is -5 here, UTC+10:30 would be 10.5)
@@ -264,6 +264,7 @@ function getComments() {
 
     // Need index of page column for checking if comments are for the right page
     const isPage = (col) => col.label == "Page";
+    console.log(json.table.cols.map((col) => col.label)); // Check available column labels
     let pageIdx = json.table.cols.findIndex(isPage);
 
     // Turn that data into usable comment data
