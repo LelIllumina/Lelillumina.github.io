@@ -8,7 +8,7 @@ export class DiscordWidget extends HTMLElement {
         <div id="discord-header">
           <img
             id="discord-pfp"
-            src="https://api.lanyard.rest/850319718920224798.webp"
+            src="https://api.lanyard.rest/1331059585896677378.webp"
             alt="discord pfp"
             height="50"
             width="50"
@@ -123,7 +123,7 @@ export class DiscordWidget extends HTMLElement {
   }
 
   async connectedCallback() {
-    const discordId = this.getAttribute("discord-id") || "850319718920224798";
+    const discordId = this.getAttribute("discord-id") || "1331059585896677378";
     try {
       const data = await fetchDiscordData(discordId);
       this.updateWidget(data);

@@ -264,7 +264,6 @@ function getComments() {
 
     // Need index of page column for checking if comments are for the right page
     const isPage = (col) => col.label == "Page";
-    console.log(json.table.cols.map((col) => col.label)); // Check available column labels
     let pageIdx = json.table.cols.findIndex(isPage);
 
     // Turn that data into usable comment data
