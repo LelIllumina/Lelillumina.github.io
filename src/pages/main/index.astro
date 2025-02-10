@@ -80,26 +80,28 @@ import num4 from "/src/assets/images/numbers/4.gif";
   <discord-widget discord-id="1331059585896677378"></discord-widget>
 
   <h2>Webrings:</h2>
-  <script is:inline src="/webring/script.js"></script>
-  <div id="onlinewire-webring">
-    <script
-      type="text/javascript"
-      src="https://milkyway.moe/onlinewire/onionring-variables.js"></script>
-    <script
-      type="text/javascript"
-      src="https://milkyway.moe/onlinewire/onionring-widget.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://milkyway.moe/onlinewire/onionring.css"
-    />
-  </div>
+  <div id="webrings">
+    <script is:inline src="/webring/script.js"></script>
+    <div id="onlinewire-webring">
+      <script
+        type="text/javascript"
+        src="https://milkyway.moe/onlinewire/onionring-variables.js"></script>
+      <script
+        type="text/javascript"
+        src="https://milkyway.moe/onlinewire/onionring-widget.js"></script>
+      <link
+        rel="stylesheet"
+        href="https://milkyway.moe/onlinewire/onionring.css"
+      />
+    </div>
 
-  <div id="nekowebring">
-    <script is:inline src="https://webring.nekoweb.org/onionring-variables.js"
-    ></script>
-    <script is:inline src="https://webring.nekoweb.org/onionring-widget.js"
-    ></script>
-    <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
+    <div id="nekowebring">
+      <script is:inline src="https://webring.nekoweb.org/onionring-variables.js"
+      ></script>
+      <script is:inline src="https://webring.nekoweb.org/onionring-widget.js"
+      ></script>
+      <link rel="stylesheet" href="https://webring.nekoweb.org/onionring.css" />
+    </div>
   </div>
 
   <!-- <webring-container
@@ -145,5 +147,10 @@ import num4 from "/src/assets/images/numbers/4.gif";
     font-size: 0.8rem;
     color: var(--text-dark);
     text-align: center;
+  }
+
+  #webrings {
+    display: flex;
+    justify-content: space-around;
   }
 </style>
