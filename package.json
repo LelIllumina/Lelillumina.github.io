@@ -21,6 +21,7 @@
     "@fontsource/dm-mono": "^5.1.1",
     "@fontsource/ibm-plex-mono": "^5.1.1",
     "@fontsource/jetbrains-mono": "^5.1.2",
+    "@fontsource/space-mono": "^5.1.2",
     "@iconify/json": "^2.2.301",
     "astro": "^5.2.1",
     "prettier": "^3.4.2",

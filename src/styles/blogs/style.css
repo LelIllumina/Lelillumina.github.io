@@ -31,18 +31,18 @@ h4,
 h5,
 h6 {
   margin-bottom: 0;
-  font-family: "Courier Prime", monospace;
+  font-family: "Space Mono", monospace;
 }
 
 .desc {
   margin: 0;
-  font-family: "Cutive Mono", monospace;
+  font-family: "DM Mono", monospace;
   color: #637973;
 }
 
 .date {
   margin: 0;
-  font-family: "Cutive Mono", monospace;
+  font-family: "DM Mono", monospace;
   color: #4f5b58;
 }
 
