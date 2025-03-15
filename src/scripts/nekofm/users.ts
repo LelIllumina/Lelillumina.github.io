@@ -113,6 +113,7 @@ export const users: User[] = [
     customCSS: false,
   },
   { username: "oikmo", site: "oikmo.nekoweb.org", customCSS: false },
+  { username: "XanSurnamehere", site: "xan.lol", customCSS: false },
 ];
 
 export const devs = [
