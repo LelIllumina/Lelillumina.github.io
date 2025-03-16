@@ -10,6 +10,7 @@ export default defineConfig({
     defaultStrategy: "viewport",
   },
   site: "https://lel.nekoweb.org",
+  server: { host: true },
   vite: {
     plugins: [
       Icons({
