@@ -9,6 +9,7 @@ export const themes: { [key: string]: Theme } = {
     "--text-darker": "oklch(40% 0 0deg)",
     "--accent": "oklch(78.71% 0.1187 304deg)",
     "--link": "oklch(73% 0.12 200deg)",
+    "--red": "oklch(50% 0.2 20deg)",
   },
   catppuccin: {
     "--background": "oklch(18% 0.0204 284deg)",

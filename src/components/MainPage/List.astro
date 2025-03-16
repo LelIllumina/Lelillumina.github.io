@@ -12,6 +12,7 @@ import MdiLaunch from "~icons/mdi/launch";
 import MdiPaletteOutline from "~icons/mdi/palette-outline";
 import MdiTriforce from "~icons/mdi/triforce";
 import MdiViewGalleryOutline from "~icons/mdi/view-gallery-outline";
+import MdiAlertOutline from "~icons/mdi/alert-outline";
 
 interface link {
   icon: astroHTML.JSX.Element;
@@ -20,6 +21,7 @@ interface link {
   class: string;
 }
 
+/* Classes will apply to icon and text, only use for color and similar */
 const links: link[] = [
   { icon: MdiHomeVariantOutline, label: "Index", url: "/main/", class: "" },
   {
@@ -44,6 +46,12 @@ const links: link[] = [
   { icon: Dimden, label: "Dimden Colors", url: "/dimden/", class: "" },
   { icon: MdiTriforce, label: "Cool Shit", url: "/cool/", class: "" },
   { icon: MdiHelpRhombusOutline, label: "About", url: "/about/", class: "" },
+  {
+    icon: MdiAlertOutline,
+    label: "GoonerVille",
+    url: "/goonerville/",
+    class: "red wip",
+  },
   { icon: MdiFormatText, label: "Blog", url: "/blogs/", class: "" },
   { icon: MdiLastfm, label: "NekoFM", url: "/nekofm/", class: "" },
 ];
@@ -55,14 +63,12 @@ const currentUrl = Astro.url.pathname;
     <ul>
       {
         links.map((link) => (
-          <li>
+          <li class={link.class}>
             {link.label === "Blog" && <hr />}
             <link.icon />
             <a
               href={link.url}
-              class={
-                (currentUrl === link.url ? "active" : "") + " " + link.class
-              }
+              class={currentUrl === link.url ? "active" : ""}
               data-astro-prefetch
             >
               {link.label}
@@ -84,6 +90,13 @@ const currentUrl = Astro.url.pathname;
     </p>
   </div>
 </div>
+<style is:inline>
+  .red a,
+  .red svg path {
+    color: var(--red);
+    fill: var(--red);
+  }
+</style>
 <style>
   #container {
     overflow: auto;
@@ -120,7 +133,7 @@ const currentUrl = Astro.url.pathname;
     color: var(--text);
   }
 
-  .wip {
+  .wip > a {
     color: var(--text-darker);
     text-decoration: line-through;
   }
