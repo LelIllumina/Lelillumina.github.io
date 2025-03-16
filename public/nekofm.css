@@ -1,6 +1,5 @@
 songBox {
-  background-image: linear-gradient(#1e1e2e98, #11111bcc),
-    url("https://lel.hadsex.today/71yAPps17.png");
+  background-image: linear-gradient(to right,#1e1e2e, #11111b9a), url("https://lel.hadsex.today/71yAPps17.png");
   background-size: cover;
   border: 5px ridge #cba6f7;
 }
@@ -18,9 +17,6 @@ trackInfo {
 trackCover {
   float: left;
   height: 150px;
-  border-radius: 50%;
-  mask-image: radial-gradient(circle, transparent 20%, black 21%);
-  animation: auto-spin 10s linear infinite;
 }
 
 trackName {
@@ -43,12 +39,4 @@ searchButton {
   text-decoration: none;
 
   background: #313244;
-}
-
-@keyframes album-spin {
-  0% {
-    transform: rotate(0deg);
-  } 100% {
-    transform: rotate(360deg);
-  }
 }
