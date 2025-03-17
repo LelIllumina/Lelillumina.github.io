@@ -7,6 +7,7 @@
     Classes have a c- at the start and IDs have a c_
     You don't need every single one for a good theme, but I tried to give as many options as possible!
 */
+
 /*
     Containers:
         #c_widget - The container <div> for the entire widget
@@ -54,50 +55,58 @@
 
 /* Main */
 #c_widget {
+    overflow: auto;
+
     box-sizing: border-box;
     height: 100%;
     padding: 15px;
-    overflow: auto;
-    background: transparent;
+
     font-size: 14px;
-    color: #211F24; 
+    color: #211F24;
+
+    background: transparent; 
 }
 
-#c_widget button, #c_widget input[type=submit] {
+#c_widget button, #c_widget input[type="submit"] {
     padding: 4px;
-    text-decoration: none;
-	text-align: center;
-    background-color: white;
-    color: #d699b6;
     border: 1px solid #d699b6;
     border-radius: 5px;
-}
-#c_widget button:hover, #c_widget input[type=submit]:hover {
-    background-color: #FB96D8;
-    color: white;
-    border: 1px solid #FB96D8;
-}
-#c_widget button:disabled, #c_widget input[type=submit]:disabled {opacity: 60%;}
-#c_widget button:disabled:hover, #c_widget input[type=submit]:disabled:hover {
-    background-color: white;
+
     color: #d699b6;
+	text-align: center;
+    text-decoration: none;
+
+    background-color: white;
+}
+
+#c_widget button:hover, #c_widget input[type="submit"]:hover {
+    border: 1px solid #FB96D8;
+    color: white;
+    background-color: #FB96D8;
+}
+#c_widget button:disabled, #c_widget input[type="submit"]:disabled {opacity: 0.6;}
+
+#c_widget button:disabled:hover, #c_widget input[type="submit"]:disabled:hover {
     border: 1px solid #d699b6;
+    color: #d699b6;
+    background-color: white;
 }
 
 /* Input section */
 #c_inputDiv {
     padding: 10px;
-    background-color: #4C3743;
     border: 1px dashed #d699b6;
     border-radius: 5px;
+    background-color: #4C3743;
 }
 #c_container {margin-top: 10px;}
 
 #c_widgetTitle {
-    color: #d699b6;
     margin: 0;
     padding: 0;
+    color: #d699b6;
     text-decoration: underline wavy;
+
     /* text-decoration-color: #DBBC7F; */
 }
 
@@ -110,20 +119,23 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 .c-input {
     padding: 4px;
-    color: #D3C6AA;
-    border-radius: 4px;
     border: 1px solid #d699b6;
+    border-radius: 4px;
+
+    color: #D3C6AA;
+
     background-color: #1e2326;
 	outline: none;
 }
 .c-input:focus {border: 1px solid #FB96D8;}
 
 .c-textInput {
+    resize: none;
     width: calc(100% - 10px);
     max-width: 900px;
-    resize: none;
 }
 #c_submitButton {display: block;}
 #c_replyingText {color: #D3C6AA;}
@@ -133,51 +145,62 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #493B40;
     border: 1px dashed #d699b6;
     border-radius: 4px;
+
+    background-color: #493B40;
 }
+
 .c-reply {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #59464C;
     border: 1px dashed #d699b6;
     border-radius: 4px;
+
+    background-color: #59464C;
 }
 .c-reply:last-child {margin-bottom: 0;}
 
 .c-name {
     display: inline-block;
+
     margin: 0;
     margin-right: 10px;
     padding: 0;
+
     text-decoration: underline;
 }
+
 .c-site {
     color: #d699b6;
 }
 .c-site:hover {color: #211F24;}
+
 .c-timestamp {
     float: right;
-    opacity: 60%;
     color: #D3C6AA;
+    opacity: 0.6;
 }
+
 .c-text {
     margin: 0;
     margin-top: 10px;
     padding: 0;
-    text-align: justify;
+
     color: #D3C6AA;
+    text-align: justify;
 }
 
 /* Pagination */
 #c_pagination {text-align: center;}
 .c-replyButton {margin-top: 10px;}
+
 .c-expandButton {
     float: right;
     margin-top: 10px;
 }
+
 .c-paginationButton {
     margin-right: 4px;
     margin-left: 4px;

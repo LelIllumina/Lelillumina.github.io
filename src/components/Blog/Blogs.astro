@@ -6,7 +6,7 @@ const posts = await getCollection("blog");
 
 // Sort posts by date (assuming you have a date field in frontmatter)
 const sortedPosts = posts.sort(
-  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
+  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime(),
 );
 ---
 
