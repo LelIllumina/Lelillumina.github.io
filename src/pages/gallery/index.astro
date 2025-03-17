@@ -21,6 +21,7 @@ import leliel from "@assets/images/lel/Lelieldesign.webp";
 import VCR from "@assets/images/lel/LelsVCRwithhat.png";
 import Saint from "@assets/images/lel/SaintLelsVCR.png";
 import meow from "@assets/images/lel/meow-neko-arc.gif";
+import lelief from "@assets/images/lel/Technique of Lelief.png";
 ---
 
 <Main {...props}>
@@ -81,8 +82,21 @@ import meow from "@assets/images/lel/meow-neko-arc.gif";
         class="hover-img"
       />
     </div>
-    <div class="gallery-item">
-      <Image src={leliel} alt="Evangelion Lel" height="200" loading="eager" />
+    <div class="gallery-item hover-swap">
+      <Image
+        src={lelief}
+        alt="Technique of Lelief"
+        height="200"
+        loading="eager"
+        class="default-img"
+      />
+      <Image
+        src={leliel}
+        alt="Evangelion Lel"
+        height="200"
+        loading="eager"
+        class="hover-img"
+      />
     </div>
     <div class="gallery-item">
       <Image src={meow} alt="Meow" height="300" loading="eager" />
