@@ -104,6 +104,7 @@ const { title, desc } = props;
     <marquee behaviour="scroll" direction="left" id="theMarquee"
       >{desc}<span id="tagline"></span></marquee
     >
+    <script src="/src/scripts/tagline.ts"></script>
   </div>
   <Adverts />
 
@@ -137,7 +138,6 @@ const { title, desc } = props;
       href="https://api.lanyard.rest/"
       crossorigin
     />
-    <script src="/src/scripts/tagline.ts"></script>
     <slot name="head" />
   </Fragment>
 </Outer>
