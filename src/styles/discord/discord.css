@@ -36,6 +36,7 @@
 #discord-rpc {
   position: relative;
   margin-top: 25px;
+  display: flex;
 }
 
 #discord-activity-img {

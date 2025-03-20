@@ -95,18 +95,19 @@ export class DiscordWidget extends HTMLElement {
       return;
     }
 
-    const hasNonCustomId = activities.some(
-      (activity: { id: string }) => activity.id !== "custom",
+    const customStatus = activities.find(
+      (activity) => activity.id === "custom",
+    );
+    const nonCustomActivity = activities.find(
+      (activity) => activity.id !== "custom",
     );
 
-    if (activities.length === 0) {
-      elements.discordStatus.textContent = "";
-    } else {
-      elements.discordStatus.textContent = `${activities[0].emoji?.name || ""} ${activities[0].state}`;
-    }
+    elements.discordStatus.textContent = customStatus
+      ? customStatus.state || ""
+      : "";
 
-    if (hasNonCustomId) {
-      const { assets, name, details, state } = activities[1] || {};
+    if (nonCustomActivity) {
+      const { assets, name, details, state } = nonCustomActivity;
       if (assets?.large_image) {
         elements.discordActivityImage.src = `https://${assets.large_image.split("/https/")[1]}`;
       }
