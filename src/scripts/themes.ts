@@ -19,6 +19,7 @@ export const themes: { [key: string]: Theme } = {
     "--text-darker": "oklch(68% 0.0426 272deg)",
     "--accent": "oklch(86% 0.1092 142deg)",
     "--link": "oklch(77% 0.1113 260deg)",
+    "--red": "oklch(75.56% 0.1297 2.76)",
   },
   rosepine: {
     "--background": "oklch(21% 0.0255 291deg)",
@@ -28,6 +29,7 @@ export const themes: { [key: string]: Theme } = {
     "--text-darker": "oklch(71% 0.0299 289deg)",
     "--accent": "oklch(70% 0.1565 4deg)",
     "--link": "oklch(53% 0.0793 228deg)",
+    "--red": "oklch(69.77% 0.1565 4.22)",
   },
   jollytheme: {
     "--background": "oklch(62.8% 0.25 29deg)",
@@ -37,6 +39,7 @@ export const themes: { [key: string]: Theme } = {
     "--text-darker": "oklch(80% 0 0deg)",
     "--accent": "oklch(56.45% 0.1564 141deg)",
     "--link": "oklch(56.45% 0.1564 141deg)",
+    "--red": "oklch(75.56% 0.1297 2.76)",
   },
   // TODO: Add Everforest theme properties when available
 };
