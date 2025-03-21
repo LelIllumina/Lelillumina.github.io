@@ -2,6 +2,10 @@
   color-scheme: dark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   margin: 0 10vw;
@@ -19,7 +23,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+table {
   max-width: 800px;
   color: #d3c6aa;
 }
@@ -29,7 +34,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+thead {
   margin-bottom: 0;
   font-family: "Space Mono", monospace;
 }
@@ -65,6 +71,7 @@ a {
   animation-direction: alternate-reverse;
 }
 
+/* Change anchors on hover except if image */
 a:not(:has(img)):hover {
   color: #1e2326;
   background: #7fbbb3;
@@ -117,6 +124,8 @@ ul {
   list-style-type: none;
 }
 
+/* Blog list bar */
+
 #sidebar {
   position: sticky;
   top: 10vh;
@@ -127,6 +136,35 @@ ul {
   height: fit-content;
   margin: 0 5vw;
 }
+
+/* Table styling */
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 10px auto;
+}
+
+tr {
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  background-color: #293136;
+  color: #d3c6aa;
+}
+th {
+  border: solid 2px;
+}
+td {
+  padding: 10px;
+  border: dashed 2px;
+}
+
+tr:nth-child(even),
+th {
+  background-color: #333c43;
+}
+
+/* Download Button on Fate blog */
 
 .dl-link {
   display: inline-block;
@@ -150,10 +188,6 @@ ul {
   animation: gradient-text 1s infinite !important;
   animation-fill-mode: forwards;
   animation-direction: alternate;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 ::selection {
