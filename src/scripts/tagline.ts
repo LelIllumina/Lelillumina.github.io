@@ -6,6 +6,7 @@ At sea, the Royal Navy imposed an effective blockade on U.S. maritime trade, whi
 In August 1814, British troops captured Washington, before American victories at Baltimore and Plattsburgh in September ended fighting in the north. In the Southeastern United States, American forces and Indian allies defeated an anti-American faction of the Muscogee. In early 1815, American troops led by Andrew Jackson repulsed a major British attack on New Orleans, which occurred during the ratification process of the signing of the Treaty of Ghent, which brought an end to the conflict.[17] `,
     "I fear death for I am a sinner, and a dead man cannot repent.",
     "I dont become a better person, I just forget how awful I am.",
+    "I love feet and armpits",
   ];
   const randomIndex = Math.floor(Math.random() * taglines.length);
   const tagline = document.getElementById("tagline") as HTMLSpanElement;
