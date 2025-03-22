@@ -7,7 +7,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     desc: z.string(),
-    date: z.date(),
+    date: z.coerce.date(),
+    img: z.string().optional(),
   }),
 });
 const archive = defineCollection({
@@ -18,7 +19,8 @@ const archive = defineCollection({
   schema: z.object({
     title: z.string(),
     desc: z.string(),
-    date: z.date(),
+    date: z.coerce.date(),
+    img: z.string().optional(),
   }),
 });
 
