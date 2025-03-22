@@ -128,13 +128,14 @@ ul {
 
 #sidebar {
   position: sticky;
-  top: 10vh;
+  top: 50%;
+  transform: translateY(-50%);
 
   flex-direction: column;
 
   max-width: 275px;
   height: fit-content;
-  margin: 0 5vw;
+  margin: 5vw;
 }
 
 /* Table styling */
@@ -148,12 +149,14 @@ table {
 tr {
   font-family: "DM Mono", monospace;
   font-size: 14px;
-  background-color: #293136;
   color: #d3c6aa;
+  background-color: #293136;
 }
+
 th {
   border: solid 2px;
 }
+
 td {
   padding: 10px;
   border: dashed 2px;
