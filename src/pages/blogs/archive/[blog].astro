@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content";
 import BlogLayout from "@components/Blog/BlogLayout.astro";
 import "/src/styles/blogs/comment-widget.css";
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("archive");
   return posts.map((post) => ({
     params: { blog: post.id },
     props: { post },

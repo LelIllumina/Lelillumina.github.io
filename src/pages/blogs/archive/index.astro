@@ -1,0 +1,18 @@
+---
+import BlogLayout from "@components/Blog/BlogLayout.astro";
+---
+
+<BlogLayout>
+  <header>
+    <h1>Archive</h1>
+    <p class="date"></p>
+  </header>
+  <p style="width: 100vw;">
+    All my old blogs that I dont want on the main page
+  </p>
+</BlogLayout>
+
+<script>
+  const today = new Date().toLocaleDateString();
+  document.querySelector(".date")!.textContent = `Today is ${today}`;
+</script>

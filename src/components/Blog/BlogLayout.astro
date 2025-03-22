@@ -1,12 +1,14 @@
 ---
-import { ClientRouter } from "astro:transitions";
+interface props {
+  title: string;
+  desc: string;
+}
 import Blogs from "@components/Blog/Blogs.astro";
 import "@styles/blogs/style.css";
-// import "@fontsource/courier-prime";
 import "@fontsource/jetbrains-mono";
-// import "@fontsource/cutive-mono";
 import "@fontsource/space-mono";
 import "@fontsource/dm-mono";
+import type { DataEntryMap } from "astro:content";
 const { title, desc } = Astro.props;
 ---
 
@@ -38,5 +40,6 @@ const { title, desc } = Astro.props;
       <slot />
     </section>
     <Blogs />
+    <!-- accept props on this component and bass to above -->
   </body>
 </html>
