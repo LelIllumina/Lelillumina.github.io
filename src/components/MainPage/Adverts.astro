@@ -2,6 +2,7 @@
 type Props = Record<string, never>;
 
 import { Image } from "astro:assets";
+
 import loading from "@assets/images/NekoFM/loading.png";
 import palestinetoria from "@assets/images/mainPage/palestineCastoria.gif";
 import palestineko from "@assets/images/mainPage/palestineko.avif";
@@ -73,7 +74,7 @@ import palestineko from "@assets/images/mainPage/palestineko.avif";
     border: 3px dashed var(--foreground);
     color: var(--accent);
     background-color: var(--background);
-    transition: 1s;
+    transition: background-color 1s;
   }
 
   #commitLink > div > div:hover {

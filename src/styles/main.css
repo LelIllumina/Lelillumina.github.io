@@ -50,7 +50,7 @@ body > div::before {
 
   background-color: var(--background);
 
-  transition: 0.5s;
+  transition: border 0.5s;
 }
 
 body > div:hover {

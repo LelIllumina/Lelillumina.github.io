@@ -1,13 +1,13 @@
 ---
-interface Props {
-  title: string;
+interface props {
+  accent: string;
   desc: string;
-  keywords: string;
+  imageAlt: string;
+  imageHeight: number;
   imageUrl: string;
   imageWidth: number;
-  imageHeight: number;
-  imageAlt: string;
-  accent: string;
+  keywords: string;
+  title: string;
 }
 import Outer from "@layouts/Outer.astro";
 import "@fontsource/dm-mono";
@@ -15,21 +15,21 @@ import { Image } from "astro:assets";
 import thing from "@assets/images/mainPage/thing.png";
 
 const props = {
-  title: "Before you enter...",
+  accent: "#cba6f7",
   desc: "Warning Page before entering",
-  keywords: "lel, nekoweb, website, info",
+  imageAlt: "Thing idk",
+  imageHeight: 1080,
   imageUrl: "/images/opengraph/thing.png",
   imageWidth: 1920,
-  imageHeight: 1080,
-  imageAlt: "Thing idk",
-  accent: "#cba6f7",
+  keywords: "lel, nekoweb, website, info",
+  title: "Before you enter...",
 };
 ---
 
-<Outer {...props}>
+<outer {...props}>
   <div id="hero">
     <div id="innards">
-      <Image src={thing} alt="bg" height="300" loading="eager" />
+      <image src={thing} alt="bg" height="300" loading="eager" />
       <h1>Welcome to lel@nekoweb!</h1><p>
         Before you enter be warned that this site <em>WILL</em> contain <strong
           >NSFW</strong
@@ -79,8 +79,6 @@ const props = {
       color: #4b4b4b;
 
       background-color: #141414;
-
-      transition: 0.5s;
     }
 
     #innards {
@@ -100,4 +98,4 @@ const props = {
       margin: auto;
     }
   </style>
-</Outer>
+</outer>
