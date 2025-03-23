@@ -1,7 +1,7 @@
-// @ts-check
-import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+// @ts-check
+import { defineConfig } from "astro/config";
 import Icons from "unplugin-icons/vite";
 
 export default defineConfig({

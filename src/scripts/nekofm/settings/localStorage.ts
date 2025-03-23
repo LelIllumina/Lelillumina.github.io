@@ -65,6 +65,15 @@ export function submit(): void {
   }
 }
 
-(window as any).applySavedSettings = applySavedSettings;
-(window as any).submit = submit;
-(window as any).deleteSettings = deleteSettings;
+// Extend the Window interface with our functions
+declare global {
+  interface Window {
+    applySavedSettings: () => void;
+    submit: () => void;
+    deleteSettings: () => void;
+  }
+}
+
+window.applySavedSettings = applySavedSettings;
+window.submit = submit;
+window.deleteSettings = deleteSettings;

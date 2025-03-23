@@ -3,49 +3,53 @@ interface NekofmSettings {
   customCSS: boolean;
 }
 
-class NekofmSettingsManager {
-  private static SETTINGS_KEY = "nekofmSettings";
+const SETTINGS_KEY = "nekofmSettings";
 
-  static getDefaultSettings(): NekofmSettings {
-    return {
-      nsfw: "off",
-      customCSS: false,
-    };
-  }
+export function getDefaultSettings(): NekofmSettings {
+  return {
+    nsfw: "off",
+    customCSS: false,
+  };
+}
 
-  static getSettings(): NekofmSettings {
-    const settings = localStorage.getItem(this.SETTINGS_KEY);
-    if (!settings) return this.getDefaultSettings(); // Return defaults if no settings are found.
+export function getSettings(): NekofmSettings {
+  const settings = localStorage.getItem(SETTINGS_KEY);
+  if (!settings) return getDefaultSettings(); // Return defaults if no settings are found.
 
-    try {
-      const parsedSettings: NekofmSettings = JSON.parse(settings);
-      return this.validateSettings(parsedSettings);
-    } catch {
-      // In case of an invalid setting structure, return default settings
-      return this.getDefaultSettings();
-    }
-  }
-
-  static setSettings(settings: NekofmSettings): void {
-    localStorage.setItem(this.SETTINGS_KEY, JSON.stringify(settings));
-  }
-
-  static validateSettings(settings: NekofmSettings): NekofmSettings {
-    // Validate the 'nsfw' setting
-    if (!["off", "blurred", "on"].includes(settings.nsfw)) {
-      settings.nsfw = this.getDefaultSettings().nsfw; // Default to "off"
-    }
-    // Validate 'customCSS' as a boolean
-    settings.customCSS =
-      typeof settings.customCSS === "boolean"
-        ? settings.customCSS
-        : this.getDefaultSettings().customCSS;
-    return settings;
-  }
-
-  static deleteSettings(): void {
-    localStorage.removeItem(this.SETTINGS_KEY);
+  try {
+    const parsedSettings: NekofmSettings = JSON.parse(settings);
+    return validateSettings(parsedSettings);
+  } catch {
+    // In case of an invalid setting structure, return default settings
+    return getDefaultSettings();
   }
 }
 
-export default NekofmSettingsManager;
+export function setSettings(settings: NekofmSettings): void {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+}
+
+export function validateSettings(settings: NekofmSettings): NekofmSettings {
+  // Validate the 'nsfw' setting
+  if (!["off", "blurred", "on"].includes(settings.nsfw)) {
+    settings.nsfw = getDefaultSettings().nsfw; // Default to "off"
+  }
+  // Validate 'customCSS' as a boolean
+  settings.customCSS =
+    typeof settings.customCSS === "boolean"
+      ? settings.customCSS
+      : getDefaultSettings().customCSS;
+  return settings;
+}
+
+export function deleteSettings(): void {
+  localStorage.removeItem(SETTINGS_KEY);
+}
+
+export default {
+  getDefaultSettings,
+  getSettings,
+  setSettings,
+  validateSettings,
+  deleteSettings,
+};

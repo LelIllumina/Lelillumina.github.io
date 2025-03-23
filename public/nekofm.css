@@ -1,5 +1,6 @@
 songBox {
-  background-image: linear-gradient(to right,#1e1e2e, #11111b9a), url("https://lel.hadsex.today/71yAPps17.png");
+  background-image: linear-gradient(to right, #1e1e2e, #11111b9a),
+    url("https://lel.hadsex.today/71yAPps17.png");
   background-size: cover;
   border: 5px ridge #cba6f7;
 }

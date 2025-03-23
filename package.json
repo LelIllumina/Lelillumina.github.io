@@ -34,10 +34,6 @@
     "typescript": "^5.8.2",
     "unplugin-icons": "^22.1.0"
   },
-  "browserslist": [
-    "last 2 versions"
-  ],
-  "trustedDependencies": [
-    "core-js"
-  ]
+  "browserslist": ["last 2 versions"],
+  "trustedDependencies": ["@biomejs/biome", "core-js", "esbuild", "sharp"]
 }

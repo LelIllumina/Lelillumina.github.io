@@ -37,10 +37,12 @@ const LASTFM_DEFAULT_IMG =
   "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
 
 // ----- Cached DOM Elements -----
-const totalCounter = document.getElementById("total")!;
-const scrobblingSection = document.getElementById("scrobbling")!;
-const offlineSection = document.getElementById("offline")!;
-const loadingDiv = document.getElementById("loading")!;
+const totalCounter = document.getElementById("total") as HTMLHeadingElement;
+const scrobblingSection = document.getElementById(
+  "scrobbling",
+) as HTMLDivElement;
+const offlineSection = document.getElementById("offline") as HTMLDivElement;
+const loadingDiv = document.getElementById("loading") as HTMLDivElement;
 totalCounter.textContent = users.length.toString();
 
 const userFragment = document.createDocumentFragment();
@@ -77,7 +79,9 @@ function handleWebSocketMessage(username: string, event: MessageEvent) {
 // ----- DOM Update Helpers -----
 function updateOnlineCounter() {
   const onlineCount = scrobblingSection.querySelectorAll(".container").length;
-  const onlineCounter = document.getElementById("counter")!;
+  const onlineCounter = document.getElementById(
+    "counter",
+  ) as HTMLHeadingElement;
   onlineCounter.textContent = onlineCount.toString();
 }
 
@@ -121,7 +125,7 @@ function createUserDiv(username: string, site: string): void {
 }
 
 function hydrateUserDiv(username: string, track: Track, userOnline: boolean) {
-  const userDiv = document.getElementById(username)!;
+  const userDiv = document.getElementById(username) as HTMLDivElement;
   const coverImgUrl = getCoverImage(track, username);
   updateTrackDetails(userDiv, track, coverImgUrl);
 
@@ -152,8 +156,12 @@ function updateTrackDetails(
   const coverImgEl = userDiv.querySelector(
     `#${userDiv.id}-trackCover`,
   ) as HTMLImageElement;
-  const trackNameEl = userDiv.querySelector(`#${userDiv.id}-trackName`)!;
-  const artistNameEl = userDiv.querySelector(`#${userDiv.id}-artistName`)!;
+  const trackNameEl = userDiv.querySelector(
+    `#${userDiv.id}-trackName`,
+  ) as HTMLDivElement;
+  const artistNameEl = userDiv.querySelector(
+    `#${userDiv.id}-artistName`,
+  ) as HTMLDivElement;
 
   coverImgEl.src = coverImgUrl;
   coverImgEl.alt = track.name;
@@ -222,7 +230,9 @@ async function setupWebSocketConnections(
 function createUserDivs(
   users: { username: string; site: string; customCSS: boolean }[],
 ) {
-  users.forEach(({ username, site }) => createUserDiv(username, site));
+  for (const { username, site } of users) {
+    createUserDiv(username, site);
+  }
   loadingDiv.append(userFragment);
 }
 

@@ -189,14 +189,14 @@ let v_pagePath = window.location.pathname;
 if (s_includeUrlParameters) {
   v_pagePath += window.location.search;
 }
-if (s_fixRarebitIndexPage && v_pagePath == "/") {
+if (s_fixRarebitIndexPage && v_pagePath === "/") {
   v_pagePath = "/?pg=1";
 }
 const c_pageInput = document.createElement("input");
 c_pageInput.value = v_pagePath;
 c_pageInput.type = "text";
 c_pageInput.style.display = "none";
-c_pageInput.id = "entry." + s_pageId;
+c_pageInput.id = `entry.${s_pageId}`;
 c_pageInput.name = c_pageInput.id;
 c_form.appendChild(c_pageInput);
 
@@ -211,10 +211,10 @@ c_replyingText = document.getElementById("c_replyingText");
 let c_replyInput = document.createElement("input");
 c_replyInput.type = "text";
 c_replyInput.style.display = "none";
-c_replyInput.id = "entry." + s_replyId;
+c_replyInput.id = `entry.${s_replyId}`;
 c_replyInput.name = c_replyInput.id;
 c_form.appendChild(c_replyInput);
-c_replyInput = document.getElementById("entry." + s_replyId);
+c_replyInput = document.getElementById(`entry.${s_replyId}`);
 
 // Add the invisible iFrame to the document for catching the default Google Forms submisson page
 let v_submitted = false;
@@ -263,12 +263,12 @@ function getComments() {
     );
 
     // Need index of page column for checking if comments are for the right page
-    const isPage = (col) => col.label == "Page";
-    let pageIdx = json.table.cols.findIndex(isPage);
+    const isPage = (col) => col.label === "Page";
+    const pageIdx = json.table.cols.findIndex(isPage);
 
     // Turn that data into usable comment data
     // All of the messy val checks are because Google Sheets can be weird sometimes with comment deletion
-    let comments = [];
+    const comments = [];
     if (json.table.parsedNumHeaders > 0) {
       // Check if any comments exist in the sheet at all before continuing
       for (r = 0; r < json.table.rows.length; r++) {
@@ -281,8 +281,8 @@ function getComments() {
         }
 
         // Check if the page name matches before adding to comment array
-        if (val1 == v_pagePath) {
-          let comment = {};
+        if (val1 === v_pagePath) {
+          const comment = {};
           for (c = 0; c < json.table.cols.length; c++) {
             // Check for null values
             let val2;
@@ -302,7 +302,7 @@ function getComments() {
     }
 
     // Check for empty comments before displaying to page
-    if (comments.length == 0 || Object.keys(comments[0]).length < 2) {
+    if (comments.length === 0 || Object.keys(comments[0]).length < 2) {
       // Once again, Google Sheets can be weird
       c_container.innerHTML = s_noCommentsText;
     } else {
@@ -315,7 +315,7 @@ function getComments() {
 
 // Fetches the Google Sheet resource from the provided URL
 function getSheet(url) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     fetch(url).then((response) => {
       if (!response.ok) {
         reject("Could not find Google Sheet with that URL");
@@ -340,7 +340,7 @@ function displayComments(comments) {
   c_container.innerHTML = "";
 
   // Get all reply comments by taking them out of the comment array
-  let replies = [];
+  const replies = [];
   for (i = 0; i < comments.length; i++) {
     if (comments[i].Reply) {
       replies.push(comments[i]);
@@ -357,13 +357,13 @@ function displayComments(comments) {
   // Main comments (not replies)
   comments.reverse(); // Newest comments go to top
   for (i = 0; i < comments.length; i++) {
-    let comment = createComment(comments[i]);
+    const comment = createComment(comments[i]);
 
     // Reply button
-    let button = document.createElement("button");
+    const button = document.createElement("button");
     button.innerHTML = s_replyButtonText;
     button.value = comment.id;
-    button.setAttribute("onclick", `openReply(this.value)`);
+    button.setAttribute("onclick", "openReply(this.value)");
     button.className = "c-replyButton";
     comment.appendChild(button);
 
@@ -380,22 +380,22 @@ function displayComments(comments) {
 
   // Replies
   for (i = 0; i < replies.length; i++) {
-    let reply = createComment(replies[i]);
+    const reply = createComment(replies[i]);
     const parentId = replies[i].Reply;
     const parentDiv = document.getElementById(parentId);
 
     // Check if a container doesn't already exist for this comment, if not, make one
     let container;
-    if (!document.getElementById(parentId + "-replies")) {
+    if (!document.getElementById(`${parentId}-replies`)) {
       container = document.createElement("div");
-      container.id = parentId + "-replies";
+      container.id = `${parentId}-replies`;
       if (s_collapsedReplies) {
         container.style.display = "none";
       } // Default to hidden if collapsed
       container.className = "c-replyContainer";
       parentDiv.appendChild(container);
     } else {
-      container = document.getElementById(parentId + "-replies");
+      container = document.getElementById(`${parentId}-replies`);
     }
     reply.className = "c-reply";
     container.appendChild(reply);
@@ -410,8 +410,8 @@ function displayComments(comments) {
 
       // The button to expand replies
       const button = document.createElement("button");
-      button.innerHTML = s_expandRepliesText + ` (${num})`;
-      button.setAttribute("onclick", `expandReplies(this.parentElement.id)`);
+      button.innerHTML = `${s_expandRepliesText} (${num})`;
+      button.setAttribute("onclick", "expandReplies(this.parentElement.id)");
       button.className = "c-expandButton";
       parentDiv.insertBefore(button, parentDiv.lastChild);
     }
@@ -419,14 +419,14 @@ function displayComments(comments) {
 
   // Handle pagination if there's more than one page
   if (v_amountOfPages > 1) {
-    let pagination = document.createElement("div");
+    const pagination = document.createElement("div");
 
     leftButton = document.createElement("button");
     leftButton.innerHTML = s_leftButtonText;
     leftButton.id = "c_leftButton";
     leftButton.name = "left";
-    leftButton.setAttribute("onclick", `changePage(this.name)`);
-    if (v_pageNum == 1) {
+    leftButton.setAttribute("onclick", "changePage(this.name)");
+    if (v_pageNum === 1) {
       leftButton.disabled = true;
     } // Can't go before page 1
     leftButton.className = "c-paginationButton";
@@ -436,8 +436,8 @@ function displayComments(comments) {
     rightButton.innerHTML = s_rightButtonText;
     rightButton.id = "c_rightButton";
     rightButton.name = "right";
-    rightButton.setAttribute("onclick", `changePage(this.name)`);
-    if (v_pageNum == v_amountOfPages) {
+    rightButton.setAttribute("onclick", "changePage(this.name)");
+    if (v_pageNum === v_amountOfPages) {
       rightButton.disabled = true;
     } // Can't go after the last page
     rightButton.className = "c-paginationButton";
@@ -450,10 +450,10 @@ function displayComments(comments) {
 
 // Create basic HTML comment, reply or not
 function createComment(data) {
-  let comment = document.createElement("div");
+  const comment = document.createElement("div");
 
   // Get the right timestamps
-  let timestamps = convertTimestamp(data.Timestamp);
+  const timestamps = convertTimestamp(data.Timestamp);
   let timestamp;
   if (s_longTimestamp) {
     timestamp = timestamps[0];
@@ -462,11 +462,11 @@ function createComment(data) {
   }
 
   // Set the ID (uses Name + Full Timestamp format)
-  const id = data.Name + "|--|" + data.Timestamp2;
+  const id = `${data.Name}|--|${data.Timestamp2}`;
   comment.id = id;
 
   // Name of user
-  let name = document.createElement("h3");
+  const name = document.createElement("h3");
   let filteredName = data.Name;
   if (s_wordFilterOn) {
     filteredName = filteredName.replace(v_filteredWords, s_filterReplacement);
@@ -476,14 +476,14 @@ function createComment(data) {
   comment.appendChild(name);
 
   // Timestamp
-  let time = document.createElement("span");
+  const time = document.createElement("span");
   time.innerText = timestamp;
   time.className = "c-timestamp";
   comment.appendChild(time);
 
   // Website URL, if one was provided
   if (data.Website) {
-    let site = document.createElement("a");
+    const site = document.createElement("a");
     site.innerText = s_websiteText;
     site.href = data.Website;
     site.className = "c-site";
@@ -491,7 +491,7 @@ function createComment(data) {
   }
 
   // Text content
-  let text = document.createElement("p");
+  const text = document.createElement("p");
   let filteredText = data.Text;
   if (s_wordFilterOn) {
     filteredText = filteredText.replace(v_filteredWords, s_filterReplacement);
@@ -548,12 +548,12 @@ function isDST(date) {
 }
 // Thank you to https://stackoverflow.com/questions/32192982/get-a-given-weekday-in-a-given-month-with-javascript for the below function
 function nthDayOfMonth(day, n, date, hour) {
-  var count = 0;
-  var idate = new Date(date);
+  let count = 0;
+  const idate = new Date(date);
   idate.setDate(1);
   while (count < n) {
     idate.setDate(idate.getDate() + 1);
-    if (idate.getDay() == day) {
+    if (idate.getDay() === day) {
       count++;
     }
   }
@@ -638,8 +638,8 @@ function getMonthNum(month) {
 const link = document.createElement("a");
 link.href = "#c_inputDiv";
 function openReply(id) {
-  if (c_replyingText.style.display == "none") {
-    c_replyingText.innerHTML = s_replyingText + ` ${id.split("|--|")[0]}...`;
+  if (c_replyingText.style.display === "none") {
+    c_replyingText.innerHTML = `${s_replyingText} ${id.split("|--|")[0]}...`;
     c_replyInput.value = id;
     c_replyingText.style.display = "block";
   } else {
@@ -653,7 +653,7 @@ function openReply(id) {
 // Handle expanding replies (should only be accessible with collapsed replies enabled)
 function expandReplies(id) {
   const targetDiv = document.getElementById(`${id}-replies`);
-  if (targetDiv.style.display == "none") {
+  if (targetDiv.style.display === "none") {
     targetDiv.style.display = "block";
   } else {
     targetDiv.style.display = "none";
@@ -677,7 +677,7 @@ function changePage(dir) {
       num = 0;
       break;
   }
-  let targetPage = v_pageNum + num;
+  const targetPage = v_pageNum + num;
 
   // Cancel if impossible direction for safety, should never happen though
   if (targetPage > v_amountOfPages || targetPage < 1) {
@@ -687,10 +687,10 @@ function changePage(dir) {
   // Enable/disable buttons if needed
   leftButton.disabled = false;
   rightButton.disabled = false;
-  if (targetPage == 1) {
+  if (targetPage === 1) {
     leftButton.disabled = true;
   } // Can't go before page 1
-  if (targetPage == v_amountOfPages) {
+  if (targetPage === v_amountOfPages) {
     rightButton.disabled = true;
   } // Can't go past the last page
 
