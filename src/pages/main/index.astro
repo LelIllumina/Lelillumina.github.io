@@ -44,18 +44,6 @@ import num4 from "/src/assets/images/numbers/4.gif";
     <p id="subtitle">Visits since creation</p>
   </div>
 
-  <a id="commitLink" href="#" target="_blank">
-    <div>
-      <div>
-        <p id="shortHash"></p>
-        <p id="commitLatest">
-          <br />
-          Loading...
-        </p>
-      </div>
-    </div>
-  </a>
-
   <div id="stats-container">
     <div id="stats">
       <h2>Stats:</h2>
@@ -129,7 +117,6 @@ import num4 from "/src/assets/images/numbers/4.gif";
 <script src="/src/scripts/discord/discord.ts"></script>
 <script src="/src/scripts/discord/api.ts"></script>
 <script src="/src/scripts/main.ts"></script>
-<script src="/src/scripts/github.ts"></script>
 
 <style>
   #views {
@@ -165,32 +152,5 @@ import num4 from "/src/assets/images/numbers/4.gif";
   #webrings {
     display: flex;
     justify-content: space-around;
-  }
-
-  #commitLink {
-    text-decoration: none;
-  }
-
-  #commitLink > div {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 25px;
-  }
-
-  #commitLink > div > div {
-    color: var(--accent);
-    background-color: var(--background);
-    border: 5px dashed var(--foreground);
-    transition: 1s;
-  }
-  #commitLink > div > div:hover {
-    border: 5px dashed var(--accent);
-  }
-
-  #shortHash {
-    color: var(--foreground);
-    background-color: var(--accent);
   }
 </style>

@@ -27,6 +27,18 @@ import palestineko from "@assets/images/mainPage/palestineko.avif";
           <p class="siteName" id="siteName"></p>
         </div>
         <script src="/src/scripts/lastfm.ts"></script>
+        <a id="commitLink" href="#" target="_blank">
+          <div>
+            <div>
+              <p id="shortHash"></p>
+              <p id="commitLatest">
+                <br />
+                Loading...
+              </p>
+            </div>
+          </div>
+        </a>
+        <script src="/src/scripts/github.ts"></script>
 
         <a href="https://pure.nekoweb.org/">
           <Image src={palestineko} alt="Palestine Neko" loading="eager" />
@@ -44,3 +56,32 @@ import palestineko from "@assets/images/mainPage/palestineko.avif";
     </div>
   </div>
 </div>
+<style>
+  #commitLink {
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  #commitLink > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #commitLink > div > div {
+    border: 3px dashed var(--foreground);
+    color: var(--accent);
+    background-color: var(--background);
+    transition: 1s;
+  }
+
+  #commitLink > div > div:hover {
+    border: 3px dashed var(--accent);
+  }
+
+  #shortHash {
+    color: var(--foreground);
+    background-color: var(--accent);
+  }
+</style>
