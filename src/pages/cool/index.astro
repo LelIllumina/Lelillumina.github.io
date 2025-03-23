@@ -1,16 +1,16 @@
 ---
-import Link from "@components/MainPage/Link.astro";
+import CoolLink from "@components/MainPage/CoolLink.astro";
 import Main from "@layouts/Main.astro";
 
 const props = {
-  title: "Cool shit I like",
+  accent: "#cba6f7",
   desc: "Cooool shit ive seen",
-  keywords: "lel, nekoweb, website, button, buttons",
+  imageAlt: "misaki",
+  imageHeight: 1200,
   imageUrl: "/images/opengraph/nhk.jpg",
   imageWidth: 1200,
-  imageHeight: 1200,
-  imageAlt: "misaki",
-  accent: "#cba6f7",
+  keywords: "lel, nekoweb, website, button, buttons",
+  title: "Cool shit I like",
 };
 
 import bunny from "@assets/images/CoolShit/bunny.min.svg";
@@ -20,11 +20,11 @@ import rosepine from "@assets/images/CoolShit/rosepine.min.svg";
 import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
 ---
 
-<Main {...props}>
+<main {...props}>
   <h1>Cool stuff I found</h1>
   <p>Random cool things I found online that I wanted to share</p>
   <h2>Themes:</h2>
-  <Link
+  <CoolLink
     title="Everforest"
     desc="Nice green theme"
     link="https://github.com/sainnhe/everforest"
@@ -32,7 +32,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     borderColor="#dbbc7f"
     textColor="#d3c6aa"
   />
-  <Link
+  <CoolLink
     title="Catppuccin"
     desc="Cool Pastell theme"
     link="https://github.com/catppuccin/catppuccin"
@@ -41,7 +41,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     textColor="#cdd6f4"
     image={catppuccin}
   />
-  <Link
+  <CoolLink
     title="Rosé Pine"
     desc="Similar to Catppuccin"
     link="https://rosepinetheme.com/palette/ingredients/#rose-pine"
@@ -51,7 +51,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     image={rosepine}
   />
   <h2>Webdev:</h2>
-  <Link
+  <CoolLink
     title="Party Town"
     desc="Moves scripts to a service worker for non-blocking execution"
     link="https://partytown.builder.io/"
@@ -59,7 +59,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     textColor="#2890E9"
     image={partytown}
   />
-  <Link
+  <CoolLink
     title="icônes"
     desc="icon library"
     link="https://icones.js.org/"
@@ -67,7 +67,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     borderColor="#282828"
     textColor="#d1d5db"
   />
-  <Link
+  <CoolLink
     title="Yay.boo"
     desc="No signup Webhost "
     link="https://yay.boo/"
@@ -77,7 +77,7 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     image={yayboo}
   />
   <h2>Etc:</h2>
-  <Link
+  <CoolLink
     title="Bunny.net Fonts"
     desc="Google Fonts Compatible font API"
     link="https://fonts.bunny.net/"
@@ -86,12 +86,12 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     textColor="#ffffff"
     image={bunny}
   />
-  <Link
+  <CoolLink
     title="OSX on Docker "
     desc="OSX on a docker container, regardless of "
     link="https://github.com/sickcodes/Docker-OSX"
   />
-  <Link
+  <CoolLink
     title="math4devs"
     desc="Math terms shown using javascript code"
     link="https://math4devs.com/"
@@ -99,4 +99,4 @@ import yayboo from "@assets/images/CoolShit/yayboo.min.svg";
     borderColor="#2a2e33"
     textColor="#ffffff"
   />
-</Main>
+</main>
