@@ -2,7 +2,7 @@
 export default {
   extends: [
     "stylelint-config-standard",
-    "stylelint-config-html",
+    "stylelint-config-html/astro",
     "stylelint-config-clean-order",
   ],
   overrides: [
