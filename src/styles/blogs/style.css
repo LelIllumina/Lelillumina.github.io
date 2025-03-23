@@ -58,7 +58,7 @@ thead {
 }
 
 a {
-  font-family: "Jetbrains Mono", monospace;
+  font-family: "Iosevka Etoile Web", monospace;
   color: #e67e80;
   text-decoration: none;
 
@@ -88,7 +88,7 @@ a:not(:has(img)):hover {
 }
 
 p {
-  font-family: "Jetbrains Mono", monospace;
+  font-family: "Iosevka Etoile Web", monospace;
   line-height: 24px;
 }
 

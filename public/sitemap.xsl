@@ -4,7 +4,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <link rel="stylesheet" type="text/css" href="/sitemap/sitemap.css"/>
+        <link rel="stylesheet" type="text/css" href="/sitemap.css"/>
       </head>
       <body>
         <h1>lel.nekoweb.org Sitemap</h1>
