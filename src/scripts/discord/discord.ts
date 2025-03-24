@@ -24,14 +24,14 @@ export class DiscordWidget extends HTMLElement {
         <div id="discord-rpc">
           <img
             id="discord-activity-img"
-            src="https://lel.nekoweb.org/assets/images/transparent.webp"
+            src="https://lel.nekoweb.org/images/transparent.webp"
             alt=""
             height="100"
             width="100"
           />
           <img
             id="discord-activity-miniimg"
-            src="https://lel.nekoweb.org/assets/images/transparent.webp"
+            src="https://lel.nekoweb.org/images/transparent.webp"
             alt=""
             height="25"
             width="25"
