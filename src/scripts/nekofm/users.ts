@@ -21,6 +21,11 @@ export const users: User[] = [
     customCSS: true,
   },
   { username: "Giiki", site: "giikis2.nekoweb.org", customCSS: true },
+  {
+    username: "jbcarreon123",
+    site: "jbcarreon123.nekoweb.org",
+    customCSS: false,
+  },
   { username: "LelIllumina", site: "lel.nekoweb.org", customCSS: true },
   { username: "maxpixels", site: "maxpixels.moe", customCSS: true },
   { username: "moosyu", site: "moosyu.nekoweb.org", customCSS: true },
@@ -83,6 +88,7 @@ export const users: User[] = [
     site: "iamdeka.nekoweb.org",
     customCSS: false,
   },
+
   { username: "julylmao", site: "july.lol", customCSS: false },
   { username: "lakiitu", site: "doqmeat.com", customCSS: false },
   {
