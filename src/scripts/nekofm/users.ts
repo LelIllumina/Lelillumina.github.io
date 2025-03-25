@@ -34,6 +34,7 @@ export const users: User[] = [
     site: "yumeo.nekoweb.org",
     customCSS: true,
   },
+  { username: "ReduxFlakes", site: "reduxflakes", customCSS: true },
   { username: "tepiloxtl", site: "tepiloxtl.net", customCSS: true },
   { username: "abyssmaze", site: "eye.nekoweb.org", customCSS: false },
   {
