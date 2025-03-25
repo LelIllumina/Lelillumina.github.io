@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 15px;
 
-  font-family: "DM Mono", monospace;
+  font-family: "DM Mono", monospace, "MS Gothic";
   line-height: 25px;
   color: var(--text);
 
@@ -68,7 +68,7 @@ h4,
 h5,
 h6 {
   margin: auto;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "IBM Plex Mono", monospace, "MS Gothic";
 }
 
 h2 {
