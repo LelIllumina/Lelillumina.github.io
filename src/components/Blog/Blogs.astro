@@ -18,7 +18,9 @@ const sortedPosts = posts.sort((a, b) => new Date(a.data.date).getTime() - new D
           <li style="margin: 16px 0">
             <a
               class="index-link"
-              href={`/blogs/${post.id}`}
+              href={
+                isArchive ? `/blogs/archive/${post.id}` : `/blogs/${post.id}`
+              }
               data-astro-prefetch
             >
               {post.data.title}

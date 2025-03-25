@@ -1,10 +1,12 @@
 ---
 import BlogLayout from "@components/Blog/BlogLayout.astro";
+const title = "Archive";
+const desc = "This is the Archive";
 ---
 
-<BlogLayout>
+<BlogLayout {title} {desc}>
   <header>
-    <h1>Archive</h1>
+    <h1>{title}</h1>
     <p class="date"></p>
   </header>
   <p style="width: 100vw;">

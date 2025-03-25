@@ -1,15 +1,15 @@
 ---
 import BlogLayout from "@components/Blog/BlogLayout.astro";
+const title = "Hermlo to my Blog";
+const desc = "This is the main page";
 ---
 
-<BlogLayout>
+<BlogLayout {title} {desc}>
   <header>
-    <h1>Hermlo to my bloughg</h1>
+    <h1>{title}</h1>
     <p class="date"></p>
   </header>
-  <p style="width: 100vw;">
-    Mind the bad spacing. Pick a blog from the right, it'll fix stuff up
-  </p>
+  <p style="width: 100vw;">Pick a blog from the right, it'll fix stuff up</p>
 </BlogLayout>
 
 <script>

@@ -14,7 +14,7 @@ const { Content } = await render(post);
 const { title, desc, date, img } = post.data;
 ---
 
-<BlogLayout {title} {desc} {date} imageUrl={img || ""}>
+<BlogLayout {title} {desc} imageUrl={img || ""}>
   <header>
     <h1>{title}</h1>
     <p class="desc">{post.data.desc}</p>
