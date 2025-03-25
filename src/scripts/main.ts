@@ -11,12 +11,9 @@ import fetchNekostats from "./nekostats";
       `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
     // document.getElementById("visitors").innerHTML =
     //   `<em>Visits</em>: ${json.views}`;
-    (document.getElementById("followers") as HTMLParagraphElement).innerHTML =
-      `<em>Followers</em>: ${json.followers}`;
+    (document.getElementById("followers") as HTMLParagraphElement).innerHTML = `<em>Followers</em>: ${json.followers}`;
 
-    const container = document.getElementById(
-      "views-counter",
-    ) as HTMLDivElement;
+    const container = document.getElementById("views-counter") as HTMLDivElement;
     const digits = json.views.toString().split(""); // Split the number into individual digits
     container.innerHTML = ""; // Clear previous content
 
@@ -34,9 +31,7 @@ import fetchNekostats from "./nekostats";
   } catch (error: unknown) {
     console.error(error);
 
-    const container = document.getElementById(
-      "views-counter",
-    ) as HTMLDivElement;
+    const container = document.getElementById("views-counter") as HTMLDivElement;
     const subtitle = document.getElementById("subtitle") as HTMLDivElement;
 
     subtitle.innerHTML = "Script failed Noooooo";

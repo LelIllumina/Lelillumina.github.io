@@ -30,27 +30,19 @@ export function applySavedSettings(): void {
   const settings = getSettings();
   if (settings) {
     // Apply NSFW setting
-    const nsfwOption = document.querySelector(
-      `input[name="nsfw"][value="${settings.nsfw}"]`,
-    ) as HTMLInputElement;
+    const nsfwOption = document.querySelector(`input[name="nsfw"][value="${settings.nsfw}"]`) as HTMLInputElement;
     if (nsfwOption) nsfwOption.checked = true;
 
     // Apply custom CSS setting
-    const customCSSCheckbox = document.getElementById(
-      "customCSS",
-    ) as HTMLInputElement;
+    const customCSSCheckbox = document.getElementById("customCSS") as HTMLInputElement;
     if (customCSSCheckbox) customCSSCheckbox.checked = settings.customCSS;
   }
 }
 
 export function submit(): void {
   try {
-    const nsfwValue = (
-      document.querySelector("input[name='nsfw']:checked") as HTMLInputElement
-    ).value;
-    const customCSSEnabled = (
-      document.getElementById("customCSS") as HTMLInputElement
-    ).checked;
+    const nsfwValue = (document.querySelector("input[name='nsfw']:checked") as HTMLInputElement).value;
+    const customCSSEnabled = (document.getElementById("customCSS") as HTMLInputElement).checked;
 
     const settings: NekofmSettings = {
       nsfw: nsfwValue,

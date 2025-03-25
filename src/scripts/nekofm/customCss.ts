@@ -15,17 +15,14 @@ if (localStorage.customCSS !== "false") {
       fetch(url)
         .then((response) => response.text())
         .then((data) => {
-          const modifiedCss = data.replace(
-            /(^|})\s*([^{@}]+)\s*{/g,
-            (match, prefix, selector) => {
-              if (/^\s*@/.test(selector)) return match;
-              const prefixedSelectors = selector
-                .split(",")
-                .map((sel: string) => `#${username}-${sel.trim()}`)
-                .join(", ");
-              return `${prefix} ${prefixedSelectors} {`;
-            },
-          );
+          const modifiedCss = data.replace(/(^|})\s*([^{@}]+)\s*{/g, (match, prefix, selector) => {
+            if (/^\s*@/.test(selector)) return match;
+            const prefixedSelectors = selector
+              .split(",")
+              .map((sel: string) => `#${username}-${sel.trim()}`)
+              .join(", ");
+            return `${prefix} ${prefixedSelectors} {`;
+          });
 
           const styleTag = document.createElement("style");
           styleTag.innerHTML = modifiedCss;

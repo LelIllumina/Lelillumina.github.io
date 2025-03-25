@@ -6,9 +6,7 @@ const collectionName = isArchive ? "archive" : "blog";
 const posts = await getCollection(collectionName);
 
 // Sort posts by date
-const sortedPosts = posts.sort(
-  (a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime(),
-);
+const sortedPosts = posts.sort((a, b) => new Date(a.data.date).getTime() - new Date(b.data.date).getTime());
 ---
 
 <section id="sidebar" transition:persist>

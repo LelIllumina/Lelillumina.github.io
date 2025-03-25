@@ -33,14 +33,11 @@ const BASE_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/";
 const DEFAULT_LOADING_IMG = "/images/NekoFM/loading.png";
 const DEFAULT_NO_ART = "/images/NekoFM/NoArt.svg";
 const DEFAULT_NSFW_COVER = "/images/NekoFM/NSFWCOVER.png";
-const LASTFM_DEFAULT_IMG =
-  "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
+const LASTFM_DEFAULT_IMG = "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
 
 // ----- Cached DOM Elements -----
 const totalCounter = document.getElementById("total") as HTMLHeadingElement;
-const scrobblingSection = document.getElementById(
-  "scrobbling",
-) as HTMLDivElement;
+const scrobblingSection = document.getElementById("scrobbling") as HTMLDivElement;
 const offlineSection = document.getElementById("offline") as HTMLDivElement;
 const loadingDiv = document.getElementById("loading") as HTMLDivElement;
 totalCounter.textContent = users.length.toString();
@@ -52,9 +49,7 @@ const connectWebSocket = (username: string): Promise<WebSocket> =>
   new Promise((resolve, reject) => {
     const socket = new WebSocket(`${BASE_URL}${username}`);
     socket.addEventListener("open", () => resolve(socket));
-    socket.addEventListener("message", (event) =>
-      handleWebSocketMessage(username, event),
-    );
+    socket.addEventListener("message", (event) => handleWebSocketMessage(username, event));
     socket.addEventListener("error", (error) => reject(error));
   });
 
@@ -79,9 +74,7 @@ function handleWebSocketMessage(username: string, event: MessageEvent) {
 // ----- DOM Update Helpers -----
 function updateOnlineCounter() {
   const onlineCount = scrobblingSection.querySelectorAll(".container").length;
-  const onlineCounter = document.getElementById(
-    "counter",
-  ) as HTMLHeadingElement;
+  const onlineCounter = document.getElementById("counter") as HTMLHeadingElement;
   onlineCounter.textContent = onlineCount.toString();
 }
 
@@ -139,29 +132,15 @@ function hydrateUserDiv(username: string, track: Track, userOnline: boolean) {
 
 function getCoverImage(track: Track, username: string): string {
   const defaultCover = track.image[2]["#text"];
-  const coverImgUrl = track.album.isnsfw
-    ? applyNSFWFilter(track, username, defaultCover)
-    : defaultCover;
+  const coverImgUrl = track.album.isnsfw ? applyNSFWFilter(track, username, defaultCover) : defaultCover;
 
-  return coverImgUrl === LASTFM_DEFAULT_IMG
-    ? DEFAULT_NO_ART
-    : coverImgUrl || DEFAULT_NO_ART;
+  return coverImgUrl === LASTFM_DEFAULT_IMG ? DEFAULT_NO_ART : coverImgUrl || DEFAULT_NO_ART;
 }
 
-function updateTrackDetails(
-  userDiv: HTMLElement,
-  track: Track,
-  coverImgUrl: string,
-) {
-  const coverImgEl = userDiv.querySelector(
-    `#${userDiv.id}-trackCover`,
-  ) as HTMLImageElement;
-  const trackNameEl = userDiv.querySelector(
-    `#${userDiv.id}-trackName`,
-  ) as HTMLDivElement;
-  const artistNameEl = userDiv.querySelector(
-    `#${userDiv.id}-artistName`,
-  ) as HTMLDivElement;
+function updateTrackDetails(userDiv: HTMLElement, track: Track, coverImgUrl: string) {
+  const coverImgEl = userDiv.querySelector(`#${userDiv.id}-trackCover`) as HTMLImageElement;
+  const trackNameEl = userDiv.querySelector(`#${userDiv.id}-trackName`) as HTMLDivElement;
+  const artistNameEl = userDiv.querySelector(`#${userDiv.id}-artistName`) as HTMLDivElement;
 
   coverImgEl.src = coverImgUrl;
   coverImgEl.alt = track.name;
@@ -187,15 +166,9 @@ function updateScrobblingStatus() {
 // ----- NSFW Filter -----
 import NekofmSettingsManager from "./settings/setSettings.ts";
 
-function applyNSFWFilter(
-  track: Track,
-  username: string,
-  defaultCover: string,
-): string {
+function applyNSFWFilter(track: Track, username: string, defaultCover: string): string {
   const settings = NekofmSettingsManager.getSettings();
-  const trackCover = document.getElementById(
-    `${username}-trackCover`,
-  ) as HTMLElement;
+  const trackCover = document.getElementById(`${username}-trackCover`) as HTMLElement;
   if (!settings.nsfw || settings.nsfw === "off") return defaultCover;
 
   switch (settings.nsfw) {
@@ -213,23 +186,17 @@ function applyNSFWFilter(
 const currentSettings = NekofmSettingsManager.getSettings();
 
 // ----- Setup Connections -----
-async function setupWebSocketConnections(
-  users: { username: string; site: string; customCSS: boolean }[],
-) {
+async function setupWebSocketConnections(users: { username: string; site: string; customCSS: boolean }[]) {
   createUserDivs(users);
   try {
-    const connections = await Promise.all(
-      users.map((user) => connectWebSocket(user.username)),
-    );
+    const connections = await Promise.all(users.map((user) => connectWebSocket(user.username)));
     console.log("WebSocket connections established:", connections);
   } catch (error) {
     console.error("Error connecting to WebSockets:", error);
   }
 }
 
-function createUserDivs(
-  users: { username: string; site: string; customCSS: boolean }[],
-) {
+function createUserDivs(users: { username: string; site: string; customCSS: boolean }[]) {
   for (const { username, site } of users) {
     createUserDiv(username, site);
   }

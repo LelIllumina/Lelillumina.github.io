@@ -29,18 +29,13 @@ export interface LastFmData {
 const WS_URL = "wss://scrobbled.tepiloxtl.net/ws/get_last_track/lelillumina";
 const DEFAULT_NO_ART = "/images/NekoFM/NoArt.svg";
 const DEFAULT_NSFW_COVER = "/images/NekoFM/NSFWCOVER.png";
-const LASTFM_DEFAULT_IMG =
-  "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
+const LASTFM_DEFAULT_IMG = "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
 
-const lastFmStatus = document.getElementById(
-  "lastfm-status",
-) as HTMLHeadingElement;
+const lastFmStatus = document.getElementById("lastfm-status") as HTMLHeadingElement;
 const songBox = document.getElementById("songBox") as HTMLDivElement;
 
 const trackNameEl = songBox.querySelector("#trackName") as HTMLHeadingElement;
-const artistNameEl = songBox.querySelector(
-  "#artistName",
-) as HTMLParagraphElement;
+const artistNameEl = songBox.querySelector("#artistName") as HTMLParagraphElement;
 const coverImgEl = songBox.querySelector("#trackCover") as HTMLImageElement;
 
 async function openWebSocket(url: string): Promise<WebSocket> {
@@ -65,13 +60,10 @@ function handleMessage(event: MessageEvent) {
   if (!track) return;
 
   // Update online status display
-  lastFmStatus.textContent =
-    track.nowplaying === "false" ? "Last Played" : "Now Playing";
+  lastFmStatus.textContent = track.nowplaying === "false" ? "Last Played" : "Now Playing";
 
   // Determine cover image URL based on NSFW flag and default art fallback
-  let coverImgUrl = track.album.isnsfw
-    ? DEFAULT_NSFW_COVER
-    : track.image[2]["#text"];
+  let coverImgUrl = track.album.isnsfw ? DEFAULT_NSFW_COVER : track.image[2]["#text"];
   if (coverImgUrl === LASTFM_DEFAULT_IMG) coverImgUrl = DEFAULT_NO_ART;
 
   // Update track details in DOM

@@ -83,9 +83,7 @@ loadTheme();
 window.setTheme = setTheme;
 
 function setupThemeSelector(): void {
-  const themeDropdown = document.getElementById(
-    "theme-dropdown",
-  ) as HTMLSelectElement;
+  const themeDropdown = document.getElementById("theme-dropdown") as HTMLSelectElement;
 
   if (!themeDropdown) {
     console.error("Theme dropdown not found!");

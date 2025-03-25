@@ -35,10 +35,7 @@ export function validateSettings(settings: NekofmSettings): NekofmSettings {
     settings.nsfw = getDefaultSettings().nsfw; // Default to "off"
   }
   // Validate 'customCSS' as a boolean
-  settings.customCSS =
-    typeof settings.customCSS === "boolean"
-      ? settings.customCSS
-      : getDefaultSettings().customCSS;
+  settings.customCSS = typeof settings.customCSS === "boolean" ? settings.customCSS : getDefaultSettings().customCSS;
   return settings;
 }
 

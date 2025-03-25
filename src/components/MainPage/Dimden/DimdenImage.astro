@@ -10,16 +10,11 @@ interface Props {
 }
 
 const { src, alt, name, desc } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/dimden/*.png",
-);
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/dimden/*.png");
 
 const image = images[`/src/assets${src}`];
 
-if (!image)
-  throw new Error(
-    `"/src/assets${src}" does not exist in glob: "src/assets/images/dimden/*"`,
-  );
+if (!image) throw new Error(`"/src/assets${src}" does not exist in glob: "src/assets/images/dimden/*"`);
 ---
 
 <div class="card">

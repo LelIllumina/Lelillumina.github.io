@@ -53,28 +53,14 @@ export class DiscordWidget extends HTMLElement {
       discord: this.querySelector("#discord-widget") as HTMLDivElement,
       pfp: this.querySelector("#discord-pfp") as HTMLImageElement,
       discordName: this.querySelector("#discord-name") as HTMLHeadingElement,
-      discordUsername: this.querySelector(
-        "#discord-username",
-      ) as HTMLHeadingElement,
-      discordStatus: this.querySelector(
-        "#discord-status",
-      ) as HTMLParagraphElement,
+      discordUsername: this.querySelector("#discord-username") as HTMLHeadingElement,
+      discordStatus: this.querySelector("#discord-status") as HTMLParagraphElement,
       discordRPC: this.querySelector("#discord-rpc") as HTMLDivElement,
-      discordActivityName: this.querySelector(
-        "#discord-activity-name",
-      ) as HTMLHeadingElement,
-      discordActivityImage: this.querySelector(
-        "#discord-activity-img",
-      ) as HTMLImageElement,
-      discordActivitySmallImage: this.querySelector(
-        "#discord-activity-miniimg",
-      ) as HTMLImageElement,
-      discordActivityDetails: this.querySelector(
-        "#discord-activity-details",
-      ) as HTMLParagraphElement,
-      discordActivityState: this.querySelector(
-        "#discord-activity-state",
-      ) as HTMLParagraphElement,
+      discordActivityName: this.querySelector("#discord-activity-name") as HTMLHeadingElement,
+      discordActivityImage: this.querySelector("#discord-activity-img") as HTMLImageElement,
+      discordActivitySmallImage: this.querySelector("#discord-activity-miniimg") as HTMLImageElement,
+      discordActivityDetails: this.querySelector("#discord-activity-details") as HTMLParagraphElement,
+      discordActivityState: this.querySelector("#discord-activity-state") as HTMLParagraphElement,
     };
   }
 
@@ -95,16 +81,10 @@ export class DiscordWidget extends HTMLElement {
       return;
     }
 
-    const customStatus = activities.find(
-      (activity) => activity.id === "custom",
-    );
-    const nonCustomActivity = activities.find(
-      (activity) => activity.id !== "custom",
-    );
+    const customStatus = activities.find((activity) => activity.id === "custom");
+    const nonCustomActivity = activities.find((activity) => activity.id !== "custom");
 
-    elements.discordStatus.textContent = customStatus
-      ? customStatus.state || ""
-      : "";
+    elements.discordStatus.textContent = customStatus ? customStatus.state || "" : "";
 
     if (nonCustomActivity) {
       const { assets, name, details, state } = nonCustomActivity;

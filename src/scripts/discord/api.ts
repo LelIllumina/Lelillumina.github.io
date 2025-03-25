@@ -21,12 +21,8 @@ export interface DiscordData {
   activities: DiscordActivity[];
 }
 
-export async function fetchDiscordData(
-  discordId: string,
-): Promise<DiscordData> {
-  const response = await fetch(
-    `https://api.lanyard.rest/v1/users/${discordId}`,
-  );
+export async function fetchDiscordData(discordId: string): Promise<DiscordData> {
+  const response = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`);
   const { data } = await response.json();
   return data;
 }

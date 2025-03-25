@@ -11,8 +11,7 @@ interface Props {
 
 import { Image } from "astro:assets";
 
-const { title, desc, link, bgColor, borderColor, textColor, image } =
-  Astro.props;
+const { title, desc, link, bgColor, borderColor, textColor, image } = Astro.props;
 
 const bgcolor = bgColor || "oklch(23% 0 0deg);";
 const bordercolor = borderColor || "var(--foreground)";
