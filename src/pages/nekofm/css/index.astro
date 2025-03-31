@@ -1,5 +1,49 @@
 ---
 import "@fontsource-variable/jetbrains-mono";
+import "@styles/nekofm/style.css";
+import "@styles/nekofm/horizontal.css";
+import { Code } from "astro:components";
+const code = `
+songBox {
+  background-color: #111;
+  border: 4px ridge aliceblue;
+  align-items: center;
+}
+
+siteName {
+  margin: auto;
+  color: darkgray;
+}
+
+trackInfo {
+  /* You can set fonts here, beware of CORS though */
+  width: fit-content;
+}
+
+trackCover {
+  height: 150px;
+  float: left;
+}
+
+trackName {
+  color: white
+}
+
+artistName {
+  margin: 5px auto;
+}
+
+searchButton {
+  color: #fff;
+  background: #303030;
+  padding: 4px;
+  text-decoration: none;
+}
+/*  
+  Obviously you can also use ::after and ::before css
+  Go ham with the custom css, use your own bg images if you want
+  If you mess up, it should'nt effect the rest of the site so dont worry
+*/`;
 ---
 
 <!doctype html>
@@ -32,7 +76,6 @@ import "@fontsource-variable/jetbrains-mono";
     <meta name="theme-color" content="#a20000" />
     <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
 
-    <link rel="stylesheet" href="/nekofm/styles/style.css" />
     <style>
       p {
         line-height: 30px;
@@ -103,52 +146,10 @@ import "@fontsource-variable/jetbrains-mono";
           folder on your site) and then paste the following code into it
         </p>
         <br />
-        <pre>
-<p class="filename">nekofm.css (default settings)</p>
-<hr />
-<code class="block" is:raw>
-songBox {
-  background-color: #111;
-  border: 4px ridge aliceblue;
-  align-items: center;
-}
 
-siteName {
-  margin: auto;
-  color: darkgray;
-}
-
-trackInfo {
-  /* You can set fonts here, beware of CORS though */
-  width: fit-content;
-}
-
-trackCover {
-  height: 150px;
-  float: left;
-}
-
-trackName {
-  color: white
-}
-
-artistName {
-  margin: 5px auto;
-}
-
-searchButton {
-  color: #fff;
-  background: #303030;
-  padding: 4px;
-  text-decoration: none;
-}
-/*  
-  Obviously you can also use ::after and ::before css
-  Go ham with the custom css, use your own bg images if you want
-  If you mess up, it should'nt effect the rest of the site so dont worry
-*/
-        </code>
-</pre>
+        <p class="filename">nekofm.css (default settings)</p>
+        <hr />
+        <Code code={code} />
         <br />
         <p>
           After that you can change the properties to your liking, anything goes

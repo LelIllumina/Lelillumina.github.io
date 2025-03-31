@@ -1,5 +1,7 @@
 ---
 import "@fontsource-variable/jetbrains-mono";
+import "@styles/nekofm/style.css";
+import "@styles/nekofm/horizontal.css";
 ---
 
 <!doctype html>
@@ -32,18 +34,6 @@ import "@fontsource-variable/jetbrains-mono";
     <meta name="theme-color" content="#a20000" />
     <link rel="icon" type="image/x-icon" href="/images/NekoFM/NekoFM_ek.png" />
 
-    <link rel="stylesheet" href="/nekofm/styles/style.css" />
-    <link
-      id="horizontal"
-      rel="stylesheet"
-      href="/nekofm/styles/horizontal.css"
-    />
-    <link
-      id="vertical"
-      rel="prefetch stylesheet"
-      media="screen and (max-width: 860px)"
-      href="/nekofm/styles/vertical.css"
-    />
     <script src="/src/scripts/nekofm/socketfm.ts"></script>
     <script src="/src/scripts/nekofm/customCss.ts"></script>
 
@@ -68,9 +58,9 @@ import "@fontsource-variable/jetbrains-mono";
       </div>
     </header>
     <div>
-      <button class="button" id="orientation" title="Change orientation">
+      <!-- <button class="button" id="orientation" title="Change orientation">
         ▤
-      </button>
+      </button> 
       <script is:inline>
         // Switch orientation
         const verticalStyle = document.getElementById("vertical");
@@ -89,8 +79,8 @@ import "@fontsource-variable/jetbrains-mono";
               document.getElementById("orientation").innerHTML = "▥";
             }
           });
-      </script>
-      <input
+      </script> -->
+      <!-- <input
         class="button"
         id="reload"
         type="button"
@@ -109,7 +99,7 @@ import "@fontsource-variable/jetbrains-mono";
           notPlaying = 0;
           online = 0;
         }
-      </script>
+      </script> -->
       <div>
         <h2 class="counterType">Online:</h2>
         <h2 id="counter">0</h2>

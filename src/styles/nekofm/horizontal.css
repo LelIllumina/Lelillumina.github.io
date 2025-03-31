@@ -1,8 +1,6 @@
-/* stylelint-disable custom-property-pattern */
-/* stylelint-disable selector-class-pattern */
 .listening {
-  border: 4px ridge aliceblue;
   background-color: #111;
+  border: 4px ridge aliceblue;
 }
 
 .trackCover {
@@ -17,9 +15,9 @@
     min-width: 250px;
     margin: 0;
     padding: 20px;
-    border: 4px ridge aliceblue;
 
     background-color: #111;
+    border: 4px ridge aliceblue;
   }
 
   .container {
