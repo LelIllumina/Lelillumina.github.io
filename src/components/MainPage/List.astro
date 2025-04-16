@@ -69,6 +69,7 @@ const currentUrl = Astro.url.pathname;
             <a
               href={link.url}
               class={currentUrl === link.url ? "active" : ""}
+              aria-current={currentUrl === link.url ? "page" : "false"}
               data-astro-prefetch
             >
               {link.label}
@@ -129,7 +130,7 @@ const currentUrl = Astro.url.pathname;
     }
   }
 
-  .active {
+  [aria-current="page"] {
     color: var(--text);
   }
 
