@@ -33,23 +33,23 @@ jobs:
           name: site-build
           path: dist/
 
-  deploy-to-nekoweb:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download built site
-        uses: actions/download-artifact@v4
-        with:
-          name: site-build
-          path: dist/
+  # deploy-to-nekoweb:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Download built site
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: site-build
+  #         path: dist/
 
-      - name: Deploy to NekoWeb
-        uses: deploy2nekoweb/deploy2nekoweb@main
-        with:
-          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
-          nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
-          nekoweb-folder: "/dist/"
-          directory: "dist"
+  #     - name: Deploy to NekoWeb
+  #       uses: deploy2nekoweb/deploy2nekoweb@main
+  #       with:
+  #         nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
+  #         nekoweb-cookie: ${{ secrets.NEKOWEB_COOKIE }}
+  #         nekoweb-folder: "/dist/"
+  #         directory: "dist"
 
   deploy-to-gh-pages:
     runs-on: ubuntu-latest
