@@ -10,16 +10,7 @@ interface Props {
   accent: string;
 }
 
-const {
-  title,
-  desc,
-  keywords,
-  imageUrl,
-  imageWidth,
-  imageHeight,
-  imageAlt,
-  accent,
-} = Astro.props;
+const { title, desc, keywords, imageUrl, imageWidth, imageHeight, imageAlt, accent } = Astro.props;
 
 const currentUrl = new URL(Astro.url.pathname, Astro.site);
 import { ClientRouter } from "astro:transitions";
@@ -59,3 +50,4 @@ import { ClientRouter } from "astro:transitions";
 />
 
 <ClientRouter />
+<script src="view-transitions-polyfill">
